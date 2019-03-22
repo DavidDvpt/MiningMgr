@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiningMgr.WpfApp", "MiningM
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MiningMgr.DbMining", "MiningMgr.DbMining\MiningMgr.DbMining.sqlproj", "{56D7E775-6D55-42DC-A28C-20FB4236894A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiningMgr.DbContext", "MiningMgr.DbContext\MiningMgr.DbContext.csproj", "{91CC9EB6-C58C-4DA9-8C42-C628772B3CD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{56D7E775-6D55-42DC-A28C-20FB4236894A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56D7E775-6D55-42DC-A28C-20FB4236894A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{56D7E775-6D55-42DC-A28C-20FB4236894A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{91CC9EB6-C58C-4DA9-8C42-C628772B3CD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91CC9EB6-C58C-4DA9-8C42-C628772B3CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91CC9EB6-C58C-4DA9-8C42-C628772B3CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91CC9EB6-C58C-4DA9-8C42-C628772B3CD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

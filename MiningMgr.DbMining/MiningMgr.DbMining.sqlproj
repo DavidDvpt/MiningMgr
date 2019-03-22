@@ -83,5 +83,6 @@
     <Build Include="Tables\Refiner_Info.sql" />
     <Build Include="Tables\RessourcePlanet.sql" />
     <Build Include="Tables\AffectedType.sql" />
+    <Build Include="Security\david.sql" />
   </ItemGroup>
 </Project>

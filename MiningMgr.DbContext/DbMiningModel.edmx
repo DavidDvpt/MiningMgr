@@ -1,0 +1,969 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DbMiningModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AffectedType">
+          <Key>
+            <PropertyRef Name="ToolId" />
+            <PropertyRef Name="InWorldId" />
+          </Key>
+          <Property Name="ToolId" Type="int" Nullable="false" />
+          <Property Name="InWorldId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categorie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Is_Stackable" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Common">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Is_Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Enhancer_Info">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Slot" Type="tinyint" Nullable="false" />
+          <Property Name="BonusValue1" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="BonusValue2" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Excavator_Info">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Eff" Type="decimal" Precision="4" Scale="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Finder_Info">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Depth" Type="decimal" Precision="5" Scale="1" Nullable="false" />
+          <Property Name="FinderRange" Type="decimal" Precision="3" Scale="1" Nullable="false" />
+          <Property Name="BasePecSearch" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FinderAmplifier_Info">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Coeff" Type="decimal" Precision="4" Scale="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InWorld">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="TypeId" Type="int" Nullable="false" />
+          <Property Name="IsStackable" Type="bit" Nullable="false" />
+          <Property Name="Value" Type="decimal" Precision="9" Scale="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Planet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Refiner_Info">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Eff" Type="decimal" Precision="4" Scale="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RessourcePlanet">
+          <Key>
+            <PropertyRef Name="MaterialId" />
+            <PropertyRef Name="PlanetId" />
+          </Key>
+          <Property Name="MaterialId" Type="int" Nullable="false" />
+          <Property Name="PlanetId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tool">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="UsePerMin" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Type">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CategorieId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Unstackable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="IsLimited" Type="bit" Nullable="false" />
+          <Property Name="Decay" Type="decimal" Precision="7" Scale="3" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AffectedType_InWorld">
+          <End Role="InWorld" Type="Self.InWorld" Multiplicity="1" />
+          <End Role="AffectedType" Type="Self.AffectedType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InWorld">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AffectedType">
+              <PropertyRef Name="InWorldId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AffectedType_Tool">
+          <End Role="Tool" Type="Self.Tool" Multiplicity="1" />
+          <End Role="AffectedType" Type="Self.AffectedType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tool">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AffectedType">
+              <PropertyRef Name="ToolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Categorie_Common">
+          <End Role="Common" Type="Self.Common" Multiplicity="1" />
+          <End Role="Categorie" Type="Self.Categorie" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Common">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Categorie">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Enhancer_Info_InWorld">
+          <End Role="InWorld" Type="Self.InWorld" Multiplicity="1" />
+          <End Role="Enhancer_Info" Type="Self.Enhancer_Info" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="InWorld">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Enhancer_Info">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Excavator_Info_Tool">
+          <End Role="Tool" Type="Self.Tool" Multiplicity="1" />
+          <End Role="Excavator_Info" Type="Self.Excavator_Info" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Tool">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Excavator_Info">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Finder_Info_Tool">
+          <End Role="Tool" Type="Self.Tool" Multiplicity="1" />
+          <End Role="Finder_Info" Type="Self.Finder_Info" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Tool">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Finder_Info">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FinderAmplifier_Info_Unstackable">
+          <End Role="Unstackable" Type="Self.Unstackable" Multiplicity="1" />
+          <End Role="FinderAmplifier_Info" Type="Self.FinderAmplifier_Info" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Unstackable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FinderAmplifier_Info">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InWorld_Common">
+          <End Role="Common" Type="Self.Common" Multiplicity="1" />
+          <End Role="InWorld" Type="Self.InWorld" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Common">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InWorld">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InWorld_Type">
+          <End Role="Type" Type="Self.Type" Multiplicity="1" />
+          <End Role="InWorld" Type="Self.InWorld" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InWorld">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Material_InWorld">
+          <End Role="InWorld" Type="Self.InWorld" Multiplicity="1" />
+          <End Role="Material" Type="Self.Material" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="InWorld">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Planet_Common">
+          <End Role="Common" Type="Self.Common" Multiplicity="1" />
+          <End Role="Planet" Type="Self.Planet" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Common">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Planet">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Refiner_Info_Tool">
+          <End Role="Tool" Type="Self.Tool" Multiplicity="1" />
+          <End Role="Refiner_Info" Type="Self.Refiner_Info" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Tool">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Refiner_Info">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RessourcePlanet_Material">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="RessourcePlanet" Type="Self.RessourcePlanet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RessourcePlanet">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RessourcePlanet_Planet">
+          <End Role="Planet" Type="Self.Planet" Multiplicity="1" />
+          <End Role="RessourcePlanet" Type="Self.RessourcePlanet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RessourcePlanet">
+              <PropertyRef Name="PlanetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tool_Unstackable">
+          <End Role="Unstackable" Type="Self.Unstackable" Multiplicity="1" />
+          <End Role="Tool" Type="Self.Tool" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Unstackable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tool">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Type_Categorie">
+          <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
+          <End Role="Type" Type="Self.Type" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Type">
+              <PropertyRef Name="CategorieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Type_Common">
+          <End Role="Common" Type="Self.Common" Multiplicity="1" />
+          <End Role="Type" Type="Self.Type" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Common">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Type">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Unstackable_InWorld">
+          <End Role="InWorld" Type="Self.InWorld" Multiplicity="1" />
+          <End Role="Unstackable" Type="Self.Unstackable" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="InWorld">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Unstackable">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbMiningModelStoreContainer">
+          <EntitySet Name="AffectedType" EntityType="Self.AffectedType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Common" EntityType="Self.Common" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Enhancer_Info" EntityType="Self.Enhancer_Info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Excavator_Info" EntityType="Self.Excavator_Info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Finder_Info" EntityType="Self.Finder_Info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FinderAmplifier_Info" EntityType="Self.FinderAmplifier_Info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InWorld" EntityType="Self.InWorld" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Planet" EntityType="Self.Planet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Refiner_Info" EntityType="Self.Refiner_Info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RessourcePlanet" EntityType="Self.RessourcePlanet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tool" EntityType="Self.Tool" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Type" EntityType="Self.Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Unstackable" EntityType="Self.Unstackable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AffectedType_InWorld" Association="Self.FK_AffectedType_InWorld">
+            <End Role="InWorld" EntitySet="InWorld" />
+            <End Role="AffectedType" EntitySet="AffectedType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AffectedType_Tool" Association="Self.FK_AffectedType_Tool">
+            <End Role="Tool" EntitySet="Tool" />
+            <End Role="AffectedType" EntitySet="AffectedType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Categorie_Common" Association="Self.FK_Categorie_Common">
+            <End Role="Common" EntitySet="Common" />
+            <End Role="Categorie" EntitySet="Categorie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Enhancer_Info_InWorld" Association="Self.FK_Enhancer_Info_InWorld">
+            <End Role="InWorld" EntitySet="InWorld" />
+            <End Role="Enhancer_Info" EntitySet="Enhancer_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Excavator_Info_Tool" Association="Self.FK_Excavator_Info_Tool">
+            <End Role="Tool" EntitySet="Tool" />
+            <End Role="Excavator_Info" EntitySet="Excavator_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Finder_Info_Tool" Association="Self.FK_Finder_Info_Tool">
+            <End Role="Tool" EntitySet="Tool" />
+            <End Role="Finder_Info" EntitySet="Finder_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FinderAmplifier_Info_Unstackable" Association="Self.FK_FinderAmplifier_Info_Unstackable">
+            <End Role="Unstackable" EntitySet="Unstackable" />
+            <End Role="FinderAmplifier_Info" EntitySet="FinderAmplifier_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InWorld_Common" Association="Self.FK_InWorld_Common">
+            <End Role="Common" EntitySet="Common" />
+            <End Role="InWorld" EntitySet="InWorld" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InWorld_Type" Association="Self.FK_InWorld_Type">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="InWorld" EntitySet="InWorld" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Material_InWorld" Association="Self.FK_Material_InWorld">
+            <End Role="InWorld" EntitySet="InWorld" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Planet_Common" Association="Self.FK_Planet_Common">
+            <End Role="Common" EntitySet="Common" />
+            <End Role="Planet" EntitySet="Planet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Refiner_Info_Tool" Association="Self.FK_Refiner_Info_Tool">
+            <End Role="Tool" EntitySet="Tool" />
+            <End Role="Refiner_Info" EntitySet="Refiner_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RessourcePlanet_Material" Association="Self.FK_RessourcePlanet_Material">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="RessourcePlanet" EntitySet="RessourcePlanet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RessourcePlanet_Planet" Association="Self.FK_RessourcePlanet_Planet">
+            <End Role="Planet" EntitySet="Planet" />
+            <End Role="RessourcePlanet" EntitySet="RessourcePlanet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tool_Unstackable" Association="Self.FK_Tool_Unstackable">
+            <End Role="Unstackable" EntitySet="Unstackable" />
+            <End Role="Tool" EntitySet="Tool" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Type_Categorie" Association="Self.FK_Type_Categorie">
+            <End Role="Categorie" EntitySet="Categorie" />
+            <End Role="Type" EntitySet="Type" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Type_Common" Association="Self.FK_Type_Common">
+            <End Role="Common" EntitySet="Common" />
+            <End Role="Type" EntitySet="Type" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Unstackable_InWorld" Association="Self.FK_Unstackable_InWorld">
+            <End Role="InWorld" EntitySet="InWorld" />
+            <End Role="Unstackable" EntitySet="Unstackable" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DbMiningModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Categorie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Is_Stackable" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Common" Relationship="Self.FK_Categorie_Common" FromRole="Categorie" ToRole="Common" />
+          <NavigationProperty Name="Type" Relationship="Self.FK_Type_Categorie" FromRole="Categorie" ToRole="Type" />
+        </EntityType>
+        <EntityType Name="Common">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Is_Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Categorie" Relationship="Self.FK_Categorie_Common" FromRole="Common" ToRole="Categorie" />
+          <NavigationProperty Name="InWorld" Relationship="Self.FK_InWorld_Common" FromRole="Common" ToRole="InWorld" />
+          <NavigationProperty Name="Planet" Relationship="Self.FK_Planet_Common" FromRole="Common" ToRole="Planet" />
+          <NavigationProperty Name="Type" Relationship="Self.FK_Type_Common" FromRole="Common" ToRole="Type" />
+        </EntityType>
+        <EntityType Name="Enhancer_Info">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Slot" Type="Byte" Nullable="false" />
+          <Property Name="BonusValue1" Type="Decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="BonusValue2" Type="Decimal" Precision="4" Scale="2" Nullable="false" />
+          <NavigationProperty Name="InWorld" Relationship="Self.FK_Enhancer_Info_InWorld" FromRole="Enhancer_Info" ToRole="InWorld" />
+        </EntityType>
+        <EntityType Name="Excavator_Info">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Eff" Type="Decimal" Precision="4" Scale="1" Nullable="false" />
+          <NavigationProperty Name="Tool" Relationship="Self.FK_Excavator_Info_Tool" FromRole="Excavator_Info" ToRole="Tool" />
+        </EntityType>
+        <EntityType Name="Finder_Info">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Depth" Type="Decimal" Precision="5" Scale="1" Nullable="false" />
+          <Property Name="FinderRange" Type="Decimal" Precision="3" Scale="1" Nullable="false" />
+          <Property Name="BasePecSearch" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Tool" Relationship="Self.FK_Finder_Info_Tool" FromRole="Finder_Info" ToRole="Tool" />
+        </EntityType>
+        <EntityType Name="FinderAmplifier_Info">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Coeff" Type="Decimal" Precision="4" Scale="1" Nullable="false" />
+          <NavigationProperty Name="Unstackable" Relationship="Self.FK_FinderAmplifier_Info_Unstackable" FromRole="FinderAmplifier_Info" ToRole="Unstackable" />
+        </EntityType>
+        <EntityType Name="InWorld">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="TypeId" Type="Int32" Nullable="false" />
+          <Property Name="IsStackable" Type="Boolean" Nullable="false" />
+          <Property Name="Value" Type="Decimal" Precision="9" Scale="5" Nullable="false" />
+          <NavigationProperty Name="Common" Relationship="Self.FK_InWorld_Common" FromRole="InWorld" ToRole="Common" />
+          <NavigationProperty Name="Enhancer_Info" Relationship="Self.FK_Enhancer_Info_InWorld" FromRole="InWorld" ToRole="Enhancer_Info" />
+          <NavigationProperty Name="Type" Relationship="Self.FK_InWorld_Type" FromRole="InWorld" ToRole="Type" />
+          <NavigationProperty Name="Material" Relationship="Self.FK_Material_InWorld" FromRole="InWorld" ToRole="Material" />
+          <NavigationProperty Name="Unstackable" Relationship="Self.FK_Unstackable_InWorld" FromRole="InWorld" ToRole="Unstackable" />
+          <NavigationProperty Name="Tool" Relationship="Self.AffectedType" FromRole="InWorld" ToRole="Tool" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="InWorld" Relationship="Self.FK_Material_InWorld" FromRole="Material" ToRole="InWorld" />
+          <NavigationProperty Name="Planet" Relationship="Self.RessourcePlanet" FromRole="Material" ToRole="Planet" />
+        </EntityType>
+        <EntityType Name="Planet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Common" Relationship="Self.FK_Planet_Common" FromRole="Planet" ToRole="Common" />
+          <NavigationProperty Name="Material" Relationship="Self.RessourcePlanet" FromRole="Planet" ToRole="Material" />
+        </EntityType>
+        <EntityType Name="Refiner_Info">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Eff" Type="Decimal" Precision="4" Scale="1" Nullable="false" />
+          <NavigationProperty Name="Tool" Relationship="Self.FK_Refiner_Info_Tool" FromRole="Refiner_Info" ToRole="Tool" />
+        </EntityType>
+        <EntityType Name="Tool">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="UsePerMin" Type="Byte" />
+          <NavigationProperty Name="Excavator_Info" Relationship="Self.FK_Excavator_Info_Tool" FromRole="Tool" ToRole="Excavator_Info" />
+          <NavigationProperty Name="Finder_Info" Relationship="Self.FK_Finder_Info_Tool" FromRole="Tool" ToRole="Finder_Info" />
+          <NavigationProperty Name="Refiner_Info" Relationship="Self.FK_Refiner_Info_Tool" FromRole="Tool" ToRole="Refiner_Info" />
+          <NavigationProperty Name="Unstackable" Relationship="Self.FK_Tool_Unstackable" FromRole="Tool" ToRole="Unstackable" />
+          <NavigationProperty Name="InWorld" Relationship="Self.AffectedType" FromRole="Tool" ToRole="InWorld" />
+        </EntityType>
+        <EntityType Name="Type">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CategorieId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Categorie" Relationship="Self.FK_Type_Categorie" FromRole="Type" ToRole="Categorie" />
+          <NavigationProperty Name="Common" Relationship="Self.FK_Type_Common" FromRole="Type" ToRole="Common" />
+          <NavigationProperty Name="InWorld" Relationship="Self.FK_InWorld_Type" FromRole="Type" ToRole="InWorld" />
+        </EntityType>
+        <EntityType Name="Unstackable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IsLimited" Type="Boolean" Nullable="false" />
+          <Property Name="Decay" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+          <NavigationProperty Name="FinderAmplifier_Info" Relationship="Self.FK_FinderAmplifier_Info_Unstackable" FromRole="Unstackable" ToRole="FinderAmplifier_Info" />
+          <NavigationProperty Name="InWorld" Relationship="Self.FK_Unstackable_InWorld" FromRole="Unstackable" ToRole="InWorld" />
+          <NavigationProperty Name="Tool" Relationship="Self.FK_Tool_Unstackable" FromRole="Unstackable" ToRole="Tool" />
+        </EntityType>
+        <Association Name="FK_Categorie_Common">
+          <End Role="Common" Type="Self.Common" Multiplicity="1" />
+          <End Role="Categorie" Type="Self.Categorie" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Common">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Categorie">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Type_Categorie">
+          <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
+          <End Role="Type" Type="Self.Type" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Type">
+              <PropertyRef Name="CategorieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InWorld_Common">
+          <End Role="Common" Type="Self.Common" Multiplicity="1" />
+          <End Role="InWorld" Type="Self.InWorld" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Common">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InWorld">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Planet_Common">
+          <End Role="Common" Type="Self.Common" Multiplicity="1" />
+          <End Role="Planet" Type="Self.Planet" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Common">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Planet">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Type_Common">
+          <End Role="Common" Type="Self.Common" Multiplicity="1" />
+          <End Role="Type" Type="Self.Type" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Common">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Type">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Enhancer_Info_InWorld">
+          <End Role="InWorld" Type="Self.InWorld" Multiplicity="1" />
+          <End Role="Enhancer_Info" Type="Self.Enhancer_Info" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="InWorld">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Enhancer_Info">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Excavator_Info_Tool">
+          <End Role="Tool" Type="Self.Tool" Multiplicity="1" />
+          <End Role="Excavator_Info" Type="Self.Excavator_Info" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Tool">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Excavator_Info">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Finder_Info_Tool">
+          <End Role="Tool" Type="Self.Tool" Multiplicity="1" />
+          <End Role="Finder_Info" Type="Self.Finder_Info" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Tool">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Finder_Info">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FinderAmplifier_Info_Unstackable">
+          <End Role="Unstackable" Type="Self.Unstackable" Multiplicity="1" />
+          <End Role="FinderAmplifier_Info" Type="Self.FinderAmplifier_Info" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Unstackable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FinderAmplifier_Info">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InWorld_Type">
+          <End Role="Type" Type="Self.Type" Multiplicity="1" />
+          <End Role="InWorld" Type="Self.InWorld" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InWorld">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Material_InWorld">
+          <End Role="InWorld" Type="Self.InWorld" Multiplicity="1" />
+          <End Role="Material" Type="Self.Material" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="InWorld">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Unstackable_InWorld">
+          <End Role="InWorld" Type="Self.InWorld" Multiplicity="1" />
+          <End Role="Unstackable" Type="Self.Unstackable" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="InWorld">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Unstackable">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Refiner_Info_Tool">
+          <End Role="Tool" Type="Self.Tool" Multiplicity="1" />
+          <End Role="Refiner_Info" Type="Self.Refiner_Info" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Tool">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Refiner_Info">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tool_Unstackable">
+          <End Role="Unstackable" Type="Self.Unstackable" Multiplicity="1" />
+          <End Role="Tool" Type="Self.Tool" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Unstackable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tool">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AffectedType">
+          <End Role="InWorld" Type="Self.InWorld" Multiplicity="*" />
+          <End Role="Tool" Type="Self.Tool" Multiplicity="*" />
+        </Association>
+        <Association Name="RessourcePlanet">
+          <End Role="Material" Type="Self.Material" Multiplicity="*" />
+          <End Role="Planet" Type="Self.Planet" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DbMiningEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categorie" EntityType="Self.Categorie" />
+          <EntitySet Name="Common" EntityType="Self.Common" />
+          <EntitySet Name="Enhancer_Info" EntityType="Self.Enhancer_Info" />
+          <EntitySet Name="Excavator_Info" EntityType="Self.Excavator_Info" />
+          <EntitySet Name="Finder_Info" EntityType="Self.Finder_Info" />
+          <EntitySet Name="FinderAmplifier_Info" EntityType="Self.FinderAmplifier_Info" />
+          <EntitySet Name="InWorld" EntityType="Self.InWorld" />
+          <EntitySet Name="Material" EntityType="Self.Material" />
+          <EntitySet Name="Planet" EntityType="Self.Planet" />
+          <EntitySet Name="Refiner_Info" EntityType="Self.Refiner_Info" />
+          <EntitySet Name="Tool" EntityType="Self.Tool" />
+          <EntitySet Name="Type" EntityType="Self.Type" />
+          <EntitySet Name="Unstackable" EntityType="Self.Unstackable" />
+          <AssociationSet Name="FK_Categorie_Common" Association="Self.FK_Categorie_Common">
+            <End Role="Common" EntitySet="Common" />
+            <End Role="Categorie" EntitySet="Categorie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Type_Categorie" Association="Self.FK_Type_Categorie">
+            <End Role="Categorie" EntitySet="Categorie" />
+            <End Role="Type" EntitySet="Type" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InWorld_Common" Association="Self.FK_InWorld_Common">
+            <End Role="Common" EntitySet="Common" />
+            <End Role="InWorld" EntitySet="InWorld" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Planet_Common" Association="Self.FK_Planet_Common">
+            <End Role="Common" EntitySet="Common" />
+            <End Role="Planet" EntitySet="Planet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Type_Common" Association="Self.FK_Type_Common">
+            <End Role="Common" EntitySet="Common" />
+            <End Role="Type" EntitySet="Type" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Enhancer_Info_InWorld" Association="Self.FK_Enhancer_Info_InWorld">
+            <End Role="InWorld" EntitySet="InWorld" />
+            <End Role="Enhancer_Info" EntitySet="Enhancer_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Excavator_Info_Tool" Association="Self.FK_Excavator_Info_Tool">
+            <End Role="Tool" EntitySet="Tool" />
+            <End Role="Excavator_Info" EntitySet="Excavator_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Finder_Info_Tool" Association="Self.FK_Finder_Info_Tool">
+            <End Role="Tool" EntitySet="Tool" />
+            <End Role="Finder_Info" EntitySet="Finder_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FinderAmplifier_Info_Unstackable" Association="Self.FK_FinderAmplifier_Info_Unstackable">
+            <End Role="Unstackable" EntitySet="Unstackable" />
+            <End Role="FinderAmplifier_Info" EntitySet="FinderAmplifier_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InWorld_Type" Association="Self.FK_InWorld_Type">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="InWorld" EntitySet="InWorld" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Material_InWorld" Association="Self.FK_Material_InWorld">
+            <End Role="InWorld" EntitySet="InWorld" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Unstackable_InWorld" Association="Self.FK_Unstackable_InWorld">
+            <End Role="InWorld" EntitySet="InWorld" />
+            <End Role="Unstackable" EntitySet="Unstackable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Refiner_Info_Tool" Association="Self.FK_Refiner_Info_Tool">
+            <End Role="Tool" EntitySet="Tool" />
+            <End Role="Refiner_Info" EntitySet="Refiner_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tool_Unstackable" Association="Self.FK_Tool_Unstackable">
+            <End Role="Unstackable" EntitySet="Unstackable" />
+            <End Role="Tool" EntitySet="Tool" />
+          </AssociationSet>
+          <AssociationSet Name="AffectedType" Association="Self.AffectedType">
+            <End Role="InWorld" EntitySet="InWorld" />
+            <End Role="Tool" EntitySet="Tool" />
+          </AssociationSet>
+          <AssociationSet Name="RessourcePlanet" Association="Self.RessourcePlanet">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="Planet" EntitySet="Planet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DbMiningModelStoreContainer" CdmEntityContainer="DbMiningEntities">
+          <EntitySetMapping Name="Categorie">
+            <EntityTypeMapping TypeName="DbMiningModel.Categorie">
+              <MappingFragment StoreEntitySet="Categorie">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Is_Stackable" ColumnName="Is_Stackable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Common">
+            <EntityTypeMapping TypeName="DbMiningModel.Common">
+              <MappingFragment StoreEntitySet="Common">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Enhancer_Info">
+            <EntityTypeMapping TypeName="DbMiningModel.Enhancer_Info">
+              <MappingFragment StoreEntitySet="Enhancer_Info">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Slot" ColumnName="Slot" />
+                <ScalarProperty Name="BonusValue1" ColumnName="BonusValue1" />
+                <ScalarProperty Name="BonusValue2" ColumnName="BonusValue2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Excavator_Info">
+            <EntityTypeMapping TypeName="DbMiningModel.Excavator_Info">
+              <MappingFragment StoreEntitySet="Excavator_Info">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Eff" ColumnName="Eff" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Finder_Info">
+            <EntityTypeMapping TypeName="DbMiningModel.Finder_Info">
+              <MappingFragment StoreEntitySet="Finder_Info">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Depth" ColumnName="Depth" />
+                <ScalarProperty Name="FinderRange" ColumnName="FinderRange" />
+                <ScalarProperty Name="BasePecSearch" ColumnName="BasePecSearch" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FinderAmplifier_Info">
+            <EntityTypeMapping TypeName="DbMiningModel.FinderAmplifier_Info">
+              <MappingFragment StoreEntitySet="FinderAmplifier_Info">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Coeff" ColumnName="Coeff" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InWorld">
+            <EntityTypeMapping TypeName="DbMiningModel.InWorld">
+              <MappingFragment StoreEntitySet="InWorld">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="IsStackable" ColumnName="IsStackable" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Material">
+            <EntityTypeMapping TypeName="DbMiningModel.Material">
+              <MappingFragment StoreEntitySet="Material">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Planet">
+            <EntityTypeMapping TypeName="DbMiningModel.Planet">
+              <MappingFragment StoreEntitySet="Planet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Refiner_Info">
+            <EntityTypeMapping TypeName="DbMiningModel.Refiner_Info">
+              <MappingFragment StoreEntitySet="Refiner_Info">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Eff" ColumnName="Eff" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tool">
+            <EntityTypeMapping TypeName="DbMiningModel.Tool">
+              <MappingFragment StoreEntitySet="Tool">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UsePerMin" ColumnName="UsePerMin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Type">
+            <EntityTypeMapping TypeName="DbMiningModel.Type">
+              <MappingFragment StoreEntitySet="Type">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CategorieId" ColumnName="CategorieId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Unstackable">
+            <EntityTypeMapping TypeName="DbMiningModel.Unstackable">
+              <MappingFragment StoreEntitySet="Unstackable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IsLimited" ColumnName="IsLimited" />
+                <ScalarProperty Name="Decay" ColumnName="Decay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AffectedType" TypeName="DbMiningModel.AffectedType" StoreEntitySet="AffectedType">
+            <EndProperty Name="InWorld">
+              <ScalarProperty Name="Id" ColumnName="InWorldId" />
+            </EndProperty>
+            <EndProperty Name="Tool">
+              <ScalarProperty Name="Id" ColumnName="ToolId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="RessourcePlanet" TypeName="DbMiningModel.RessourcePlanet" StoreEntitySet="RessourcePlanet">
+            <EndProperty Name="Material">
+              <ScalarProperty Name="Id" ColumnName="MaterialId" />
+            </EndProperty>
+            <EndProperty Name="Planet">
+              <ScalarProperty Name="Id" ColumnName="PlanetId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
