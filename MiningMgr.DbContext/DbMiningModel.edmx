@@ -96,6 +96,25 @@
           <Property Name="MaterialId" Type="int" Nullable="false" />
           <Property Name="PlanetId" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="SearchMode">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Abbrev" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Setup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="SearchModeId" Type="int" Nullable="false" />
+          <Property Name="FinderId" Type="int" Nullable="false" />
+          <Property Name="FinderAmplifierId" Type="int" Nullable="false" />
+          <Property Name="FinderDepthEnhancerQty" Type="tinyint" />
+          <Property Name="FinderRangeEnhancerQty" Type="tinyint" />
+          <Property Name="FinderSkillEnhancerQty" Type="tinyint" />
+        </EntityType>
         <EntityType Name="Tool">
           <Key>
             <PropertyRef Name="Id" />
@@ -286,6 +305,66 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_SearchMode_Common">
+          <End Role="Common" Type="Self.Common" Multiplicity="1" />
+          <End Role="SearchMode" Type="Self.SearchMode" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Common">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SearchMode">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Setup_Common">
+          <End Role="Common" Type="Self.Common" Multiplicity="1" />
+          <End Role="Setup" Type="Self.Setup" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Common">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Setup">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Setup_Finder_Info">
+          <End Role="Finder_Info" Type="Self.Finder_Info" Multiplicity="1" />
+          <End Role="Setup" Type="Self.Setup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Finder_Info">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Setup">
+              <PropertyRef Name="FinderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Setup_FinderAmplifier_Info">
+          <End Role="FinderAmplifier_Info" Type="Self.FinderAmplifier_Info" Multiplicity="1" />
+          <End Role="Setup" Type="Self.Setup" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="FinderAmplifier_Info">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Setup">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Setup_SearchMode">
+          <End Role="SearchMode" Type="Self.SearchMode" Multiplicity="1" />
+          <End Role="Setup" Type="Self.Setup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SearchMode">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Setup">
+              <PropertyRef Name="SearchModeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Tool_Unstackable">
           <End Role="Unstackable" Type="Self.Unstackable" Multiplicity="1" />
           <End Role="Tool" Type="Self.Tool" Multiplicity="0..1" />
@@ -347,6 +426,8 @@
           <EntitySet Name="Planet" EntityType="Self.Planet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Refiner_Info" EntityType="Self.Refiner_Info" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RessourcePlanet" EntityType="Self.RessourcePlanet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SearchMode" EntityType="Self.SearchMode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Setup" EntityType="Self.Setup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tool" EntityType="Self.Tool" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Type" EntityType="Self.Type" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Unstackable" EntityType="Self.Unstackable" Schema="dbo" store:Type="Tables" />
@@ -406,6 +487,26 @@
             <End Role="Planet" EntitySet="Planet" />
             <End Role="RessourcePlanet" EntitySet="RessourcePlanet" />
           </AssociationSet>
+          <AssociationSet Name="FK_SearchMode_Common" Association="Self.FK_SearchMode_Common">
+            <End Role="Common" EntitySet="Common" />
+            <End Role="SearchMode" EntitySet="SearchMode" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Setup_Common" Association="Self.FK_Setup_Common">
+            <End Role="Common" EntitySet="Common" />
+            <End Role="Setup" EntitySet="Setup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Setup_Finder_Info" Association="Self.FK_Setup_Finder_Info">
+            <End Role="Finder_Info" EntitySet="Finder_Info" />
+            <End Role="Setup" EntitySet="Setup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Setup_FinderAmplifier_Info" Association="Self.FK_Setup_FinderAmplifier_Info">
+            <End Role="FinderAmplifier_Info" EntitySet="FinderAmplifier_Info" />
+            <End Role="Setup" EntitySet="Setup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Setup_SearchMode" Association="Self.FK_Setup_SearchMode">
+            <End Role="SearchMode" EntitySet="SearchMode" />
+            <End Role="Setup" EntitySet="Setup" />
+          </AssociationSet>
           <AssociationSet Name="FK_Tool_Unstackable" Association="Self.FK_Tool_Unstackable">
             <End Role="Unstackable" EntitySet="Unstackable" />
             <End Role="Tool" EntitySet="Tool" />
@@ -447,6 +548,8 @@
           <NavigationProperty Name="InWorld" Relationship="Self.FK_InWorld_Common" FromRole="Common" ToRole="InWorld" />
           <NavigationProperty Name="Planet" Relationship="Self.FK_Planet_Common" FromRole="Common" ToRole="Planet" />
           <NavigationProperty Name="Type" Relationship="Self.FK_Type_Common" FromRole="Common" ToRole="Type" />
+          <NavigationProperty Name="SearchMode" Relationship="DbMiningModel.FK_SearchMode_Common" FromRole="Common" ToRole="SearchMode" />
+          <NavigationProperty Name="Setup" Relationship="DbMiningModel.FK_Setup_Common" FromRole="Common" ToRole="Setup" />
         </EntityType>
         <EntityType Name="Enhancer_Info">
           <Key>
@@ -475,6 +578,7 @@
           <Property Name="FinderRange" Type="Decimal" Precision="3" Scale="1" Nullable="false" />
           <Property Name="BasePecSearch" Type="Int16" Nullable="false" />
           <NavigationProperty Name="Tool" Relationship="Self.FK_Finder_Info_Tool" FromRole="Finder_Info" ToRole="Tool" />
+          <NavigationProperty Name="Setups" Relationship="DbMiningModel.FK_Setup_Finder_Info" FromRole="Finder_Info" ToRole="Setup" />
         </EntityType>
         <EntityType Name="FinderAmplifier_Info">
           <Key>
@@ -483,6 +587,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Coeff" Type="Decimal" Precision="4" Scale="1" Nullable="false" />
           <NavigationProperty Name="Unstackable" Relationship="Self.FK_FinderAmplifier_Info_Unstackable" FromRole="FinderAmplifier_Info" ToRole="Unstackable" />
+          <NavigationProperty Name="Setup" Relationship="DbMiningModel.FK_Setup_FinderAmplifier_Info" FromRole="FinderAmplifier_Info" ToRole="Setup" />
         </EntityType>
         <EntityType Name="InWorld">
           <Key>
@@ -810,7 +915,114 @@
             <End Role="Material" EntitySet="Material" />
             <End Role="Planet" EntitySet="Planet" />
           </AssociationSet>
+          <EntitySet Name="SearchModes" EntityType="DbMiningModel.SearchMode" />
+          <EntitySet Name="Setups" EntityType="DbMiningModel.Setup" />
+          <AssociationSet Name="FK_SearchMode_Common" Association="DbMiningModel.FK_SearchMode_Common">
+            <End Role="Common" EntitySet="Common" />
+            <End Role="SearchMode" EntitySet="SearchModes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Setup_Common" Association="DbMiningModel.FK_Setup_Common">
+            <End Role="Common" EntitySet="Common" />
+            <End Role="Setup" EntitySet="Setups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Setup_Finder_Info" Association="DbMiningModel.FK_Setup_Finder_Info">
+            <End Role="Finder_Info" EntitySet="Finder_Info" />
+            <End Role="Setup" EntitySet="Setups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Setup_FinderAmplifier_Info" Association="DbMiningModel.FK_Setup_FinderAmplifier_Info">
+            <End Role="FinderAmplifier_Info" EntitySet="FinderAmplifier_Info" />
+            <End Role="Setup" EntitySet="Setups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Setup_SearchMode" Association="DbMiningModel.FK_Setup_SearchMode">
+            <End Role="SearchMode" EntitySet="SearchModes" />
+            <End Role="Setup" EntitySet="Setups" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="SearchMode">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Abbrev" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Common" Relationship="DbMiningModel.FK_SearchMode_Common" FromRole="SearchMode" ToRole="Common" />
+          <NavigationProperty Name="Setups" Relationship="DbMiningModel.FK_Setup_SearchMode" FromRole="SearchMode" ToRole="Setup" />
+        </EntityType>
+        <EntityType Name="Setup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="SearchModeId" Type="Int32" Nullable="false" />
+          <Property Name="FinderId" Type="Int32" Nullable="false" />
+          <Property Name="FinderAmplifierId" Type="Int32" Nullable="false" />
+          <Property Name="FinderDepthEnhancerQty" Type="Byte" />
+          <Property Name="FinderRangeEnhancerQty" Type="Byte" />
+          <Property Name="FinderSkillEnhancerQty" Type="Byte" />
+          <NavigationProperty Name="Common" Relationship="DbMiningModel.FK_Setup_Common" FromRole="Setup" ToRole="Common" />
+          <NavigationProperty Name="Finder_Info" Relationship="DbMiningModel.FK_Setup_Finder_Info" FromRole="Setup" ToRole="Finder_Info" />
+          <NavigationProperty Name="FinderAmplifier_Info" Relationship="DbMiningModel.FK_Setup_FinderAmplifier_Info" FromRole="Setup" ToRole="FinderAmplifier_Info" />
+          <NavigationProperty Name="SearchMode" Relationship="DbMiningModel.FK_Setup_SearchMode" FromRole="Setup" ToRole="SearchMode" />
+        </EntityType>
+        <Association Name="FK_SearchMode_Common">
+          <End Type="DbMiningModel.Common" Role="Common" Multiplicity="1" />
+          <End Type="DbMiningModel.SearchMode" Role="SearchMode" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Common">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SearchMode">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Setup_Common">
+          <End Type="DbMiningModel.Common" Role="Common" Multiplicity="1" />
+          <End Type="DbMiningModel.Setup" Role="Setup" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Common">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Setup">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Setup_Finder_Info">
+          <End Type="DbMiningModel.Finder_Info" Role="Finder_Info" Multiplicity="1" />
+          <End Type="DbMiningModel.Setup" Role="Setup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Finder_Info">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Setup">
+              <PropertyRef Name="FinderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Setup_FinderAmplifier_Info">
+          <End Type="DbMiningModel.FinderAmplifier_Info" Role="FinderAmplifier_Info" Multiplicity="1" />
+          <End Type="DbMiningModel.Setup" Role="Setup" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="FinderAmplifier_Info">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Setup">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Setup_SearchMode">
+          <End Type="DbMiningModel.SearchMode" Role="SearchMode" Multiplicity="1" />
+          <End Type="DbMiningModel.Setup" Role="Setup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SearchMode">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Setup">
+              <PropertyRef Name="SearchModeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -943,6 +1155,27 @@
               <ScalarProperty Name="Id" ColumnName="PlanetId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="SearchModes">
+            <EntityTypeMapping TypeName="DbMiningModel.SearchMode">
+              <MappingFragment StoreEntitySet="SearchMode">
+                <ScalarProperty Name="Abbrev" ColumnName="Abbrev" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Setups">
+            <EntityTypeMapping TypeName="DbMiningModel.Setup">
+              <MappingFragment StoreEntitySet="Setup">
+                <ScalarProperty Name="FinderSkillEnhancerQty" ColumnName="FinderSkillEnhancerQty" />
+                <ScalarProperty Name="FinderRangeEnhancerQty" ColumnName="FinderRangeEnhancerQty" />
+                <ScalarProperty Name="FinderDepthEnhancerQty" ColumnName="FinderDepthEnhancerQty" />
+                <ScalarProperty Name="FinderAmplifierId" ColumnName="FinderAmplifierId" />
+                <ScalarProperty Name="FinderId" ColumnName="FinderId" />
+                <ScalarProperty Name="SearchModeId" ColumnName="SearchModeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

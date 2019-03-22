@@ -84,5 +84,7 @@
     <Build Include="Tables\RessourcePlanet.sql" />
     <Build Include="Tables\AffectedType.sql" />
     <Build Include="Security\david.sql" />
+    <Build Include="Tables\SearchMode.sql" />
+    <Build Include="Tables\Setup.sql" />
   </ItemGroup>
 </Project>

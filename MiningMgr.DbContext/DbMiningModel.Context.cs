@@ -25,18 +25,20 @@ namespace MiningMgr.DbContext
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Categorie> Categories { get; set; }
-        public virtual DbSet<Common> Commons { get; set; }
-        public virtual DbSet<Enhancer_Info> Enhancer_Infos { get; set; }
-        public virtual DbSet<Excavator_Info> Excavator_Infos { get; set; }
-        public virtual DbSet<Finder_Info> Finder_Infos { get; set; }
-        public virtual DbSet<FinderAmplifier_Info> FinderAmplifier_Infos { get; set; }
-        public virtual DbSet<InWorld> InWorlds { get; set; }
-        public virtual DbSet<Material> Materials { get; set; }
-        public virtual DbSet<Planet> Planets { get; set; }
-        public virtual DbSet<Refiner_Info> Refiner_Infos { get; set; }
-        public virtual DbSet<Tool> Tools { get; set; }
-        public virtual DbSet<Type> Types { get; set; }
-        public virtual DbSet<Unstackable> Unstackables { get; set; }
+        public virtual DbSet<Categorie> Categorie { get; set; }
+        public virtual DbSet<Common> Common { get; set; }
+        public virtual DbSet<Enhancer_Info> Enhancer_Info { get; set; }
+        public virtual DbSet<Excavator_Info> Excavator_Info { get; set; }
+        public virtual DbSet<Finder_Info> Finder_Info { get; set; }
+        public virtual DbSet<FinderAmplifier_Info> FinderAmplifier_Info { get; set; }
+        public virtual DbSet<InWorld> InWorld { get; set; }
+        public virtual DbSet<Material> Material { get; set; }
+        public virtual DbSet<Planet> Planet { get; set; }
+        public virtual DbSet<Refiner_Info> Refiner_Info { get; set; }
+        public virtual DbSet<Tool> Tool { get; set; }
+        public virtual DbSet<Type> Type { get; set; }
+        public virtual DbSet<Unstackable> Unstackable { get; set; }
+        public virtual DbSet<SearchMode> SearchModes { get; set; }
+        public virtual DbSet<Setup> Setups { get; set; }
     }
 }

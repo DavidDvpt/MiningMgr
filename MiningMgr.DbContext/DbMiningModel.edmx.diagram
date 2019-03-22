@@ -34,6 +34,13 @@
         <AssociationConnector Association="DbMiningModel.FK_Tool_Unstackable" ManuallyRouted="false" />
         <AssociationConnector Association="DbMiningModel.AffectedType" ManuallyRouted="false" />
         <AssociationConnector Association="DbMiningModel.RessourcePlanet" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DbMiningModel.SearchMode" Width="1.5" PointX="4.875" PointY="12" />
+        <EntityTypeShape EntityType="DbMiningModel.Setup" Width="1.5" PointX="21.375" PointY="9.625" />
+        <AssociationConnector Association="DbMiningModel.FK_SearchMode_Common" />
+        <AssociationConnector Association="DbMiningModel.FK_Setup_Common" />
+        <AssociationConnector Association="DbMiningModel.FK_Setup_Finder_Info" />
+        <AssociationConnector Association="DbMiningModel.FK_Setup_FinderAmplifier_Info" />
+        <AssociationConnector Association="DbMiningModel.FK_Setup_SearchMode" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
