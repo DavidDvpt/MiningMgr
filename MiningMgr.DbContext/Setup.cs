@@ -12,17 +12,19 @@ namespace MiningMgr.DbContext
     using System;
     using System.Collections.Generic;
     
-    public partial class Common
+    public partial class Setup
     {
         public int Id { get; set; }
-        public string Nom { get; set; }
-        public bool Is_Active { get; set; }
+        public int SearchModeId { get; set; }
+        public int FinderId { get; set; }
+        public int FinderAmplifierId { get; set; }
+        public Nullable<byte> FinderDepthEnhancerQty { get; set; }
+        public Nullable<byte> FinderRangeEnhancerQty { get; set; }
+        public Nullable<byte> FinderSkillEnhancerQty { get; set; }
     
-        public virtual Categorie Categorie { get; set; }
-        public virtual InWorld InWorld { get; set; }
-        public virtual Planet Planet { get; set; }
-        public virtual Type Type { get; set; }
+        public virtual Common Common { get; set; }
+        public virtual Finder_Info Finder_Info { get; set; }
+        public virtual FinderAmplifier_Info FinderAmplifier_Info { get; set; }
         public virtual SearchMode SearchMode { get; set; }
-        public virtual Setup Setup { get; set; }
     }
 }

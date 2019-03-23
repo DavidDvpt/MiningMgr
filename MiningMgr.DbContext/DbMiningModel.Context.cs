@@ -12,6 +12,8 @@ namespace MiningMgr.DbContext
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DbMiningEntities : DbContext
     {
@@ -40,5 +42,18 @@ namespace MiningMgr.DbContext
         public virtual DbSet<Unstackable> Unstackable { get; set; }
         public virtual DbSet<SearchMode> SearchModes { get; set; }
         public virtual DbSet<Setup> Setups { get; set; }
+    
+        public virtual int sp_CommonCreate(string p_Nom, Nullable<bool> p_IsActive, ObjectParameter idVal, ObjectParameter mes)
+        {
+            var p_NomParameter = p_Nom != null ?
+                new ObjectParameter("p_Nom", p_Nom) :
+                new ObjectParameter("p_Nom", typeof(string));
+    
+            var p_IsActiveParameter = p_IsActive.HasValue ?
+                new ObjectParameter("p_IsActive", p_IsActive) :
+                new ObjectParameter("p_IsActive", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_CommonCreate", p_NomParameter, p_IsActiveParameter, idVal, mes);
+        }
     }
 }

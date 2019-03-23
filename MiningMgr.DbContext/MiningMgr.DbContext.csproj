@@ -96,6 +96,12 @@
     <Compile Include="Refiner_Info.cs">
       <DependentUpon>DbMiningModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SearchMode.cs">
+      <DependentUpon>DbMiningModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Setup.cs">
+      <DependentUpon>DbMiningModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Tool.cs">
       <DependentUpon>DbMiningModel.tt</DependentUpon>
     </Compile>

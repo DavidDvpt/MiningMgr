@@ -18,5 +18,6 @@ namespace MiningMgr.DbContext
         public decimal Coeff { get; set; }
     
         public virtual Unstackable Unstackable { get; set; }
+        public virtual Setup Setup { get; set; }
     }
 }

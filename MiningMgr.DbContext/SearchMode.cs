@@ -12,17 +12,19 @@ namespace MiningMgr.DbContext
     using System;
     using System.Collections.Generic;
     
-    public partial class Common
+    public partial class SearchMode
     {
-        public int Id { get; set; }
-        public string Nom { get; set; }
-        public bool Is_Active { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public SearchMode()
+        {
+            this.Setups = new HashSet<Setup>();
+        }
     
-        public virtual Categorie Categorie { get; set; }
-        public virtual InWorld InWorld { get; set; }
-        public virtual Planet Planet { get; set; }
-        public virtual Type Type { get; set; }
-        public virtual SearchMode SearchMode { get; set; }
-        public virtual Setup Setup { get; set; }
+        public int Id { get; set; }
+        public string Abbrev { get; set; }
+    
+        public virtual Common Common { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Setup> Setups { get; set; }
     }
 }

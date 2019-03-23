@@ -413,6 +413,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="sp_CommonCreate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="p_Nom" Type="varchar" Mode="In" />
+          <Parameter Name="p_IsActive" Type="bit" Mode="In" />
+          <Parameter Name="idVal" Type="int" Mode="InOut" />
+          <Parameter Name="mes" Type="varchar" Mode="InOut" />
+        </Function>
         <EntityContainer Name="DbMiningModelStoreContainer">
           <EntitySet Name="AffectedType" EntityType="Self.AffectedType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
@@ -937,6 +943,12 @@
             <End Role="SearchMode" EntitySet="SearchModes" />
             <End Role="Setup" EntitySet="Setups" />
           </AssociationSet>
+          <FunctionImport Name="sp_CommonCreate">
+            <Parameter Name="p_Nom" Mode="In" Type="String" />
+            <Parameter Name="p_IsActive" Mode="In" Type="Boolean" />
+            <Parameter Name="idVal" Mode="InOut" Type="Int32" />
+            <Parameter Name="mes" Mode="InOut" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="SearchMode">
           <Key>
@@ -1176,6 +1188,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_CommonCreate" FunctionName="DbMiningModel.Store.sp_CommonCreate" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
