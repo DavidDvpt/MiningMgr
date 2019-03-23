@@ -21,7 +21,7 @@ CREATE PROCEDURE [dbo].[sp_InWorldCreate]
 	@p_Nom VARCHAR(50),
 	@p_IsActive BIT,
 	@TypeNom VARCHAR(50),
-	@p_Value BIT,
+	@p_Value DECIMAL(9,5),
 	@idVal INT OUTPUT,
 	@mes VARCHAR(200) OUTPUT
 AS

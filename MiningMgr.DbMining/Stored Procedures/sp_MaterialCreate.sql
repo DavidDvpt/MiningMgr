@@ -1,5 +1,5 @@
 ﻿-- ***************************************************************
--- Procedure `sp_InWorldCreate`
+-- Procedure `sp_MaterialCreate`
 -- Créateur :		23/03/2019
 -- Date Modif :		--/--/--
 -- Paramétres :
@@ -15,7 +15,7 @@
 --		idVal (int) :	Id de l'enregistrement créé
 --		mes (varchar(50) : message de statut du retour
 -- Description :  
--- 	Ajoute un objet faisant parti du monde entropia.
+-- 	Ajoute un objet de type material.
 -- ***************************************************************
 CREATE PROCEDURE [dbo].[sp_MaterialCreate]
 	@p_Nom VARCHAR(50),

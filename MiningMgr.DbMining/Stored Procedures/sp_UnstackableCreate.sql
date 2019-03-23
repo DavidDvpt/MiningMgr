@@ -1,13 +1,11 @@
 ﻿-- ***************************************************************
--- Procedure `sp_EnhancerCreate`
+-- Procedure `sp_UnstackableCreate`
 -- Créateur :		23/03/2019
 -- Date Modif :		--/--/--
 -- Paramétres :
--- 		p_Name (varchar(50))		:	Nom à ajouter
--- 		p_IsActive (bool)			:	Utilisable ou non dans l'application
--- 		p_Value (bool)				:	Valeur Max de l'objet
---		p_BonusValue1 (decimal(3,2)):	Bonus 1
---		p_BonusValue2 (int)			:	Bonus 2
+-- 		p_Name (varchar(50)):	Nom à ajouter
+-- 		p_IsActive (bool)	:	Utilisable ou non dans l'application
+-- 		p_Value (bool):			Valeur Max de l'objet
 -- Retour :
 -- 		ret (tinyint) :
 --			 0	:	Succès
@@ -17,25 +15,25 @@
 --		idVal (int) :	Id de l'enregistrement créé
 --		mes (varchar(50) : message de statut du retour
 -- Description :  
--- 	Ajoute un enhancer.
+-- 	Ajoute un objet faisant parti du monde entropia.
 -- ***************************************************************
-CREATE PROCEDURE [dbo].[sp_EnhancerCreate]
+CREATE PROCEDURE [dbo].[sp_UnstackableCreate]
 	@p_Nom VARCHAR(50),
 	@p_IsActive BIT,
-	@p_TypeNom VARCHAR(50),
-	@p_Value BIT,
-	@p_slot TINYINT,
-	@p_BonusValue1 DECIMAL(3,2),
-	@p_BonusValue2 INT,
+	@TypeNom VARCHAR(50),
+	@p_Value DECIMAL(9,5),
+	@p_IsLimited BIT,
+	@p_Decay DECIMAL(7,3),
 	@idVal INT OUTPUT,
 	@mes VARCHAR(200) OUTPUT
 AS
 	DECLARE @ret INT;
 	DECLARE @iwRet INT;
+	DECLARE @typId INT;
 	DECLARE @bidon CHAR;
 
 	-- Validation des parametres
-	IF(@p_slot > 10 OR @p_slot < 1)
+	IF(@p_IsLimited is null)
 	BEGIN
 		SET @ret = -1;
 		SET @idVal = null;
@@ -44,7 +42,7 @@ AS
 	ELSE
 	BEGIN
 		-- Enregistrement des infos principales dans common
-		EXECUTE @iwRet = dbo.sp_InWorldCreate @p_Nom, @p_IsActive, @p_TypeNom, @p_Value, @idVal OUTPUT, @mes OUTPUT;
+		EXECUTE @iwRet = dbo.sp_InWorldCreate @p_Nom, @p_IsActive, @typeNom, @p_Value, @idVal OUTPUT, @mes OUTPUT;
 
 		--Si les infos sont enregistrées dans common, on continue
 		IF(@iwRet = 0)
@@ -55,7 +53,7 @@ AS
 				SELECT @bidon = '' FROM InWorld WITH (HOLDLOCK, TABLOCKX);
 
 				-- Insertion de la ligne
-				INSERT INTO Enhancer_Info(Id, Slot, BonusValue1, BonusValue2) VALUES(@idVal, @p_slot, @p_BonusValue1, @p_BonusValue2);
+				INSERT INTO Unstackable(Id, Decay, IsLimited) VALUES(@idVal, @p_Decay, @p_IsLimited);
 				SET @ret = 0;
 				SET @mes = 'L''enregistrement a éta ajouté avec succès';
 				COMMIT TRANSACTION;
