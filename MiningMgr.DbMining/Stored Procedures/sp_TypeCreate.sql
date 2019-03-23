@@ -29,7 +29,7 @@ AS
 	DECLARE @bidon CHAR;
 
 	-- Validation des parametres
-	IF(@p_Nom is null OR @p_Nom = '' OR @p_IsActive is null OR @p_CategorieNom is null OR @p_CategorieNom = '' OR NOT EXISTS (SELECT Id FROM Common WHERE Nom = @p_CategorieNom))
+	IF(NOT EXISTS (SELECT Id FROM Common WHERE Nom = @p_CategorieNom))
 	BEGIN
 		SET @ret = -1;
 		SET @idVal = null;
@@ -49,7 +49,7 @@ AS
 				SELECT @bidon = '' FROM Categorie WITH (HOLDLOCK, TABLOCKX);
 
 				-- Récupération de l'id catégorie
-				SELECT @catId = Id FROM Common WHERE Nom = @p_CategorieNom;
+				SELECT @catId = Id FROM CategorieView WHERE Nom = @p_CategorieNom;
 
 				-- Insertion de la ligne
 				INSERT INTO Type(Id, CategorieId) VALUES(@idVal, @catId);

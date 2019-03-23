@@ -29,7 +29,7 @@ AS
 	DECLARE @bidon CHAR;
 
 	-- Validation des parametres
-	IF(@p_Nom is null OR @p_Nom = '' OR @p_IsActive is null OR @p_IsStackable is null)
+	IF(@p_IsStackable is null)
 	BEGIN
 		SET @ret = -1;
 		SET @idVal = null;

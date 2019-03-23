@@ -29,14 +29,6 @@ AS
 	DECLARE @iwRet INT;
 	DECLARE @bidon CHAR;
 
-	-- Validation des parametres
-	IF(@p_Nom is null OR @p_Nom = '' OR @p_IsActive is null OR @p_Value is null)
-	BEGIN
-		SET @ret = -1;
-		SET @idVal = null;
-		SET @mes = 'Un des paramètres est nul';
-	END
-	ELSE
 	BEGIN
 		-- Enregistrement des infos principales dans common
 		EXECUTE @iwRet = dbo.sp_InWorldCreate @p_Nom, @p_IsActive, @typeNom, @p_Value, @idVal OUTPUT, @mes OUTPUT;

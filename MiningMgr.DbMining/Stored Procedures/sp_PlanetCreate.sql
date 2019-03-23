@@ -27,14 +27,6 @@ AS
 	DECLARE @comRet INT;
 	DECLARE @bidon CHAR;
 
-	-- Validation des parametres
-	IF(@p_Nom is null OR @p_Nom = '' OR @p_IsActive is null)
-	BEGIN
-		SET @ret = -1;
-		SET @idVal = null;
-		SET @mes = 'Un des paramètres est nul';
-	END
-	ELSE
 	BEGIN
 		-- Enregistrement des infos principales dans common
 		EXECUTE @comRet = dbo.sp_CommonCreate @p_Nom, @p_IsActive, @idVal OUTPUT, @mes OUTPUT;

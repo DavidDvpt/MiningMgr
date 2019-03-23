@@ -31,7 +31,7 @@ AS
 	DECLARE @bidon CHAR;
 
 	-- Validation des parametres
-	IF(@p_Nom is null OR @p_Nom = '' OR @p_IsActive is null OR @p_Value is null OR NOT EXISTS(SELECT * FROM Common WHERE Nom = @TypeNom))
+	IF(@p_Value is null OR NOT EXISTS(SELECT * FROM TypeView WHERE Nom = @TypeNom))
 	BEGIN
 		SET @ret = -1;
 		SET @idVal = null;
@@ -51,7 +51,7 @@ AS
 				SELECT @bidon = '' FROM InWorld WITH (HOLDLOCK, TABLOCKX);
 
 				-- Récupération de l'id du type
-				SELECT @typId = Id FROM Common WHERE Nom = @TypeNom;
+				SELECT @typId = Id FROM TypeView WHERE Nom = @TypeNom;
 
 				-- Insertion de la ligne
 				INSERT INTO InWorld(Id, TypeId, Value) VALUES(@idVal, @typId, @p_Value);

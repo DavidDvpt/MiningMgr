@@ -94,6 +94,10 @@
     <Build Include="Stored Procedures\sp_InWorldCreate.sql" />
     <Build Include="Stored Procedures\sp_MaterialCreate.sql" />
     <Build Include="Stored Procedures\sp_EnhancerCreate.sql" />
+    <Build Include="Views\CategorieView.sql" />
+    <Build Include="Views\TypeView.sql" />
+    <Build Include="Views\PlanetView.sql" />
+    <Build Include="Views\SearchModeView.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MiningMgr.DbMining.publish.xml" />
