@@ -25,7 +25,7 @@ CREATE PROCEDURE [dbo].[sp_FinderCreate]
 	@p_Nom VARCHAR(50),
 	@p_IsActive BIT,
 	@p_IsLimited BIT,
-	@TypeNom VARCHAR(50),
+	@p_TypeNom VARCHAR(50),
 	@p_Value DECIMAL(9,5),
 	@p_Decay DECIMAL(7,3),
 	@p_Range DECIMAL(3,1),
@@ -42,7 +42,7 @@ AS
 
 	BEGIN
 		-- Enregistrement des infos principales dans common
-		EXECUTE @toolRet = dbo.sp_ToolCreate @p_Nom, @p_IsActive, @typeNom, @p_Value, @p_IsLimited, @p_Decay, @p_UsePerMin, @idVal OUTPUT, @mes OUTPUT;
+		EXECUTE @toolRet = dbo.sp_ToolCreate @p_Nom, @p_IsActive, @p_TypeNom, @p_Value, @p_IsLimited, @p_Decay, @p_UsePerMin, @idVal OUTPUT, @mes OUTPUT;
 
 		--Si les infos sont enregistrées dans common, on continue
 		IF(@toolRet = 0)

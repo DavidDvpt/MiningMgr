@@ -23,7 +23,7 @@
 CREATE PROCEDURE [dbo].[sp_ToolCreate]
 	@p_Nom VARCHAR(50),
 	@p_IsActive BIT,
-	@TypeNom VARCHAR(50),
+	@p_TypeNom VARCHAR(50),
 	@p_Value DECIMAL(9,5),
 	@p_IsLimited BIT,
 	@p_Decay DECIMAL(7,3),
@@ -38,7 +38,7 @@ AS
 
 	BEGIN
 		-- Enregistrement des infos principales dans common
-		EXECUTE @usRet = dbo.sp_UnstackableCreate @p_Nom, @p_IsActive, @typeNom, @p_Value, @p_IsLimited, @p_Decay, @idVal OUTPUT, @mes OUTPUT;
+		EXECUTE @usRet = dbo.sp_UnstackableCreate @p_Nom, @p_IsActive, @p_TypeNom, @p_Value, @p_IsLimited, @p_Decay, @idVal OUTPUT, @mes OUTPUT;
 
 		--Si les infos sont enregistrées dans common, on continue
 		IF(@usRet = 0)

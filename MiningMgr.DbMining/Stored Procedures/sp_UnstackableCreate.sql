@@ -20,7 +20,7 @@
 CREATE PROCEDURE [dbo].[sp_UnstackableCreate]
 	@p_Nom VARCHAR(50),
 	@p_IsActive BIT,
-	@TypeNom VARCHAR(50),
+	@p_TypeNom VARCHAR(50),
 	@p_Value DECIMAL(9,5),
 	@p_IsLimited BIT,
 	@p_Decay DECIMAL(7,3),
@@ -42,7 +42,7 @@ AS
 	ELSE
 	BEGIN
 		-- Enregistrement des infos principales dans common
-		EXECUTE @iwRet = dbo.sp_InWorldCreate @p_Nom, @p_IsActive, @typeNom, @p_Value, @idVal OUTPUT, @mes OUTPUT;
+		EXECUTE @iwRet = dbo.sp_InWorldCreate @p_Nom, @p_IsActive, @p_TypeNom, @p_Value, @idVal OUTPUT, @mes OUTPUT;
 
 		--Si les infos sont enregistrées dans common, on continue
 		IF(@iwRet = 0)
