@@ -27,6 +27,8 @@ AS
 	DECLARE @comRet INT;
 	DECLARE @catId INT;
 	DECLARE @bidon CHAR;
+
+	-- Validation des parametres
 	IF(@p_Nom is null OR @p_Nom = '' OR @p_IsActive is null OR @p_CategorieNom is null OR @p_CategorieNom = '' OR NOT EXISTS (SELECT Id FROM Common WHERE Nom = @p_CategorieNom))
 	BEGIN
 		SET @ret = -1;
@@ -35,16 +37,21 @@ AS
 	END
 	ELSE
 	BEGIN
+		-- Enregistrement des infos principales dans common
 		EXECUTE @comRet = dbo.sp_CommonCreate @p_Nom, @p_IsActive, @idVal OUTPUT, @mes OUTPUT;
 
+		--Si les infos sont enregistrées dans common, on continue
 		IF(@comRet = 0)
 		BEGIN
 			BEGIN TRY
 				BEGIN TRANSACTION
+				-- Lock de la table à modifier
 				SELECT @bidon = '' FROM Categorie WITH (HOLDLOCK, TABLOCKX);
 
+				-- Récupération de l'id catégorie
 				SELECT @catId = Id FROM Common WHERE Nom = @p_CategorieNom;
 
+				-- Insertion de la ligne
 				INSERT INTO Type(Id, CategorieId) VALUES(@idVal, @catId);
 				SET @ret = 0;
 				SET @mes = 'L''enregistrement a éta ajouté avec succès';

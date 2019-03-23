@@ -1,11 +1,11 @@
 ﻿-- ***************************************************************
--- Procedure `sp_PlanetCreate`
+-- Procedure `sp_SearchModeCreate`
 -- Créateur :		23/03/2019
 -- Date Modif :		--/--/--
 -- Paramétres :
 -- 		p_Name (varchar(50)):	Nom à ajouter
 -- 		p_IsActive (bool)	:	Utilisable ou non dans l'application
--- 		p_IsStackable (bool):	Objet empilable ou non
+-- 		p_Abbrev (varchar(3)):	Objet empilable ou non
 -- Retour :
 -- 		ret (tinyint) :
 --			 0	:	Succès
@@ -17,9 +17,10 @@
 -- Description :  
 -- 	Ajoute un nom dans la table principale common.
 -- ***************************************************************
-CREATE PROCEDURE [dbo].[sp_PlanetCreate]
+CREATE PROCEDURE [dbo].[sp_SearchModeCreate]
 	@p_Nom VARCHAR(50),
 	@p_IsActive BIT,
+	@p_Abbrev VARCHAR(3),
 	@idVal INT OUTPUT,
 	@mes VARCHAR(200) OUTPUT
 AS
@@ -28,7 +29,7 @@ AS
 	DECLARE @bidon CHAR;
 
 	-- Validation des parametres
-	IF(@p_Nom is null OR @p_Nom = '' OR @p_IsActive is null)
+	IF(@p_Nom is null OR @p_Nom = '' OR @p_IsActive is null OR @p_Abbrev is null OR @p_Abbrev = '')
 	BEGIN
 		SET @ret = -1;
 		SET @idVal = null;
@@ -45,10 +46,10 @@ AS
 			BEGIN TRY
 				BEGIN TRANSACTION
 				-- Lock de la table à modifier
-				SELECT @bidon = '' FROM Planet WITH (HOLDLOCK, TABLOCKX);
+				SELECT @bidon = '' FROM SearchMode WITH (HOLDLOCK, TABLOCKX);
 
 				-- Insertion de la ligne
-				INSERT INTO Planet(Id) VALUES(@idVal);
+				INSERT INTO SearchMode(Id, Abbrev) VALUES(@idVal, @p_Abbrev);
 				SET @ret = 0;
 				SET @mes = 'L''enregistrement a éta ajouté avec succès';
 				COMMIT TRANSACTION;

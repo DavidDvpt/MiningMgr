@@ -24,6 +24,7 @@ CREATE PROCEDURE [dbo].[sp_CommonCreate]
 AS
 	DECLARE @bidon CHAR;
 	DECLARE @ret INT;
+	-- Validation des parametres
 	IF(@p_Nom is null OR @p_Nom = '' OR @p_IsActive is null)
 	BEGIN
 		SET @ret = -1;
@@ -34,15 +35,18 @@ AS
 	BEGIN
 		BEGIN TRY
 		BEGIN TRANSACTION
+			-- Lock de la table à modifier
 			SELECT @bidon = '' FROM Common WITH (HOLDLOCK, TABLOCKX);
 
+			-- Test de de doublon
 			IF EXISTS(SELECT * FROM Common WHERE Nom = @p_Nom)
 			BEGIN
 				SET @ret = -2;
 				SET @idVal = null;
-				SET @mes = 'Ce nom existe déjà';
+				SET @mes = 'Ce nom existe déjà dans la table Common';
 				ROLLBACK TRANSACTION;
 			END
+			-- Insertion de la ligne
 			ELSE
 			BEGIN
 				INSERT INTO Common(Nom, Is_Active) VALUES(@p_Nom, @p_IsActive);

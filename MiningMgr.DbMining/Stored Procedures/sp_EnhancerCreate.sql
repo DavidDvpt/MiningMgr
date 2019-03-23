@@ -1,11 +1,13 @@
 ﻿-- ***************************************************************
--- Procedure `sp_PlanetCreate`
+-- Procedure `sp_EnhancerCreate`
 -- Créateur :		23/03/2019
 -- Date Modif :		--/--/--
 -- Paramétres :
--- 		p_Name (varchar(50)):	Nom à ajouter
--- 		p_IsActive (bool)	:	Utilisable ou non dans l'application
--- 		p_IsStackable (bool):	Objet empilable ou non
+-- 		p_Name (varchar(50))		:	Nom à ajouter
+-- 		p_IsActive (bool)			:	Utilisable ou non dans l'application
+-- 		p_Value (bool)				:	Valeur Max de l'objet
+--		p_BonusValue1 (decimal(3,2)):	Bonus 1
+--		p_BonusValue2 (int)			:	Bonus 2
 -- Retour :
 -- 		ret (tinyint) :
 --			 0	:	Succès
@@ -15,20 +17,24 @@
 --		idVal (int) :	Id de l'enregistrement créé
 --		mes (varchar(50) : message de statut du retour
 -- Description :  
--- 	Ajoute un nom dans la table principale common.
+-- 	Ajoute un enhancer.
 -- ***************************************************************
-CREATE PROCEDURE [dbo].[sp_PlanetCreate]
+CREATE PROCEDURE [dbo].[sp_EnhancerCreate]
 	@p_Nom VARCHAR(50),
 	@p_IsActive BIT,
+	@p_Value BIT,
+	@p_slot TINYINT,
+	@p_BonusValue1 DECIMAL(3,2),
+	@p_BonusValue2 INT,
 	@idVal INT OUTPUT,
 	@mes VARCHAR(200) OUTPUT
 AS
 	DECLARE @ret INT;
-	DECLARE @comRet INT;
+	DECLARE @iwRet INT;
 	DECLARE @bidon CHAR;
 
 	-- Validation des parametres
-	IF(@p_Nom is null OR @p_Nom = '' OR @p_IsActive is null)
+	IF(@p_Nom is null OR @p_Nom = '' OR @p_IsActive is null OR @p_Value is null OR @p_slot > 10 OR @p_slot < 1)
 	BEGIN
 		SET @ret = -1;
 		SET @idVal = null;
@@ -37,18 +43,18 @@ AS
 	ELSE
 	BEGIN
 		-- Enregistrement des infos principales dans common
-		EXECUTE @comRet = dbo.sp_CommonCreate @p_Nom, @p_IsActive, @idVal OUTPUT, @mes OUTPUT;
+		EXECUTE @iwRet = dbo.sp_InWorldCreate @p_Nom, @p_IsActive, @p_Value, @idVal OUTPUT, @mes OUTPUT;
 
 		--Si les infos sont enregistrées dans common, on continue
-		IF(@comRet = 0)
+		IF(@iwRet = 0)
 		BEGIN
 			BEGIN TRY
 				BEGIN TRANSACTION
 				-- Lock de la table à modifier
-				SELECT @bidon = '' FROM Planet WITH (HOLDLOCK, TABLOCKX);
+				SELECT @bidon = '' FROM InWorld WITH (HOLDLOCK, TABLOCKX);
 
 				-- Insertion de la ligne
-				INSERT INTO Planet(Id) VALUES(@idVal);
+				INSERT INTO Enhancer_Info(Id, Slot, BonusValue1, BonusValue2) VALUES(@idVal, @p_slot, @p_BonusValue1, @p_BonusValue2);
 				SET @ret = 0;
 				SET @mes = 'L''enregistrement a éta ajouté avec succès';
 				COMMIT TRANSACTION;
@@ -62,7 +68,7 @@ AS
 		END
 		ELSE
 		BEGIN
-			SET @ret = @comRet;
+			SET @ret = @iwRet;
 		END
 	END
 RETURN @ret

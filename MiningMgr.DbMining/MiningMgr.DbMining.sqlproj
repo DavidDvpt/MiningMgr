@@ -90,6 +90,10 @@
     <Build Include="Stored Procedures\sp_CategorieCreate.sql" />
     <Build Include="Stored Procedures\sp_TypeCreate.sql" />
     <Build Include="Stored Procedures\sp_PlanetCreate.sql" />
+    <Build Include="Stored Procedures\sp_SearchModeCreate.sql" />
+    <Build Include="Stored Procedures\sp_InWorldCreate.sql" />
+    <Build Include="Stored Procedures\sp_MaterialCreate.sql" />
+    <Build Include="Stored Procedures\sp_EnhancerCreate.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MiningMgr.DbMining.publish.xml" />

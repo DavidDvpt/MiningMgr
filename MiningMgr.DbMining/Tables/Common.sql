@@ -13,5 +13,5 @@ CREATE TABLE [dbo].[Common]
     [Nom]			NCHAR(50)	NOT NULL, 
     [Is_Active]		BIT			NOT NULL	DEFAULT 1,
 	CONSTRAINT [IX_Common_Id] PRIMARY KEY([Id]),
-	CONSTRAINT [AK_COMMON_Nom] UNIQUE ([Nom])
+	CONSTRAINT [AK_Common_Nom] UNIQUE ([Nom])
 )

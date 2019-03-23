@@ -27,6 +27,8 @@ AS
 	DECLARE @ret INT;
 	DECLARE @comRet INT;
 	DECLARE @bidon CHAR;
+
+	-- Validation des parametres
 	IF(@p_Nom is null OR @p_Nom = '' OR @p_IsActive is null OR @p_IsStackable is null)
 	BEGIN
 		SET @ret = -1;
@@ -35,14 +37,18 @@ AS
 	END
 	ELSE
 	BEGIN
+		-- Enregistrement des infos principales dans common
 		EXECUTE @comRet = dbo.sp_CommonCreate @p_Nom, @p_IsActive, @idVal OUTPUT, @mes OUTPUT;
 
+		--Si les infos sont enregistrées dans common, on continue
 		IF(@comRet = 0)
 		BEGIN
 			BEGIN TRY
 				BEGIN TRANSACTION
+				-- Lock de la table à modifier
 				SELECT @bidon = '' FROM Categorie WITH (HOLDLOCK, TABLOCKX);
 
+				-- Insertion de la ligne
 				INSERT INTO Categorie(Id, Is_Stackable) VALUES(@idVal, @p_IsStackable);
 				SET @ret = 0;
 				SET @mes = 'L''enregistrement a éta ajouté avec succès';
