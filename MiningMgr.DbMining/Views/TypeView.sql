@@ -4,3 +4,9 @@ AS
 	INNER JOIN Common as com ON typ.Id = com.Id
 	INNER JOIN Categorie cat ON typ.CategorieId = cat.Id
 	INNER JOIN Common as com2 ON typ.CategorieId = com2.Id
+GO
+
+
+--CREATE UNIQUE CLUSTERED INDEX idx_TypeView_Id
+--	ON TypeView (Id)
+--GO

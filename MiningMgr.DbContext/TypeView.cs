@@ -12,14 +12,12 @@ namespace MiningMgr.DbContext
     using System;
     using System.Collections.Generic;
     
-    public partial class Tool
+    public partial class TypeView
     {
         public int Id { get; set; }
-        public Nullable<byte> UsePerMin { get; set; }
-    
-        public virtual Excavator_Info Excavator_Info { get; set; }
-        public virtual Finder_Info Finder_Info { get; set; }
-        public virtual Refiner_Info Refiner_Info { get; set; }
-        public virtual Unstackable Unstackable { get; set; }
+        public string Nom { get; set; }
+        public bool Is_Active { get; set; }
+        public bool Is_Stackable { get; set; }
+        public string Categorie { get; set; }
     }
 }

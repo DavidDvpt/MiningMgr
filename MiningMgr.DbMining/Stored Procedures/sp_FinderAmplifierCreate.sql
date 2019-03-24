@@ -51,7 +51,7 @@ AS
 				SELECT @bidon = '' FROM InWorld WITH (HOLDLOCK, TABLOCKX);
 
 				-- Insertion de la ligne
-				INSERT INTO FinderAmplifier_info(Id, Coeff) VALUES(@idVal, @p_Coef);
+				INSERT INTO FinderAmplifier_Info(Id, Coeff) VALUES(@idVal, @p_Coef);
 				SET @ret = 0;
 				SET @mes = 'L''enregistrement a éta ajouté avec succès';
 				COMMIT TRANSACTION;

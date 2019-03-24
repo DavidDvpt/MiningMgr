@@ -53,7 +53,7 @@ AS
 				SELECT @bidon = '' FROM InWorld WITH (HOLDLOCK, TABLOCKX);
 
 				-- Insertion de la ligne
-				INSERT INTO Finder_info(Id, Depth, FinderRange, BasePecSearch) VALUES(@idVal, @p_Depth, @p_Range, @p_BasePecSearch);
+				INSERT INTO Finder_Info(Id, Depth, FinderRange, BasePecSearch) VALUES(@idVal, @p_Depth, @p_Range, @p_BasePecSearch);
 				SET @ret = 0;
 				SET @mes = 'L''enregistrement a éta ajouté avec succès';
 				COMMIT TRANSACTION;

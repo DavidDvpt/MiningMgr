@@ -18,6 +18,8 @@ namespace MiningMgr.DbContext
         public Type()
         {
             this.InWorld = new HashSet<InWorld>();
+            this.Type1 = new HashSet<Type>();
+            this.Types = new HashSet<Type>();
         }
     
         public int Id { get; set; }
@@ -27,5 +29,9 @@ namespace MiningMgr.DbContext
         public virtual Common Common { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InWorld> InWorld { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Type> Type1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Type> Types { get; set; }
     }
 }

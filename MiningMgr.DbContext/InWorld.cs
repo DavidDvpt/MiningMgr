@@ -14,12 +14,6 @@ namespace MiningMgr.DbContext
     
     public partial class InWorld
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public InWorld()
-        {
-            this.Tool = new HashSet<Tool>();
-        }
-    
         public int Id { get; set; }
         public int TypeId { get; set; }
         public bool IsStackable { get; set; }
@@ -30,7 +24,5 @@ namespace MiningMgr.DbContext
         public virtual Type Type { get; set; }
         public virtual Material Material { get; set; }
         public virtual Unstackable Unstackable { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tool> Tool { get; set; }
     }
 }

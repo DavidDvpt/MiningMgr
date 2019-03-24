@@ -42,6 +42,10 @@ namespace MiningMgr.DbContext
         public virtual DbSet<Unstackable> Unstackable { get; set; }
         public virtual DbSet<SearchMode> SearchModes { get; set; }
         public virtual DbSet<Setup> Setups { get; set; }
+        public virtual DbSet<CategorieView> CategorieViews { get; set; }
+        public virtual DbSet<PlanetView> PlanetViews { get; set; }
+        public virtual DbSet<SearchModeView> SearchModeViews { get; set; }
+        public virtual DbSet<TypeView> TypeViews { get; set; }
     
         public virtual int sp_CommonCreate(string p_Nom, Nullable<bool> p_IsActive, ObjectParameter idVal, ObjectParameter mes)
         {
@@ -54,6 +58,385 @@ namespace MiningMgr.DbContext
                 new ObjectParameter("p_IsActive", typeof(bool));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_CommonCreate", p_NomParameter, p_IsActiveParameter, idVal, mes);
+        }
+    
+        public virtual int AffectedTypeCreate(string p_ToolTypeNom, string p_AccessoireTypeNom, ObjectParameter mes)
+        {
+            var p_ToolTypeNomParameter = p_ToolTypeNom != null ?
+                new ObjectParameter("p_ToolTypeNom", p_ToolTypeNom) :
+                new ObjectParameter("p_ToolTypeNom", typeof(string));
+    
+            var p_AccessoireTypeNomParameter = p_AccessoireTypeNom != null ?
+                new ObjectParameter("p_AccessoireTypeNom", p_AccessoireTypeNom) :
+                new ObjectParameter("p_AccessoireTypeNom", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AffectedTypeCreate", p_ToolTypeNomParameter, p_AccessoireTypeNomParameter, mes);
+        }
+    
+        public virtual int sp_AffectedTypeCreate(string p_ToolTypeNom, string p_AccessoireTypeNom, ObjectParameter mes)
+        {
+            var p_ToolTypeNomParameter = p_ToolTypeNom != null ?
+                new ObjectParameter("p_ToolTypeNom", p_ToolTypeNom) :
+                new ObjectParameter("p_ToolTypeNom", typeof(string));
+    
+            var p_AccessoireTypeNomParameter = p_AccessoireTypeNom != null ?
+                new ObjectParameter("p_AccessoireTypeNom", p_AccessoireTypeNom) :
+                new ObjectParameter("p_AccessoireTypeNom", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_AffectedTypeCreate", p_ToolTypeNomParameter, p_AccessoireTypeNomParameter, mes);
+        }
+    
+        public virtual int sp_CategorieCreate(string p_Nom, Nullable<bool> p_IsActive, Nullable<bool> p_IsStackable, ObjectParameter idVal, ObjectParameter mes)
+        {
+            var p_NomParameter = p_Nom != null ?
+                new ObjectParameter("p_Nom", p_Nom) :
+                new ObjectParameter("p_Nom", typeof(string));
+    
+            var p_IsActiveParameter = p_IsActive.HasValue ?
+                new ObjectParameter("p_IsActive", p_IsActive) :
+                new ObjectParameter("p_IsActive", typeof(bool));
+    
+            var p_IsStackableParameter = p_IsStackable.HasValue ?
+                new ObjectParameter("p_IsStackable", p_IsStackable) :
+                new ObjectParameter("p_IsStackable", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_CategorieCreate", p_NomParameter, p_IsActiveParameter, p_IsStackableParameter, idVal, mes);
+        }
+    
+        public virtual int sp_EnhancerCreate(string p_Nom, Nullable<bool> p_IsActive, string p_TypeNom, Nullable<byte> p_slot, Nullable<decimal> p_BonusValue1, Nullable<int> p_BonusValue2, Nullable<bool> p_Value, ObjectParameter idVal, ObjectParameter mes)
+        {
+            var p_NomParameter = p_Nom != null ?
+                new ObjectParameter("p_Nom", p_Nom) :
+                new ObjectParameter("p_Nom", typeof(string));
+    
+            var p_IsActiveParameter = p_IsActive.HasValue ?
+                new ObjectParameter("p_IsActive", p_IsActive) :
+                new ObjectParameter("p_IsActive", typeof(bool));
+    
+            var p_TypeNomParameter = p_TypeNom != null ?
+                new ObjectParameter("p_TypeNom", p_TypeNom) :
+                new ObjectParameter("p_TypeNom", typeof(string));
+    
+            var p_slotParameter = p_slot.HasValue ?
+                new ObjectParameter("p_slot", p_slot) :
+                new ObjectParameter("p_slot", typeof(byte));
+    
+            var p_BonusValue1Parameter = p_BonusValue1.HasValue ?
+                new ObjectParameter("p_BonusValue1", p_BonusValue1) :
+                new ObjectParameter("p_BonusValue1", typeof(decimal));
+    
+            var p_BonusValue2Parameter = p_BonusValue2.HasValue ?
+                new ObjectParameter("p_BonusValue2", p_BonusValue2) :
+                new ObjectParameter("p_BonusValue2", typeof(int));
+    
+            var p_ValueParameter = p_Value.HasValue ?
+                new ObjectParameter("p_Value", p_Value) :
+                new ObjectParameter("p_Value", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_EnhancerCreate", p_NomParameter, p_IsActiveParameter, p_TypeNomParameter, p_slotParameter, p_BonusValue1Parameter, p_BonusValue2Parameter, p_ValueParameter, idVal, mes);
+        }
+    
+        public virtual int sp_ExcavatorCreate(string p_Nom, Nullable<bool> p_IsActive, Nullable<bool> p_IsLimited, string p_TypeNom, Nullable<decimal> p_Value, Nullable<decimal> p_Decay, Nullable<decimal> p_Eff, Nullable<byte> p_UsePerMin, ObjectParameter idVal, ObjectParameter mes)
+        {
+            var p_NomParameter = p_Nom != null ?
+                new ObjectParameter("p_Nom", p_Nom) :
+                new ObjectParameter("p_Nom", typeof(string));
+    
+            var p_IsActiveParameter = p_IsActive.HasValue ?
+                new ObjectParameter("p_IsActive", p_IsActive) :
+                new ObjectParameter("p_IsActive", typeof(bool));
+    
+            var p_IsLimitedParameter = p_IsLimited.HasValue ?
+                new ObjectParameter("p_IsLimited", p_IsLimited) :
+                new ObjectParameter("p_IsLimited", typeof(bool));
+    
+            var p_TypeNomParameter = p_TypeNom != null ?
+                new ObjectParameter("p_TypeNom", p_TypeNom) :
+                new ObjectParameter("p_TypeNom", typeof(string));
+    
+            var p_ValueParameter = p_Value.HasValue ?
+                new ObjectParameter("p_Value", p_Value) :
+                new ObjectParameter("p_Value", typeof(decimal));
+    
+            var p_DecayParameter = p_Decay.HasValue ?
+                new ObjectParameter("p_Decay", p_Decay) :
+                new ObjectParameter("p_Decay", typeof(decimal));
+    
+            var p_EffParameter = p_Eff.HasValue ?
+                new ObjectParameter("p_Eff", p_Eff) :
+                new ObjectParameter("p_Eff", typeof(decimal));
+    
+            var p_UsePerMinParameter = p_UsePerMin.HasValue ?
+                new ObjectParameter("p_UsePerMin", p_UsePerMin) :
+                new ObjectParameter("p_UsePerMin", typeof(byte));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ExcavatorCreate", p_NomParameter, p_IsActiveParameter, p_IsLimitedParameter, p_TypeNomParameter, p_ValueParameter, p_DecayParameter, p_EffParameter, p_UsePerMinParameter, idVal, mes);
+        }
+    
+        public virtual int sp_FinderAmplifierCreate(string p_Nom, Nullable<bool> p_IsActive, Nullable<bool> p_IsLimited, string p_TypeNom, Nullable<decimal> p_Value, Nullable<decimal> p_Decay, Nullable<decimal> p_Coef, Nullable<byte> p_UsePerMin, ObjectParameter idVal, ObjectParameter mes)
+        {
+            var p_NomParameter = p_Nom != null ?
+                new ObjectParameter("p_Nom", p_Nom) :
+                new ObjectParameter("p_Nom", typeof(string));
+    
+            var p_IsActiveParameter = p_IsActive.HasValue ?
+                new ObjectParameter("p_IsActive", p_IsActive) :
+                new ObjectParameter("p_IsActive", typeof(bool));
+    
+            var p_IsLimitedParameter = p_IsLimited.HasValue ?
+                new ObjectParameter("p_IsLimited", p_IsLimited) :
+                new ObjectParameter("p_IsLimited", typeof(bool));
+    
+            var p_TypeNomParameter = p_TypeNom != null ?
+                new ObjectParameter("p_TypeNom", p_TypeNom) :
+                new ObjectParameter("p_TypeNom", typeof(string));
+    
+            var p_ValueParameter = p_Value.HasValue ?
+                new ObjectParameter("p_Value", p_Value) :
+                new ObjectParameter("p_Value", typeof(decimal));
+    
+            var p_DecayParameter = p_Decay.HasValue ?
+                new ObjectParameter("p_Decay", p_Decay) :
+                new ObjectParameter("p_Decay", typeof(decimal));
+    
+            var p_CoefParameter = p_Coef.HasValue ?
+                new ObjectParameter("p_Coef", p_Coef) :
+                new ObjectParameter("p_Coef", typeof(decimal));
+    
+            var p_UsePerMinParameter = p_UsePerMin.HasValue ?
+                new ObjectParameter("p_UsePerMin", p_UsePerMin) :
+                new ObjectParameter("p_UsePerMin", typeof(byte));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_FinderAmplifierCreate", p_NomParameter, p_IsActiveParameter, p_IsLimitedParameter, p_TypeNomParameter, p_ValueParameter, p_DecayParameter, p_CoefParameter, p_UsePerMinParameter, idVal, mes);
+        }
+    
+        public virtual int sp_FinderCreate(string p_Nom, Nullable<bool> p_IsActive, Nullable<bool> p_IsLimited, string p_TypeNom, Nullable<decimal> p_Value, Nullable<decimal> p_Decay, Nullable<decimal> p_Range, Nullable<decimal> p_Depth, Nullable<byte> p_UsePerMin, Nullable<int> p_BasePecSearch, ObjectParameter idVal, ObjectParameter mes)
+        {
+            var p_NomParameter = p_Nom != null ?
+                new ObjectParameter("p_Nom", p_Nom) :
+                new ObjectParameter("p_Nom", typeof(string));
+    
+            var p_IsActiveParameter = p_IsActive.HasValue ?
+                new ObjectParameter("p_IsActive", p_IsActive) :
+                new ObjectParameter("p_IsActive", typeof(bool));
+    
+            var p_IsLimitedParameter = p_IsLimited.HasValue ?
+                new ObjectParameter("p_IsLimited", p_IsLimited) :
+                new ObjectParameter("p_IsLimited", typeof(bool));
+    
+            var p_TypeNomParameter = p_TypeNom != null ?
+                new ObjectParameter("p_TypeNom", p_TypeNom) :
+                new ObjectParameter("p_TypeNom", typeof(string));
+    
+            var p_ValueParameter = p_Value.HasValue ?
+                new ObjectParameter("p_Value", p_Value) :
+                new ObjectParameter("p_Value", typeof(decimal));
+    
+            var p_DecayParameter = p_Decay.HasValue ?
+                new ObjectParameter("p_Decay", p_Decay) :
+                new ObjectParameter("p_Decay", typeof(decimal));
+    
+            var p_RangeParameter = p_Range.HasValue ?
+                new ObjectParameter("p_Range", p_Range) :
+                new ObjectParameter("p_Range", typeof(decimal));
+    
+            var p_DepthParameter = p_Depth.HasValue ?
+                new ObjectParameter("p_Depth", p_Depth) :
+                new ObjectParameter("p_Depth", typeof(decimal));
+    
+            var p_UsePerMinParameter = p_UsePerMin.HasValue ?
+                new ObjectParameter("p_UsePerMin", p_UsePerMin) :
+                new ObjectParameter("p_UsePerMin", typeof(byte));
+    
+            var p_BasePecSearchParameter = p_BasePecSearch.HasValue ?
+                new ObjectParameter("p_BasePecSearch", p_BasePecSearch) :
+                new ObjectParameter("p_BasePecSearch", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_FinderCreate", p_NomParameter, p_IsActiveParameter, p_IsLimitedParameter, p_TypeNomParameter, p_ValueParameter, p_DecayParameter, p_RangeParameter, p_DepthParameter, p_UsePerMinParameter, p_BasePecSearchParameter, idVal, mes);
+        }
+    
+        public virtual int sp_InWorldCreate(string p_Nom, Nullable<bool> p_IsActive, string typeNom, Nullable<decimal> p_Value, ObjectParameter idVal, ObjectParameter mes)
+        {
+            var p_NomParameter = p_Nom != null ?
+                new ObjectParameter("p_Nom", p_Nom) :
+                new ObjectParameter("p_Nom", typeof(string));
+    
+            var p_IsActiveParameter = p_IsActive.HasValue ?
+                new ObjectParameter("p_IsActive", p_IsActive) :
+                new ObjectParameter("p_IsActive", typeof(bool));
+    
+            var typeNomParameter = typeNom != null ?
+                new ObjectParameter("TypeNom", typeNom) :
+                new ObjectParameter("TypeNom", typeof(string));
+    
+            var p_ValueParameter = p_Value.HasValue ?
+                new ObjectParameter("p_Value", p_Value) :
+                new ObjectParameter("p_Value", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InWorldCreate", p_NomParameter, p_IsActiveParameter, typeNomParameter, p_ValueParameter, idVal, mes);
+        }
+    
+        public virtual int sp_MaterialCreate(string p_Nom, Nullable<bool> p_IsActive, string p_TypeNom, Nullable<bool> p_Value, ObjectParameter idVal, ObjectParameter mes)
+        {
+            var p_NomParameter = p_Nom != null ?
+                new ObjectParameter("p_Nom", p_Nom) :
+                new ObjectParameter("p_Nom", typeof(string));
+    
+            var p_IsActiveParameter = p_IsActive.HasValue ?
+                new ObjectParameter("p_IsActive", p_IsActive) :
+                new ObjectParameter("p_IsActive", typeof(bool));
+    
+            var p_TypeNomParameter = p_TypeNom != null ?
+                new ObjectParameter("p_TypeNom", p_TypeNom) :
+                new ObjectParameter("p_TypeNom", typeof(string));
+    
+            var p_ValueParameter = p_Value.HasValue ?
+                new ObjectParameter("p_Value", p_Value) :
+                new ObjectParameter("p_Value", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_MaterialCreate", p_NomParameter, p_IsActiveParameter, p_TypeNomParameter, p_ValueParameter, idVal, mes);
+        }
+    
+        public virtual int sp_PlanetCreate(string p_Nom, Nullable<bool> p_IsActive, ObjectParameter idVal, ObjectParameter mes)
+        {
+            var p_NomParameter = p_Nom != null ?
+                new ObjectParameter("p_Nom", p_Nom) :
+                new ObjectParameter("p_Nom", typeof(string));
+    
+            var p_IsActiveParameter = p_IsActive.HasValue ?
+                new ObjectParameter("p_IsActive", p_IsActive) :
+                new ObjectParameter("p_IsActive", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_PlanetCreate", p_NomParameter, p_IsActiveParameter, idVal, mes);
+        }
+    
+        public virtual int sp_RefinerCreate(string p_Nom, Nullable<bool> p_IsActive, Nullable<bool> p_IsLimited, string p_TypeNom, Nullable<decimal> p_Value, Nullable<decimal> p_Decay, Nullable<byte> p_UsePerMin, ObjectParameter idVal, ObjectParameter mes)
+        {
+            var p_NomParameter = p_Nom != null ?
+                new ObjectParameter("p_Nom", p_Nom) :
+                new ObjectParameter("p_Nom", typeof(string));
+    
+            var p_IsActiveParameter = p_IsActive.HasValue ?
+                new ObjectParameter("p_IsActive", p_IsActive) :
+                new ObjectParameter("p_IsActive", typeof(bool));
+    
+            var p_IsLimitedParameter = p_IsLimited.HasValue ?
+                new ObjectParameter("p_IsLimited", p_IsLimited) :
+                new ObjectParameter("p_IsLimited", typeof(bool));
+    
+            var p_TypeNomParameter = p_TypeNom != null ?
+                new ObjectParameter("p_TypeNom", p_TypeNom) :
+                new ObjectParameter("p_TypeNom", typeof(string));
+    
+            var p_ValueParameter = p_Value.HasValue ?
+                new ObjectParameter("p_Value", p_Value) :
+                new ObjectParameter("p_Value", typeof(decimal));
+    
+            var p_DecayParameter = p_Decay.HasValue ?
+                new ObjectParameter("p_Decay", p_Decay) :
+                new ObjectParameter("p_Decay", typeof(decimal));
+    
+            var p_UsePerMinParameter = p_UsePerMin.HasValue ?
+                new ObjectParameter("p_UsePerMin", p_UsePerMin) :
+                new ObjectParameter("p_UsePerMin", typeof(byte));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_RefinerCreate", p_NomParameter, p_IsActiveParameter, p_IsLimitedParameter, p_TypeNomParameter, p_ValueParameter, p_DecayParameter, p_UsePerMinParameter, idVal, mes);
+        }
+    
+        public virtual int sp_SearchModeCreate(string p_Nom, Nullable<bool> p_IsActive, string p_Abbrev, ObjectParameter idVal, ObjectParameter mes)
+        {
+            var p_NomParameter = p_Nom != null ?
+                new ObjectParameter("p_Nom", p_Nom) :
+                new ObjectParameter("p_Nom", typeof(string));
+    
+            var p_IsActiveParameter = p_IsActive.HasValue ?
+                new ObjectParameter("p_IsActive", p_IsActive) :
+                new ObjectParameter("p_IsActive", typeof(bool));
+    
+            var p_AbbrevParameter = p_Abbrev != null ?
+                new ObjectParameter("p_Abbrev", p_Abbrev) :
+                new ObjectParameter("p_Abbrev", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_SearchModeCreate", p_NomParameter, p_IsActiveParameter, p_AbbrevParameter, idVal, mes);
+        }
+    
+        public virtual int sp_ToolCreate(string p_Nom, Nullable<bool> p_IsActive, string p_TypeNom, Nullable<decimal> p_Value, Nullable<bool> p_IsLimited, Nullable<decimal> p_Decay, Nullable<byte> p_UsePerMin, ObjectParameter idVal, ObjectParameter mes)
+        {
+            var p_NomParameter = p_Nom != null ?
+                new ObjectParameter("p_Nom", p_Nom) :
+                new ObjectParameter("p_Nom", typeof(string));
+    
+            var p_IsActiveParameter = p_IsActive.HasValue ?
+                new ObjectParameter("p_IsActive", p_IsActive) :
+                new ObjectParameter("p_IsActive", typeof(bool));
+    
+            var p_TypeNomParameter = p_TypeNom != null ?
+                new ObjectParameter("p_TypeNom", p_TypeNom) :
+                new ObjectParameter("p_TypeNom", typeof(string));
+    
+            var p_ValueParameter = p_Value.HasValue ?
+                new ObjectParameter("p_Value", p_Value) :
+                new ObjectParameter("p_Value", typeof(decimal));
+    
+            var p_IsLimitedParameter = p_IsLimited.HasValue ?
+                new ObjectParameter("p_IsLimited", p_IsLimited) :
+                new ObjectParameter("p_IsLimited", typeof(bool));
+    
+            var p_DecayParameter = p_Decay.HasValue ?
+                new ObjectParameter("p_Decay", p_Decay) :
+                new ObjectParameter("p_Decay", typeof(decimal));
+    
+            var p_UsePerMinParameter = p_UsePerMin.HasValue ?
+                new ObjectParameter("p_UsePerMin", p_UsePerMin) :
+                new ObjectParameter("p_UsePerMin", typeof(byte));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ToolCreate", p_NomParameter, p_IsActiveParameter, p_TypeNomParameter, p_ValueParameter, p_IsLimitedParameter, p_DecayParameter, p_UsePerMinParameter, idVal, mes);
+        }
+    
+        public virtual int sp_TypeCreate(string p_Nom, Nullable<bool> p_IsActive, string p_CategorieNom, ObjectParameter idVal, ObjectParameter mes)
+        {
+            var p_NomParameter = p_Nom != null ?
+                new ObjectParameter("p_Nom", p_Nom) :
+                new ObjectParameter("p_Nom", typeof(string));
+    
+            var p_IsActiveParameter = p_IsActive.HasValue ?
+                new ObjectParameter("p_IsActive", p_IsActive) :
+                new ObjectParameter("p_IsActive", typeof(bool));
+    
+            var p_CategorieNomParameter = p_CategorieNom != null ?
+                new ObjectParameter("p_CategorieNom", p_CategorieNom) :
+                new ObjectParameter("p_CategorieNom", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_TypeCreate", p_NomParameter, p_IsActiveParameter, p_CategorieNomParameter, idVal, mes);
+        }
+    
+        public virtual int sp_UnstackableCreate(string p_Nom, Nullable<bool> p_IsActive, string p_TypeNom, Nullable<decimal> p_Value, Nullable<bool> p_IsLimited, Nullable<decimal> p_Decay, ObjectParameter idVal, ObjectParameter mes)
+        {
+            var p_NomParameter = p_Nom != null ?
+                new ObjectParameter("p_Nom", p_Nom) :
+                new ObjectParameter("p_Nom", typeof(string));
+    
+            var p_IsActiveParameter = p_IsActive.HasValue ?
+                new ObjectParameter("p_IsActive", p_IsActive) :
+                new ObjectParameter("p_IsActive", typeof(bool));
+    
+            var p_TypeNomParameter = p_TypeNom != null ?
+                new ObjectParameter("p_TypeNom", p_TypeNom) :
+                new ObjectParameter("p_TypeNom", typeof(string));
+    
+            var p_ValueParameter = p_Value.HasValue ?
+                new ObjectParameter("p_Value", p_Value) :
+                new ObjectParameter("p_Value", typeof(decimal));
+    
+            var p_IsLimitedParameter = p_IsLimited.HasValue ?
+                new ObjectParameter("p_IsLimited", p_IsLimited) :
+                new ObjectParameter("p_IsLimited", typeof(bool));
+    
+            var p_DecayParameter = p_Decay.HasValue ?
+                new ObjectParameter("p_Decay", p_Decay) :
+                new ObjectParameter("p_Decay", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_UnstackableCreate", p_NomParameter, p_IsActiveParameter, p_TypeNomParameter, p_ValueParameter, p_IsLimitedParameter, p_DecayParameter, idVal, mes);
         }
     }
 }

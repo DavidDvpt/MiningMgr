@@ -51,7 +51,7 @@ AS
 				SELECT @bidon = '' FROM InWorld WITH (HOLDLOCK, TABLOCKX);
 
 				-- Insertion de la ligne
-				INSERT INTO Excavator_info(Id, eff) VALUES(@idVal, @p_Eff);
+				INSERT INTO Excavator_Info(Id, Eff) VALUES(@idVal, @p_Eff);
 				SET @ret = 0;
 				SET @mes = 'L''enregistrement a éta ajouté avec succès';
 				COMMIT TRANSACTION;

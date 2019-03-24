@@ -49,7 +49,7 @@ AS
 				SELECT @bidon = '' FROM InWorld WITH (HOLDLOCK, TABLOCKX);
 
 				-- Insertion de la ligne
-				INSERT INTO Refiner_info(Id) VALUES(@idVal);
+				INSERT INTO Refiner_Info(Id) VALUES(@idVal);
 				SET @ret = 0;
 				SET @mes = 'L''enregistrement a éta ajouté avec succès';
 				COMMIT TRANSACTION;
