@@ -1,13 +1,15 @@
 ﻿-- ***************************************************************
--- Procedure `sp_EnhancerCreate`
+-- Procedure `sp_FinderAmplifierCreate`
 -- Créateur :		23/03/2019
 -- Date Modif :		--/--/--
 -- Paramétres :
--- 		p_Name (varchar(50))		:	Nom à ajouter
--- 		p_IsActive (bool)			:	Utilisable ou non dans l'application
--- 		p_Value (bool)				:	Valeur Max de l'objet
---		p_BonusValue1 (decimal(3,2)):	Bonus 1
---		p_BonusValue2 (int)			:	Bonus 2
+-- 		p_Name (varchar(50)):	Nom à ajouter
+-- 		p_IsActive (bool)	:	Utilisable ou non dans l'application
+-- 		p_Value (bool):			Valeur Max de l'objet
+--		p_IsLimited (bit)
+--		p_Decay (decimal(7,3))
+--		p_Coef (decimal(5,1))
+--		p_UsePerMin (tinyint)
 -- Retour :
 -- 		ret (tinyint) :
 --			 0	:	Succès
@@ -17,37 +19,31 @@
 --		idVal (int) :	Id de l'enregistrement créé
 --		mes (varchar(50) : message de statut du retour
 -- Description :  
--- 	Ajoute un enhancer.
+-- 	Ajoute un finder faisant parti du monde entropia.
 -- ***************************************************************
-CREATE PROCEDURE [dbo].[sp_EnhancerCreate]
+CREATE PROCEDURE [dbo].[sp_FinderAmplifierCreate]
 	@p_Nom VARCHAR(50),
 	@p_IsActive BIT,
+	@p_IsLimited BIT,
 	@p_TypeNom VARCHAR(50),
-	@p_slot TINYINT,
-	@p_BonusValue1 DECIMAL(3,2),
-	@p_BonusValue2 INT,
-	@p_Value BIT,
+	@p_Value DECIMAL(9,5),
+	@p_Decay DECIMAL(7,3),
+	@p_Coef DECIMAL(4,1),
+	@p_UsePerMin TINYINT,
 	@idVal INT OUTPUT,
 	@mes VARCHAR(200) OUTPUT
 AS
 	DECLARE @ret INT;
-	DECLARE @iwRet INT;
+	DECLARE @usRet INT;
+	DECLARE @typId INT;
 	DECLARE @bidon CHAR;
 
-	-- Validation des parametres
-	IF(@p_slot > 10 OR @p_slot < 1)
-	BEGIN
-		SET @ret = -1;
-		SET @idVal = null;
-		SET @mes = 'Un des paramètres est nul';
-	END
-	ELSE
 	BEGIN
 		-- Enregistrement des infos principales dans common
-		EXECUTE @iwRet = dbo.sp_InWorldCreate @p_Nom, @p_IsActive, @p_TypeNom, @p_Value, @idVal OUTPUT, @mes OUTPUT;
+		EXECUTE @usRet = dbo.sp_UnstackableCreate @p_Nom, @p_IsActive, @p_TypeNom, @p_Value, @p_IsLimited, @p_Decay, @idVal OUTPUT, @mes OUTPUT;
 
 		--Si les infos sont enregistrées dans common, on continue
-		IF(@iwRet = 0)
+		IF(@usRet = 0)
 		BEGIN
 			BEGIN TRY
 				BEGIN TRANSACTION
@@ -55,7 +51,7 @@ AS
 				SELECT @bidon = '' FROM InWorld WITH (HOLDLOCK, TABLOCKX);
 
 				-- Insertion de la ligne
-				INSERT INTO Enhancer_Info(Id, Slot, BonusValue1, BonusValue2) VALUES(@idVal, @p_slot, @p_BonusValue1, @p_BonusValue2);
+				INSERT INTO FinderAmplifier_info(Id, Coeff) VALUES(@idVal, @p_Coef);
 				SET @ret = 0;
 				SET @mes = 'L''enregistrement a éta ajouté avec succès';
 				COMMIT TRANSACTION;
@@ -69,7 +65,9 @@ AS
 		END
 		ELSE
 		BEGIN
-			SET @ret = @iwRet;
+			SET @ret = @usRet;
 		END
 	END
 RETURN @ret
+
+

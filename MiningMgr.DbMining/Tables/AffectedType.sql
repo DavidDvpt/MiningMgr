@@ -9,9 +9,9 @@
 -- *********************************************************
 CREATE TABLE [dbo].[AffectedType]
 (
-	[ToolId] INT NOT NULL,
-	[InWorldId] INT NOT NULL,
-	CONSTRAINT [IX_AffectedType_Id] PRIMARY KEY([ToolId], [InWorldId]), 
-    CONSTRAINT [FK_AffectedType_Tool] FOREIGN KEY ([ToolId]) REFERENCES [Tool]([Id]),
-    CONSTRAINT [FK_AffectedType_InWorld] FOREIGN KEY ([InWorldId]) REFERENCES [InWorld]([Id])
+	[ToolTypeId] INT NOT NULL,
+	[AccessoireTypeId] INT NOT NULL,
+	CONSTRAINT [IX_AffectedType_Id] PRIMARY KEY([ToolTypeId], [AccessoireTypeId]), 
+    CONSTRAINT [FK_AffectedType_Tool] FOREIGN KEY ([ToolTypeId]) REFERENCES [Type]([Id]),
+    CONSTRAINT [FK_AffectedType_InWorld] FOREIGN KEY ([AccessoireTypeId]) REFERENCES [Type]([Id])
 )

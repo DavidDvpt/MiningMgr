@@ -101,6 +101,10 @@
     <Build Include="Stored Procedures\sp_UnstackableCreate.sql" />
     <Build Include="Stored Procedures\sp_FinderCreate.sql" />
     <Build Include="Stored Procedures\sp_ToolCreate.sql" />
+    <Build Include="Stored Procedures\sp_ExcavatorCreate.sql" />
+    <Build Include="Stored Procedures\sp_FinderAmplifierCreate.sql" />
+    <Build Include="Stored Procedures\sp_AffectedTypeCreate.sql" />
+    <Build Include="Stored Procedures\sp_RefinerCreate.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MiningMgr.DbMining.publish.xml" />
