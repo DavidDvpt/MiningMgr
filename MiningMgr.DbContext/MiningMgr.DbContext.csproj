@@ -86,8 +86,6 @@
     <Compile Include="Finder_Info.cs">
       <DependentUpon>DbMiningModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IRepository.cs" />
-    <Compile Include="Interfaces\IRepositoryUoW.cs" />
     <Compile Include="InWorld.cs">
       <DependentUpon>DbMiningModel.tt</DependentUpon>
     </Compile>
