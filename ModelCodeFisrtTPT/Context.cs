@@ -12,10 +12,10 @@ namespace ModelCodeFisrtTPT
     {
         public Context() : base("MiningTest")
         {
-            Database.SetInitializer<Context>(new DropCreateDatabaseAlways<Context>());
+            //Database.SetInitializer<Context>(new DropCreateDatabaseAlways<Context>());
             //Database.SetInitializer<Context>(new CreateDatabaseIfNotExists<Context>());
             //Database.SetInitializer<Context>(new DropCreateDatabaseIfModelChanges<Context>());
-            //Database.SetInitializer<Context>(new ContextInitializer());
+            Database.SetInitializer<Context>(new SeedClass());
         }
 
         public DbSet<Commun> Communs { get; set; }

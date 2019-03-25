@@ -66,45 +66,26 @@
     <Compile Include="Dto\Tool.cs" />
     <Compile Include="Dto\Modele.cs" />
     <Compile Include="Dto\Unstackable.cs" />
+    <Compile Include="Migrations\201903252348476_Test01.cs" />
+    <Compile Include="Migrations\201903252348476_Test01.Designer.cs">
+      <DependentUpon>201903252348476_Test01.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\Interfaces\IRepositoriesUoW.cs" />
     <Compile Include="Repositories\Interfaces\IRepository.cs" />
-    <Compile Include="Migrations\201903252015425_Test01.cs" />
-    <Compile Include="Migrations\201903252015425_Test01.Designer.cs">
-      <DependentUpon>201903252015425_Test01.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903252026337_Test02.cs" />
-    <Compile Include="Migrations\201903252026337_Test02.Designer.cs">
-      <DependentUpon>201903252026337_Test02.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903252044487_Test03.cs" />
-    <Compile Include="Migrations\201903252044487_Test03.Designer.cs">
-      <DependentUpon>201903252044487_Test03.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903252131248_Test031.cs" />
-    <Compile Include="Migrations\201903252131248_Test031.Designer.cs">
-      <DependentUpon>201903252131248_Test031.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\RepositoriesUoW.cs" />
     <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="SeedClass.cs" />
+    <Compile Include="SeedStaticMethods.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903252015425_Test01.resx">
-      <DependentUpon>201903252015425_Test01.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903252026337_Test02.resx">
-      <DependentUpon>201903252026337_Test02.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903252044487_Test03.resx">
-      <DependentUpon>201903252044487_Test03.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903252131248_Test031.resx">
-      <DependentUpon>201903252131248_Test031.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903252348476_Test01.resx">
+      <DependentUpon>201903252348476_Test01.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

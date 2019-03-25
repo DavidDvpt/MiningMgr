@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ModelCodeFisrtTPT.Repositories.Interfaces
 {
-    interface IRepositoriesUoW
+    public interface IRepositoriesUoW
     {
         void Commit();
 

@@ -12,10 +12,11 @@ namespace ModelCodeFisrtTPT.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Nom = c.String(nullable: false, maxLength: 50),
+                        Nom = c.String(nullable: false, maxLength: 50, unicode: false),
                         IsActive = c.Boolean(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Nom, unique: true);
             
             CreateTable(
                 "dbo.PlanetMaterial",
@@ -58,7 +59,7 @@ namespace ModelCodeFisrtTPT.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false),
-                        Value = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Value = c.Decimal(nullable: false, precision: 9, scale: 5),
                         ModeleId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
@@ -73,8 +74,8 @@ namespace ModelCodeFisrtTPT.Migrations
                     {
                         Id = c.Int(nullable: false),
                         Slot = c.Byte(nullable: false),
-                        BonusValue1 = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        BonusValue2 = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        BonusValue1 = c.Decimal(nullable: false, precision: 3, scale: 1),
+                        BonusValue2 = c.Decimal(nullable: false, precision: 3, scale: 1),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.InWorld", t => t.Id)
@@ -86,7 +87,7 @@ namespace ModelCodeFisrtTPT.Migrations
                     {
                         Id = c.Int(nullable: false),
                         IsLimited = c.Boolean(nullable: false),
-                        Decay = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Decay = c.Decimal(nullable: false, precision: 7, scale: 3),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.InWorld", t => t.Id)
@@ -97,7 +98,7 @@ namespace ModelCodeFisrtTPT.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false),
-                        UsePerMin = c.Int(nullable: false),
+                        UsePerMin = c.Short(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Unstackable", t => t.Id)
@@ -108,7 +109,7 @@ namespace ModelCodeFisrtTPT.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false),
-                        Efficienty = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Efficienty = c.Decimal(nullable: false, precision: 3, scale: 1),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Tool", t => t.Id)
@@ -119,7 +120,7 @@ namespace ModelCodeFisrtTPT.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false),
-                        Coefficient = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Coefficient = c.Decimal(nullable: false, precision: 4, scale: 1),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Unstackable", t => t.Id)
@@ -130,8 +131,8 @@ namespace ModelCodeFisrtTPT.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false),
-                        Depth = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        Range = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Depth = c.Decimal(nullable: false, precision: 5, scale: 1),
+                        Range = c.Decimal(nullable: false, precision: 3, scale: 1),
                         BasePecSearch = c.Short(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
@@ -260,6 +261,7 @@ namespace ModelCodeFisrtTPT.Migrations
             DropIndex("dbo.ToolAccessoire", new[] { "ToolId" });
             DropIndex("dbo.PlanetMaterial", new[] { "MaterialId" });
             DropIndex("dbo.PlanetMaterial", new[] { "PlanetId" });
+            DropIndex("dbo.Commun", new[] { "Nom" });
             DropTable("dbo.Planet");
             DropTable("dbo.Setup");
             DropTable("dbo.SearchMode");
