@@ -11,6 +11,11 @@ namespace ModelCodeFisrtTPT.Dto
     [Table("Enhancer")]
     public class Enhancer : InWorld
     {
+        public Enhancer()
+        {
+            IsStackable = true;
+        }
+        
         [Required]
         public byte Slot { get; set; }
 
