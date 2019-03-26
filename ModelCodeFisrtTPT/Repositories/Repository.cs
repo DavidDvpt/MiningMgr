@@ -71,7 +71,7 @@ namespace ModelCodeFisrtTPT.Repositories
 
         public void SaveChanges()
         {
-            Contex.SaveChanges();
+            Context.SaveChanges();
         }
 
         public void Update(T entity)
