@@ -70,6 +70,8 @@
     <Compile Include="Migrations\201903252348476_Test01.Designer.cs">
       <DependentUpon>201903252348476_Test01.cs</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\CommunRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICommunRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRepositoriesUoW.cs" />
     <Compile Include="Repositories\Interfaces\IRepository.cs" />
     <Compile Include="Migrations\Configuration.cs" />
