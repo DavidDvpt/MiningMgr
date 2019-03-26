@@ -12,8 +12,8 @@ namespace ModelCodeFisrtTPT.Dto
     {
         public Tool()
         {
-            IsStackable = false;
         }
+        
         public short UsePerMin { get; set; } = 0;
     }
 }
