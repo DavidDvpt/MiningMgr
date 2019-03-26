@@ -10,6 +10,10 @@ namespace ModelCodeFisrtTPT.Dto
     [Table("Tool")]
     public abstract class Tool : Unstackable
     {
+        public Tool()
+        {
+            IsStackable = false;
+        }
         public short UsePerMin { get; set; } = 0;
     }
 }
