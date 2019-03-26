@@ -11,6 +11,10 @@ namespace ModelCodeFisrtTPT.Dto
     [Table("Unstackable")]
     public abstract class Unstackable : InWorld
     {
+        public Unstackable()
+        {
+            IsStackable = false;
+        }
         [Required]
         public bool IsLimited { get; set; } = true;
 
