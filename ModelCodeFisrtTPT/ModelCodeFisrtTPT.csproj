@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context.cs" />
+    <Compile Include="Dto\Interfaces\ICommun.cs" />
     <Compile Include="Dto\Planet.cs" />
     <Compile Include="Dto\PlanetMaterial.cs" />
     <Compile Include="Dto\ToolAccessoire.cs" />

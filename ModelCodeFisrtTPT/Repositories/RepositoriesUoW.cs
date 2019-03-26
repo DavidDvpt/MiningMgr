@@ -27,11 +27,12 @@ namespace ModelCodeFisrtTPT.Repositories
             ctx = new Context();
         }
 
-        private IRepository<Categorie> _Categories;
-        private IRepository<Modele> _Modeles;
+        private ICommunRepository<Categorie> _Categories;
+        private ICommunRepository<Modele> _Modeles;
         private IRepository<Finder> _Finders;
         private IRepository<Excavator> _Excavators;
         private IRepository<Refiner> _Refiners;
+        private IRepository<FinderAmplifier> _FinderAmplifiers;
         private IRepository<SearchMode> _SearchModes;
         private IRepository<Setup> _Setups;
         private IRepository<Planet> _Planets;
@@ -41,10 +42,10 @@ namespace ModelCodeFisrtTPT.Repositories
         private IRepository<PlanetMaterial> _PlanetMaterials;
 
         public IRepository<Categorie> Categories
-            => _Categories == null? _Categories = new Repository<Categorie>(ctx) : _Categories;
+            => _Categories == null? _Categories = new CommunRepository<Categorie>(ctx) : _Categories;
 
         public IRepository<Modele> Modeles
-            => _Modeles == null ? _Modeles = new Repository<Modele>(ctx) : _Modeles;
+            => _Modeles == null ? _Modeles = new CommunRepository<Modele>(ctx) : _Modeles;
 
         public IRepository<Finder> Finders
             => _Finders == null ? _Finders = new Repository<Finder>(ctx) : _Finders;
@@ -54,6 +55,9 @@ namespace ModelCodeFisrtTPT.Repositories
 
         public IRepository<Refiner> Refiners
             => _Refiners == null ? _Refiners = new Repository<Refiner>(ctx) : _Refiners;
+
+        public IRepository<FinderAmplifier> FinderAmplifiers
+            => _FinderAmplifiers == null ? _FinderAmplifiers = new Repository<FinderAmplifier>(ctx) : _FinderAmplifiers;
 
         public IRepository<SearchMode> SearchModes
             => _SearchModes == null ? _SearchModes = new Repository<SearchMode>(ctx) : _SearchModes;

@@ -1,4 +1,5 @@
-﻿using ModelCodeFisrtTPT.Repositories.Interfaces;
+﻿using ModelCodeFisrtTPT.Dto;
+using ModelCodeFisrtTPT.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,13 +10,14 @@ using System.Threading.Tasks;
 namespace ModelCodeFisrtTPT.Repositories
 {
     public class CommunRepository<T> : Repository<T>, ICommunRepository<T>
-        where T : class, new()
+        where T : Commun, new()
     {
         public CommunRepository(Context ctx)
             : base(ctx)
         {
 
         }
+
         public T GetByNom(string nom)
         {
             return DbSet.FirstOrDefault(x => x.Nom == nom);
