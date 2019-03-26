@@ -71,7 +71,7 @@ namespace ModelCodeFisrtTPT.Repositories
 
         public void SaveChanges()
         {
-            throw new NotImplementedException();
+            Contex.SaveChanges();
         }
 
         public void Update(T entity)
