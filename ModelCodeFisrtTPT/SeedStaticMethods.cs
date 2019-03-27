@@ -9,10 +9,10 @@ namespace ModelCodeFisrtTPT
         public static void Seed(IRepositoriesUoW repositories)
         {
             AddCategories(repositories);
-            //AddModeles(repositories);
+            AddModeles(repositories);
             //AddToolAccessoire(repositories);
-            //AddPlanets(repositories);
-            //AddFinders(repositories);
+            AddPlanets(repositories);
+            AddFinders(repositories);
             //AddExcavators(repositories);
             //AddRefiners(repositories);
             //AddFinderAmplifiers(repositories);
@@ -31,22 +31,22 @@ namespace ModelCodeFisrtTPT
         {
             int id = repositories.Categories.GetByNom("Tool").Id;
             repositories.Modeles.Add(new Modele() { Nom = "Finder", IsStackable = false, CategorieId = id });
-            repositories.Modeles.Add(new Modele() { Nom = "Excavator", IsStackable = false, Categorie = id });
-            repositories.Modeles.Add(new Modele() { Nom = "Refiner", IsStackable = false, Categorie = id });
+            repositories.Modeles.Add(new Modele() { Nom = "Excavator", IsStackable = false, CategorieId = id });
+            repositories.Modeles.Add(new Modele() { Nom = "Refiner", IsStackable = false, CategorieId = id });
 
             id = repositories.Categories.GetByNom("Accessoire").Id;
-            repositories.Modeles.Add(new Modele() { Nom = "Finder Amplifier", IsStackable = false, Categorie = id });
-            repositories.Modeles.Add(new Modele() { Nom = "Finder Depth Enhancer", IsStackable = true, Categorie = id });
-            repositories.Modeles.Add(new Modele() { Nom = "Finder Range Enhancer", IsStackable = true, Categorie = id });
-            repositories.Modeles.Add(new Modele() { Nom = "Finder Skill Enhancer", IsStackable = true, Categorie = id });
-            repositories.Modeles.Add(new Modele() { Nom = "Excavator Speed Enhancer", IsStackable = true, Categorie = id });
+            repositories.Modeles.Add(new Modele() { Nom = "Finder Amplifier", IsStackable = false, CategorieId = id });
+            repositories.Modeles.Add(new Modele() { Nom = "Finder Depth Enhancer", IsStackable = true, CategorieId = id });
+            repositories.Modeles.Add(new Modele() { Nom = "Finder Range Enhancer", IsStackable = true, CategorieId = id });
+            repositories.Modeles.Add(new Modele() { Nom = "Finder Skill Enhancer", IsStackable = true, CategorieId = id });
+            repositories.Modeles.Add(new Modele() { Nom = "Excavator Speed Enhancer", IsStackable = true, CategorieId = id });
 
             id = repositories.Categories.GetByNom("Material").Id;
-            repositories.Modeles.Add(new Modele() { Nom = "Enmatter", IsStackable = true, Categorie = id });
-            repositories.Modeles.Add(new Modele() { Nom = "Treasure", IsStackable = true, Categorie = id });
-            repositories.Modeles.Add(new Modele() { Nom = "Refined Ore", IsStackable = true, Categorie = id });
-            repositories.Modeles.Add(new Modele() { Nom = "Refined Enmatter", IsStackable = true, Categorie = id });
-            repositories.Modeles.Add(new Modele() { Nom = "Refined Treasure", IsStackable = true, Categorie = id });
+            repositories.Modeles.Add(new Modele() { Nom = "Enmatter", IsStackable = true, CategorieId = id });
+            repositories.Modeles.Add(new Modele() { Nom = "Treasure", IsStackable = true, CategorieId = id });
+            repositories.Modeles.Add(new Modele() { Nom = "Refined Ore", IsStackable = true, CategorieId = id });
+            repositories.Modeles.Add(new Modele() { Nom = "Refined Enmatter", IsStackable = true, CategorieId = id });
+            repositories.Modeles.Add(new Modele() { Nom = "Refined Treasure", IsStackable = true, CategorieId = id });
         }
 
         private static void AddToolAccessoire(IRepositoriesUoW repositories)
@@ -337,7 +337,7 @@ repositories.Excavators.Add(new Excavator() { Nom = "Resource Extractor RE-103",
 			repositories.Enhancers.Add(new Enhancer() { Nom = "Mining Finder Skill Modification Enhancer III", ModeleId = id, Slot = 3, BonusValue1 = 0.5M, BonusValue2 = 0, Value = 0.6M });
 			repositories.Enhancers.Add(new Enhancer() { Nom = "Mining Finder Skill Modification Enhancer IV", ModeleId = id, Slot = 4, BonusValue1 = 0.5M, BonusValue2 = 0, Value = 0.6M });
 			repositories.Enhancers.Add(new Enhancer() { Nom = "Mining Finder Skill Modification Enhancer IX", ModeleId = id, Slot = 9, BonusValue1 = 0.5M, BonusValue2 = 0, Value = 0.6M });
-			repositories.Enhancers.Add(new Enhancer() { Nom = "Mining Finder Skill Modification Enhancer V", ModeleId = id, , Slot = 5, BonusValue1 = 0.5M, BonusValue2 = 0, Value = 0.6M });
+			repositories.Enhancers.Add(new Enhancer() { Nom = "Mining Finder Skill Modification Enhancer V", ModeleId = id, Slot = 5, BonusValue1 = 0.5M, BonusValue2 = 0, Value = 0.6M });
 			repositories.Enhancers.Add(new Enhancer() { Nom = "Mining Finder Skill Modification Enhancer VI", ModeleId = id, Slot = 6, BonusValue1 = 0.5M, BonusValue2 = 0, Value = 0.6M });
 			repositories.Enhancers.Add(new Enhancer() { Nom = "Mining Finder Skill Modification Enhancer VII", ModeleId = id, Slot = 7, BonusValue1 = 0.5M, BonusValue2 = 0, Value = 0.6M });
 			repositories.Enhancers.Add(new Enhancer() { Nom = "Mining Finder Skill Modification Enhancer VIII", ModeleId = id, Slot = 8, BonusValue1 = 0.5M, BonusValue2 = 0, Value = 0.6M });

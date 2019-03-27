@@ -61,7 +61,7 @@ namespace ModelCodeFisrtTPT.Repositories
 
         public IQueryable<T> GetAll()
         {
-            throw new NotImplementedException();
+            return DbSet;
         }
 
         public T GetById(int id)

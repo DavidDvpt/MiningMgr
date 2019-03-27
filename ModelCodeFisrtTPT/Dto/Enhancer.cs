@@ -13,7 +13,7 @@ namespace ModelCodeFisrtTPT.Dto
     {
         public Enhancer()
         {
-            IsStackable = true;
+            
         }
         
         [Required]

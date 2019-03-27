@@ -12,7 +12,7 @@ namespace ModelCodeFisrtTPT.Dto
     {
         public Material()
         {
-            Modele.IsStackable = true;
+            
         }
     }
 }

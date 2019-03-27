@@ -41,10 +41,10 @@ namespace ModelCodeFisrtTPT.Repositories
         private IRepository<ToolAccessoire> _ToolAccessoires;
         private IRepository<PlanetMaterial> _PlanetMaterials;
 
-        public IRepository<Categorie> Categories
+        public ICommunRepository<Categorie> Categories
             => _Categories == null? _Categories = new CommunRepository<Categorie>(ctx) : _Categories;
 
-        public IRepository<Modele> Modeles
+        public ICommunRepository<Modele> Modeles
             => _Modeles == null ? _Modeles = new CommunRepository<Modele>(ctx) : _Modeles;
 
         public IRepository<Finder> Finders
