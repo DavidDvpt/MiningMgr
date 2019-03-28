@@ -70,6 +70,10 @@
     <Compile Include="Migrations\201903252348476_Test01.Designer.cs">
       <DependentUpon>201903252348476_Test01.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903281059311_Test02.cs" />
+    <Compile Include="Migrations\201903281059311_Test02.Designer.cs">
+      <DependentUpon>201903281059311_Test02.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\CommunRepository.cs" />
     <Compile Include="Repositories\Interfaces\ICommunRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRepositoriesUoW.cs" />
@@ -88,6 +92,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201903252348476_Test01.resx">
       <DependentUpon>201903252348476_Test01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903281059311_Test02.resx">
+      <DependentUpon>201903281059311_Test02.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

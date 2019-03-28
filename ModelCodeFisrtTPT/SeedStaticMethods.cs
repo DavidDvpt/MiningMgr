@@ -19,7 +19,10 @@ namespace ModelCodeFisrtTPT
             AddEnhancers(repositories);
             //AddMaterials(repositories);
             //AddPlanetMaterial(repositories);
+
+            AddSearchModes(repositories);
         }
+
 
         private static void AddCategories(IRepositoriesUoW repositories)
         {
@@ -43,6 +46,7 @@ namespace ModelCodeFisrtTPT
             repositories.Modeles.Add(new Modele() { Nom = "Excavator Speed Enhancer", IsStackable = true, CategorieId = id });
 
             id = repositories.Categories.GetByNom("Material").Id;
+            repositories.Modeles.Add(new Modele() { Nom = "Ore", IsStackable = true, CategorieId = id });
             repositories.Modeles.Add(new Modele() { Nom = "Enmatter", IsStackable = true, CategorieId = id });
             repositories.Modeles.Add(new Modele() { Nom = "Treasure", IsStackable = true, CategorieId = id });
             repositories.Modeles.Add(new Modele() { Nom = "Refined Ore", IsStackable = true, CategorieId = id });
@@ -366,6 +370,18 @@ namespace ModelCodeFisrtTPT
         private static void AddPlanetMaterial(IRepositoriesUoW repositories)
         {
             throw new NotImplementedException();
+        }
+
+        private static void AddSearchModes(IRepositoriesUoW repositories)
+        {
+            repositories.SearchModes.Add(new SearchMode() { Nom = "Ores", Abbrev = "O", Multiplicateur = 2 });
+            repositories.SearchModes.Add(new SearchMode() { Nom = "Enmatters", Abbrev = "E", Multiplicateur = 1 });
+            repositories.SearchModes.Add(new SearchMode() { Nom = "Treasures", Abbrev = "T", Multiplicateur = 3 });
+            repositories.SearchModes.Add(new SearchMode() { Nom = "Ores, Enmatters", Abbrev = "OE", Multiplicateur = 3 });
+            repositories.SearchModes.Add(new SearchMode() { Nom = "Ores, Treasures", Abbrev = "OT", Multiplicateur = 2.5M });
+            repositories.SearchModes.Add(new SearchMode() { Nom = "Enmatters, Treasures", Abbrev = "ET", Multiplicateur = 2 });
+            repositories.SearchModes.Add(new SearchMode() { Nom = "Ores, Enmatters, Treasures", Abbrev = "ET", Multiplicateur = 3 });
+
         }
     }
 }

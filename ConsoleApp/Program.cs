@@ -20,6 +20,7 @@ namespace ConsoleApp
             Console.Write("\nNombre de Refiners : " + repo.Refiners.GetAll().Count());
             Console.Write("\nNombre de FinderAmplifiers : " + repo.FinderAmplifiers.GetAll().Count());
             Console.Write("\nNombre de Enhancers : " + repo.Enhancers.GetAll().Count());
+            Console.Write("\nNombre de Search Modes : " + repo.SearchModes.GetAll().Count());
             Console.Write("\nAppuyez sur une touche pour continuer ...\n");
             Console.ReadKey();
         }

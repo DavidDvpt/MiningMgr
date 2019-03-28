@@ -11,5 +11,7 @@ namespace ModelCodeFisrtTPT.Dto
     public class SearchMode : Commun
     {
         public string Abbrev { get; set; }
+
+        public decimal Multiplicateur { get; set; }
     }
 }
