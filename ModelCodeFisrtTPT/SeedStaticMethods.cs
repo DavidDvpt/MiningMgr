@@ -10,14 +10,15 @@ namespace ModelCodeFisrtTPT
         {
             AddCategories(repositories);
             AddModeles(repositories);
-            //AddToolAccessoire(repositories);
+            AddToolAccessoire(repositories);
             AddPlanets(repositories);
             AddFinders(repositories);
-            //AddExcavators(repositories);
-            //AddRefiners(repositories);
-            //AddFinderAmplifiers(repositories);
-            //AddEnhancers(repositories);
+            AddExcavators(repositories);
+            AddRefiners(repositories);
+            AddFinderAmplifiers(repositories);
+            AddEnhancers(repositories);
             //AddMaterials(repositories);
+            //AddPlanetMaterial(repositories);
         }
 
         private static void AddCategories(IRepositoriesUoW repositories)
@@ -52,7 +53,7 @@ namespace ModelCodeFisrtTPT
         private static void AddToolAccessoire(IRepositoriesUoW repositories)
         {
             int tId = repositories.Modeles.GetByNom("Finder").Id;
-            repositories.ToolAccessoires.Add(new ToolAccessoire() { ToolId = tId, AccessoireId = repositories.Modeles.GetByNom("FinderAmplifier").Id });
+            repositories.ToolAccessoires.Add(new ToolAccessoire() { ToolId = tId, AccessoireId = repositories.Modeles.GetByNom("Finder Amplifier").Id });
             repositories.ToolAccessoires.Add(new ToolAccessoire() { ToolId = tId, AccessoireId = repositories.Modeles.GetByNom("Finder Depth Enhancer").Id });
             repositories.ToolAccessoires.Add(new ToolAccessoire() { ToolId = tId, AccessoireId = repositories.Modeles.GetByNom("Finder Range Enhancer").Id });
             repositories.ToolAccessoires.Add(new ToolAccessoire() { ToolId = tId, AccessoireId = repositories.Modeles.GetByNom("Finder Skill Enhancer").Id });
@@ -196,7 +197,7 @@ namespace ModelCodeFisrtTPT
             repositories.Excavators.Add(new Excavator() { Nom = "Punk Digger (L)", ModeleId = id, IsLimited = true, Value = 3, Decay = 0, Efficienty = 6.8M, UsePerMin = 19 });
             repositories.Excavators.Add(new Excavator() { Nom = "Resource Extractor RE-101", ModeleId = id, IsLimited = false, Value = 4, Decay = 0.6M, Efficienty = 7.2M, UsePerMin = 20 });
             repositories.Excavators.Add(new Excavator() { Nom = "Resource Extractor RE-102", ModeleId = id, IsLimited = false, Value = 12.6M, Decay = 1.2M, Efficienty = 8, UsePerMin = 22 });
-repositories.Excavators.Add(new Excavator() { Nom = "Resource Extractor RE-103", ModeleId = id, IsLimited = false, Value = 50, Decay = 1.5M, Efficienty = 8.4M, UsePerMin = 23 });
+            repositories.Excavators.Add(new Excavator() { Nom = "Resource Extractor RE-103", ModeleId = id, IsLimited = false, Value = 50, Decay = 1.5M, Efficienty = 8.4M, UsePerMin = 23 });
             repositories.Excavators.Add(new Excavator() { Nom = "Resource Extractor RE-104", ModeleId = id, IsLimited = false, Value = 65, Decay = 1.73M, Efficienty = 9.6M, UsePerMin = 24 });
             repositories.Excavators.Add(new Excavator() { Nom = "Resource Extractor RE-105", ModeleId = id, IsLimited = false, Value = 80, Decay = 2.22M, Efficienty = 10.8M, UsePerMin = 26 });
             repositories.Excavators.Add(new Excavator() { Nom = "Resource Extractor RE-201 (L)", ModeleId = id, IsLimited = true, Value = 89, Decay = 1.29M, Efficienty = 9.2M, UsePerMin = 25 });
@@ -221,86 +222,86 @@ repositories.Excavators.Add(new Excavator() { Nom = "Resource Extractor RE-103",
         private static void AddRefiners(IRepositoriesUoW repositories)
         {
             int id = repositories.Modeles.GetByNom("Refiner").Id;
-            repositories.Refiners.Add(new Refiner() { Nom = "Chikara Refiner Adjusted", IsLimited = false, Value = 24, Decay = 0.015M, UsePerMin = 22 });
-            repositories.Refiners.Add(new Refiner() { Nom = "Chikara Refiner Modified", IsLimited = false, Value = 41, Decay = .013M, UsePerMin = 25 });
-            repositories.Refiners.Add(new Refiner() { Nom = "Chikara Refiner MR200", IsLimited = false, Value = 16, Decay = 0.023M, UsePerMin = 20 });
-            repositories.Refiners.Add(new Refiner() { Nom = "Chikara Refiner MR300", IsLimited = false, Value = 35, Decay = 0.022M, UsePerMin = 21 });
-            repositories.Refiners.Add(new Refiner() { Nom = "Chikara Refiner MR400", IsLimited = false, Value = 48, Decay = 0.02M, UsePerMin = 30 });
-            repositories.Refiners.Add(new Refiner() { Nom = "Demonic Refiner MK-I (L)", IsLimited = false, Value = 2, Decay = 0.03M, UsePerMin = 0 });
-            repositories.Refiners.Add(new Refiner() { Nom = "Genesis Rookie OreRefiner (L)", IsLimited = false, Value = 0.01M, Decay = 0.11M, UsePerMin = 0 });
-            repositories.Refiners.Add(new Refiner() { Nom = "Genesis Star Basic Refiner", IsLimited = false, Value = 2, Decay = 0.031M, UsePerMin = 20 });
-            repositories.Refiners.Add(new Refiner() { Nom = "Imperium Resource Refiner 1A", IsLimited = false, Value = 3, Decay = 0.03M, UsePerMin = 0 });
-            repositories.Refiners.Add(new Refiner() { Nom = "Imperium Resource Refiner B1", IsLimited = false, Value = 6, Decay = 0.022M, UsePerMin = 21 });
-            repositories.Refiners.Add(new Refiner() { Nom = "Initiate's Refiner", IsLimited = false, Value = 2, Decay = 0.031M, UsePerMin = 0 });
-            repositories.Refiners.Add(new Refiner() { Nom = "NI Basic Refiner", IsLimited = false, Value = 2, Decay = 0.031M, UsePerMin = 0 });
-            repositories.Refiners.Add(new Refiner() { Nom = "NI Refiner New Settler Issue", IsLimited = false, Value = 1, Decay = 0, UsePerMin = 20 });
-            repositories.Refiners.Add(new Refiner() { Nom = "PTech Refiner 1", IsLimited = false, Value = 2, Decay = 0.03M, UsePerMin = 0 });
-            repositories.Refiners.Add(new Refiner() { Nom = "PTech Refiner TT", IsLimited = false, Value = 2, Decay = 0.031M, UsePerMin = 0 });
-            repositories.Refiners.Add(new Refiner() { Nom = "Punk Blender", IsLimited = false, Value = 2, Decay = 0.031M, UsePerMin = 0 });
-            repositories.Refiners.Add(new Refiner() { Nom = "Refiner MR100", IsLimited = false, Value = 2, Decay = 0.031M, UsePerMin = 20 });
-            repositories.Refiners.Add(new Refiner() { Nom = "Transformer T-101", IsLimited = false, Value = 8, Decay = 0.03M, UsePerMin = 20 });
-            repositories.Refiners.Add(new Refiner() { Nom = "Transformer T-102", IsLimited = false, Value = 22.75M, Decay = 0.028M, UsePerMin = 21 });
-            repositories.Refiners.Add(new Refiner() { Nom = "Transformer T-103", IsLimited = false, Value = 45.5M, Decay = 0.026M, UsePerMin = 22 });
-            repositories.Refiners.Add(new Refiner() { Nom = "Transformer T-104", IsLimited = false, Value = 55.3M, Decay = 0.023M, UsePerMin = 34 });
-            repositories.Refiners.Add(new Refiner() { Nom = "Transformer T-105", IsLimited = false, Value = 75, Decay = 0.021M, UsePerMin = 36 });
+            repositories.Refiners.Add(new Refiner() { Nom = "Chikara Refiner Adjusted", ModeleId = id, IsLimited = true, Value = 24, Decay = 0.015M, UsePerMin = 22 });
+            repositories.Refiners.Add(new Refiner() { Nom = "Chikara Refiner Modified", ModeleId = id, IsLimited = true, Value = 41, Decay = .013M, UsePerMin = 25 });
+            repositories.Refiners.Add(new Refiner() { Nom = "Chikara Refiner MR200", ModeleId = id, IsLimited = true, Value = 16, Decay = 0.023M, UsePerMin = 20 });
+            repositories.Refiners.Add(new Refiner() { Nom = "Chikara Refiner MR300", ModeleId = id, IsLimited = true, Value = 35, Decay = 0.022M, UsePerMin = 21 });
+            repositories.Refiners.Add(new Refiner() { Nom = "Chikara Refiner MR400", ModeleId = id, IsLimited = true, Value = 48, Decay = 0.02M, UsePerMin = 30 });
+            repositories.Refiners.Add(new Refiner() { Nom = "Demonic Refiner MK-I (L)", ModeleId = id, IsLimited = false, Value = 2, Decay = 0.03M, UsePerMin = 0 });
+            repositories.Refiners.Add(new Refiner() { Nom = "Genesis Rookie OreRefiner (L)", ModeleId = id, IsLimited = false, Value = 0.01M, Decay = 0.11M, UsePerMin = 0 });
+            repositories.Refiners.Add(new Refiner() { Nom = "Genesis Star Basic Refiner", ModeleId = id, IsLimited = true, Value = 2, Decay = 0.031M, UsePerMin = 20 });
+            repositories.Refiners.Add(new Refiner() { Nom = "Imperium Resource Refiner 1A", ModeleId = id, IsLimited = true, Value = 3, Decay = 0.03M, UsePerMin = 0 });
+            repositories.Refiners.Add(new Refiner() { Nom = "Imperium Resource Refiner B1", ModeleId = id, IsLimited = true, Value = 6, Decay = 0.022M, UsePerMin = 21 });
+            repositories.Refiners.Add(new Refiner() { Nom = "Initiate's Refiner", ModeleId = id, IsLimited = true, Value = 2, Decay = 0.031M, UsePerMin = 0 });
+            repositories.Refiners.Add(new Refiner() { Nom = "NI Basic Refiner", ModeleId = id, IsLimited = true, Value = 2, Decay = 0.031M, UsePerMin = 0 });
+            repositories.Refiners.Add(new Refiner() { Nom = "NI Refiner New Settler Issue", ModeleId = id, IsLimited = true, Value = 1, Decay = 0, UsePerMin = 20 });
+            repositories.Refiners.Add(new Refiner() { Nom = "PTech Refiner 1", ModeleId = id, IsLimited = true, Value = 2, Decay = 0.03M, UsePerMin = 0 });
+            repositories.Refiners.Add(new Refiner() { Nom = "PTech Refiner TT", ModeleId = id, IsLimited = true, Value = 2, Decay = 0.031M, UsePerMin = 0 });
+            repositories.Refiners.Add(new Refiner() { Nom = "Punk Blender", ModeleId = id, IsLimited = true, Value = 2, Decay = 0.031M, UsePerMin = 0 });
+            repositories.Refiners.Add(new Refiner() { Nom = "Refiner MR100", ModeleId = id, IsLimited = true, Value = 2, Decay = 0.031M, UsePerMin = 20 });
+            repositories.Refiners.Add(new Refiner() { Nom = "Transformer T-101", ModeleId = id, IsLimited = true, Value = 8, Decay = 0.03M, UsePerMin = 20 });
+            repositories.Refiners.Add(new Refiner() { Nom = "Transformer T-102", ModeleId = id, IsLimited = true, Value = 22.75M, Decay = 0.028M, UsePerMin = 21 });
+            repositories.Refiners.Add(new Refiner() { Nom = "Transformer T-103", ModeleId = id, IsLimited = true, Value = 45.5M, Decay = 0.026M, UsePerMin = 22 });
+            repositories.Refiners.Add(new Refiner() { Nom = "Transformer T-104", ModeleId = id, IsLimited = true, Value = 55.3M, Decay = 0.023M, UsePerMin = 34 });
+            repositories.Refiners.Add(new Refiner() { Nom = "Transformer T-105", ModeleId = id, IsLimited = true, Value = 75, Decay = 0.021M, UsePerMin = 36 });
 
         }
 
         private static void AddFinderAmplifiers(IRepositoriesUoW repositories)
         {
-            int id = repositories.Modeles.GetByNom("FinderAmplifier").Id;
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Cheeky Finder Amp (L)", IsLimited = true, Value = 50, Decay = 50, Coefficient = 2.5M });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "D-Class Mining Amp (L)", IsLimited = true, Value = 160, Decay = 400, Coefficient = 20M });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "DSEC Seeker Amplifier II (L)", IsLimited = true, Value = 125, Decay = 133, Coefficient = 6.7M });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "DSEC Seeker Amplifier III (L)", IsLimited = true, Value = 268, Decay = 285, Coefficient = 14.3M });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "eMINE Amplifier I (L)", IsLimited = true, Value = 105, Decay = 75, Coefficient = 3.8M });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "eMINE Amplifier II (L)", IsLimited = true, Value = 105, Decay = 150, Coefficient = 7.5M });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 1 Finder Amplifier", IsLimited = false, Value = 78, Decay = 25, Coefficient = 1.3M });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 1 Finder Amplifier (L)", IsLimited = true, Value = 78, Decay = 25, Coefficient = 1.3M });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 1 Finder Amplifier Light (L)", IsLimited = true, Value = 30, Decay = 25, Coefficient = 1.3M });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 2 Finder Amplifier", IsLimited = false, Value = 78, Decay = 50, Coefficient = 2.5M });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 2 Finder Amplifier (L)", IsLimited = true, Value = 100, Decay = 50, Coefficient = 2.5M });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 2 Finder Amplifier, SGA Edition", IsLimited = false, Value = 78, Decay = 50, Coefficient = 2.5M });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 2 Finder Amplifier Light (L)", IsLimited = true, Value = 50, Decay = 50, Coefficient = 2.5M });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 3 Finder Amplifier", IsLimited = false, Value = 100, Decay = 100, Coefficient = 5 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 3 Finder Amplifier (L)", IsLimited = true, Value = 114, Decay = 100, Coefficient = 5 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 3 Finder Amplifier, SGA Edition", IsLimited = false, Value = 114, Decay = 100, Coefficient = 5 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 3 Finder Amplifier Light (L)", IsLimited = true, Value = 75, Decay = 100, Coefficient = 5 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 4 Finder Amplifier (L)", IsLimited = true, Value = 150, Decay = 150, Coefficient = 7.5M });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 5 Finder Amplifier", IsLimited = false, Value = 113, Decay = 200, Coefficient = 10 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 5 Finder Amplifier (L)", IsLimited = true, Value = 200, Decay = 200, Coefficient = 10 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 6 Finder Amplifier (L)", IsLimited = true, Value = 250, Decay = 250, Coefficient = 12.5M });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 7 Finder Amplifier", IsLimited = false, Value = 120, Decay = 300, Coefficient = 15 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 7 Finder Amplifier (L)", IsLimited = true, Value = 120, Decay = 300, Coefficient = 15 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 8 Finder Amplifier", IsLimited = false, Value = 160, Decay = 400, Coefficient = 20 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 8 Finder Amplifier (L)", IsLimited = true, Value = 160, Decay = 400, Coefficient = 20 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 9 Finder Amplifier (L)", IsLimited = true, Value = 260, Decay = 500, Coefficient = 25 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 10 Finder Amplifier (L)", IsLimited = true, Value = 300, Decay = 750, Coefficient = 37.5M });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 11 Finder Amplifier (L)", IsLimited = true, Value = 350, Decay = 1000, Coefficient = 50 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 12 Finder Amplifier (L)", IsLimited = true, Value = 255, Decay = 1500, Coefficient = 75 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 13 Finder Amplifier (L)", IsLimited = true, Value = 340, Decay = 2000, Coefficient = 100 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level I Finder Amplifier 'Achilles' (L)", IsLimited = true, Value = 89, Decay = 25, Coefficient = 1.3M });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level II Finder Amplifier 'Achilles' (L)", IsLimited = true, Value = 115, Decay = 50, Coefficient = 2.5M });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level II Finder Amplifier 'Athena' (L)", IsLimited = true, Value = 82, Decay = 60, Coefficient = 3 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level III Finder Amplifier 'Achilles' (L)", IsLimited = true, Value = 131, Decay = 100, Coefficient = 5 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level III Finder Amplifier 'Athena' (L)", IsLimited = true, Value = 102, Decay = 80, Coefficient = 4 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level V Finder Amplifier 'Athena' (L)", IsLimited = true, Value = 178, Decay = 220, Coefficient = 11 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level VII Finder Amplifier 'Athena' (L)", IsLimited = true, Value = 198, Decay = 320, Coefficient = 16 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level VIII Finder Amplifier 'Athena' (L)", IsLimited = true, Value = 208, Decay = 380, Coefficient = 19 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 1 (L)", IsLimited = true, Value = 45, Decay = 80, Coefficient = 4 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 1 Gold Rush", IsLimited = false, Value = 45, Decay = 80, Coefficient = 4 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 2 (L)", IsLimited = true, Value = 195, Decay = 160, Coefficient = 8 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 3 (L)", IsLimited = true, Value = 300, Decay = 250, Coefficient = 12.5M });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 4 (L)", IsLimited = true, Value = 315, Decay = 350, Coefficient = 17.5M });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 5 (L)", IsLimited = true, Value = 325, Decay = 450, Coefficient = 22.5M });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 6 (L)", IsLimited = true, Value = 338, Decay = 600, Coefficient = 30 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 7 (L)", IsLimited = true, Value = 360, Decay = 900, Coefficient = 45 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 8 (L)", IsLimited = true, Value = 385, Decay = 1200, Coefficient = 60 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 9 (L)", IsLimited = true, Value = 400, Decay = 1600, Coefficient = 80 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 10 (L)", IsLimited = true, Value = 442, Decay = 2000, Coefficient = 100 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp I 'Athena' (L)", IsLimited = true, Value = 64, Decay = 40, Coefficient = 2 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp IV 'Athena' (L)", IsLimited = true, Value = 134, Decay = 120, Coefficient = 6 });
-            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp VI 'Athena' (L)", IsLimited = true, Value = 188, Decay = 260, Coefficient = 13 });
+            int id = repositories.Modeles.GetByNom("Finder Amplifier").Id;
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Cheeky Finder Amp (L)",  ModeleId = id, IsLimited = true, Value = 50, Decay = 50, Coefficient = 2.5M });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "D-Class Mining Amp (L)",  ModeleId = id, IsLimited = true, Value = 160, Decay = 400, Coefficient = 20M });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "DSEC Seeker Amplifier II (L)",  ModeleId = id, IsLimited = true, Value = 125, Decay = 133, Coefficient = 6.7M });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "DSEC Seeker Amplifier III (L)",  ModeleId = id, IsLimited = true, Value = 268, Decay = 285, Coefficient = 14.3M });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "eMINE Amplifier I (L)",  ModeleId = id, IsLimited = true, Value = 105, Decay = 75, Coefficient = 3.8M });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "eMINE Amplifier II (L)",  ModeleId = id, IsLimited = true, Value = 105, Decay = 150, Coefficient = 7.5M });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 1 Finder Amplifier", ModeleId = id, IsLimited = false, Value = 78, Decay = 25, Coefficient = 1.3M });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 1 Finder Amplifier (L)",  ModeleId = id, IsLimited = true, Value = 78, Decay = 25, Coefficient = 1.3M });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 1 Finder Amplifier Light (L)",  ModeleId = id, IsLimited = true, Value = 30, Decay = 25, Coefficient = 1.3M });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 2 Finder Amplifier", ModeleId = id, IsLimited = false, Value = 78, Decay = 50, Coefficient = 2.5M });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 2 Finder Amplifier (L)",  ModeleId = id, IsLimited = true, Value = 100, Decay = 50, Coefficient = 2.5M });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 2 Finder Amplifier, SGA Edition", ModeleId = id, IsLimited = false, Value = 78, Decay = 50, Coefficient = 2.5M });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 2 Finder Amplifier Light (L)",  ModeleId = id, IsLimited = true, Value = 50, Decay = 50, Coefficient = 2.5M });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 3 Finder Amplifier", ModeleId = id, IsLimited = false, Value = 100, Decay = 100, Coefficient = 5 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 3 Finder Amplifier (L)",  ModeleId = id, IsLimited = true, Value = 114, Decay = 100, Coefficient = 5 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 3 Finder Amplifier, SGA Edition", ModeleId = id, IsLimited = false, Value = 114, Decay = 100, Coefficient = 5 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 3 Finder Amplifier Light (L)",  ModeleId = id, IsLimited = true, Value = 75, Decay = 100, Coefficient = 5 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 4 Finder Amplifier (L)",  ModeleId = id, IsLimited = true, Value = 150, Decay = 150, Coefficient = 7.5M });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 5 Finder Amplifier", ModeleId = id, IsLimited = false, Value = 113, Decay = 200, Coefficient = 10 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 5 Finder Amplifier (L)",  ModeleId = id, IsLimited = true, Value = 200, Decay = 200, Coefficient = 10 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 6 Finder Amplifier (L)",  ModeleId = id, IsLimited = true, Value = 250, Decay = 250, Coefficient = 12.5M });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 7 Finder Amplifier", ModeleId = id, IsLimited = false, Value = 120, Decay = 300, Coefficient = 15 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 7 Finder Amplifier (L)",  ModeleId = id, IsLimited = true, Value = 120, Decay = 300, Coefficient = 15 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 8 Finder Amplifier", ModeleId = id, IsLimited = false, Value = 160, Decay = 400, Coefficient = 20 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 8 Finder Amplifier (L)",  ModeleId = id, IsLimited = true, Value = 160, Decay = 400, Coefficient = 20 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 9 Finder Amplifier (L)",  ModeleId = id, IsLimited = true, Value = 260, Decay = 500, Coefficient = 25 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 10 Finder Amplifier (L)",  ModeleId = id, IsLimited = true, Value = 300, Decay = 750, Coefficient = 37.5M });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 11 Finder Amplifier (L)",  ModeleId = id, IsLimited = true, Value = 350, Decay = 1000, Coefficient = 50 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 12 Finder Amplifier (L)",  ModeleId = id, IsLimited = true, Value = 255, Decay = 1500, Coefficient = 75 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level 13 Finder Amplifier (L)",  ModeleId = id, IsLimited = true, Value = 340, Decay = 2000, Coefficient = 100 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level I Finder Amplifier 'Achilles' (L)",  ModeleId = id, IsLimited = true, Value = 89, Decay = 25, Coefficient = 1.3M });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level II Finder Amplifier 'Achilles' (L)",  ModeleId = id, IsLimited = true, Value = 115, Decay = 50, Coefficient = 2.5M });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level II Finder Amplifier 'Athena' (L)",  ModeleId = id, IsLimited = true, Value = 82, Decay = 60, Coefficient = 3 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level III Finder Amplifier 'Achilles' (L)",  ModeleId = id, IsLimited = true, Value = 131, Decay = 100, Coefficient = 5 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level III Finder Amplifier 'Athena' (L)",  ModeleId = id, IsLimited = true, Value = 102, Decay = 80, Coefficient = 4 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level V Finder Amplifier 'Athena' (L)",  ModeleId = id, IsLimited = true, Value = 178, Decay = 220, Coefficient = 11 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level VII Finder Amplifier 'Athena' (L)",  ModeleId = id, IsLimited = true, Value = 198, Decay = 320, Coefficient = 16 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Level VIII Finder Amplifier 'Athena' (L)",  ModeleId = id, IsLimited = true, Value = 208, Decay = 380, Coefficient = 19 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 1 (L)",  ModeleId = id, IsLimited = true, Value = 45, Decay = 80, Coefficient = 4 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 1 Gold Rush", ModeleId = id, IsLimited = false, Value = 45, Decay = 80, Coefficient = 4 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 2 (L)",  ModeleId = id, IsLimited = true, Value = 195, Decay = 160, Coefficient = 8 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 3 (L)",  ModeleId = id, IsLimited = true, Value = 300, Decay = 250, Coefficient = 12.5M });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 4 (L)",  ModeleId = id, IsLimited = true, Value = 315, Decay = 350, Coefficient = 17.5M });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 5 (L)",  ModeleId = id, IsLimited = true, Value = 325, Decay = 450, Coefficient = 22.5M });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 6 (L)",  ModeleId = id, IsLimited = true, Value = 338, Decay = 600, Coefficient = 30 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 7 (L)",  ModeleId = id, IsLimited = true, Value = 360, Decay = 900, Coefficient = 45 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 8 (L)",  ModeleId = id, IsLimited = true, Value = 385, Decay = 1200, Coefficient = 60 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 9 (L)",  ModeleId = id, IsLimited = true, Value = 400, Decay = 1600, Coefficient = 80 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp 10 (L)",  ModeleId = id, IsLimited = true, Value = 442, Decay = 2000, Coefficient = 100 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp I 'Athena' (L)",  ModeleId = id, IsLimited = true, Value = 64, Decay = 40, Coefficient = 2 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp IV 'Athena' (L)",  ModeleId = id, IsLimited = true, Value = 134, Decay = 120, Coefficient = 6 });
+            repositories.FinderAmplifiers.Add(new FinderAmplifier() { Nom = "Terra Amp VI 'Athena' (L)",  ModeleId = id, IsLimited = true, Value = 188, Decay = 260, Coefficient = 13 });
         }
 
         private static void AddEnhancers(IRepositoriesUoW repositories)
@@ -348,17 +349,23 @@ repositories.Excavators.Add(new Excavator() { Nom = "Resource Extractor RE-103",
 			repositories.Enhancers.Add(new Enhancer() { Nom = "Mining Excavator Speed Enhancer II", ModeleId = id, Slot = 2, BonusValue1 = 10, BonusValue2 = 0, Value = 0.2M });
 			repositories.Enhancers.Add(new Enhancer() { Nom = "Mining Excavator Speed Enhancer III", ModeleId = id, Slot = 3, BonusValue1 = 10, BonusValue2 = 0, Value = 0.2M });
 			repositories.Enhancers.Add(new Enhancer() { Nom = "Mining Excavator Speed Enhancer IV", ModeleId = id, Slot = 4, BonusValue1 = 10, BonusValue2 = 0, Value = 0.2M });
-			repositories.Enhancers.Add(new Enhancer() { Nom = "Mining Excavator Speed Enhancer V", ModeleId = id, Slot = 5, BonusValue1 = 10, BonusValue2 = 0, Value = 0.2M });
+            repositories.Enhancers.Add(new Enhancer() { Nom = "Mining Excavator Speed Enhancer IX", ModeleId = id, Slot = 9, BonusValue1 = 10, BonusValue2 = 0, Value = 0.2M });
+            repositories.Enhancers.Add(new Enhancer() { Nom = "Mining Excavator Speed Enhancer V", ModeleId = id, Slot = 5, BonusValue1 = 10, BonusValue2 = 0, Value = 0.2M });
 			repositories.Enhancers.Add(new Enhancer() { Nom = "Mining Excavator Speed Enhancer VI", ModeleId = id, Slot = 6, BonusValue1 = 10, BonusValue2 = 0, Value = 0.2M });
 			repositories.Enhancers.Add(new Enhancer() { Nom = "Mining Excavator Speed Enhancer VII", ModeleId = id, Slot = 7, BonusValue1 = 10, BonusValue2 = 0, Value = 0.2M });
 			repositories.Enhancers.Add(new Enhancer() { Nom = "Mining Excavator Speed Enhancer VIII", ModeleId = id, Slot = 8, BonusValue1 = 10, BonusValue2 = 0, Value = 0.2M });
 			repositories.Enhancers.Add(new Enhancer() { Nom = "Mining Excavator Speed Enhancer X", ModeleId = id, Slot = 10, BonusValue1 = 10, BonusValue2 = 0, Value = 0.2M });
 		}
-		
-		private static void AddMaterials(IRepositoriesUoW repositories)
+
+        private static void AddMaterials(IRepositoriesUoW repositories)
         {
             int id = repositories.Modeles.GetByNom("Material").Id;
 
+        }
+
+        private static void AddPlanetMaterial(IRepositoriesUoW repositories)
+        {
+            throw new NotImplementedException();
         }
     }
 }

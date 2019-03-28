@@ -1,11 +1,7 @@
 ﻿using ModelCodeFisrtTPT.Repositories;
 using ModelCodeFisrtTPT.Repositories.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
 
 namespace ConsoleApp
 {
@@ -15,10 +11,16 @@ namespace ConsoleApp
         {
             Console.WriteLine("turlututu");
             IRepositoriesUoW repo = new RepositoriesUoW();
-            Console.Write("Nombre de categories :" + repo.Categories.GetAll().Count());
-            Console.Write("\nNombre de modeles :" + repo.Modeles.GetAll().Count());
-            Console.Write("\nNombre de planetes :" + repo.Planets.GetAll().Count());
-            Console.Write("\nNombre de Finders :" + repo.Finders.GetAll().Count());
+            Console.Write("Nombre de categories : " + repo.Categories.GetAll().Count());
+            Console.Write("\nNombre de modeles : " + repo.Modeles.GetAll().Count());
+            Console.Write("\nNombre de ToolAccessoire : " + repo.ToolAccessoires.GetAll().Count());
+            Console.Write("\nNombre de planetes : " + repo.Planets.GetAll().Count());
+            Console.Write("\nNombre de Finders : " + repo.Finders.GetAll().Count());
+            Console.Write("\nNombre de Excavators : " + repo.Excavators.GetAll().Count());
+            Console.Write("\nNombre de Refiners : " + repo.Refiners.GetAll().Count());
+            Console.Write("\nNombre de FinderAmplifiers : " + repo.FinderAmplifiers.GetAll().Count());
+            Console.Write("\nNombre de Enhancers : " + repo.Enhancers.GetAll().Count());
+            Console.Write("\nAppuyez sur une touche pour continuer ...\n");
             Console.ReadKey();
         }
     }
