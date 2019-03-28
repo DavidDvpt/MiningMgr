@@ -1,0 +1,43 @@
+﻿<Window x:Class="WpfApp.Fenetres.SetupCRUD"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp.Fenetres"
+        mc:Ignorable="d"
+        Title="SetupCRUD" Height="400" Width="400">
+    <StackPanel Margin="10">
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <Label Width="55">Name:</Label>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <Label Width="55">Finder :</Label>
+            <ComboBox Name ="cbxFinder" Width="100"/>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <Label Width="110">Finder Amplifier :</Label>
+            <ComboBox Name ="cbxFinderAmplifier">
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <Label Width="150">Depth Enhancer Quantity :</Label>
+            <TextBox Width="50" HorizontalAlignment="Left" Text="{Binding DepthEnhancerQty}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <Label Width="150">Range Enhancer Quantity :</Label>
+            <TextBox Width="50" HorizontalAlignment="Left" Text="{Binding DepthEnhancerQty}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <Label Width="150">Skill Enhancer Quantity :</Label>
+            <TextBox Name="dhQty" Width="50" HorizontalAlignment="Left" Text="{Binding DepthEnhancerQty}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="30">
+            <Button Name="Creer" Click="BtnCreate_Click" IsEnabled="True">Creer</Button>
+            <Button Name="Modifier" Click="BtnUpdate_Click" IsEnabled="false"/>
+            <Button Name="Supprimer" Click="BtnDelete_Click" IsEnabled="false"/>
+            <Button Name="Annuler" Click="BtnDelete_Click" IsEnabled="true"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

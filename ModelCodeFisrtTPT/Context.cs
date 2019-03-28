@@ -10,7 +10,8 @@ namespace ModelCodeFisrtTPT
 {
     public class Context : DbContext
     {
-        public Context() : base("MiningTest")
+        //public Context() : base("MiningTest")
+        public Context() : base("name=MiningDb")
         {
             //Database.SetInitializer<Context>(new DropCreateDatabaseAlways<Context>());
             //Database.SetInitializer<Context>(new CreateDatabaseIfNotExists<Context>());

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ModelCodeFisrtTPT
 {
-    public class SeedClass : DropCreateDatabaseAlways<Context>
+    public class SeedClass : CreateDatabaseIfNotExists<Context>
     {
         protected override void Seed(Context ctx)
         {
