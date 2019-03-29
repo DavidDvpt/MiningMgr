@@ -21,7 +21,7 @@
         <StackPanel Orientation="Horizontal" Margin="5">
             <Label Width="150">Finder :</Label>
             <ComboBox Name ="cbxFinder" Width="200"
-                        ItemsSource="{Binding Path = Finders}"
+                ItemsSource="{Binding Path = Finders}"
                 DisplayMemberPath="Nom"
                 SelectedIndex="1">
             </ComboBox>

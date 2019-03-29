@@ -4,7 +4,7 @@ using System.Data.Entity;
 
 namespace WpfApp.Context
 {
-    public class SeedClass : CreateDatabaseIfNotExists<MiningContext>
+    public class SeedClass : DropCreateDatabaseAlways<MiningContext>
     {
         protected override void Seed(MiningContext ctx)
         {

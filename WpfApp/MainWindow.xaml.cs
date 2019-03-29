@@ -2,6 +2,7 @@
 using WpfApp.Repositories.Interfaces;
 using System.Windows;
 using WpfApp.Views;
+using WpfApp.ViewModel;
 
 namespace WpfApp
 {
@@ -14,18 +15,18 @@ namespace WpfApp
         public MainWindow()
         {
             InitializeComponent();
-            _repo = new RepositoriesUoW();
-            DataContext = _repo;
-            
         }
 
+        private void SetupViewControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            SetupViewModel setupViewModelObject = new SetupViewModel();
+            SetupViewControl.DataContext = setupViewModelObject;
+        }
+
+        //private void SetupViewControl_Loaded
         private void MenuItemSetupCRUD_Click(object sender, RoutedEventArgs e)
         {
-            SetupView sv = new SetupView();
-            container.
-            ////MessageBox.Show("test");
-            //SetupView setup = new SetupView();
-            //setup.Show();
+
         }
     }
 }

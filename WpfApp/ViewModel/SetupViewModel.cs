@@ -16,7 +16,7 @@ namespace WpfApp.ViewModel
 
         public SetupViewModel()
         {
-            if (repos != null)
+            if (repos == null)
                 repos = new RepositoriesUoW();
             else
                 throw new NullReferenceException("Le context est null");
