@@ -1,7 +1,7 @@
 ﻿using WpfApp.Repositories;
 using WpfApp.Repositories.Interfaces;
 using System.Windows;
-using WpfApp.Fenetres;
+using WpfApp.Views;
 
 namespace WpfApp
 {
@@ -21,9 +21,11 @@ namespace WpfApp
 
         private void MenuItemSetupCRUD_Click(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show("test");
-            SetupCRUD setup = new SetupCRUD(_repo);
-            setup.Show();
+            SetupView sv = new SetupView();
+            container.
+            ////MessageBox.Show("test");
+            //SetupView setup = new SetupView();
+            //setup.Show();
         }
     }
 }
