@@ -77,7 +77,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Fenetres\SetupCRUD.xaml">
+    <Compile Include="Context\MiningContext.cs" />
+    <Compile Include="Migrations\201903290016588_Maj_01.cs" />
+    <Compile Include="Migrations\201903290016588_Maj_01.Designer.cs">
+      <DependentUpon>201903290016588_Maj_01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositories\CommunRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICommunRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRepositoriesUoW.cs" />
+    <Compile Include="Repositories\Interfaces\IRepository.cs" />
+    <Compile Include="Repositories\RepositoriesUoW.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Context\SeedClass.cs" />
+    <Compile Include="Context\SeedStaticMethods.cs" />
+    <Page Include="View\SetupCRUD.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -89,7 +103,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Fenetres\SetupCRUD.xaml.cs">
+    <Compile Include="View\SetupCRUD.xaml.cs">
       <DependentUpon>SetupCRUD.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -98,6 +112,23 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Categorie.cs" />
+    <Compile Include="Model\Commun.cs" />
+    <Compile Include="Model\Enhancer.cs" />
+    <Compile Include="Model\Excavator.cs" />
+    <Compile Include="Model\Finder.cs" />
+    <Compile Include="Model\FinderAmplifier.cs" />
+    <Compile Include="Model\InWorld.cs" />
+    <Compile Include="Model\Material.cs" />
+    <Compile Include="Model\Modele.cs" />
+    <Compile Include="Model\Planet.cs" />
+    <Compile Include="Model\PlanetMaterial.cs" />
+    <Compile Include="Model\Refiner.cs" />
+    <Compile Include="Model\SearchMode.cs" />
+    <Compile Include="Model\Setup.cs" />
+    <Compile Include="Model\Tool.cs" />
+    <Compile Include="Model\ToolAccessoire.cs" />
+    <Compile Include="Model\Unstackable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -111,6 +142,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201903290016588_Maj_01.resx">
+      <DependentUpon>201903290016588_Maj_01.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -123,12 +157,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ModelCodeFisrtTPT\ModelCodeFisrtTPT.csproj">
-      <Project>{6cf3084f-fc3f-4a3a-ac96-6885fc038b86}</Project>
-      <Name>ModelCodeFisrtTPT</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\MiningDb.mdf">
@@ -150,6 +178,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

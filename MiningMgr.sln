@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelCodeFisrtTPT", "ModelCodeFisrtTPT\ModelCodeFisrtTPT.csproj", "{6CF3084F-FC3F-4A3A-AC96-6885FC038B86}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{EC0EDB3B-F668-4DEE-9D7F-6CAF18171BD0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp", "WpfApp\WpfApp.csproj", "{A77B1FBD-76BC-422A-BE00-03E4704081D0}"
 EndProject
 Global
@@ -15,14 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6CF3084F-FC3F-4A3A-AC96-6885FC038B86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6CF3084F-FC3F-4A3A-AC96-6885FC038B86}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6CF3084F-FC3F-4A3A-AC96-6885FC038B86}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6CF3084F-FC3F-4A3A-AC96-6885FC038B86}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EC0EDB3B-F668-4DEE-9D7F-6CAF18171BD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EC0EDB3B-F668-4DEE-9D7F-6CAF18171BD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EC0EDB3B-F668-4DEE-9D7F-6CAF18171BD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EC0EDB3B-F668-4DEE-9D7F-6CAF18171BD0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A77B1FBD-76BC-422A-BE00-03E4704081D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A77B1FBD-76BC-422A-BE00-03E4704081D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A77B1FBD-76BC-422A-BE00-03E4704081D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
