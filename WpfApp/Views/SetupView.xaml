@@ -29,8 +29,8 @@
 
         <StackPanel Orientation="Horizontal" Margin="5">
             <Label Width="150">Finder Amplifier :</Label>
-            <ComboBox Name ="cbxFinderAmplifier" Width="200">
-                ItemsSource="{Binding Path = FindeAmplifiers}"
+            <ComboBox Name ="cbxFinderAmplifier" Width="200"
+                ItemsSource="{Binding Path = FinderAmplifiers}"
                 DisplayMemberPath="Nom"
                 SelectedIndex="1">
             </ComboBox>

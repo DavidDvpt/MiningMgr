@@ -13,8 +13,9 @@ namespace WpfApp.ViewModel
 
         public SetupViewModel() : base()
         {
-            
+
         }
+
 
         protected override void Init()
         {
