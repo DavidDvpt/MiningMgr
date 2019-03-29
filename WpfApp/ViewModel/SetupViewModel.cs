@@ -8,15 +8,16 @@ using WpfApp.Repositories.Interfaces;
 
 namespace WpfApp.ViewModel
 {
-    public class SetupViewModel
+    public class SetupViewModel : BaseViewModel
     {
-        private IRepositoriesUoW repos;
 
-        public SetupViewModel()
+        public SetupViewModel() : base()
         {
-            if (repos == null)
-                repos = new RepositoriesUoW();
+            
+        }
 
+        protected override void Init()
+        {
             Setup = new Setup() { DepthEnhancerQty = 5 };
             Finders = FindersLoad();
             FinderAmplifiers = FindersAmplifiersLoad();

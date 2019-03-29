@@ -30,7 +30,9 @@
         <StackPanel Orientation="Horizontal" Margin="5">
             <Label Width="150">Finder Amplifier :</Label>
             <ComboBox Name ="cbxFinderAmplifier" Width="200">
-                <ItemsControl ItemsSource="{Binding Path = FindeAmplifiers"/>
+                ItemsSource="{Binding Path = FindeAmplifiers}"
+                DisplayMemberPath="Nom"
+                SelectedIndex="1">
             </ComboBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="5">
