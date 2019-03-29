@@ -11,9 +11,8 @@
     <UserControl.DataContext>
         <viewModel:SetupViewModel/>
     </UserControl.DataContext>
-    
+
     <StackPanel Margin="10">
-        <ItemsControl ItemsSource="{Binding Path = Setup}"/>
         <StackPanel Orientation="Horizontal" Margin="5">
             <Label Width="100">Nom:</Label>
             <TextBox Name="tbNom" Width ="250"/>
@@ -31,20 +30,20 @@
         <StackPanel Orientation="Horizontal" Margin="5">
             <Label Width="150">Finder Amplifier :</Label>
             <ComboBox Name ="cbxFinderAmplifier" Width="200">
-                <!--<ItemsControl ItemsSource="{Binding Path = FindeAmplifiers"/>-->
+                <ItemsControl ItemsSource="{Binding Path = FindeAmplifiers"/>
             </ComboBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="5">
             <Label Width="150">Depth Enhancer Quantity :</Label>
-            <TextBox Width="50" HorizontalAlignment="Left" Text="{Binding DepthEnhancerQty}"/>
+            <TextBox Width="50" HorizontalAlignment="Left" Text="{Binding Setup.DepthEnhancerQty, Mode =TwoWay}"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="5">
             <Label Width="150">Range Enhancer Quantity :</Label>
-            <TextBox Width="50" HorizontalAlignment="Left" Text="{Binding DepthEnhancerQty}"/>
+            <TextBox Width="50" HorizontalAlignment="Left" Text="{Binding Setup.RangeEnhancerQty, Mode =TwoWay}"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="5">
             <Label Width="150">Skill Enhancer Quantity :</Label>
-            <TextBox Name="dhQty" Width="50" HorizontalAlignment="Left" Text="{Binding DepthEnhancerQty}"/>
+            <TextBox Name="dhQty" Width="50" HorizontalAlignment="Left" Text="{Binding Setup.SkillEnhancerQty, Mode =TwoWay}"/>
         </StackPanel>
         <Grid Height="30">
             <Grid.ColumnDefinitions>

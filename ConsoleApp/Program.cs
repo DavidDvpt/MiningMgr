@@ -1,5 +1,5 @@
-﻿using ModelCodeFisrtTPT.Repositories;
-using ModelCodeFisrtTPT.Repositories.Interfaces;
+﻿using WpfApp.Repositories;
+using WpfApp.Repositories.Interfaces;
 using System;
 using System.Linq;
 

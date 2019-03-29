@@ -5,6 +5,9 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using WpfApp.Context;
+using WpfApp.Repositories;
+using WpfApp.Repositories.Interfaces;
 
 namespace WpfApp
 {
@@ -13,5 +16,12 @@ namespace WpfApp
     /// </summary>
     public partial class App : Application
     {
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            IRepositoriesUoW repos = new RepositoriesUoW();
+
+            MainWindow wnd = new MainWindow(repos);
+            wnd.Show();
+        }
     }
 }

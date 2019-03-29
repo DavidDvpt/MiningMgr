@@ -9,9 +9,9 @@ namespace WpfApp.Context
         //public Context() : base("MiningTest")
         public MiningContext() : base("name=MiningDb")
         {
-            //Database.SetInitializer<Context>(new DropCreateDatabaseAlways<Context>());
-            //Database.SetInitializer<Context>(new CreateDatabaseIfNotExists<Context>());
-            //Database.SetInitializer<Context>(new DropCreateDatabaseIfModelChanges<Context>());
+            //Database.SetInitializer<MiningContext>(new DropCreateDatabaseAlways<MiningContext>());
+            //Database.SetInitializer<MiningContext>(new CreateDatabaseIfNotExists<MiningContext>());
+            //Database.SetInitializer<MiningContext>(new DropCreateDatabaseIfModelChanges<Context>());
             Database.SetInitializer<MiningContext>(new SeedClass());
         }
 

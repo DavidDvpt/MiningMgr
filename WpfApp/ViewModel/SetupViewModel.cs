@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WpfApp.Context;
 using WpfApp.Model;
 using WpfApp.Repositories;
 using WpfApp.Repositories.Interfaces;
@@ -18,20 +16,26 @@ namespace WpfApp.ViewModel
         {
             if (repos == null)
                 repos = new RepositoriesUoW();
-            else
-                throw new NullReferenceException("Le context est null");
+
+            Setup = new Setup() { DepthEnhancerQty = 5 };
+            Finders = FindersLoad();
+            FinderAmplifiers = FindersAmplifiersLoad();
         }
 
         public Setup Setup { get; set; }
 
+        public ICollection<Finder> Finders { get; set; }
+        public ICollection<FinderAmplifier> FinderAmplifiers { get; set; }
+
+
         // Pour alimenter le combobox choix du finder
-        public ICollection<Finder> Finders()
+        public ICollection<Finder> FindersLoad()
         {
             return repos.Finders.GetAll().ToList();
         }
 
         // Pour alimenter le combobox choix du finderamplifier
-        public ICollection<FinderAmplifier> FindersAmplifiers()
+        public ICollection<FinderAmplifier> FindersAmplifiersLoad()
         {
             return repos.FinderAmplifiers.GetAll().ToList();
         }
