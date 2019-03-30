@@ -39,7 +39,7 @@ namespace WpfApp.Views
 
         private void Annuler_Click(object sender, RoutedEventArgs e)
         {
-            ((SetupViewModel)DataContext).Setup.RangeEnhancerQty = 5;
+            ((SetupViewModel)DataContext).Setup.DepthEnhancerQty = 5;
         }
     }
 }
