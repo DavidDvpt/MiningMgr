@@ -30,13 +30,14 @@ namespace WpfApp
         public MainWindow()
         {
             InitializeComponent();
+            container.DataContext = new SetupView();
         }
 
-        private void SetupViewControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            SetupViewModel setupViewModelObject = new SetupViewModel();
-            SetupViewControl.DataContext = setupViewModelObject;
-        }
+        //private void SetupViewControl_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    SetupViewModel setupViewModelObject = new SetupViewModel();
+        //    SetupViewControl.DataContext = setupViewModelObject;
+        //}
 
         //private void SetupViewControl_Loaded
         private void MenuItemSetupCRUD_Click(object sender, RoutedEventArgs e)

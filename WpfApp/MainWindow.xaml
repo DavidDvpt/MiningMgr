@@ -28,7 +28,8 @@
         </StatusBar>
         
         <Grid Name="container">
-            <views:SetupView x:Name ="SetupViewControl" Loaded ="SetupViewControl_Loaded"/>
+            <!--<views:SetupView x:Name ="SetupViewControl" Loaded ="SetupViewControl_Loaded"/>-->
+            <views:SetupView x:Name ="SetupViewControl"/>
         </Grid>
         
         

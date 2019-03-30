@@ -4,13 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp.Views"
-             xmlns:viewModel = "clr-namespace:WpfApp.ViewModel"
+             xmlns:viewModel = "clr-namespace:WpfApp.ViewModel" 
+             xmlns:vml = "clr-namespace:WpfApp.VML" 
+             vml:ViewModelLocator.AutoHookedUpViewModel = "True" 
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="400">
 
-    <UserControl.DataContext>
+    <!--<UserControl.DataContext>
         <viewModel:SetupViewModel/>
-    </UserControl.DataContext>
+    </UserControl.DataContext>-->
 
     <StackPanel Margin="10">
         <StackPanel Orientation="Horizontal" Margin="5">

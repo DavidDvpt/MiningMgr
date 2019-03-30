@@ -12,10 +12,11 @@ namespace WpfApp.ViewModel
             Setup = setup;
             AllEnabledChange(false);
         }
-        public SetupViewModel() : base()
-        {
 
-        }
+        //public SetupViewModel() : base()
+        //{
+        //    Init();
+        //}
 
         protected override void Init()
         {

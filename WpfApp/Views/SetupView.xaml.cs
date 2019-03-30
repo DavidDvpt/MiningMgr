@@ -20,11 +20,27 @@ namespace WpfApp.Views
     /// <summary>
     /// Logique d'interaction pour SetupView.xaml
     /// </summary>
+    /// 
     public partial class SetupView : UserControl
     {
         public SetupView()
         {
             InitializeComponent();
+
+            //this.DataContext = new SetupViewModel();
+            //this.DataContext = new SetupViewModel(new Setup());
+        }
+
+        public SetupView(Setup setup)
+        {
+            InitializeComponent();
+
+            if (setup == null)
+            {
+                setup = new Setup();
+            }
+
+            this.DataContext = new SetupViewModel(setup);
         }
 
          private void Creer_Click(object sender, RoutedEventArgs e)
@@ -39,7 +55,7 @@ namespace WpfApp.Views
 
         private void Desactiver_Click(object sender, RoutedEventArgs e)
         {
-            ((SetupViewModel)DataContext).DesactiverSetup();
+            //((SetupViewModel)DataContext).DesactiverSetup();
         }
     }
 }
