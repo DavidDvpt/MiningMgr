@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp.Model;
+using WpfApp.ViewModel;
 
 namespace WpfApp.Views
 {
@@ -23,6 +25,21 @@ namespace WpfApp.Views
         public SetupView()
         {
             InitializeComponent();
+        }
+
+        private void Creer_Click(object sender, RoutedEventArgs e)
+        {
+           MessageBox.Show(((SetupViewModel)DataContext).ToString());
+        }
+
+        private void CbxFinderAmplifier_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ((SetupViewModel)DataContext).NomComposition();
+        }
+
+        private void Annuler_Click(object sender, RoutedEventArgs e)
+        {
+            ((SetupViewModel)DataContext).Setup.RangeEnhancerQty = 5;
         }
     }
 }

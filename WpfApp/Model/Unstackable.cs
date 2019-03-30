@@ -14,5 +14,7 @@ namespace WpfApp.Model
         public bool IsLimited { get; set; } = true;
 
         public decimal Decay { get; set; }
+
+        public string Code { get; set; } = "";
     }
 }

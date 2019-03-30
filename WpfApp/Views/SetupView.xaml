@@ -15,16 +15,16 @@
     <StackPanel Margin="10">
         <StackPanel Orientation="Horizontal" Margin="5">
             <Label Width="100">Nom:</Label>
-            <TextBox Name="tbNom" Width ="250"/>
-    </StackPanel>
+            <TextBox Name="tbNom" Width ="250" Text="{Binding Path = Setup.Nom, Mode =TwoWay}" IsEnabled="False"/>
+        </StackPanel>
+        
         <StackPanel Orientation="Horizontal" Margin="5">
             <Label Width="150">Finder :</Label>
             <ComboBox Name ="cbxFinder" Width="200"
                 ItemsSource="{Binding Path = Finders}"
                 DisplayMemberPath="Nom"
-                SelectedIndex="1">
+                SelectedItem="{Binding Path=Setup.Finder, Mode =TwoWay}">
             </ComboBox>
-
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Margin="5">
@@ -32,21 +32,26 @@
             <ComboBox Name ="cbxFinderAmplifier" Width="200"
                 ItemsSource="{Binding Path = FinderAmplifiers}"
                 DisplayMemberPath="Nom"
-                SelectedIndex="1">
+                SelectedItem="{Binding Path=Setup.FinderAmplifier, Mode =TwoWay}"
+                SelectionChanged="CbxFinderAmplifier_SelectionChanged">
             </ComboBox>
         </StackPanel>
+        
         <StackPanel Orientation="Horizontal" Margin="5">
             <Label Width="150">Depth Enhancer Quantity :</Label>
             <TextBox Width="50" HorizontalAlignment="Left" Text="{Binding Setup.DepthEnhancerQty, Mode =TwoWay}"/>
         </StackPanel>
+        
         <StackPanel Orientation="Horizontal" Margin="5">
             <Label Width="150">Range Enhancer Quantity :</Label>
             <TextBox Width="50" HorizontalAlignment="Left" Text="{Binding Setup.RangeEnhancerQty, Mode =TwoWay}"/>
         </StackPanel>
+        
         <StackPanel Orientation="Horizontal" Margin="5">
             <Label Width="150">Skill Enhancer Quantity :</Label>
             <TextBox Name="dhQty" Width="50" HorizontalAlignment="Left" Text="{Binding Setup.SkillEnhancerQty, Mode =TwoWay}"/>
         </StackPanel>
+        
         <Grid Height="30">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -54,10 +59,11 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Name="Creer" IsEnabled="True">Creer</Button>
+            
+            <Button Name="Creer" IsEnabled="True" Click="Creer_Click">Creer</Button>
             <Button Name="Modifier" Grid.Column="1" IsEnabled="false">Modifier</Button>
             <Button Name="Supprimer" Grid.Column="2" IsEnabled="false">Supprimer</Button>
-            <Button Name="Annuler" Grid.Column="3" IsEnabled="true">Annuler</Button>
+            <Button Name="Annuler" Grid.Column="3" IsEnabled="true" Click="Annuler_Click">Annuler</Button>
         </Grid>
     </StackPanel>
 </UserControl>
