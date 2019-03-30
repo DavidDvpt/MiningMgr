@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Runtime.CompilerServices;
 
 namespace WpfApp.Model
 {
@@ -10,13 +9,8 @@ namespace WpfApp.Model
         private int _depthEnhancerQty;
         private int _rangeEnhancerQty;
         private int _skillEnhancerQty;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        private Finder _finder;
+        private FinderAmplifier _finderAmplifier;
 
         public int FinderId { get; set; }
 
@@ -30,6 +24,7 @@ namespace WpfApp.Model
                 if (value != _depthEnhancerQty)
                 {
                     _depthEnhancerQty = value;
+                    NomComposition();
                     NotifyPropertyChanged();
                 }
             }
@@ -43,6 +38,7 @@ namespace WpfApp.Model
                 if (value != _rangeEnhancerQty)
                 {
                     _rangeEnhancerQty = value;
+                    NomComposition();
                     NotifyPropertyChanged();
                 }
             }
@@ -56,20 +52,54 @@ namespace WpfApp.Model
                 if (value != _skillEnhancerQty)
                 {
                     _skillEnhancerQty = value;
+                    NomComposition();
                     NotifyPropertyChanged();
                 }
             }
         }
 
         [ForeignKey("FinderId")]
-        public virtual Finder Finder { get; set; }
- 
+        public virtual Finder Finder
+        {
+            get => _finder;
+            set
+            {
+                if (value != _finder)
+                {
+                    _finder = value;
+                    //FinderId = Finder.Id;
+                    NomComposition();
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
         [ForeignKey("FinderAmplifierId")]
-        public virtual FinderAmplifier FinderAmplifier { get; set; }
+        public virtual FinderAmplifier FinderAmplifier
+        {
+            get => _finderAmplifier;
+            set
+            {
+                if (value != _finderAmplifier)
+                {
+                    _finderAmplifier = value;
+                    //FinderAmplifierId = FinderAmplifier.Id;
+                    NomComposition();
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
+        // cree le nom du setup à partir des outils utilises
+        private void NomComposition()
+        {
+            if (Finder != null && FinderAmplifier != null)
+            {
+                Nom = Finder.Code + "_" + FinderAmplifier.Code + "_T" + TierUsed().ToString() + "_D" + DepthEnhancerQty.ToString() + "R" + RangeEnhancerQty.ToString() + "S" + SkillEnhancerQty.ToString();
+            }
+        }
 
-
+        // retourne le nombre d'enhancers poses sur le tool
         public int TierUsed()
         {
             return DepthEnhancerQty + RangeEnhancerQty + SkillEnhancerQty;

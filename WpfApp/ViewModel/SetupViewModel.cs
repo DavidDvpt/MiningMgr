@@ -18,7 +18,7 @@ namespace WpfApp.ViewModel
 
         protected override void Init()
         {
-            Setup = new Setup() {};
+            Setup = new Setup();
             Finders = FindersLoad();
             FinderAmplifiers = FindersAmplifiersLoad();
             Setup.Finder = Finders.First();
@@ -39,33 +39,6 @@ namespace WpfApp.ViewModel
         public ICollection<FinderAmplifier> FindersAmplifiersLoad()
         {
             return repos.FinderAmplifiers.GetAll().ToList();
-        }
-
-
-        //public Finder SelectedFinder
-        //{
-        //    get
-        //    {
-        //        return SelectedFinder;
-        //    }
-        //    set
-        //    {
-        //        SelectedFinder = value;
-        //        NomComposition();
-        //    }
-        //}
-
-        //public FinderAmplifier SelectedFinderAmplifier { get; set; }
-
-
-        public void NomComposition()
-        {
-            Setup.Nom = Setup.Finder.Code + "_" + Setup.FinderAmplifier.Code + "_T" + Setup.TierUsed().ToString() + "_D" + Setup.DepthEnhancerQty.ToString() + "R" + Setup.RangeEnhancerQty.ToString() + "S" + Setup.SkillEnhancerQty.ToString();
-        }
-
-        public override string ToString()
-        {
-            return Setup.Finder.Nom + " " + Setup.FinderAmplifier.Nom;
         }
     }
 }

@@ -32,8 +32,7 @@
             <ComboBox Name ="cbxFinderAmplifier" Width="200"
                 ItemsSource="{Binding Path = FinderAmplifiers}"
                 DisplayMemberPath="Nom"
-                SelectedItem="{Binding Path=Setup.FinderAmplifier, Mode =TwoWay}"
-                SelectionChanged="CbxFinderAmplifier_SelectionChanged">
+                SelectedItem="{Binding Path=Setup.FinderAmplifier, Mode =TwoWay}">
             </ComboBox>
         </StackPanel>
         

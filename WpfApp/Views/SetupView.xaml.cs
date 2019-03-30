@@ -27,19 +27,33 @@ namespace WpfApp.Views
             InitializeComponent();
         }
 
-        private void Creer_Click(object sender, RoutedEventArgs e)
+        //lance la recomposition du nom suite aux changement du finder ou de l'amplifier
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            NomCompositionChanged();
+        }
+
+        //lance la recomposition du nom suite aux changement de la quantité et du type des enhancers
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            NomCompositionChanged();
+        }
+
+        // Recalcule l'affichage du Nom
+        private void NomCompositionChanged()
+        {
+            //((SetupViewModel)DataContext).NomComposition();
+        }
+
+         private void Creer_Click(object sender, RoutedEventArgs e)
         {
            MessageBox.Show(((SetupViewModel)DataContext).ToString());
         }
 
-        private void CbxFinderAmplifier_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ((SetupViewModel)DataContext).NomComposition();
-        }
-
         private void Annuler_Click(object sender, RoutedEventArgs e)
         {
-            ((SetupViewModel)DataContext).Setup.DepthEnhancerQty = 5;
+            ((SetupViewModel)DataContext).Setup.Finder = ((SetupViewModel)DataContext).Finders.First();
         }
+
     }
 }

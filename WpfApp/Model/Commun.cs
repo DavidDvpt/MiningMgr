@@ -1,11 +1,23 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.CompilerServices;
 
 namespace WpfApp.Model
 {
     [Table("Commun")]
     public abstract class Commun
     {
+        private string _nom;
+        private bool _isActive = true;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         [Key]
         [Required]
         public int Id { get; set; }
@@ -14,10 +26,31 @@ namespace WpfApp.Model
         [Column(TypeName = "VARCHAR")]
         [StringLength(50,ErrorMessage = "La longueur maximum est de 50")]
         [Index(IsUnique = true)]
-        public string Nom { get; set; }
+        public string Nom
+        {
+            get => _nom;
+            set
+            {
+                if (value != _nom)
+                {
+                    _nom = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
         [Required]
-
-        public bool IsActive { get; set; } = true;
+        public bool IsActive
+        {
+            get => _isActive;
+            set
+            {
+                if (value != _isActive)
+                {
+                    _isActive = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
     }
 }
