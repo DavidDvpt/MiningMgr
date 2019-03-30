@@ -12,7 +12,7 @@ namespace WpfApp.VML
     {
         public static bool GetAutoHookedUpViewModel(DependencyObject obj)
         {
-            return (bool)obj.SetValue(AutoHookedUpViewModelProperty);
+            return (bool)obj.GetValue(AutoHookedUpViewModelProperty);
         }
 
         public static void SetAutoHookedUpViewModel(DependencyObject obj, bool value)

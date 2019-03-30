@@ -40,12 +40,7 @@ namespace WpfApp.Views
                 setup = new Setup();
             }
 
-            this.DataContext = new SetupViewModel(setup);
-        }
-
-         private void Creer_Click(object sender, RoutedEventArgs e)
-        {
-            ((SetupViewModel)DataContext).CreerSetup();
+            this.DataContext = new SetupViewModel();
         }
 
         private void Annuler_Click(object sender, RoutedEventArgs e)

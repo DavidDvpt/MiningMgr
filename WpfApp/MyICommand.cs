@@ -28,7 +28,6 @@ namespace WpfApp
             CanExecuteChanged(this, EventArgs.Empty);
         }
 
-
         public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)

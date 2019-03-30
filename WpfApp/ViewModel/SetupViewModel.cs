@@ -7,16 +7,16 @@ namespace WpfApp.ViewModel
     public class SetupViewModel : BaseViewModel
     {
         // si modification du setup
-        public SetupViewModel(Setup setup) : base()
-        {
-            Setup = setup;
-            AllEnabledChange(false);
-        }
-
-        //public SetupViewModel() : base()
+        //public SetupViewModel(Setup setup) : base()
         //{
-        //    Init();
+        //    Setup = setup;
+        //    AllEnabledChange(false);
         //}
+
+        public SetupViewModel() : base()
+        {
+            Init();
+        }
 
         protected override void Init()
         {
@@ -27,8 +27,10 @@ namespace WpfApp.ViewModel
             Setup.Finder = Finders.First();
             Setup.FinderAmplifier = FinderAmplifiers.First();
             Setup.SearchMode = SearchModes.First();
+            CreerCommand = new MyICommand(OnCreate, CanCreate);
         }
 
+        public MyICommand CreerCommand { get; set; }
         public Setup Setup { get; set; }
 
         // Affichage de la liste des searchMode ds le combobox
@@ -71,9 +73,13 @@ namespace WpfApp.ViewModel
             SkillEnhancerQtyChoiceEnabled = val;
         }
 
-        public void CreerSetup()
+        public void OnCreate()
         {
             repos.Setups.Add(Setup);
+        }
+        public bool CanCreate()
+        {
+            return true;
         }
 
         public void DesactiverSetup()

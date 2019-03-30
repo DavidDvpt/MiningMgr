@@ -78,7 +78,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Name="btnCreer" IsEnabled="True" Click="Creer_Click" Margin="20,0">Creer</Button>
+            <Button Name="btnCreer" IsEnabled="True" Command="{Binding CreerCommand}" Margin="20,0">Creer</Button>
             <Button Name="btnDesactiver" Grid.Column="1" IsEnabled="true" Click="Desactiver_Click" Margin="20,0">Désactiver</Button>
             <Button Name="btnAnnuler" Grid.Column="2" IsEnabled="true" Click="Annuler_Click" Margin="20,0">Annuler</Button>
         </Grid>
