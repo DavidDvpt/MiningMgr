@@ -17,13 +17,24 @@
             <Label Width="100">Nom:</Label>
             <TextBox Name="tbNom" Width ="250" Text="{Binding Path = Setup.Nom, Mode =TwoWay}" IsEnabled="False"/>
         </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <Label Width="150">Mode de recherche :</Label>
+            <ComboBox Name ="cbxsearchMode" Width="200"
+                ItemsSource="{Binding Path = SearchModes}"
+                DisplayMemberPath="Nom"
+                SelectedItem="{Binding Path=Setup.SearchMode, Mode =TwoWay}"
+                IsEnabled="{Binding Path=SearchModeChoiceEnabled}">
+            </ComboBox>
+        </StackPanel>
         
         <StackPanel Orientation="Horizontal" Margin="5">
             <Label Width="150">Finder :</Label>
             <ComboBox Name ="cbxFinder" Width="200"
                 ItemsSource="{Binding Path = Finders}"
                 DisplayMemberPath="Nom"
-                SelectedItem="{Binding Path=Setup.Finder, Mode =TwoWay}">
+                SelectedItem="{Binding Path=Setup.Finder, Mode =TwoWay}"
+                IsEnabled="{Binding Path=FinderChoiceEnabled}">
             </ComboBox>
         </StackPanel>
 
@@ -32,23 +43,30 @@
             <ComboBox Name ="cbxFinderAmplifier" Width="200"
                 ItemsSource="{Binding Path = FinderAmplifiers}"
                 DisplayMemberPath="Nom"
-                SelectedItem="{Binding Path=Setup.FinderAmplifier, Mode =TwoWay}">
+                SelectedItem="{Binding Path=Setup.FinderAmplifier, Mode =TwoWay}"
+                IsEnabled="{Binding Path=FinderAmplifierChoiceEnabled}">
             </ComboBox>
         </StackPanel>
         
         <StackPanel Orientation="Horizontal" Margin="5">
             <Label Width="150">Depth Enhancer Quantity :</Label>
-            <TextBox Width="50" HorizontalAlignment="Left" Text="{Binding Setup.DepthEnhancerQty, Mode =TwoWay}"/>
+            <TextBox Width="50" HorizontalAlignment="Left" 
+                     Text="{Binding Setup.DepthEnhancerQty, Mode =TwoWay}" 
+                     IsEnabled="{Binding Path=DepthEnhancerQtyEnabled}"/>
         </StackPanel>
         
         <StackPanel Orientation="Horizontal" Margin="5">
             <Label Width="150">Range Enhancer Quantity :</Label>
-            <TextBox Width="50" HorizontalAlignment="Left" Text="{Binding Setup.RangeEnhancerQty, Mode =TwoWay}"/>
+            <TextBox Width="50" HorizontalAlignment="Left"
+                     Text="{Binding Setup.RangeEnhancerQty, Mode =TwoWay}" 
+                     IsEnabled="{Binding Path=RangeEnhancerQtyEnabled}"/>
         </StackPanel>
         
         <StackPanel Orientation="Horizontal" Margin="5">
             <Label Width="150">Skill Enhancer Quantity :</Label>
-            <TextBox Name="dhQty" Width="50" HorizontalAlignment="Left" Text="{Binding Setup.SkillEnhancerQty, Mode =TwoWay}"/>
+            <TextBox Name="dhQty" Width="50" HorizontalAlignment="Left"
+                     Text="{Binding Setup.SkillEnhancerQty, Mode =TwoWay}"
+                     IsEnabled="{Binding Path=SkillEnhancerQtyEnabled}"/>
         </StackPanel>
         
         <Grid Height="30">
@@ -56,13 +74,11 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            
-            <Button Name="Creer" IsEnabled="True" Click="Creer_Click">Creer</Button>
-            <Button Name="Modifier" Grid.Column="1" IsEnabled="false">Modifier</Button>
-            <Button Name="Supprimer" Grid.Column="2" IsEnabled="false">Supprimer</Button>
-            <Button Name="Annuler" Grid.Column="3" IsEnabled="true" Click="Annuler_Click">Annuler</Button>
+
+            <Button Name="btnCreer" IsEnabled="True" Click="Creer_Click" Margin="20,0">Creer</Button>
+            <Button Name="btnDesactiver" Grid.Column="1" IsEnabled="true" Click="Desactiver_Click" Margin="20,0">Désactiver</Button>
+            <Button Name="btnAnnuler" Grid.Column="2" IsEnabled="true" Click="Annuler_Click" Margin="20,0">Annuler</Button>
         </Grid>
     </StackPanel>
 </UserControl>

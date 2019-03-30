@@ -6,6 +6,7 @@ namespace WpfApp.Model
     [Table("Setup")]
     public class Setup : Commun, INotifyPropertyChanged
     {
+        private SearchMode _searchMode;
         private int _depthEnhancerQty;
         private int _rangeEnhancerQty;
         private int _skillEnhancerQty;
@@ -15,6 +16,8 @@ namespace WpfApp.Model
         public int FinderId { get; set; }
 
         public int FinderAmplifierId { get; set; }
+
+        public int SearchModeId { get; set; }
 
         public int DepthEnhancerQty
         {
@@ -58,6 +61,22 @@ namespace WpfApp.Model
             }
         }
 
+        [ForeignKey("SearchModeId")]
+        public SearchMode SearchMode
+        {
+            get => _searchMode;
+            set
+            {
+                if (value != _searchMode)
+                {
+                    _searchMode = value;
+                    //SearchModeId = SearchMode.Id
+                    NomComposition();
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
         [ForeignKey("FinderId")]
         public virtual Finder Finder
         {
@@ -93,9 +112,9 @@ namespace WpfApp.Model
         // cree le nom du setup à partir des outils utilises
         private void NomComposition()
         {
-            if (Finder != null && FinderAmplifier != null)
+            if (Finder != null && FinderAmplifier != null && SearchMode != null)
             {
-                Nom = Finder.Code + "_" + FinderAmplifier.Code + "_T" + TierUsed().ToString() + "_D" + DepthEnhancerQty.ToString() + "R" + RangeEnhancerQty.ToString() + "S" + SkillEnhancerQty.ToString();
+                Nom = Finder.Code + "_" + FinderAmplifier.Code + "_T" + TierUsed().ToString() + "_D" + DepthEnhancerQty.ToString() + "R" + RangeEnhancerQty.ToString() + "S" + SkillEnhancerQty.ToString() + "_" + SearchMode.Abbrev;
             }
         }
 
