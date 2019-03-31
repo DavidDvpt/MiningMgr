@@ -7,11 +7,12 @@ namespace WpfApp.ViewModel
     public class SetupViewModel : BaseViewModel
     {
         // si modification du setup
-        //public SetupViewModel(Setup setup) : base()
-        //{
-        //    Setup = setup;
-        //    AllEnabledChange(false);
-        //}
+        public SetupViewModel(Setup setup) : base()
+        {
+            Setup = setup;
+            Init();
+            //AllEnabledChange(false);
+        }
 
         public SetupViewModel() : base()
         {
@@ -20,7 +21,8 @@ namespace WpfApp.ViewModel
 
         protected override void Init()
         {
-            Setup = new Setup();
+            if (Setup == null)
+                Setup = new Setup();
             SearchModes = SearchModesLoad();
             Finders = FindersLoad();
             FinderAmplifiers = FindersAmplifiersLoad();

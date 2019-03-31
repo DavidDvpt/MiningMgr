@@ -3,7 +3,7 @@ using WpfApp.Repositories.Interfaces;
 
 namespace WpfApp.ViewModel
 {
-    public abstract class BaseViewModel
+    public abstract class BaseViewModel : BindableBase
     {
         protected IRepositoriesUoW repos;
 
@@ -12,7 +12,7 @@ namespace WpfApp.ViewModel
             if (repos == null)
                 repos = new RepositoriesUoW();
 
-            Init();
+            //Init();
         }
 
         protected abstract void Init();

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="WpfApp.Views.SetupView"
+﻿<!--<UserControl x:Class="WpfApp.Views.SetupView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,11 +8,21 @@
              xmlns:vml = "clr-namespace:WpfApp.VML" 
              vml:ViewModelLocator.AutoHookedUpViewModel = "True" 
              mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="400">-->
+            
+            <!--<UserControl.DataContext>
+                <viewModel:SetupViewModel/>
+            </UserControl.DataContext>-->
+<UserControl x:Class="WpfApp.Views.SetupView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp.Views"
+             xmlns:viewModel = "clr-namespace:WpfApp.ViewModel" 
+             mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="400">
 
-    <!--<UserControl.DataContext>
-        <viewModel:SetupViewModel/>
-    </UserControl.DataContext>-->
 
     <StackPanel Margin="10">
         <StackPanel Orientation="Horizontal" Margin="5">

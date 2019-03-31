@@ -77,6 +77,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BindableBase.cs" />
     <Compile Include="Context\MiningContext.cs" />
     <Compile Include="Migrations\201903290016588_Maj_01.cs" />
     <Compile Include="Migrations\201903290016588_Maj_01.Designer.cs">
@@ -96,6 +97,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyICommand.cs" />
+    <Compile Include="MyICommandGeneric.cs" />
     <Compile Include="Repositories\CommunRepository.cs" />
     <Compile Include="Repositories\Interfaces\ICommunRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRepositoriesUoW.cs" />
@@ -105,6 +107,7 @@
     <Compile Include="Context\SeedClass.cs" />
     <Compile Include="Context\SeedStaticMethods.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="ViewModel\SetupViewModel.cs" />
     <Compile Include="Views\SetupView.xaml.cs">
       <DependentUpon>SetupView.xaml</DependentUpon>

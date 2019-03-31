@@ -28,7 +28,7 @@ namespace WpfApp.Views
             InitializeComponent();
 
             //this.DataContext = new SetupViewModel();
-            //this.DataContext = new SetupViewModel(new Setup());
+            this.DataContext = new SetupViewModel();
         }
 
         public SetupView(Setup setup)
@@ -40,7 +40,7 @@ namespace WpfApp.Views
                 setup = new Setup();
             }
 
-            this.DataContext = new SetupViewModel();
+            this.DataContext = new SetupViewModel(setup);
         }
 
         private void Annuler_Click(object sender, RoutedEventArgs e)
@@ -52,5 +52,7 @@ namespace WpfApp.Views
         {
             //((SetupViewModel)DataContext).DesactiverSetup();
         }
+
+
     }
 }

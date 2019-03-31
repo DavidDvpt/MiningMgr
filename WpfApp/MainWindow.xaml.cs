@@ -4,6 +4,7 @@ using System.Windows;
 using WpfApp.Views;
 using WpfApp.ViewModel;
 using System;
+using WpfApp.Model;
 
 namespace WpfApp
 {
@@ -25,12 +26,13 @@ namespace WpfApp
             {
                 throw new NullReferenceException("Les repositories ne sont pas initialisés");
             }
+            //container.DataContext = new SetupView(new Setup());
         }
 
         public MainWindow()
         {
             InitializeComponent();
-            container.DataContext = new SetupView();
+
         }
 
         //private void SetupViewControl_Loaded(object sender, RoutedEventArgs e)

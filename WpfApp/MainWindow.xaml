@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         xmlns:views = "clr-namespace:WpfApp.Views"
+        xmlns:viewModels = "clr-namespace:WpfApp.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1600">
+
+    <!--<Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>-->
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModels:SetupViewModel}">
+            <views:SetupView/>
+        </DataTemplate>
+    </Window.Resources>
+    
+    
+    
     <DockPanel>
         <Menu DockPanel.Dock="Top" BorderThickness="1" BorderBrush="Black">
             <MenuItem Header="_File">
@@ -18,7 +32,7 @@
             </MenuItem>
 
             <MenuItem Header="Setup">
-                <MenuItem Header="Creer" Click="MenuItemSetupCRUD_Click" />
+                <MenuItem Header="Creer" Command="{Binding NavCommand}" CommandParameter="setup"/>
                 <MenuItem Header="Lister"/>
             </MenuItem>
         </Menu>
@@ -30,6 +44,7 @@
         <Grid Name="container">
             <!--<views:SetupView x:Name ="SetupViewControl" Loaded ="SetupViewControl_Loaded"/>-->
             <views:SetupView x:Name ="SetupViewControl"/>
+            <!--<ContentControl Content="{Binding CurrentView}"/>-->
         </Grid>
         
         
