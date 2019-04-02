@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 namespace WpfApp.Model
 {
     [Table("Commun")]
-    public abstract class Commun
+    public abstract class CommunModel
     {
         private string _nom;
         private bool _isActive = true;

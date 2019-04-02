@@ -131,23 +131,23 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Categorie.cs" />
-    <Compile Include="Model\Commun.cs" />
-    <Compile Include="Model\Enhancer.cs" />
-    <Compile Include="Model\Excavator.cs" />
-    <Compile Include="Model\Finder.cs" />
+    <Compile Include="Model\CategorieModel.cs" />
+    <Compile Include="Model\CommunModel.cs" />
+    <Compile Include="Model\EnhancerModel.cs" />
+    <Compile Include="Model\ExcavatorModel.cs" />
+    <Compile Include="Model\FinderModel.cs" />
     <Compile Include="Model\FinderAmplifier.cs" />
-    <Compile Include="Model\InWorld.cs" />
-    <Compile Include="Model\Material.cs" />
-    <Compile Include="Model\Modele.cs" />
-    <Compile Include="Model\Planet.cs" />
+    <Compile Include="Model\InWorldModel.cs" />
+    <Compile Include="Model\MaterialModel.cs" />
+    <Compile Include="Model\ModeleModel.cs" />
+    <Compile Include="Model\PlanetModel.cs" />
     <Compile Include="Model\PlanetMaterial.cs" />
-    <Compile Include="Model\Refiner.cs" />
-    <Compile Include="Model\SearchMode.cs" />
-    <Compile Include="Model\Setup.cs" />
-    <Compile Include="Model\Tool.cs" />
-    <Compile Include="Model\ToolAccessoire.cs" />
-    <Compile Include="Model\Unstackable.cs" />
+    <Compile Include="Model\RefinerModel.cs" />
+    <Compile Include="Model\SearchModeModel.cs" />
+    <Compile Include="Model\SetupModel.cs" />
+    <Compile Include="Model\ToolModel.cs" />
+    <Compile Include="Model\ToolAccessoireModel.cs" />
+    <Compile Include="Model\UnstackableModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

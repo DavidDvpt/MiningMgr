@@ -3,7 +3,7 @@
 namespace WpfApp.Model
 {
     [Table("Planet")]
-    public class Planet : Commun
+    public class PlanetModel : CommunModel
     {
     }
 }

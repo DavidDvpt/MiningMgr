@@ -20,7 +20,7 @@ namespace WpfApp
         {
             IRepositoriesUoW repos = new RepositoriesUoW();
 
-            MainWindow wnd = new MainWindow(repos);
+            MainWindowView wnd = new MainWindowView(repos);
             wnd.Show();
         }
     }

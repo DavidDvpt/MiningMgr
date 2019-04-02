@@ -7,7 +7,7 @@ namespace WpfApp.ViewModel
     public class SetupViewModel : BaseViewModel
     {
         // si modification du setup
-        public SetupViewModel(Setup setup) : base()
+        public SetupViewModel(SetupModel setup) : base()
         {
             Setup = setup;
             Init();
@@ -22,7 +22,7 @@ namespace WpfApp.ViewModel
         protected override void Init()
         {
             if (Setup == null)
-                Setup = new Setup();
+                Setup = new SetupModel();
             SearchModes = SearchModesLoad();
             Finders = FindersLoad();
             FinderAmplifiers = FindersAmplifiersLoad();
@@ -33,11 +33,11 @@ namespace WpfApp.ViewModel
         }
 
         public MyICommand CreerCommand { get; set; }
-        public Setup Setup { get; set; }
+        public SetupModel Setup { get; set; }
 
         // Affichage de la liste des searchMode ds le combobox
-        public ICollection<SearchMode> SearchModes { get; set; }
-        public ICollection<SearchMode> SearchModesLoad()
+        public ICollection<SearchModeModel> SearchModes { get; set; }
+        public ICollection<SearchModeModel> SearchModesLoad()
         {
             return repos.SearchModes.GetAll().ToList();
         }
@@ -45,8 +45,8 @@ namespace WpfApp.ViewModel
 
 
         // Affichage de la liste des finder ds le combobox
-        public ICollection<Finder> Finders { get; set; }
-        public ICollection<Finder> FindersLoad()
+        public ICollection<FinderModel> Finders { get; set; }
+        public ICollection<FinderModel> FindersLoad()
         {
             return repos.Finders.GetAll().ToList();
         }

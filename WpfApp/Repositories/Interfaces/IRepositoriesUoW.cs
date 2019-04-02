@@ -6,18 +6,18 @@ namespace WpfApp.Repositories.Interfaces
     {
         void Commit();
 
-        ICommunRepository<Categorie> Categories { get; }
-        ICommunRepository<Modele> Modeles { get; }
-        IRepository<Finder> Finders { get; }
-        IRepository<Excavator> Excavators { get; }
-        IRepository<Refiner> Refiners { get; }
+        ICommunRepository<CategorieModel> Categories { get; }
+        ICommunRepository<ModeleModel> Modeles { get; }
+        IRepository<FinderModel> Finders { get; }
+        IRepository<ExcavatorModel> Excavators { get; }
+        IRepository<RefinerModel> Refiners { get; }
         IRepository<FinderAmplifier> FinderAmplifiers { get; }
-        IRepository<SearchMode> SearchModes { get; }
-        IRepository<Setup> Setups { get; }
-        IRepository<Planet> Planets { get; }
-        IRepository<Enhancer> Enhancers { get; }
-        IRepository<Material> Materials { get; }
-        IRepository<ToolAccessoire> ToolAccessoires { get; }
+        IRepository<SearchModeModel> SearchModes { get; }
+        IRepository<SetupModel> Setups { get; }
+        IRepository<PlanetModel> Planets { get; }
+        IRepository<EnhancerModel> Enhancers { get; }
+        IRepository<MaterialModel> Materials { get; }
+        IRepository<ToolAccessoireModel> ToolAccessoires { get; }
         IRepository<PlanetMaterial> PlanetMaterials { get; }
 
     }

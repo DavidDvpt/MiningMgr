@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace WpfApp.Model
 {
     [Table("Enhancer")]
-    public class Enhancer : InWorld
+    public class EnhancerModel : InWorldModel
     {
-        public Enhancer()
+        public EnhancerModel()
         {
             
         }

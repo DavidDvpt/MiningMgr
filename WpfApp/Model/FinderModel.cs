@@ -3,7 +3,7 @@
 namespace WpfApp.Model
 {
     [Table("Finder")]
-    public class Finder : Tool
+    public class FinderModel : ToolModel
     {
         public decimal Depth { get; set; }
 

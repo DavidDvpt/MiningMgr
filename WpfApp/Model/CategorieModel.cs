@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace WpfApp.Model
 {
     [Table("Categorie")]
-    public class Categorie : Commun
+    public class CategorieModel : CommunModel
     {
-        public virtual ICollection<Modele> Modeles { get; set; }
+        public virtual ICollection<ModeleModel> Modeles { get; set; }
     }
 }

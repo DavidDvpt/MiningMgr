@@ -3,7 +3,7 @@
 namespace WpfApp.Model
 {
     [Table("SearchMode")]
-    public class SearchMode : Commun
+    public class SearchModeModel : CommunModel
     {
         public string Abbrev { get; set; }
 

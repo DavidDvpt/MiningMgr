@@ -11,11 +11,11 @@ namespace WpfApp
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindowView : Window
     {
         private IRepositoriesUoW _repo;
 
-        public MainWindow(IRepositoriesUoW repo)
+        public MainWindowView(IRepositoriesUoW repo)
         {
             InitializeComponent();
             if (repo != null)
@@ -29,7 +29,7 @@ namespace WpfApp
             //container.DataContext = new SetupView(new Setup());
         }
 
-        public MainWindow()
+        public MainWindowView()
         {
             InitializeComponent();
 

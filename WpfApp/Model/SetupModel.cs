@@ -4,13 +4,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace WpfApp.Model
 {
     [Table("Setup")]
-    public class Setup : Commun, INotifyPropertyChanged
+    public class SetupModel : CommunModel, INotifyPropertyChanged
     {
-        private SearchMode _searchMode;
+        private SearchModeModel _searchMode;
         private int _depthEnhancerQty;
         private int _rangeEnhancerQty;
         private int _skillEnhancerQty;
-        private Finder _finder;
+        private FinderModel _finder;
         private FinderAmplifier _finderAmplifier;
 
         public int FinderId { get; set; }
@@ -62,7 +62,7 @@ namespace WpfApp.Model
         }
 
         [ForeignKey("SearchModeId")]
-        public SearchMode SearchMode
+        public SearchModeModel SearchMode
         {
             get => _searchMode;
             set
@@ -78,7 +78,7 @@ namespace WpfApp.Model
         }
 
         [ForeignKey("FinderId")]
-        public virtual Finder Finder
+        public virtual FinderModel Finder
         {
             get => _finder;
             set

@@ -3,9 +3,9 @@
 namespace WpfApp.Model
 {
     [Table("Tool")]
-    public abstract class Tool : Unstackable
+    public abstract class ToolModel : UnstackableModel
     {
-        public Tool()
+        public ToolModel()
         {
         }
         

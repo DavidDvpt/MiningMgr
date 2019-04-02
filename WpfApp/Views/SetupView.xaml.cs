@@ -31,13 +31,13 @@ namespace WpfApp.Views
             this.DataContext = new SetupViewModel();
         }
 
-        public SetupView(Setup setup)
+        public SetupView(SetupModel setup)
         {
             InitializeComponent();
 
             if (setup == null)
             {
-                setup = new Setup();
+                setup = new SetupModel();
             }
 
             this.DataContext = new SetupViewModel(setup);

@@ -3,7 +3,7 @@
 namespace WpfApp.Model
 {
     [Table("FinderAmplifier")]
-    public class FinderAmplifier : Unstackable
+    public class FinderAmplifier : UnstackableModel
     {
         public decimal Coefficient { get; set; }
     }

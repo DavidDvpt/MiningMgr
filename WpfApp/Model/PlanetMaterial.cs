@@ -11,14 +11,14 @@ namespace WpfApp.Model
         public int PlanetId { get; set; }
 
         [ForeignKey("PlanetId")]
-        public Planet Planet { get; set; }
+        public PlanetModel Planet { get; set; }
 
         [Key]
         [Column(Order = 2)]
         public int MaterialId { get; set; }
 
         [ForeignKey("MaterialId")]
-        public Material Material { get; set; }
+        public MaterialModel Material { get; set; }
 
     }
 }
