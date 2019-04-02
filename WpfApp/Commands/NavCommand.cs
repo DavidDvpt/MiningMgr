@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace WpfApp
+namespace WpfApp.Commands
 {
-    public class MyICommandGeneric<T> : ICommand
+    public class NavCommand<T> : ICommand
     {
 
         Action<T> _TargetExecuteMethod;
         Func<T, bool> _TargetCanExecuteMethod;
 
-        public MyICommandGeneric(Action<T> executeMethod)
+        public NavCommand(Action<T> executeMethod)
         {
             _TargetExecuteMethod = executeMethod;
         }
 
-        public MyICommandGeneric(Action<T> executeMethod, Func<T, bool> canExecuteMethod)
+        public NavCommand(Action<T> executeMethod, Func<T, bool> canExecuteMethod)
         {
             _TargetExecuteMethod = executeMethod;
             _TargetCanExecuteMethod = canExecuteMethod;
