@@ -9,17 +9,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1600">
 
-    <!--<Window.DataContext>
+    <Window.DataContext>
         <local:MainWindowViewModel/>
-    </Window.DataContext>-->
+    </Window.DataContext>
 
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewModels:SetupViewModel}">
             <views:SetupView/>
         </DataTemplate>
     </Window.Resources>
-    
-    
     
     <DockPanel>
         <Menu DockPanel.Dock="Top" BorderThickness="1" BorderBrush="Black">
@@ -40,13 +38,12 @@
         <StatusBar DockPanel.Dock="Bottom" BorderThickness="1" BorderBrush="Black" Height="20">
             
         </StatusBar>
-        
+
         <Grid Name="container">
             <!--<views:SetupView x:Name ="SetupViewControl" Loaded ="SetupViewControl_Loaded"/>-->
-            <views:SetupView x:Name ="SetupViewControl"/>
-            <!--<ContentControl Content="{Binding CurrentView}"/>-->
+            <!--<views:SetupView x:Name ="SetupViewControl"/>-->
+            <ContentControl Content="{Binding CurrentViewModel}"/>
         </Grid>
-        
         
     </DockPanel>
 </Window>
