@@ -11,7 +11,7 @@ namespace WpfApp.Model
         private int _rangeEnhancerQty;
         private int _skillEnhancerQty;
         private FinderModel _finder;
-        private FinderAmplifier _finderAmplifier;
+        private FinderAmplifierModel _finderAmplifier;
 
         public int FinderId { get; set; }
 
@@ -94,7 +94,7 @@ namespace WpfApp.Model
         }
 
         [ForeignKey("FinderAmplifierId")]
-        public virtual FinderAmplifier FinderAmplifier
+        public virtual FinderAmplifierModel FinderAmplifier
         {
             get => _finderAmplifier;
             set

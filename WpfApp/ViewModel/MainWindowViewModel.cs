@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApp.Commands;
 using WpfApp.ViewModel;
 
 namespace WpfApp
@@ -11,9 +12,9 @@ namespace WpfApp
     {
         public MainWindowViewModel()
         {
-            NavCommand = new MyICommandGeneric<string>(OnNav);
+            NavCommand = new NavCommand<string>(OnNav);
         }
-        public MyICommandGeneric<string> NavCommand { get; private set; }
+        public NavCommand<string> NavCommand { get; private set; }
 
         private SetupViewModel setupViewModel = new SetupViewModel();
 

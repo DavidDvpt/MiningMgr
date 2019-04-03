@@ -53,8 +53,8 @@ namespace WpfApp.ViewModel
         public bool FinderChoiceEnabled { get; set; } = true;
 
         // Affichage de la liste des finderamplifier ds le combobox
-        public ICollection<FinderAmplifier> FinderAmplifiers { get; set; }
-        public ICollection<FinderAmplifier> FindersAmplifiersLoad()
+        public ICollection<FinderAmplifierModel> FinderAmplifiers { get; set; }
+        public ICollection<FinderAmplifierModel> FindersAmplifiersLoad()
         {
             return repos.FinderAmplifiers.GetAll().ToList();
         }

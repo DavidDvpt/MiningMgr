@@ -28,14 +28,14 @@ namespace WpfApp.Repositories
         private IRepository<FinderModel> _Finders;
         private IRepository<ExcavatorModel> _Excavators;
         private IRepository<RefinerModel> _Refiners;
-        private IRepository<FinderAmplifier> _FinderAmplifiers;
+        private IRepository<FinderAmplifierModel> _FinderAmplifiers;
         private IRepository<SearchModeModel> _SearchModes;
         private IRepository<SetupModel> _Setups;
         private IRepository<PlanetModel> _Planets;
         private IRepository<EnhancerModel> _Enhancers;
         private IRepository<MaterialModel> _Materials;
         private IRepository<ToolAccessoireModel> _ToolAccessoires;
-        private IRepository<PlanetMaterial> _PlanetMaterials;
+        private IRepository<PlanetMaterialModel> _PlanetMaterials;
 
         public ICommunRepository<CategorieModel> Categories
             => _Categories == null? _Categories = new CommunRepository<CategorieModel>(ctx) : _Categories;
@@ -52,8 +52,8 @@ namespace WpfApp.Repositories
         public IRepository<RefinerModel> Refiners
             => _Refiners == null ? _Refiners = new Repository<RefinerModel>(ctx) : _Refiners;
 
-        public IRepository<FinderAmplifier> FinderAmplifiers
-            => _FinderAmplifiers == null ? _FinderAmplifiers = new Repository<FinderAmplifier>(ctx) : _FinderAmplifiers;
+        public IRepository<FinderAmplifierModel> FinderAmplifiers
+            => _FinderAmplifiers == null ? _FinderAmplifiers = new Repository<FinderAmplifierModel>(ctx) : _FinderAmplifiers;
 
         public IRepository<SearchModeModel> SearchModes
             => _SearchModes == null ? _SearchModes = new Repository<SearchModeModel>(ctx) : _SearchModes;
@@ -73,8 +73,8 @@ namespace WpfApp.Repositories
         public IRepository<ToolAccessoireModel> ToolAccessoires
             => _ToolAccessoires == null ? _ToolAccessoires = new Repository<ToolAccessoireModel>(ctx) : _ToolAccessoires;
 
-        public IRepository<PlanetMaterial> PlanetMaterials
-            => _PlanetMaterials == null ? _PlanetMaterials = new Repository<PlanetMaterial>(ctx) : _PlanetMaterials;
+        public IRepository<PlanetMaterialModel> PlanetMaterials
+            => _PlanetMaterials == null ? _PlanetMaterials = new Repository<PlanetMaterialModel>(ctx) : _PlanetMaterials;
 
         public void Commit()
         {

@@ -11,14 +11,14 @@ namespace WpfApp.Repositories.Interfaces
         IRepository<FinderModel> Finders { get; }
         IRepository<ExcavatorModel> Excavators { get; }
         IRepository<RefinerModel> Refiners { get; }
-        IRepository<FinderAmplifier> FinderAmplifiers { get; }
+        IRepository<FinderAmplifierModel> FinderAmplifiers { get; }
         IRepository<SearchModeModel> SearchModes { get; }
         IRepository<SetupModel> Setups { get; }
         IRepository<PlanetModel> Planets { get; }
         IRepository<EnhancerModel> Enhancers { get; }
         IRepository<MaterialModel> Materials { get; }
         IRepository<ToolAccessoireModel> ToolAccessoires { get; }
-        IRepository<PlanetMaterial> PlanetMaterials { get; }
+        IRepository<PlanetMaterialModel> PlanetMaterials { get; }
 
     }
 }

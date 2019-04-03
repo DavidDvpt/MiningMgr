@@ -79,25 +79,15 @@
     </ApplicationDefinition>
     <Compile Include="BindableBase.cs" />
     <Compile Include="Context\MiningContext.cs" />
-    <Compile Include="Migrations\201903290016588_Maj_01.cs" />
-    <Compile Include="Migrations\201903290016588_Maj_01.Designer.cs">
-      <DependentUpon>201903290016588_Maj_01.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903292339401_Maj_02.cs" />
-    <Compile Include="Migrations\201903292339401_Maj_02.Designer.cs">
-      <DependentUpon>201903292339401_Maj_02.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903301521437_Maj_03.cs" />
-    <Compile Include="Migrations\201903301521437_Maj_03.Designer.cs">
-      <DependentUpon>201903301521437_Maj_03.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903301530252_Maj_031.cs" />
-    <Compile Include="Migrations\201903301530252_Maj_031.Designer.cs">
-      <DependentUpon>201903301530252_Maj_031.cs</DependentUpon>
+    <Compile Include="Migrations\201904031611387_Maj01.cs" />
+    <Compile Include="Migrations\201904031611387_Maj01.Designer.cs">
+      <DependentUpon>201904031611387_Maj01.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="MyICommand.cs" />
-    <Compile Include="MyICommandGeneric.cs" />
+    <Compile Include="Commands\MyICommand.cs" />
+    <Compile Include="Commands\NavCommand.cs" />
+    <Compile Include="Model\FinderAmplifierModel.cs" />
+    <Compile Include="Model\PlanetMaterialModel.cs" />
     <Compile Include="Repositories\CommunRepository.cs" />
     <Compile Include="Repositories\Interfaces\ICommunRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRepositoriesUoW.cs" />
@@ -107,7 +97,7 @@
     <Compile Include="Context\SeedClass.cs" />
     <Compile Include="Context\SeedStaticMethods.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
-    <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\SetupViewModel.cs" />
     <Compile Include="Views\SetupView.xaml.cs">
       <DependentUpon>SetupView.xaml</DependentUpon>
@@ -136,12 +126,10 @@
     <Compile Include="Model\EnhancerModel.cs" />
     <Compile Include="Model\ExcavatorModel.cs" />
     <Compile Include="Model\FinderModel.cs" />
-    <Compile Include="Model\FinderAmplifier.cs" />
     <Compile Include="Model\InWorldModel.cs" />
     <Compile Include="Model\MaterialModel.cs" />
     <Compile Include="Model\ModeleModel.cs" />
     <Compile Include="Model\PlanetModel.cs" />
-    <Compile Include="Model\PlanetMaterial.cs" />
     <Compile Include="Model\RefinerModel.cs" />
     <Compile Include="Model\SearchModeModel.cs" />
     <Compile Include="Model\SetupModel.cs" />
@@ -161,17 +149,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201903290016588_Maj_01.resx">
-      <DependentUpon>201903290016588_Maj_01.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903292339401_Maj_02.resx">
-      <DependentUpon>201903292339401_Maj_02.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903301521437_Maj_03.resx">
-      <DependentUpon>201903301521437_Maj_03.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903301530252_Maj_031.resx">
-      <DependentUpon>201903301530252_Maj_031.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904031611387_Maj01.resx">
+      <DependentUpon>201904031611387_Maj01.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

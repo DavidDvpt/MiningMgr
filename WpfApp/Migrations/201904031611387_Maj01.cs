@@ -3,7 +3,7 @@ namespace WpfApp.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Maj_01 : DbMigration
+    public partial class Maj01 : DbMigration
     {
         public override void Up()
         {
@@ -88,6 +88,7 @@ namespace WpfApp.Migrations
                         Id = c.Int(nullable: false),
                         IsLimited = c.Boolean(nullable: false),
                         Decay = c.Decimal(nullable: false, precision: 7, scale: 3),
+                        Code = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.InWorld", t => t.Id)
@@ -164,6 +165,16 @@ namespace WpfApp.Migrations
                 .Index(t => t.CategorieId);
             
             CreateTable(
+                "dbo.Planet",
+                c => new
+                    {
+                        Id = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Commun", t => t.Id)
+                .Index(t => t.Id);
+            
+            CreateTable(
                 "dbo.Refiner",
                 c => new
                     {
@@ -192,6 +203,7 @@ namespace WpfApp.Migrations
                         Id = c.Int(nullable: false),
                         FinderId = c.Int(nullable: false),
                         FinderAmplifierId = c.Int(nullable: false),
+                        SearchModeId = c.Int(nullable: false),
                         DepthEnhancerQty = c.Int(nullable: false),
                         RangeEnhancerQty = c.Int(nullable: false),
                         SkillEnhancerQty = c.Int(nullable: false),
@@ -200,30 +212,23 @@ namespace WpfApp.Migrations
                 .ForeignKey("dbo.Commun", t => t.Id)
                 .ForeignKey("dbo.Finder", t => t.FinderId)
                 .ForeignKey("dbo.FinderAmplifier", t => t.FinderAmplifierId)
+                .ForeignKey("dbo.SearchMode", t => t.SearchModeId)
                 .Index(t => t.Id)
                 .Index(t => t.FinderId)
-                .Index(t => t.FinderAmplifierId);
-            
-            CreateTable(
-                "dbo.Planet",
-                c => new
-                    {
-                        Id = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Commun", t => t.Id)
-                .Index(t => t.Id);
+                .Index(t => t.FinderAmplifierId)
+                .Index(t => t.SearchModeId);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Planet", "Id", "dbo.Commun");
+            DropForeignKey("dbo.Setup", "SearchModeId", "dbo.SearchMode");
             DropForeignKey("dbo.Setup", "FinderAmplifierId", "dbo.FinderAmplifier");
             DropForeignKey("dbo.Setup", "FinderId", "dbo.Finder");
             DropForeignKey("dbo.Setup", "Id", "dbo.Commun");
             DropForeignKey("dbo.SearchMode", "Id", "dbo.Commun");
             DropForeignKey("dbo.Refiner", "Id", "dbo.Tool");
+            DropForeignKey("dbo.Planet", "Id", "dbo.Commun");
             DropForeignKey("dbo.Modele", "CategorieId", "dbo.Categorie");
             DropForeignKey("dbo.Modele", "Id", "dbo.Commun");
             DropForeignKey("dbo.Material", "Id", "dbo.InWorld");
@@ -240,12 +245,13 @@ namespace WpfApp.Migrations
             DropForeignKey("dbo.ToolAccessoire", "AccessoireId", "dbo.Modele");
             DropForeignKey("dbo.PlanetMaterial", "PlanetId", "dbo.Planet");
             DropForeignKey("dbo.PlanetMaterial", "MaterialId", "dbo.Material");
-            DropIndex("dbo.Planet", new[] { "Id" });
+            DropIndex("dbo.Setup", new[] { "SearchModeId" });
             DropIndex("dbo.Setup", new[] { "FinderAmplifierId" });
             DropIndex("dbo.Setup", new[] { "FinderId" });
             DropIndex("dbo.Setup", new[] { "Id" });
             DropIndex("dbo.SearchMode", new[] { "Id" });
             DropIndex("dbo.Refiner", new[] { "Id" });
+            DropIndex("dbo.Planet", new[] { "Id" });
             DropIndex("dbo.Modele", new[] { "CategorieId" });
             DropIndex("dbo.Modele", new[] { "Id" });
             DropIndex("dbo.Material", new[] { "Id" });
@@ -263,10 +269,10 @@ namespace WpfApp.Migrations
             DropIndex("dbo.PlanetMaterial", new[] { "MaterialId" });
             DropIndex("dbo.PlanetMaterial", new[] { "PlanetId" });
             DropIndex("dbo.Commun", new[] { "Nom" });
-            DropTable("dbo.Planet");
             DropTable("dbo.Setup");
             DropTable("dbo.SearchMode");
             DropTable("dbo.Refiner");
+            DropTable("dbo.Planet");
             DropTable("dbo.Modele");
             DropTable("dbo.Material");
             DropTable("dbo.Finder");

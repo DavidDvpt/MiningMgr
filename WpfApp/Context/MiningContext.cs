@@ -25,11 +25,12 @@ namespace WpfApp.Context
         public DbSet<FinderModel> Finders { get; set; }
         public DbSet<ExcavatorModel> Excavators { get; set; }
         public DbSet<RefinerModel> Refiners { get; set; }
-        public DbSet<FinderAmplifier> FinderAmplifiers { get; set; }
+        public DbSet<FinderAmplifierModel> FinderAmplifiers { get; set; }
         public DbSet<EnhancerModel> Enhancers { get; set; }
         public DbSet<MaterialModel> Materials { get; set; }
         public DbSet<ToolAccessoireModel> ToolAccessoires { get; set; }
-        public DbSet<PlanetMaterial> PlanetMaterials { get; set; }
+        public DbSet<PlanetMaterialModel> PlanetMaterials { get; set; }
+        public DbSet<PlanetModel> Planets { get; set; }
 
         public DbSet<SearchModeModel> SearchModes { get; set; }
         public DbSet<SetupModel> Setups { get; set; }
@@ -57,7 +58,7 @@ namespace WpfApp.Context
             // Refiner
 
             // FinderAmplifier
-            modelBuilder.Entity<FinderAmplifier>().Property(e => e.Coefficient).HasPrecision(4, 1);
+            modelBuilder.Entity<FinderAmplifierModel>().Property(e => e.Coefficient).HasPrecision(4, 1);
 
             // Enhancer
             modelBuilder.Entity<EnhancerModel>().Property(e => e.BonusValue1).HasPrecision(3, 1);
