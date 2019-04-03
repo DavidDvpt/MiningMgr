@@ -1,14 +1,19 @@
-﻿using WpfApp.Commands;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using WpfApp.ViewModel;
 
-namespace WpfApp.ViewModel
+namespace WpfApp
 {
     public class MainWindowViewModel : BindableBase
     {
         public MainWindowViewModel()
         {
-            NavCommand = new NavCommand<string>(OnNav);
+            NavCommand = new MyICommandGeneric<string>(OnNav);
         }
-        public NavCommand<string> NavCommand { get; private set; }
+        public MyICommandGeneric<string> NavCommand { get; private set; }
 
         private SetupViewModel setupViewModel = new SetupViewModel();
 

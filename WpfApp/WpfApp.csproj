@@ -96,8 +96,8 @@
       <DependentUpon>201903301530252_Maj_031.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Commands\MyICommand.cs" />
-    <Compile Include="Commands\NavCommand.cs" />
+    <Compile Include="MyICommand.cs" />
+    <Compile Include="MyICommandGeneric.cs" />
     <Compile Include="Repositories\CommunRepository.cs" />
     <Compile Include="Repositories\Interfaces\ICommunRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRepositoriesUoW.cs" />
@@ -107,7 +107,7 @@
     <Compile Include="Context\SeedClass.cs" />
     <Compile Include="Context\SeedStaticMethods.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
-    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="ViewModel\SetupViewModel.cs" />
     <Compile Include="Views\SetupView.xaml.cs">
       <DependentUpon>SetupView.xaml</DependentUpon>
