@@ -23,6 +23,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="400">
 
+    <!--<UserControl.DataContext>
+        <viewModel:SetupViewModel/>
+    </UserControl.DataContext>-->
 
     <StackPanel Margin="10">
         <StackPanel Orientation="Horizontal" Margin="5">
@@ -89,8 +92,8 @@
             </Grid.ColumnDefinitions>
 
             <Button Name="btnCreer" IsEnabled="True" Command="{Binding CreerCommand}" Margin="20,0">Creer</Button>
-            <Button Name="btnDesactiver" Grid.Column="1" IsEnabled="true" Click="Desactiver_Click" Margin="20,0">Désactiver</Button>
-            <Button Name="btnAnnuler" Grid.Column="2" IsEnabled="true" Click="Annuler_Click" Margin="20,0">Annuler</Button>
+            <Button Name="btnDesactiver" Grid.Column="1" IsEnabled="true" Margin="20,0">Désactiver</Button>
+            <Button Name="btnAnnuler" Grid.Column="2" IsEnabled="true" Margin="20,0">Annuler</Button>
         </Grid>
     </StackPanel>
 </UserControl>

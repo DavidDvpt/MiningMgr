@@ -12,7 +12,7 @@ namespace WpfApp.ViewModel
             if (repos == null)
                 repos = new RepositoriesUoW();
 
-            //Init();
+            Init();
         }
 
         protected abstract void Init();

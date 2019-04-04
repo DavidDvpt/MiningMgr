@@ -12,21 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfApp.Model;
-using WpfApp.ViewModel;
 
 namespace WpfApp.Views
 {
     /// <summary>
-    /// Logique d'interaction pour SetupView.xaml
+    /// Logique d'interaction pour ManagerView.xaml
     /// </summary>
-    /// 
-    public partial class SetupView : UserControl
+    public partial class ManagerView : UserControl
     {
-        public SetupView()
+        public ManagerView()
         {
             InitializeComponent();
-            //this.DataContext = new SetupViewModel();
         }
     }
 }

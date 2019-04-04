@@ -17,6 +17,8 @@ namespace WpfApp
         public NavCommand<string> NavCommand { get; private set; }
 
         private SetupViewModel setupViewModel = new SetupViewModel();
+        private CategorieManagerViewModel categorieViewModel = new CategorieManagerViewModel();
+        private ModeleManagerViewModel modeleViewModel = new ModeleManagerViewModel();
 
         private BindableBase _CurrentViewModel;
         public BindableBase CurrentViewModel
@@ -33,8 +35,13 @@ namespace WpfApp
             switch (destination)
             {
                 case "setup":
-                default:
                     CurrentViewModel = setupViewModel;
+                    break;
+                case "categorie":
+                    CurrentViewModel = categorieViewModel;
+                    break;
+                case "modele":
+                    CurrentViewModel = modeleViewModel;
                     break;
             }
         }

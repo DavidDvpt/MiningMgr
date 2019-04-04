@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace WpfApp.Model
 {
     [Table("Setup")]
-    public class SetupModel : CommunModel, INotifyPropertyChanged
+    public class SetupModel : CommunModel//, INotifyPropertyChanged
     {
         private SearchModeModel _searchMode;
         private int _depthEnhancerQty;

@@ -6,17 +6,19 @@ using System.Runtime.CompilerServices;
 namespace WpfApp.Model
 {
     [Table("Commun")]
-    public abstract class CommunModel
+    public abstract class CommunModel : INotifyPropertyChanged
     {
-        private string _nom;
-        private bool _isActive = true;
-
+        #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        #endregion
+
+        private string _nom;
+        private bool _isActive = true;
 
         [Key]
         [Required]
