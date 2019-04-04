@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:root="clr-namespace:WpfApp"
              xmlns:local="clr-namespace:WpfApp.Views"
              xmlns:viewModels="clr-namespace:WpfApp.ViewModel"
              mc:Ignorable="d" 
@@ -18,10 +19,27 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid Name="dgGeneric" ItemsSource="{Binding DataGridItemSource}">
-            <!--<DataGrid.Resources>
-                <DataTemplate DataType="{x:Type }"
-            </DataGrid.Resources>-->
+        <DataGrid Name="dgGeneric" ItemsSource="{Binding DataGridItemSource}" AutoGenerateColumns="False">
+            <DataGrid.Resources>
+                <root:DataGridColumnVisibilityBinding x:Key="idVis" Data="{Binding IdVisibility}"/>
+                <root:DataGridColumnVisibilityBinding x:Key="nomVis" Data="{Binding NomVisibility}"/>
+                <root:DataGridColumnVisibilityBinding x:Key="usePerMinVis" Data="{Binding UsePerMinVisibility}"/>
+                <root:DataGridColumnVisibilityBinding x:Key="depthVis" Data="{Binding DepthVisibility}"/>
+                <root:DataGridColumnVisibilityBinding x:Key="rangeVis" Data="{Binding RangeVisibility}"/>
+                <root:DataGridColumnVisibilityBinding x:Key="categorieNomVis" Data="{Binding CategorieNomVisibility}"/>
+                <root:DataGridColumnVisibilityBinding x:Key="isActiveVis" Data="{Binding IsActiveVisibility}"/>
+            </DataGrid.Resources>
+            
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource idVis}}"/>
+                <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource nomVis}}"/>
+                <DataGridTextColumn Header="Categorie" Binding="{Binding Categorie.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource categorieNomVis}}"/>
+                <DataGridTextColumn Header="Depth" Binding="{Binding Depth}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource depthVis}}"/>
+                <DataGridTextColumn Header="Range" Binding="{Binding Range}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource rangeVis}}"/>
+                <DataGridTextColumn Header="Range" Binding="{Binding UsePerMin}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource usePerMinVis}}"/>
+                <DataGridCheckBoxColumn Header="Actif" Binding="{Binding IsActive}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isActiveVis}}"/>
+
+            </DataGrid.Columns>
         </DataGrid>
 
         <StackPanel Name="spEntity">

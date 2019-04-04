@@ -19,6 +19,7 @@ namespace WpfApp
         private SetupViewModel setupViewModel = new SetupViewModel();
         private CategorieManagerViewModel categorieViewModel = new CategorieManagerViewModel();
         private ModeleManagerViewModel modeleViewModel = new ModeleManagerViewModel();
+        private FinderManagerViewModel finderViewModel = new FinderManagerViewModel();
 
         private BindableBase _CurrentViewModel;
         public BindableBase CurrentViewModel
@@ -42,6 +43,9 @@ namespace WpfApp
                     break;
                 case "modele":
                     CurrentViewModel = modeleViewModel;
+                    break;
+                case "finder":
+                    CurrentViewModel = finderViewModel;
                     break;
             }
         }

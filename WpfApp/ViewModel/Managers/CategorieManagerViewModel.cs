@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using System.Windows;
 using WpfApp.Model;
 
 namespace WpfApp.ViewModel
@@ -15,11 +16,20 @@ namespace WpfApp.ViewModel
     {
         public CategorieManagerViewModel() : base()
         {
-
+            CategorieColumnInit();
         }
+
+        private void CategorieColumnInit()
+        {
+            NomVisibility = true;
+            IsActiveVisibility = true;
+        }
+
         protected override void Init()
         {
             DataGridItemSource = repos.Categories.GetAll().ToList();
+            
         }
+
     }
 }

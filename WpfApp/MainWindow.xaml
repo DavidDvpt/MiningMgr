@@ -25,6 +25,10 @@
         <DataTemplate DataType="{x:Type viewModels:ModeleManagerViewModel}">
             <views:ManagerView/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:FinderManagerViewModel}">
+            <views:ManagerView/>
+        </DataTemplate>
     </Window.Resources>
     
     <DockPanel>
@@ -44,6 +48,7 @@
             <MenuItem Header="Manager">
                 <MenuItem Header="Categorie" Command="{Binding NavCommand}" CommandParameter="categorie"/>
                 <MenuItem Header="Modele" Command="{Binding NavCommand}" CommandParameter="modele"/>
+                <MenuItem Header="Finder" Command="{Binding NavCommand}" CommandParameter="finder"/>
             </MenuItem>
         </Menu>
         
