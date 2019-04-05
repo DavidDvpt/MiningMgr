@@ -1,4 +1,4 @@
-﻿using WpfApp.Model;
+﻿using WpfApp.Model.Dto;
 using WpfApp.Repositories.Interfaces;
 using System.Data.Entity;
 using WpfApp.Context;

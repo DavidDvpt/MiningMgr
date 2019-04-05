@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WpfApp.Model
+namespace WpfApp.Model.Dto
 {
     [Table("PlanetMaterial")]
     public class PlanetMaterialDto

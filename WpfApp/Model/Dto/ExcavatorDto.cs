@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WpfApp.Model
+namespace WpfApp.Model.Dto
 {
     [Table("Excavator")]
     public class ExcavatorDto : ToolDto

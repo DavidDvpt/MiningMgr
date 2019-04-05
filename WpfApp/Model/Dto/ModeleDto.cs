@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WpfApp.Model
+namespace WpfApp.Model.Dto
 {
     [Table("Modele")]
     public class ModeleDto : CommunDto
@@ -15,6 +15,6 @@ namespace WpfApp.Model
         [ForeignKey("CategorieId")]
         public virtual CategorieDto Categorie {get; set;}
 
-        public virtual ICollection<InWorldDto> InWorlds { get; set; }
+        public virtual ICollection<InWorldDto> InWorldsDto { get; set; }
     }
 }

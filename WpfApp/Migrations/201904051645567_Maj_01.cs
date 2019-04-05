@@ -3,7 +3,7 @@ namespace WpfApp.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Maj01 : DbMigration
+    public partial class Maj_01 : DbMigration
     {
         public override void Up()
         {

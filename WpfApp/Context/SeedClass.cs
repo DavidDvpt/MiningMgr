@@ -1,7 +1,7 @@
 ﻿using WpfApp.Repositories;
 using WpfApp.Repositories.Interfaces;
 using System.Data.Entity;
-using WpfApp.Model;
+using WpfApp.Model.Dto;
 using System;
 
 namespace WpfApp.Context

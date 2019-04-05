@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WpfApp.Model
+namespace WpfApp.Model.Dto
 {
     [Table("SearchMode")]
     public class SearchModeDto : CommunDto

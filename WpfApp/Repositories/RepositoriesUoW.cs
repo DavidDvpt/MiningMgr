@@ -1,5 +1,5 @@
 ﻿using WpfApp.Context;
-using WpfApp.Model;
+using WpfApp.Model.Dto;
 using WpfApp.Repositories.Interfaces;
 
 namespace WpfApp.Repositories

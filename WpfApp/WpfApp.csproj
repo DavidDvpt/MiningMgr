@@ -79,15 +79,23 @@
     </ApplicationDefinition>
     <Compile Include="BindableBase.cs" />
     <Compile Include="Context\MiningContext.cs" />
-    <Compile Include="Migrations\201904031611387_Maj01.cs" />
-    <Compile Include="Migrations\201904031611387_Maj01.Designer.cs">
-      <DependentUpon>201904031611387_Maj01.cs</DependentUpon>
+    <Compile Include="Migrations\201904051645567_Maj_01.cs" />
+    <Compile Include="Migrations\201904051645567_Maj_01.Designer.cs">
+      <DependentUpon>201904051645567_Maj_01.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Commands\MyICommand.cs" />
     <Compile Include="Commands\NavCommand.cs" />
-    <Compile Include="Model\FinderAmplifierDto.cs" />
-    <Compile Include="Model\PlanetMaterialDto.cs" />
+    <Compile Include="Model\Dto\FinderAmplifierDto.cs" />
+    <Compile Include="Model\Dto\InterfacesDto\ICommunDto.cs" />
+    <Compile Include="Model\Dto\PlanetMaterialDto.cs" />
+    <Compile Include="Model\Poco\BasePoco.cs" />
+    <Compile Include="Model\Poco\CategoriePoco.cs" />
+    <Compile Include="Model\Poco\CommunPoco.cs" />
+    <Compile Include="Model\Poco\FinderPoco.cs" />
+    <Compile Include="Model\Poco\Interfaces\IPoco.cs" />
+    <Compile Include="Model\Poco\InWorldPoco.cs" />
+    <Compile Include="Model\Poco\ModelePoco.cs" />
     <Compile Include="Repositories\CommunRepository.cs" />
     <Compile Include="Repositories\Interfaces\ICommunRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRepositoriesUoW.cs" />
@@ -96,6 +104,7 @@
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Context\SeedClass.cs" />
     <Compile Include="Context\SeedStaticMethods.cs" />
+    <Compile Include="Tools\CollectionExtensions.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="DataGridColumnVisibilityBinding.cs" />
     <Compile Include="ViewModel\Managers\EnhancerManagerViewModel.cs" />
@@ -138,21 +147,21 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\CategorieDto.cs" />
-    <Compile Include="Model\CommunDto.cs" />
-    <Compile Include="Model\EnhancerDto.cs" />
-    <Compile Include="Model\ExcavatorDto.cs" />
-    <Compile Include="Model\FinderDto.cs" />
-    <Compile Include="Model\InWorldDto.cs" />
-    <Compile Include="Model\MaterialDto.cs" />
-    <Compile Include="Model\ModeleDto.cs" />
-    <Compile Include="Model\PlanetDto.cs" />
-    <Compile Include="Model\RefinerDto.cs" />
-    <Compile Include="Model\SearchModeDto.cs" />
-    <Compile Include="Model\SetupDto.cs" />
-    <Compile Include="Model\ToolDto.cs" />
-    <Compile Include="Model\ToolAccessoireDto.cs" />
-    <Compile Include="Model\UnstackableDto.cs" />
+    <Compile Include="Model\Dto\CategorieDto.cs" />
+    <Compile Include="Model\Dto\CommunDto.cs" />
+    <Compile Include="Model\Dto\EnhancerDto.cs" />
+    <Compile Include="Model\Dto\ExcavatorDto.cs" />
+    <Compile Include="Model\Dto\FinderDto.cs" />
+    <Compile Include="Model\Dto\InWorldDto.cs" />
+    <Compile Include="Model\Dto\MaterialDto.cs" />
+    <Compile Include="Model\Dto\ModeleDto.cs" />
+    <Compile Include="Model\Dto\PlanetDto.cs" />
+    <Compile Include="Model\Dto\RefinerDto.cs" />
+    <Compile Include="Model\Dto\SearchModeDto.cs" />
+    <Compile Include="Model\Dto\SetupDto.cs" />
+    <Compile Include="Model\Dto\ToolDto.cs" />
+    <Compile Include="Model\Dto\ToolAccessoireDto.cs" />
+    <Compile Include="Model\Dto\UnstackableDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -166,8 +175,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201904031611387_Maj01.resx">
-      <DependentUpon>201904031611387_Maj01.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904051645567_Maj_01.resx">
+      <DependentUpon>201904051645567_Maj_01.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

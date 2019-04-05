@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using WpfApp.Model;
+using WpfApp.Model.Dto;
 
 namespace WpfApp.ViewModel
 {
