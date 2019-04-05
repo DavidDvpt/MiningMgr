@@ -3,7 +3,7 @@
 namespace WpfApp.Model
 {
     [Table("Refiner")]
-    public class RefinerModel : ToolModel
+    public class RefinerDto : ToolDto
     {
     }
 }

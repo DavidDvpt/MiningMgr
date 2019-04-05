@@ -7,7 +7,7 @@ using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class FinderAmplifierManagerViewModel : ManagerViewModel<FinderAmplifierModel>
+    public class FinderAmplifierManagerViewModel : ManagerViewModel<FinderAmplifierDto>
     {
         protected override void ColumnInit()
         {

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace WpfApp.Model
 {
     [Table("Modele")]
-    public class ModeleModel : CommunModel
+    public class ModeleDto : CommunDto
     {
         [Required]
         public bool IsStackable { get; set; } = false;
@@ -13,8 +13,8 @@ namespace WpfApp.Model
         public int CategorieId { get; set; }
 
         [ForeignKey("CategorieId")]
-        public virtual CategorieModel Categorie {get; set;}
+        public virtual CategorieDto Categorie {get; set;}
 
-        public virtual ICollection<InWorldModel> InWorlds { get; set; }
+        public virtual ICollection<InWorldDto> InWorlds { get; set; }
     }
 }

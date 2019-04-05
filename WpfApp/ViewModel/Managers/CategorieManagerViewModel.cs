@@ -7,7 +7,7 @@ namespace WpfApp.ViewModel
     // BlindableBase : Contient le InotifyChanged et la methode SetProperty
     // BaseViewModel : contient l'instanciation des repositoris repos
     // ManagerViewModel<T> : contient la source generique du datagrid
-    public class CategorieManagerViewModel : ManagerViewModel<CategorieModel>
+    public class CategorieManagerViewModel : ManagerViewModel<CategorieDto>
     {
         //private CommunModel _dgSelectedItem;
         public CategorieManagerViewModel() : base()

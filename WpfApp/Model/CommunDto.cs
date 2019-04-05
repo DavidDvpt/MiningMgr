@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 namespace WpfApp.Model
 {
     [Table("Commun")]
-    public abstract class CommunModel : INotifyPropertyChanged
+    public abstract class CommunDto : INotifyPropertyChanged
     {
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

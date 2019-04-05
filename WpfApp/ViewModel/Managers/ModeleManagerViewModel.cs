@@ -7,7 +7,7 @@ using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class ModeleManagerViewModel : ManagerViewModel<ModeleModel>
+    public class ModeleManagerViewModel : ManagerViewModel<ModeleDto>
     {
         public ModeleManagerViewModel()
         {

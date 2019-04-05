@@ -4,7 +4,7 @@ using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class SetupManagerViewModel : ManagerViewModel<SetupModel>
+    public class SetupManagerViewModel : ManagerViewModel<SetupDto>
     {
         protected override void ColumnInit()
         {
@@ -32,11 +32,11 @@ namespace WpfApp.ViewModel
         }
 
         public MyICommand CreerCommand { get; set; }
-        public SetupModel Setup { get; set; }
+        public SetupDto Setup { get; set; }
 
         // Affichage de la liste des searchMode ds le combobox
-        public ICollection<SearchModeModel> SearchModes { get; set; }
-        public ICollection<SearchModeModel> SearchModesLoad()
+        public ICollection<SearchModeDto> SearchModes { get; set; }
+        public ICollection<SearchModeDto> SearchModesLoad()
         {
             return repos.SearchModes.GetAll().ToList();
         }
@@ -44,16 +44,16 @@ namespace WpfApp.ViewModel
 
 
         // Affichage de la liste des finder ds le combobox
-        public ICollection<FinderModel> Finders { get; set; }
-        public ICollection<FinderModel> FindersLoad()
+        public ICollection<FinderDto> Finders { get; set; }
+        public ICollection<FinderDto> FindersLoad()
         {
             return repos.Finders.GetAll().ToList();
         }
         public bool FinderChoiceEnabled { get; set; } = true;
 
         // Affichage de la liste des finderamplifier ds le combobox
-        public ICollection<FinderAmplifierModel> FinderAmplifiers { get; set; }
-        public ICollection<FinderAmplifierModel> FindersAmplifiersLoad()
+        public ICollection<FinderAmplifierDto> FinderAmplifiers { get; set; }
+        public ICollection<FinderAmplifierDto> FindersAmplifiersLoad()
         {
             return repos.FinderAmplifiers.GetAll().ToList();
         }

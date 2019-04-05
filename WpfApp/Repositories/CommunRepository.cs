@@ -7,7 +7,7 @@ using System.Linq;
 namespace WpfApp.Repositories
 {
     public class CommunRepository<T> : Repository<T>, ICommunRepository<T>
-        where T : CommunModel, new()
+        where T : CommunDto, new()
     {
         public CommunRepository(MiningContext ctx)
             : base(ctx)

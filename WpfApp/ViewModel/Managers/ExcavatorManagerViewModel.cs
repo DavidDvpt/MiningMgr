@@ -7,7 +7,7 @@ using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class ExcavatorManagerViewModel : ManagerViewModel<ExcavatorModel>
+    public class ExcavatorManagerViewModel : ManagerViewModel<ExcavatorDto>
     {
         protected override void ColumnInit()
         {

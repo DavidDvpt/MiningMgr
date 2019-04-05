@@ -7,7 +7,7 @@ using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class RefinerManagerViewModel : ManagerViewModel<RefinerModel>
+    public class RefinerManagerViewModel : ManagerViewModel<RefinerDto>
     {
         protected override void ColumnInit()
         {

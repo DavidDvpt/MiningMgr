@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace WpfApp.Model
 {
     [Table("InWorld")]
-    public abstract class InWorldModel : CommunModel
+    public abstract class InWorldDto : CommunDto
     {
         [Required]
         public decimal Value { get; set; }
@@ -12,6 +12,6 @@ namespace WpfApp.Model
         public int ModeleId { get; set; }
 
         [ForeignKey("ModeleId")]
-        public virtual ModeleModel Modele { get; set; }
+        public virtual ModeleDto Modele { get; set; }
     }
 }

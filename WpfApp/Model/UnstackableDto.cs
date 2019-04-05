@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace WpfApp.Model
 {
     [Table("Unstackable")]
-    public abstract class UnstackableModel : InWorldModel
+    public abstract class UnstackableDto : InWorldDto
     {
-        public UnstackableModel()
+        public UnstackableDto()
         {
             
         }

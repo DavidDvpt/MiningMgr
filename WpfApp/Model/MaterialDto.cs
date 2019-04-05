@@ -3,9 +3,9 @@
 namespace WpfApp.Model
 {
     [Table("Material")]
-    public class MaterialModel : InWorldModel
+    public class MaterialDto : InWorldDto
     {
-        public MaterialModel()
+        public MaterialDto()
         {
             
         }

@@ -7,7 +7,7 @@ using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class EnhancerManagerViewModel : ManagerViewModel<EnhancerModel>
+    public class EnhancerManagerViewModel : ManagerViewModel<EnhancerDto>
     {
         protected override void ColumnInit()
         {

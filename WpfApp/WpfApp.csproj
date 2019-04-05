@@ -86,8 +86,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Commands\MyICommand.cs" />
     <Compile Include="Commands\NavCommand.cs" />
-    <Compile Include="Model\FinderAmplifierModel.cs" />
-    <Compile Include="Model\PlanetMaterialModel.cs" />
+    <Compile Include="Model\FinderAmplifierDto.cs" />
+    <Compile Include="Model\PlanetMaterialDto.cs" />
     <Compile Include="Repositories\CommunRepository.cs" />
     <Compile Include="Repositories\Interfaces\ICommunRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRepositoriesUoW.cs" />
@@ -138,21 +138,21 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\CategorieModel.cs" />
-    <Compile Include="Model\CommunModel.cs" />
-    <Compile Include="Model\EnhancerModel.cs" />
-    <Compile Include="Model\ExcavatorModel.cs" />
-    <Compile Include="Model\FinderModel.cs" />
-    <Compile Include="Model\InWorldModel.cs" />
-    <Compile Include="Model\MaterialModel.cs" />
-    <Compile Include="Model\ModeleModel.cs" />
-    <Compile Include="Model\PlanetModel.cs" />
-    <Compile Include="Model\RefinerModel.cs" />
-    <Compile Include="Model\SearchModeModel.cs" />
-    <Compile Include="Model\SetupModel.cs" />
-    <Compile Include="Model\ToolModel.cs" />
-    <Compile Include="Model\ToolAccessoireModel.cs" />
-    <Compile Include="Model\UnstackableModel.cs" />
+    <Compile Include="Model\CategorieDto.cs" />
+    <Compile Include="Model\CommunDto.cs" />
+    <Compile Include="Model\EnhancerDto.cs" />
+    <Compile Include="Model\ExcavatorDto.cs" />
+    <Compile Include="Model\FinderDto.cs" />
+    <Compile Include="Model\InWorldDto.cs" />
+    <Compile Include="Model\MaterialDto.cs" />
+    <Compile Include="Model\ModeleDto.cs" />
+    <Compile Include="Model\PlanetDto.cs" />
+    <Compile Include="Model\RefinerDto.cs" />
+    <Compile Include="Model\SearchModeDto.cs" />
+    <Compile Include="Model\SetupDto.cs" />
+    <Compile Include="Model\ToolDto.cs" />
+    <Compile Include="Model\ToolAccessoireDto.cs" />
+    <Compile Include="Model\UnstackableDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

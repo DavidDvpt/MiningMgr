@@ -3,7 +3,7 @@
 namespace WpfApp.Model
 {
     [Table("Excavator")]
-    public class ExcavatorModel : ToolModel
+    public class ExcavatorDto : ToolDto
     {
         public decimal Efficienty { get; set; }
     }

@@ -7,7 +7,7 @@ using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class FinderManagerViewModel : ManagerViewModel<FinderModel>
+    public class FinderManagerViewModel : ManagerViewModel<FinderDto>
     {
         public FinderManagerViewModel()
         {

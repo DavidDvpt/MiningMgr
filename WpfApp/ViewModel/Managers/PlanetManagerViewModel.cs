@@ -3,7 +3,7 @@ using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class PlanetManagerViewModel : ManagerViewModel<PlanetModel>
+    public class PlanetManagerViewModel : ManagerViewModel<PlanetDto>
     {
         protected override void Init()
         {

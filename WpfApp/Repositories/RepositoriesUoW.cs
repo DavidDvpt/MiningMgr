@@ -23,58 +23,58 @@ namespace WpfApp.Repositories
             ctx = new MiningContext();
         }
 
-        private ICommunRepository<CategorieModel> _Categories;
-        private ICommunRepository<ModeleModel> _Modeles;
-        private IRepository<FinderModel> _Finders;
-        private IRepository<ExcavatorModel> _Excavators;
-        private IRepository<RefinerModel> _Refiners;
-        private IRepository<FinderAmplifierModel> _FinderAmplifiers;
-        private IRepository<SearchModeModel> _SearchModes;
-        private IRepository<SetupModel> _Setups;
-        private IRepository<PlanetModel> _Planets;
-        private IRepository<EnhancerModel> _Enhancers;
-        private IRepository<MaterialModel> _Materials;
-        private IRepository<ToolAccessoireModel> _ToolAccessoires;
-        private IRepository<PlanetMaterialModel> _PlanetMaterials;
+        private ICommunRepository<CategorieDto> _Categories;
+        private ICommunRepository<ModeleDto> _Modeles;
+        private IRepository<FinderDto> _Finders;
+        private IRepository<ExcavatorDto> _Excavators;
+        private IRepository<RefinerDto> _Refiners;
+        private IRepository<FinderAmplifierDto> _FinderAmplifiers;
+        private IRepository<SearchModeDto> _SearchModes;
+        private IRepository<SetupDto> _Setups;
+        private IRepository<PlanetDto> _Planets;
+        private IRepository<EnhancerDto> _Enhancers;
+        private IRepository<MaterialDto> _Materials;
+        private IRepository<ToolAccessoireDto> _ToolAccessoires;
+        private IRepository<PlanetMaterialDto> _PlanetMaterials;
 
-        public ICommunRepository<CategorieModel> Categories
-            => _Categories == null? _Categories = new CommunRepository<CategorieModel>(ctx) : _Categories;
+        public ICommunRepository<CategorieDto> Categories
+            => _Categories == null? _Categories = new CommunRepository<CategorieDto>(ctx) : _Categories;
 
-        public ICommunRepository<ModeleModel> Modeles
-            => _Modeles == null ? _Modeles = new CommunRepository<ModeleModel>(ctx) : _Modeles;
+        public ICommunRepository<ModeleDto> Modeles
+            => _Modeles == null ? _Modeles = new CommunRepository<ModeleDto>(ctx) : _Modeles;
 
-        public IRepository<FinderModel> Finders
-            => _Finders == null ? _Finders = new Repository<FinderModel>(ctx) : _Finders;
+        public IRepository<FinderDto> Finders
+            => _Finders == null ? _Finders = new Repository<FinderDto>(ctx) : _Finders;
 
-        public IRepository<ExcavatorModel> Excavators
-            => _Excavators == null ? _Excavators = new Repository<ExcavatorModel>(ctx) : _Excavators;
+        public IRepository<ExcavatorDto> Excavators
+            => _Excavators == null ? _Excavators = new Repository<ExcavatorDto>(ctx) : _Excavators;
 
-        public IRepository<RefinerModel> Refiners
-            => _Refiners == null ? _Refiners = new Repository<RefinerModel>(ctx) : _Refiners;
+        public IRepository<RefinerDto> Refiners
+            => _Refiners == null ? _Refiners = new Repository<RefinerDto>(ctx) : _Refiners;
 
-        public IRepository<FinderAmplifierModel> FinderAmplifiers
-            => _FinderAmplifiers == null ? _FinderAmplifiers = new Repository<FinderAmplifierModel>(ctx) : _FinderAmplifiers;
+        public IRepository<FinderAmplifierDto> FinderAmplifiers
+            => _FinderAmplifiers == null ? _FinderAmplifiers = new Repository<FinderAmplifierDto>(ctx) : _FinderAmplifiers;
 
-        public IRepository<SearchModeModel> SearchModes
-            => _SearchModes == null ? _SearchModes = new Repository<SearchModeModel>(ctx) : _SearchModes;
+        public IRepository<SearchModeDto> SearchModes
+            => _SearchModes == null ? _SearchModes = new Repository<SearchModeDto>(ctx) : _SearchModes;
 
-        public IRepository<SetupModel> Setups
-            => _Setups == null ? _Setups = new Repository<SetupModel>(ctx) : _Setups;
+        public IRepository<SetupDto> Setups
+            => _Setups == null ? _Setups = new Repository<SetupDto>(ctx) : _Setups;
 
-        public IRepository<PlanetModel> Planets
-            => _Planets == null ? _Planets = new Repository<PlanetModel>(ctx) : _Planets;
+        public IRepository<PlanetDto> Planets
+            => _Planets == null ? _Planets = new Repository<PlanetDto>(ctx) : _Planets;
 
-        public IRepository<EnhancerModel> Enhancers
-            => _Enhancers == null? _Enhancers = new Repository<EnhancerModel>(ctx) : _Enhancers;
+        public IRepository<EnhancerDto> Enhancers
+            => _Enhancers == null? _Enhancers = new Repository<EnhancerDto>(ctx) : _Enhancers;
 
-        public IRepository<MaterialModel> Materials
-            => _Materials == null? _Materials = new Repository<MaterialModel>(ctx) : _Materials;
+        public IRepository<MaterialDto> Materials
+            => _Materials == null? _Materials = new Repository<MaterialDto>(ctx) : _Materials;
 
-        public IRepository<ToolAccessoireModel> ToolAccessoires
-            => _ToolAccessoires == null ? _ToolAccessoires = new Repository<ToolAccessoireModel>(ctx) : _ToolAccessoires;
+        public IRepository<ToolAccessoireDto> ToolAccessoires
+            => _ToolAccessoires == null ? _ToolAccessoires = new Repository<ToolAccessoireDto>(ctx) : _ToolAccessoires;
 
-        public IRepository<PlanetMaterialModel> PlanetMaterials
-            => _PlanetMaterials == null ? _PlanetMaterials = new Repository<PlanetMaterialModel>(ctx) : _PlanetMaterials;
+        public IRepository<PlanetMaterialDto> PlanetMaterials
+            => _PlanetMaterials == null ? _PlanetMaterials = new Repository<PlanetMaterialDto>(ctx) : _PlanetMaterials;
 
         public void Commit()
         {
