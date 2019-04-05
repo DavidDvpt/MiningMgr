@@ -18,7 +18,7 @@ namespace WpfApp
         public NavCommand<string> NavCommand { get; private set; }
 
         #region ViewModels
-        private SetupViewModel setupViewModel = new SetupViewModel();
+        private SetupManagerViewModel setupManagerViewModel = new SetupManagerViewModel();
         private CategorieManagerViewModel categorieViewModel = new CategorieManagerViewModel();
         private ModeleManagerViewModel modeleViewModel = new ModeleManagerViewModel();
         private FinderManagerViewModel finderViewModel = new FinderManagerViewModel();
@@ -36,6 +36,7 @@ namespace WpfApp
             set
             {
                 SetProperty(ref _CurrentViewModel, value);
+                int i = DateTime.Now.Year;
             }
         }
 
@@ -44,7 +45,7 @@ namespace WpfApp
             switch (destination)
             {
                 case "setup":
-                    CurrentViewModel = setupViewModel;
+                    CurrentViewModel = setupManagerViewModel;
                     break;
                 case "categorie":
                     CurrentViewModel = categorieViewModel;

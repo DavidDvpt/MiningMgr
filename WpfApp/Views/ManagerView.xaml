@@ -6,11 +6,35 @@
              xmlns:root="clr-namespace:WpfApp"
              xmlns:local="clr-namespace:WpfApp.Views"
              xmlns:viewModels="clr-namespace:WpfApp.ViewModel"
+             xmlns:models="clr-namespace:WpfApp.Model"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
     <UserControl.Resources>
-        
+        <root:DataGridColumnVisibilityBinding x:Key="idVis" Data="{Binding IdVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="nomVis" Data="{Binding NomVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="usePerMinVis" Data="{Binding UsePerMinVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="depthVis" Data="{Binding DepthVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="rangeVis" Data="{Binding RangeVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="categorieNomVis" Data="{Binding CategorieNomVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="modeleNomVis" Data="{Binding ModeleNomVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="isActiveVis" Data="{Binding IsActiveVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="valueVis" Data="{Binding ValueVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="isLimitedVis" Data="{Binding IsLimitedVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="decayVis" Data="{Binding DecayVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="bonusValue1Vis" Data="{Binding BonusValue1Visibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="bonusValue2Vis" Data="{Binding BonusValue2Visibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="slotVis" Data="{Binding SlotVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="coefficientVis" Data="{Binding CoefficientVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="efficientyVis" Data="{Binding EfficientyVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="abbrevVis" Data="{Binding AbbrevVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="multiplicateurVis" Data="{Binding MultiplicateurVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="searchModeVis" Data="{Binding SearchModeVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="finderVis" Data="{Binding FinderVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="finderAmplifierVis" Data="{Binding FinderAmplifierVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="depthEnhancerQtyVis" Data="{Binding DepthEnhancerQtyVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="rangeEnhancerQtyVis" Data="{Binding RangeEnhancerQtyVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="skillEnhancerQtyVis" Data="{Binding SkillEnhancerQtyVisibility}"/>
     </UserControl.Resources>
     
     <Grid>
@@ -19,29 +43,13 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid Name="dgGeneric" ItemsSource="{Binding DataGridItemSource}" AutoGenerateColumns="False">
+        <DataGrid Name="dgGeneric"
+                  ItemsSource="{Binding DataGridItemSource}"
+                  AutoGenerateColumns="False"
+                  SelectedItem="{Binding DgSelectedItem, Mode=TwoWay}"
+                  SelectionChanged="DgGeneric_SelectionChanged">
             <DataGrid.Resources>
-                <root:DataGridColumnVisibilityBinding x:Key="idVis" Data="{Binding IdVisibility}"/>
-                <root:DataGridColumnVisibilityBinding x:Key="nomVis" Data="{Binding NomVisibility}"/>
-                <root:DataGridColumnVisibilityBinding x:Key="usePerMinVis" Data="{Binding UsePerMinVisibility}"/>
-                <root:DataGridColumnVisibilityBinding x:Key="depthVis" Data="{Binding DepthVisibility}"/>
-                <root:DataGridColumnVisibilityBinding x:Key="rangeVis" Data="{Binding RangeVisibility}"/>
-                <root:DataGridColumnVisibilityBinding x:Key="categorieNomVis" Data="{Binding CategorieNomVisibility}"/>
-                <root:DataGridColumnVisibilityBinding x:Key="modeleNomVis" Data="{Binding ModeleNomVisibility}"/>
-                <root:DataGridColumnVisibilityBinding x:Key="isActiveVis" Data="{Binding IsActiveVisibility}"/>
-                <root:DataGridColumnVisibilityBinding x:Key="valueVis" Data="{Binding ValueVisibility}"/>
-                <root:DataGridColumnVisibilityBinding x:Key="isLimitedVis" Data="{Binding IsLimitedVisibility}"/>
-                <root:DataGridColumnVisibilityBinding x:Key="decayVis" Data="{Binding DecayVisibility}"/>
-                <root:DataGridColumnVisibilityBinding x:Key="bonusValue1Vis" Data="{Binding BonusValue1Visibility}"/>
-                <root:DataGridColumnVisibilityBinding x:Key="bonusValue2Vis" Data="{Binding BonusValue2Visibility}"/>
-                <root:DataGridColumnVisibilityBinding x:Key="slotVis" Data="{Binding SlotVisibility}"/>
-                <root:DataGridColumnVisibilityBinding x:Key="coefficientVis" Data="{Binding CoefficientVisibility}"/>
-                <root:DataGridColumnVisibilityBinding x:Key="efficientyVis" Data="{Binding EfficientyVisibility}"/>
-                <root:DataGridColumnVisibilityBinding x:Key="abbrevVis" Data="{Binding AbbrevVisibility}"/>
-                <root:DataGridColumnVisibilityBinding x:Key="multiplicateurVis" Data="{Binding MultiplicateurVisibility}"/>
-                <root:DataGridColumnVisibilityBinding x:Key="searchModeVis" Data="{Binding SearchModeVisibility}"/>
-                <root:DataGridColumnVisibilityBinding x:Key="finderVis" Data="{Binding FinderVisibility}"/>
-                <root:DataGridColumnVisibilityBinding x:Key="finderAmplifierVis" Data="{Binding FinderAmplifierVisibility}"/>
+
             </DataGrid.Resources>
             
             <DataGrid.Columns>
@@ -65,14 +73,41 @@
                 <DataGridTextColumn Header="SearchMode" Binding="{Binding SearchMode}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource searchModeVis}}"/>
                 <DataGridTextColumn Header="Finder" Binding="{Binding Finder}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource finderVis}}"/>
                 <DataGridTextColumn Header="Finder Amplifier" Binding="{Binding FinderAmplifier}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource finderAmplifierVis}}"/>
+                <DataGridTextColumn Header="Depth Enhancer Quantity" Binding="{Binding FinderAmplifier}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource depthEnhancerQtyVis}}"/>
+                <DataGridTextColumn Header="Range Enhancer Quantity" Binding="{Binding FinderAmplifier}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource rangeEnhancerQtyVis}}"/>
+                <DataGridTextColumn Header="Skill Enhancer Quantity" Binding="{Binding FinderAmplifier}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource skillEnhancerQtyVis}}"/>
                 <DataGridCheckBoxColumn Header="Actif" Binding="{Binding IsActive}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isActiveVis}}"/>
 
             </DataGrid.Columns>
         </DataGrid>
 
-        <StackPanel Name="spEntity">
-            
-            
-        </StackPanel>
+        <DockPanel Grid.Column="2">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Height="40" HorizontalAlignment="Center" >
+                <Button Name="btnValider" Content="Sauver" Width="100" Margin="10,0"/>
+                <Button Name="btnAnnuler" Content="Annuler" Width="100" Margin="10,0"/>
+            </StackPanel>
+
+            <StackPanel Name="spEntity" DataContext="{Binding DgSelectedItem}" Height="auto">
+                <StackPanel Name="spId" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource idVis}}">
+                    <Label Name="lbId" Content="Id : " Width="100"/>
+                    <TextBlock Name="tbkId" Text="{Binding Id}" Width="auto"/>
+                </StackPanel>
+
+                <StackPanel Name="spNom" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource nomVis}}">
+                    <Label Name="lbnom" Content="Nom : " Width="100"/>
+                    <TextBox Name="tbkNom" Text="{Binding Nom}" Width="auto"/>
+                </StackPanel>
+
+                <StackPanel Name="spIsActive" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isActiveVis}}">
+                    <Label Name="lbIsActive" Content="Actif : " Width="100"/>
+                    <CheckBox Name="ckxIsActive" IsChecked="{Binding IsActive}" Width="auto"/>
+                </StackPanel>
+                
+                <StackPanel Name="spCategorie" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource categorieNomVis}}">
+                    <Label Name="lbCategorie" Content="Catégorie : " Width="100"/>
+                    <ComboBox Name="cbxIsActive" ItemsSource="{Binding Path = Categories, Mode=OneWay}" DisplayMemberPath="Nom"/>
+                </StackPanel>
+            </StackPanel>
+        </DockPanel>
     </Grid>
 </UserControl>

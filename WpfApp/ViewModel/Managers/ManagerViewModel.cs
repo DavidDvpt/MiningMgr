@@ -10,6 +10,7 @@ namespace WpfApp.ViewModel
     public abstract class ManagerViewModel<T> : BaseViewModel
         where T : class
     {
+        private T _dgSelectedItem;
         private ICollection<T> _dataGridItemSources;
 
         public ManagerViewModel()
@@ -46,9 +47,7 @@ namespace WpfApp.ViewModel
 
         // Unstackable
         public bool IsLimitedVisibility { get; set; } = false;
-
         public bool DecayVisibility { get; set; } = false;
-
         public bool CodeMinVisibility { get; set; } = false;
 
         // Tool
@@ -56,7 +55,6 @@ namespace WpfApp.ViewModel
 
         //Depth
         public bool DepthVisibility { get; set; } = false;
-
         public bool RangeVisibility { get; set; } = false;
 
         // Excavator
@@ -68,22 +66,33 @@ namespace WpfApp.ViewModel
 
         // Enhancer
         public bool SlotVisibility { get; set; } = false;
-
         public bool BonusValue1Visibility { get; set; } = false;
-
         public bool BonusValue2Visibility { get; set; } = false;
 
         // SearchMode
         public bool AbbrevVisibility { get; set; } = false;
-
         public bool MultiplicateurVisibility { get; set; } = false;
 
         // Setup
         public bool SearchModeVisibility { get; set; } = false;
-
         public bool FinderVisibility { get; set; } = false;
-
         public bool FinderAmplifierVisibility { get; set; } = false;
+        public bool DepthEnhancerQtyVisibility { get; set; } = false;
+        public bool RangeEnhancerQtyVisibility { get; set; } = false;
+        public bool SkillEnhancerQtyVisibility { get; set; } = false;
         #endregion
+
+        public T DgSelectedItem
+        {
+            get => _dgSelectedItem;
+            set
+            {
+                if (_dgSelectedItem != value)
+                {
+                    _dgSelectedItem = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp.Model;
 
 namespace WpfApp.Views
 {
@@ -23,6 +24,11 @@ namespace WpfApp.Views
         public ManagerView()
         {
             InitializeComponent();
+        }
+
+        private void DgGeneric_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //MessageBox.Show(((CategorieModel)dgGeneric.SelectedItem).Nom.ToString());
         }
     }
 }

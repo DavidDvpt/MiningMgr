@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-//using System.Windows;
+﻿using System.Linq;
 using WpfApp.Model;
 
 namespace WpfApp.ViewModel
@@ -14,11 +9,11 @@ namespace WpfApp.ViewModel
     // ManagerViewModel<T> : contient la source generique du datagrid
     public class CategorieManagerViewModel : ManagerViewModel<CategorieModel>
     {
+        //private CommunModel _dgSelectedItem;
         public CategorieManagerViewModel() : base()
         {
 
         }
-
 
         protected override void ColumnInit()
         {
@@ -31,7 +26,18 @@ namespace WpfApp.ViewModel
             DataGridItemSource = repos.Categories.GetAll().ToList();         
         }
 
-
+        //public CommunModel DgSelectedItem
+        //{
+        //    get => _dgSelectedItem;
+        //    set
+        //    {
+        //        if (_dgSelectedItem != value)
+        //        {
+        //            _dgSelectedItem = value;
+        //            OnPropertyChanged();
+        //        }
+        //    }
+        //}
 
 
     }

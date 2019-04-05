@@ -4,32 +4,31 @@ using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class SetupViewModel : BaseViewModel
+    public class SetupManagerViewModel : ManagerViewModel<SetupModel>
     {
-        // si modification du setup
-        public SetupViewModel(SetupModel setup) : base()
+        protected override void ColumnInit()
         {
-            Setup = setup;
-            Init();
-            //AllEnabledChange(false);
-        }
-
-        public SetupViewModel() : base()
-        {
-            Init();
+            NomVisibility = true;
+            SearchModeVisibility = true;
+            FinderVisibility = true;
+            FinderAmplifierVisibility = true;
+            DepthEnhancerQtyVisibility = true;
+            RangeEnhancerQtyVisibility = true;
+            SkillEnhancerQtyVisibility = true;
         }
 
         protected override void Init()
         {
-            if (Setup == null)
-                Setup = new SetupModel();
-            SearchModes = SearchModesLoad();
-            Finders = FindersLoad();
-            FinderAmplifiers = FindersAmplifiersLoad();
-            Setup.Finder = Finders.First();
-            Setup.FinderAmplifier = FinderAmplifiers.First();
-            Setup.SearchMode = SearchModes.First();
-            CreerCommand = new MyICommand(OnCreate, CanCreate);
+            //if (Setup == null)
+            //    Setup = new SetupModel();
+            //SearchModes = SearchModesLoad();
+            //Finders = FindersLoad();
+            //FinderAmplifiers = FindersAmplifiersLoad();
+            //Setup.Finder = Finders.First();
+            //Setup.FinderAmplifier = FinderAmplifiers.First();
+            //Setup.SearchMode = SearchModes.First();
+            //CreerCommand = new MyICommand(OnCreate, CanCreate);
+            DataGridItemSource = repos.Setups.GetAll().ToList();
         }
 
         public MyICommand CreerCommand { get; set; }
@@ -89,5 +88,6 @@ namespace WpfApp.ViewModel
             Setup.IsActive = false;
             repos.Setups.Update(Setup);
         }
+
     }
 }

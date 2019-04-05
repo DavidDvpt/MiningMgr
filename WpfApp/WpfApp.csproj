@@ -108,7 +108,7 @@
     <Compile Include="ViewModel\Managers\FinderManagerViewModel.cs" />
     <Compile Include="ViewModel\Managers\PlanetManagerViewModel.cs" />
     <Compile Include="ViewModel\Managers\RefinerManagerViewModel.cs" />
-    <Compile Include="ViewModel\SetupViewModel.cs" />
+    <Compile Include="ViewModel\Managers\SetupManagerViewModel.cs" />
     <Compile Include="Views\ManagerView.xaml.cs">
       <DependentUpon>ManagerView.xaml</DependentUpon>
     </Compile>

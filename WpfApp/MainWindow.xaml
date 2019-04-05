@@ -14,8 +14,8 @@
     </Window.DataContext>
 
     <Window.Resources>
-        <DataTemplate DataType="{x:Type viewModels:SetupViewModel}">
-            <views:SetupView/>
+        <DataTemplate DataType="{x:Type viewModels:SetupManagerViewModel}">
+            <views:ManagerView/>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type viewModels:CategorieManagerViewModel}">
@@ -78,7 +78,7 @@
                 <MenuItem Header="Enhancer" Command="{Binding NavCommand}" CommandParameter="enhancer"/>
                 <Separator />
                 <MenuItem Header="SearchMode" Command="{Binding NavCommand}" CommandParameter="searchMode"/>
-                <MenuItem Header="Setup" Command="{Binding NavCommand}" CommandParameter="Setup"/>
+                <MenuItem Header="Setup" Command="{Binding NavCommand}" CommandParameter="setup"/>
             </MenuItem>
         </Menu>
         
