@@ -11,10 +11,9 @@ namespace WpfApp.ViewModel
     {
         public ModeleManagerViewModel()
         {
-            ModeleColumnInit();
         }
 
-        private void ModeleColumnInit()
+        protected override void ColumnInit()
         {
             NomVisibility = true;
             CategorieNomVisibility = true;

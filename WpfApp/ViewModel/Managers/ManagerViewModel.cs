@@ -14,20 +14,10 @@ namespace WpfApp.ViewModel
 
         public ManagerViewModel()
         {
-            DataGridComumnVisibilityInit();
+            ColumnInit();
         }
 
-        private void DataGridComumnVisibilityInit()
-        {
-            IdVisibility = false;
-            NomVisibility = false;
-            IsActiveVisibility = false;
-
-            CategorieNomVisibility = false;
-            DepthVisibility = false;
-            RangeVisibility = false;
-            UsePerMinVisibility = false;
-        }
+        protected abstract void ColumnInit();
 
         public ICollection<T> DataGridItemSource
         {
@@ -43,57 +33,57 @@ namespace WpfApp.ViewModel
 
         #region DataGridColumnVisibility
         // Commun, Categorie, Planet
-        public bool IdVisibility { get; set; }
-        public bool NomVisibility { get; set; }
-        public bool IsActiveVisibility { get; set; }
+        public bool IdVisibility { get; set; } = false;
+        public bool NomVisibility { get; set; } = false;
+        public bool IsActiveVisibility { get; set; } = false;
 
         // Modele
-        public bool CategorieNomVisibility { get; set; }
+        public bool CategorieNomVisibility { get; set; } = false;
 
         // InWorld
-        public bool ValueMinVisibility { get; set; }
+        public bool ValueVisibility { get; set; } = false;
+        public bool ModeleNomVisibility { get; set; } = false;
 
-        public bool UsePerMinVisibility { get; set; }
+        // Unstackable
+        public bool IsLimitedVisibility { get; set; } = false;
 
+        public bool DecayVisibility { get; set; } = false;
 
+        public bool CodeMinVisibility { get; set; } = false;
 
+        // Tool
+        public bool UsePerMinVisibility { get; set; } = false;
 
+        //Depth
+        public bool DepthVisibility { get; set; } = false;
 
-        public bool DepthVisibility { get; set; }
+        public bool RangeVisibility { get; set; } = false;
 
-        public bool RangeVisibility { get; set; }
+        // Excavator
+        public bool EfficientyVisibility { get; set; } = false;
 
-        public bool SlotVisibility { get; set; }
+        // Accessoires
+        // Finder Amplifier
+        public bool CoefficientVisibility { get; set; } = false;
 
-        public bool BonusValue1Visibility { get; set; }
+        // Enhancer
+        public bool SlotVisibility { get; set; } = false;
 
-        public bool BonusValue2Visibility { get; set; }
+        public bool BonusValue1Visibility { get; set; } = false;
 
-        public bool EfficientyVisibility { get; set; }
+        public bool BonusValue2Visibility { get; set; } = false;
 
-        public bool CoefficientVisibility { get; set; }
+        // SearchMode
+        public bool AbbrevVisibility { get; set; } = false;
 
-        public bool ValueVisibility { get; set; }
+        public bool MultiplicateurVisibility { get; set; } = false;
 
-        public bool AbbrevVisibility { get; set; }
+        // Setup
+        public bool SearchModeVisibility { get; set; } = false;
 
-        public bool MultiplicateurVisibility { get; set; }
+        public bool FinderVisibility { get; set; } = false;
 
-        public bool SearchModeVisibility { get; set; }
-
-        public bool FinderVisibility { get; set; }
-
-        public bool FinderAmplifierVisibility { get; set; }
-
-        public bool IsLimitedVisibility { get; set; }
-
-        public bool DecayVisibility { get; set; }
-
-        public bool CodeVisibility { get; set; }
+        public bool FinderAmplifierVisibility { get; set; } = false;
         #endregion
-
-
-
-
     }
 }

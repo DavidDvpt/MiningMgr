@@ -98,11 +98,16 @@
     <Compile Include="Context\SeedStaticMethods.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="DataGridColumnVisibilityBinding.cs" />
+    <Compile Include="ViewModel\Managers\EnhancerManagerViewModel.cs" />
+    <Compile Include="ViewModel\Managers\FinderAmplifierManagerViewModel.cs" />
+    <Compile Include="ViewModel\Managers\ExcavatorManagerViewModel.cs" />
     <Compile Include="ViewModel\Managers\CategorieManagerViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\Managers\ManagerViewModel.cs" />
     <Compile Include="ViewModel\Managers\ModeleManagerViewModel.cs" />
     <Compile Include="ViewModel\Managers\FinderManagerViewModel.cs" />
+    <Compile Include="ViewModel\Managers\PlanetManagerViewModel.cs" />
+    <Compile Include="ViewModel\Managers\RefinerManagerViewModel.cs" />
     <Compile Include="ViewModel\SetupViewModel.cs" />
     <Compile Include="Views\ManagerView.xaml.cs">
       <DependentUpon>ManagerView.xaml</DependentUpon>

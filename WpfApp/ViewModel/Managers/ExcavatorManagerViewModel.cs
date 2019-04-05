@@ -7,12 +7,8 @@ using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class FinderManagerViewModel : ManagerViewModel<FinderModel>
+    public class ExcavatorManagerViewModel : ManagerViewModel<ExcavatorModel>
     {
-        public FinderManagerViewModel()
-        {
-        }
-
         protected override void ColumnInit()
         {
             NomVisibility = true;
@@ -21,14 +17,14 @@ namespace WpfApp.ViewModel
             UsePerMinVisibility = true;
             IsLimitedVisibility = true;
             IsActiveVisibility = true;
-            DepthVisibility = true;
-            RangeVisibility = true;
+            EfficientyVisibility = true;
         }
 
         protected override void Init()
         {
-            DataGridItemSource = repos.Finders.GetAll().ToList();
+            DataGridItemSource = repos.Excavators.GetAll().ToList();
         }
+
 
     }
 }

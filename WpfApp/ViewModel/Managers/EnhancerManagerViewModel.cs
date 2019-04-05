@@ -7,28 +7,19 @@ using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class FinderManagerViewModel : ManagerViewModel<FinderModel>
+    public class EnhancerManagerViewModel : ManagerViewModel<EnhancerModel>
     {
-        public FinderManagerViewModel()
-        {
-        }
-
         protected override void ColumnInit()
         {
             NomVisibility = true;
             ValueVisibility = true;
-            DecayVisibility = true;
-            UsePerMinVisibility = true;
-            IsLimitedVisibility = true;
+            ModeleNomVisibility = true;
             IsActiveVisibility = true;
-            DepthVisibility = true;
-            RangeVisibility = true;
         }
 
         protected override void Init()
         {
-            DataGridItemSource = repos.Finders.GetAll().ToList();
+            DataGridItemSource = repos.Enhancers.GetAll().ToList();
         }
-
     }
 }

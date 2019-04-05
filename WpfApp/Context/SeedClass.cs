@@ -238,28 +238,28 @@ namespace WpfApp.Context
         private void AddRefiners(IRepositoriesUoW repositories)
         {
             int id = repositories.Modeles.GetByNom("Refiner").Id;
-            repositories.Refiners.Add(new RefinerModel() { Nom = "Chikara Refiner Adjusted", ModeleId = id, Code = "", IsLimited = true, Value = 24, Decay = 0.015M, UsePerMin = 22 });
-            repositories.Refiners.Add(new RefinerModel() { Nom = "Chikara Refiner Modified", ModeleId = id, Code = "", IsLimited = true, Value = 41, Decay = .013M, UsePerMin = 25 });
-            repositories.Refiners.Add(new RefinerModel() { Nom = "Chikara Refiner MR200", ModeleId = id, Code = "", IsLimited = true, Value = 16, Decay = 0.023M, UsePerMin = 20 });
-            repositories.Refiners.Add(new RefinerModel() { Nom = "Chikara Refiner MR300", ModeleId = id, Code = "", IsLimited = true, Value = 35, Decay = 0.022M, UsePerMin = 21 });
-            repositories.Refiners.Add(new RefinerModel() { Nom = "Chikara Refiner MR400", ModeleId = id, Code = "", IsLimited = true, Value = 48, Decay = 0.02M, UsePerMin = 30 });
-            repositories.Refiners.Add(new RefinerModel() { Nom = "Demonic Refiner MK-I (L)", ModeleId = id, Code = "", IsLimited = false, Value = 2, Decay = 0.03M, UsePerMin = 0 });
-            repositories.Refiners.Add(new RefinerModel() { Nom = "Genesis Rookie OreRefiner (L)", ModeleId = id, Code = "", IsLimited = false, Value = 0.01M, Decay = 0.11M, UsePerMin = 0 });
-            repositories.Refiners.Add(new RefinerModel() { Nom = "Genesis Star Basic Refiner", ModeleId = id, Code = "", IsLimited = true, Value = 2, Decay = 0.031M, UsePerMin = 20 });
-            repositories.Refiners.Add(new RefinerModel() { Nom = "Imperium Resource Refiner 1A", ModeleId = id, Code = "", IsLimited = true, Value = 3, Decay = 0.03M, UsePerMin = 0 });
-            repositories.Refiners.Add(new RefinerModel() { Nom = "Imperium Resource Refiner B1", ModeleId = id, Code = "", IsLimited = true, Value = 6, Decay = 0.022M, UsePerMin = 21 });
-            repositories.Refiners.Add(new RefinerModel() { Nom = "Initiate's Refiner", ModeleId = id, Code = "", IsLimited = true, Value = 2, Decay = 0.031M, UsePerMin = 0 });
-            repositories.Refiners.Add(new RefinerModel() { Nom = "NI Basic Refiner", ModeleId = id, Code = "", IsLimited = true, Value = 2, Decay = 0.031M, UsePerMin = 0 });
-            repositories.Refiners.Add(new RefinerModel() { Nom = "NI Refiner New Settler Issue", ModeleId = id, Code = "", IsLimited = true, Value = 1, Decay = 0, UsePerMin = 20 });
-            repositories.Refiners.Add(new RefinerModel() { Nom = "PTech Refiner 1", ModeleId = id, Code = "", IsLimited = true, Value = 2, Decay = 0.03M, UsePerMin = 0 });
-            repositories.Refiners.Add(new RefinerModel() { Nom = "PTech Refiner TT", ModeleId = id, Code = "", IsLimited = true, Value = 2, Decay = 0.031M, UsePerMin = 0 });
-            repositories.Refiners.Add(new RefinerModel() { Nom = "Punk Blender", ModeleId = id, Code = "", IsLimited = true, Value = 2, Decay = 0.031M, UsePerMin = 0 });
-            repositories.Refiners.Add(new RefinerModel() { Nom = "Refiner MR100", ModeleId = id, Code = "", IsLimited = true, Value = 2, Decay = 0.031M, UsePerMin = 20 });
-            repositories.Refiners.Add(new RefinerModel() { Nom = "Transformer T-101", ModeleId = id, Code = "", IsLimited = true, Value = 8, Decay = 0.03M, UsePerMin = 20 });
-            repositories.Refiners.Add(new RefinerModel() { Nom = "Transformer T-102", ModeleId = id, Code = "", IsLimited = true, Value = 22.75M, Decay = 0.028M, UsePerMin = 21 });
-            repositories.Refiners.Add(new RefinerModel() { Nom = "Transformer T-103", ModeleId = id, Code = "", IsLimited = true, Value = 45.5M, Decay = 0.026M, UsePerMin = 22 });
-            repositories.Refiners.Add(new RefinerModel() { Nom = "Transformer T-104", ModeleId = id, Code = "", IsLimited = true, Value = 55.3M, Decay = 0.023M, UsePerMin = 34 });
-            repositories.Refiners.Add(new RefinerModel() { Nom = "Transformer T-105", ModeleId = id, Code = "", IsLimited = true, Value = 75, Decay = 0.021M, UsePerMin = 36 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "Chikara Refiner Adjusted", ModeleId = id, Code = "", IsLimited = false, Value = 24, Decay = 0.015M, UsePerMin = 22 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "Chikara Refiner Modified", ModeleId = id, Code = "", IsLimited = false, Value = 41, Decay = .013M, UsePerMin = 25 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "Chikara Refiner MR200", ModeleId = id, Code = "", IsLimited = false, Value = 16, Decay = 0.023M, UsePerMin = 20 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "Chikara Refiner MR300", ModeleId = id, Code = "", IsLimited = false, Value = 35, Decay = 0.022M, UsePerMin = 21 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "Chikara Refiner MR400", ModeleId = id, Code = "", IsLimited = false, Value = 48, Decay = 0.02M, UsePerMin = 30 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "Demonic Refiner MK-I (L)", ModeleId = id, Code = "", IsLimited = true, Value = 2, Decay = 0.03M, UsePerMin = 0 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "Genesis Rookie OreRefiner (L)", ModeleId = id, Code = "", IsLimited = true, Value = 0.01M, Decay = 0.11M, UsePerMin = 0 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "Genesis Star Basic Refiner", ModeleId = id, Code = "", IsLimited = false, Value = 2, Decay = 0.031M, UsePerMin = 20 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "Imperium Resource Refiner 1A", ModeleId = id, Code = "", IsLimited = false, Value = 3, Decay = 0.03M, UsePerMin = 0 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "Imperium Resource Refiner B1", ModeleId = id, Code = "", IsLimited = false, Value = 6, Decay = 0.022M, UsePerMin = 21 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "Initiate's Refiner", ModeleId = id, Code = "", IsLimited = false, Value = 2, Decay = 0.031M, UsePerMin = 0 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "NI Basic Refiner", ModeleId = id, Code = "", IsLimited = false, Value = 2, Decay = 0.031M, UsePerMin = 0 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "NI Refiner New Settler Issue", ModeleId = id, Code = "", IsLimited = false, Value = 1, Decay = 0, UsePerMin = 20 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "PTech Refiner 1", ModeleId = id, Code = "", IsLimited = false, Value = 2, Decay = 0.03M, UsePerMin = 0 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "PTech Refiner TT", ModeleId = id, Code = "", IsLimited = false, Value = 2, Decay = 0.031M, UsePerMin = 0 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "Punk Blender", ModeleId = id, Code = "", IsLimited = false, Value = 2, Decay = 0.031M, UsePerMin = 0 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "Refiner MR100", ModeleId = id, Code = "", IsLimited = false, Value = 2, Decay = 0.031M, UsePerMin = 20 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "Transformer T-101", ModeleId = id, Code = "", IsLimited = false, Value = 8, Decay = 0.03M, UsePerMin = 20 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "Transformer T-102", ModeleId = id, Code = "", IsLimited = false, Value = 22.75M, Decay = 0.028M, UsePerMin = 21 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "Transformer T-103", ModeleId = id, Code = "", IsLimited = false, Value = 45.5M, Decay = 0.026M, UsePerMin = 22 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "Transformer T-104", ModeleId = id, Code = "", IsLimited = false, Value = 55.3M, Decay = 0.023M, UsePerMin = 34 });
+            repositories.Refiners.Add(new RefinerModel() { Nom = "Transformer T-105", ModeleId = id, Code = "", IsLimited = false, Value = 75, Decay = 0.021M, UsePerMin = 36 });
 
         }
 

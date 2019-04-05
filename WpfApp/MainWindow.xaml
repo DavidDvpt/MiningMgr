@@ -29,6 +29,26 @@
         <DataTemplate DataType="{x:Type viewModels:FinderManagerViewModel}">
             <views:ManagerView/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:PlanetManagerViewModel}">
+            <views:ManagerView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:ExcavatorManagerViewModel}">
+            <views:ManagerView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:RefinerManagerViewModel}">
+            <views:ManagerView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:FinderAmplifierManagerViewModel}">
+            <views:ManagerView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:EnhancerManagerViewModel}">
+            <views:ManagerView/>
+        </DataTemplate>
     </Window.Resources>
     
     <DockPanel>
@@ -48,7 +68,17 @@
             <MenuItem Header="Manager">
                 <MenuItem Header="Categorie" Command="{Binding NavCommand}" CommandParameter="categorie"/>
                 <MenuItem Header="Modele" Command="{Binding NavCommand}" CommandParameter="modele"/>
+                <Separator />
+                <MenuItem Header="Planet" Command="{Binding NavCommand}" CommandParameter="planet"/>
                 <MenuItem Header="Finder" Command="{Binding NavCommand}" CommandParameter="finder"/>
+                <MenuItem Header="Excavator" Command="{Binding NavCommand}" CommandParameter="excavator"/>
+                <MenuItem Header="Refiner" Command="{Binding NavCommand}" CommandParameter="refiner"/>
+                <Separator />
+                <MenuItem Header="Finder Amplifier" Command="{Binding NavCommand}" CommandParameter="finderAmplifier"/>
+                <MenuItem Header="Enhancer" Command="{Binding NavCommand}" CommandParameter="enhancer"/>
+                <Separator />
+                <MenuItem Header="SearchMode" Command="{Binding NavCommand}" CommandParameter="searchMode"/>
+                <MenuItem Header="Setup" Command="{Binding NavCommand}" CommandParameter="Setup"/>
             </MenuItem>
         </Menu>
         

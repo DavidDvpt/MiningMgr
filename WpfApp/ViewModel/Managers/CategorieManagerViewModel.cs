@@ -16,10 +16,11 @@ namespace WpfApp.ViewModel
     {
         public CategorieManagerViewModel() : base()
         {
-            CategorieColumnInit();
+
         }
 
-        private void CategorieColumnInit()
+
+        protected override void ColumnInit()
         {
             NomVisibility = true;
             IsActiveVisibility = true;
@@ -27,9 +28,11 @@ namespace WpfApp.ViewModel
 
         protected override void Init()
         {
-            DataGridItemSource = repos.Categories.GetAll().ToList();
-            
+            DataGridItemSource = repos.Categories.GetAll().ToList();         
         }
+
+
+
 
     }
 }

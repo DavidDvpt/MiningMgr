@@ -14,12 +14,20 @@ namespace WpfApp
         {
             NavCommand = new NavCommand<string>(OnNav);
         }
+
         public NavCommand<string> NavCommand { get; private set; }
 
+        #region ViewModels
         private SetupViewModel setupViewModel = new SetupViewModel();
         private CategorieManagerViewModel categorieViewModel = new CategorieManagerViewModel();
         private ModeleManagerViewModel modeleViewModel = new ModeleManagerViewModel();
         private FinderManagerViewModel finderViewModel = new FinderManagerViewModel();
+        private PlanetManagerViewModel planetViewModel = new PlanetManagerViewModel();
+        private ExcavatorManagerViewModel excavatorViewModel = new ExcavatorManagerViewModel();
+        private RefinerManagerViewModel refinerViewModel = new RefinerManagerViewModel();
+        private FinderAmplifierManagerViewModel finderAmplifierViewModel = new FinderAmplifierManagerViewModel();
+        private EnhancerManagerViewModel enhancerViewModel = new EnhancerManagerViewModel();
+        #endregion
 
         private BindableBase _CurrentViewModel;
         public BindableBase CurrentViewModel
@@ -44,9 +52,28 @@ namespace WpfApp
                 case "modele":
                     CurrentViewModel = modeleViewModel;
                     break;
+                case "planet":
+                    CurrentViewModel = planetViewModel;
+                    break;
                 case "finder":
                     CurrentViewModel = finderViewModel;
                     break;
+                case "excavator":
+                    CurrentViewModel = excavatorViewModel;
+                    break;
+                case "refiner":
+                    CurrentViewModel = refinerViewModel;
+                    break;
+                case "finderAmplifier":
+                    CurrentViewModel = finderAmplifierViewModel;
+                    break;
+                case "enhancer":
+                    CurrentViewModel = enhancerViewModel;
+                    break;
+                    //case "searchMode":
+                    //default:
+                    //    CurrentViewModel = searchModeViewModel;
+                    //    break;
             }
         }
     }
