@@ -105,6 +105,7 @@
     <Compile Include="Context\SeedClass.cs" />
     <Compile Include="Context\SeedStaticMethods.cs" />
     <Compile Include="Tools\CollectionExtensions.cs" />
+    <Compile Include="Tools\DtoExtensions.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="DataGridColumnVisibilityBinding.cs" />
     <Compile Include="ViewModel\Managers\EnhancerManagerViewModel.cs" />

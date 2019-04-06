@@ -13,7 +13,7 @@ namespace WpfApp.Model.Dto
         public int CategorieId { get; set; }
 
         [ForeignKey("CategorieId")]
-        public virtual CategorieDto Categorie {get; set;}
+        public virtual CategorieDto CategorieDto {get; set;}
 
         public virtual ICollection<InWorldDto> InWorldsDto { get; set; }
     }

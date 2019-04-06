@@ -2,15 +2,16 @@
 
 namespace WpfApp.Repositories.Interfaces
 {
-    public interface IRepository<T>
-        where T : class, new()
+    public interface IRepository<TDto, TPoco>
+        where TDto : class, new()
+        where TPoco : class, new()
     {
-        IQueryable<T> GetAll();
-        T GetById(int id);
-        T Add(T entity);
-        void Update(T entity);
+        IQueryable<TPoco> GetAll();
+        TPoco GetById(int id);
+        TPoco Add(TPoco entity);
+        void Update(TPoco entity);
         void Delete(int id);
-        void Delete(T entity);
+        void Delete(TPoco entity);
         void SaveChanges();
     }
 }

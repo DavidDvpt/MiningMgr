@@ -1,4 +1,5 @@
 ﻿using WpfApp.Model.Dto;
+using WpfApp.Model.Poco;
 
 namespace WpfApp.Repositories.Interfaces
 {
@@ -6,19 +7,19 @@ namespace WpfApp.Repositories.Interfaces
     {
         void Commit();
 
-        ICommunRepository<CategorieDto> Categories { get; }
-        ICommunRepository<ModeleDto> Modeles { get; }
-        IRepository<FinderDto> Finders { get; }
-        IRepository<ExcavatorDto> Excavators { get; }
-        IRepository<RefinerDto> Refiners { get; }
-        IRepository<FinderAmplifierDto> FinderAmplifiers { get; }
-        IRepository<SearchModeDto> SearchModes { get; }
-        IRepository<SetupDto> Setups { get; }
-        IRepository<PlanetDto> Planets { get; }
-        IRepository<EnhancerDto> Enhancers { get; }
-        IRepository<MaterialDto> Materials { get; }
-        IRepository<ToolAccessoireDto> ToolAccessoires { get; }
-        IRepository<PlanetMaterialDto> PlanetMaterials { get; }
+        ICommunRepository<CategorieDto, CategoriePoco> CategoriesPoco { get; }
+        ICommunRepository<ModeleDto, ModelePoco> ModelesPoco { get; }
+        IRepository<FinderDto, FinderPoco> FindersPoco { get; }
+        IRepository<ExcavatorDto, ExcavatorPoco> ExcavatorsPoco { get; }
+        IRepository<RefinerDto, RefinerPoco> RefinersPoco { get; }
+        IRepository<FinderAmplifierDto, FinderAmplifierPoco> FinderAmplifiersPoco { get; }
+        IRepository<SearchModeDto, SearchModePoco> SearchModesPoco { get; }
+        IRepository<SetupDto, SetupPoco> SetupsPoco { get; }
+        IRepository<PlanetDto, PlanetPoco> PlanetsPoco { get; }
+        IRepository<EnhancerDto, EnhancerPoco> EnhancersPoco { get; }
+        IRepository<MaterialDto, MaterialPoco> MaterialsPoco { get; }
+        IRepository<ToolAccessoireDto, ToolAccessoirePoco> ToolAccessoiresPoco { get; }
+        IRepository<PlanetMaterialDto, PlanetMaterialPoco> PlanetMaterialsPoco { get; }
 
     }
 }

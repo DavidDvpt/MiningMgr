@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,22 @@ namespace WpfApp.Tools
                 pocos.Add(poco);
             }
             return pocos;
+
+        }
+
+        public static IQueryable<TPoco> ToPocoIQueryable<TDto, TPoco>(this DbSet<TDto> dtos)
+            where TPoco : IPoco<TDto>, new()
+            where TDto : class
+        {
+            Collection<TPoco> pocos = new Collection<TPoco>();
+            TPoco poco;
+            foreach (var dto in dtos)
+            {
+                poco = new TPoco();
+                poco.SetDto(dto);
+                pocos.Add(poco);
+            }
+            return pocos.AsQueryable();
 
         }
     }

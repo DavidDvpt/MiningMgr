@@ -1,21 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WpfApp.Model.Dto;
+﻿using WpfApp.Model.Dto;
 using WpfApp.Tools;
 
 namespace WpfApp.Model.Poco
 {
     public class ModelePoco : CommunPoco<ModeleDto>
     {
-        public bool IsStackable { get; set; } = false;
+        public bool IsStackable
+        {
+            get => _Dto.IsStackable;
+            set
+            {
+                _Dto.IsStackable = value;
+                NotifyPropertyChanged();
+            }
+        }
 
-        public int CategorieId { get; set; }
+        public int CategorieId
+        {
+            get => _Dto.CategorieId;
+            set
+            {
+                _Dto.CategorieId = value;
+                NotifyPropertyChanged();
+            }
+        }
 
-        public virtual CategorieDto Categorie { get; set; }
+        public virtual CategoriePoco CategoriePoco
+        {
+            get => _Dto.CategorieDto.ToPoco<CategorieDto, CategoriePoco>();
+            set
+            {
+                _Dto.CategorieDto = value.GetDto();
+                NotifyPropertyChanged();
+            }
+        }
 
         //public virtual Collection<InWorldPoco> InWorldsPoco
         //    => _Dto.InWorldsDto.ToPocoCollection<InWorldDto, InWorldPoco>();

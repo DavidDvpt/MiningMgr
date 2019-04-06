@@ -1,10 +1,13 @@
 ﻿using WpfApp.Model.Dto;
+using WpfApp.Model.Dto.Interfaces;
+using WpfApp.Model.Poco.Interfaces;
 
 namespace WpfApp.Repositories.Interfaces
 {
-    public interface ICommunRepository<T> : IRepository<T>
-        where T : CommunDto, new()
+    public interface ICommunRepository<TDto, TPoco> : IRepository<TDto, TPoco>
+        where TDto : class, ICommunDto, new()
+        where TPoco : class, IPoco<TDto>, new()
     {
-        T GetByNom(string nom);
+        TPoco GetByNom(string nom);
     }
 }

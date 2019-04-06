@@ -4,32 +4,35 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using WpfApp.Context;
+using WpfApp.Model.Poco.Interfaces;
+using WpfApp.Tools;
 
 namespace WpfApp.Repositories
 {
-    public class Repository<T> : IRepository<T>
-        where T : class, new()
+    public class Repository<TDto, TPoco> : IRepository<TDto, TPoco>
+        where TDto : class, new()
+        where TPoco : class, IPoco<TDto>, new()
     {
         protected MiningContext Context { get; set; }
 
-        protected DbSet<T> DbSet { get; set; }
+        protected DbSet<TDto> DbSet { get; set; }
 
         public Repository(MiningContext ctx)
         {
             Context = ctx ?? throw new ArgumentNullException("Null DbContext");
-            DbSet = Context.Set<T>();
+            DbSet = Context.Set<TDto>();
         }
 
-        public T Add(T entity)
+        public TPoco Add(TPoco entity)
         {
-            DbEntityEntry dbEntityEntry = Context.Entry(entity);
+            DbEntityEntry dbEntityEntry = Context.Entry(entity.GetDto());
             if (dbEntityEntry.State != EntityState.Detached)
             {
                 dbEntityEntry.State = EntityState.Added;
             }
             else
             {
-                DbSet.Add(entity);
+                DbSet.Add(entity.GetDto());
             }
             SaveChanges();
             return entity;
@@ -37,50 +40,50 @@ namespace WpfApp.Repositories
 
         public void Delete(int id)
         {
-            T entity = GetById(id);
+            TPoco entity = GetById(id);
             if (entity == null) return; // not found; assume already deleted.
             Delete(entity);
         }
 
-        public void Delete(T entity)
+        public void Delete(TPoco entity)
         {
-            DbEntityEntry dbEntityEntry = Context.Entry(entity);
+            DbEntityEntry dbEntityEntry = Context.Entry(entity.GetDto());
             if (dbEntityEntry.State != EntityState.Deleted)
             {
                 dbEntityEntry.State = EntityState.Deleted;
             }
             else
             {
-                DbSet.Attach(entity);
-                DbSet.Remove(entity);
+                DbSet.Attach(entity.GetDto());
+                DbSet.Remove(entity.GetDto());
             }
             SaveChanges();
         }
 
-        public IQueryable<T> GetAll()
+        public IQueryable<TPoco> GetAll()
         {
-            return DbSet;
+            return DbSet.ToPocoIQueryable<TDto, TPoco>();
         }
 
-        public T GetById(int id)
+        public TPoco GetById(int id)
         {
-            return DbSet.Find(id);
+            return DbSet.Find(id).ToPoco<TDto, TPoco>();
+        }
+
+        public void Update(TPoco entity)
+        {
+            DbEntityEntry dbEntityEntry = Context.Entry(entity.GetDto());
+            if (dbEntityEntry.State == EntityState.Detached)
+            {
+                DbSet.Attach(entity.GetDto());
+            }
+            dbEntityEntry.State = EntityState.Deleted;
+            SaveChanges();
         }
 
         public void SaveChanges()
         {
             Context.SaveChanges();
-        }
-
-        public void Update(T entity)
-        {
-            DbEntityEntry dbEntityEntry = Context.Entry(entity);
-            if (dbEntityEntry.State == EntityState.Detached)
-            {
-                DbSet.Attach(entity);
-            }
-            dbEntityEntry.State = EntityState.Deleted;
-            SaveChanges();
         }
     }
 }
