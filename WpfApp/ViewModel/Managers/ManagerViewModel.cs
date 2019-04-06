@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WpfApp.Model;
+using WpfApp.Model.Poco;
 
 namespace WpfApp.ViewModel
 {
-    public abstract class ManagerViewModel<T> : BaseViewModel
-        where T : class
+    public abstract class ManagerViewModel<TPoco> : BaseViewModel
+        where TPoco : class
     {
-        private T _dgSelectedItem;
-        private ICollection<T> _dataGridItemSources;
+        private TPoco _dgSelectedItem;
+        private ICollection<TPoco> _dataGridItemSources;
 
         public ManagerViewModel()
         {
@@ -20,7 +17,7 @@ namespace WpfApp.ViewModel
 
         protected abstract void ColumnInit();
 
-        public ICollection<T> DataGridItemSource
+        public ICollection<TPoco> DataGridItemSource
         {
             get { return _dataGridItemSources; }
             set
@@ -82,7 +79,7 @@ namespace WpfApp.ViewModel
         public bool SkillEnhancerQtyVisibility { get; set; } = false;
         #endregion
 
-        public T DgSelectedItem
+        public TPoco DgSelectedItem
         {
             get => _dgSelectedItem;
             set
@@ -94,5 +91,6 @@ namespace WpfApp.ViewModel
                 }
             }
         }
+
     }
 }

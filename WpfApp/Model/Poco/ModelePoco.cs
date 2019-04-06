@@ -36,7 +36,7 @@ namespace WpfApp.Model.Poco
             }
         }
 
-        public virtual Collection<InWorldPoco<InWorldDto>> InWorldsPoco
-            => _Dto.InWorldsDto.ToPocoCollection<InWorldDto, InWorldPoco<InWorldDto>>();
+        //public virtual Collection<InWorldPoco<InWorldDto>> InWorldsPoco
+        //    => _Dto.InWorldsDto.ToPocoCollection<InWorldDto, InWorldPoco<InWorldDto>>();
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using WpfApp.Model.Dto;
+using WpfApp.Model.Poco;
 
 namespace WpfApp.ViewModel
 {
@@ -7,7 +7,7 @@ namespace WpfApp.ViewModel
     // BlindableBase : Contient le InotifyChanged et la methode SetProperty
     // BaseViewModel : contient l'instanciation des repositoris repos
     // ManagerViewModel<T> : contient la source generique du datagrid
-    public class CategorieManagerViewModel : ManagerViewModel<CategorieDto>
+    public class CategorieManagerViewModel : ManagerViewModel<CategoriePoco>
     {
         //private CommunModel _dgSelectedItem;
         public CategorieManagerViewModel() : base()
@@ -23,7 +23,7 @@ namespace WpfApp.ViewModel
 
         protected override void Init()
         {
-            DataGridItemSource = repos.Categories.GetAll().ToList();         
+            DataGridItemSource = repos.CategoriesPoco.GetAll().ToList();         
         }
 
         //public CommunModel DgSelectedItem

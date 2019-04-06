@@ -3,7 +3,7 @@
 namespace WpfApp.Model.Poco
 {
     public abstract class UnstackablePoco<TDto> : InWorldPoco<TDto>
-        where TDto : UnstackableDto
+        where TDto : UnstackableDto, new()
     {
         public bool IsLimited
         {

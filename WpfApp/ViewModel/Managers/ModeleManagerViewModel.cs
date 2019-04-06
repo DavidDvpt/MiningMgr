@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WpfApp.Model.Dto;
+using WpfApp.Model.Poco;
 
 namespace WpfApp.ViewModel
 {
-    public class ModeleManagerViewModel : ManagerViewModel<ModeleDto>
+    public class ModeleManagerViewModel : ManagerViewModel<ModelePoco>
     {
         public ModeleManagerViewModel()
         {
@@ -22,7 +19,10 @@ namespace WpfApp.ViewModel
 
         protected override void Init()
         {
-            DataGridItemSource = repos.Modeles.GetAll().ToList();
+            DataGridItemSource = repos.ModelesPoco.GetAll().ToList();
         }
+
+        public ICollection<CategoriePoco> CategoriesPoco
+            => repos.CategoriesPoco.GetAll().ToList();
     }
 }

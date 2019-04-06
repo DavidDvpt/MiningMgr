@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using WpfApp.Model.Dto;
+using WpfApp.Model.Poco;
 
 namespace WpfApp.ViewModel
 {
-    public class SetupManagerViewModel : ManagerViewModel<SetupDto>
+    public class SetupManagerViewModel : ManagerViewModel<SetupPoco>
     {
         protected override void ColumnInit()
         {
@@ -28,34 +28,34 @@ namespace WpfApp.ViewModel
             //Setup.FinderAmplifier = FinderAmplifiers.First();
             //Setup.SearchMode = SearchModes.First();
             //CreerCommand = new MyICommand(OnCreate, CanCreate);
-            DataGridItemSource = repos.Setups.GetAll().ToList();
+            DataGridItemSource = repos.SetupsPoco.GetAll().ToList();
         }
 
         public MyICommand CreerCommand { get; set; }
-        public SetupDto Setup { get; set; }
+        public SetupPoco SetupPoco { get; set; }
 
         // Affichage de la liste des searchMode ds le combobox
-        public ICollection<SearchModeDto> SearchModes { get; set; }
-        public ICollection<SearchModeDto> SearchModesLoad()
+        public ICollection<SearchModePoco> SearchModes { get; set; }
+        public ICollection<SearchModePoco> SearchModesLoad()
         {
-            return repos.SearchModes.GetAll().ToList();
+            return repos.SearchModesPoco.GetAll().ToList();
         }
         public bool SearchModeChoiceEnabled { get; set; } = true;
 
 
         // Affichage de la liste des finder ds le combobox
-        public ICollection<FinderDto> Finders { get; set; }
-        public ICollection<FinderDto> FindersLoad()
+        public ICollection<FinderPoco> Finders { get; set; }
+        public ICollection<FinderPoco> FindersLoad()
         {
-            return repos.Finders.GetAll().ToList();
+            return repos.FindersPoco.GetAll().ToList();
         }
         public bool FinderChoiceEnabled { get; set; } = true;
 
         // Affichage de la liste des finderamplifier ds le combobox
-        public ICollection<FinderAmplifierDto> FinderAmplifiers { get; set; }
-        public ICollection<FinderAmplifierDto> FindersAmplifiersLoad()
+        public ICollection<FinderAmplifierPoco> FinderAmplifiers { get; set; }
+        public ICollection<FinderAmplifierPoco> FindersAmplifiersLoad()
         {
-            return repos.FinderAmplifiers.GetAll().ToList();
+            return repos.FinderAmplifiersPoco.GetAll().ToList();
         }
         public bool FinderAmplifierChoiceEnabled { get; set; } = true;
 
@@ -76,7 +76,7 @@ namespace WpfApp.ViewModel
 
         public void OnCreate()
         {
-            repos.Setups.Add(Setup);
+            repos.SetupsPoco.Add(SetupPoco);
         }
         public bool CanCreate()
         {
@@ -85,8 +85,8 @@ namespace WpfApp.ViewModel
 
         public void DesactiverSetup()
         {
-            Setup.IsActive = false;
-            repos.Setups.Update(Setup);
+            SetupPoco.IsActive = false;
+            repos.SetupsPoco.Update(SetupPoco);
         }
 
     }

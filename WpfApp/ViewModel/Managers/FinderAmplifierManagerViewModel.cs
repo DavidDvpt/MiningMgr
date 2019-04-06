@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WpfApp.Model.Dto;
+﻿using System.Linq;
+using WpfApp.Model.Poco;
 
 namespace WpfApp.ViewModel
 {
-    public class FinderAmplifierManagerViewModel : ManagerViewModel<FinderAmplifierDto>
+    public class FinderAmplifierManagerViewModel : ManagerViewModel<FinderAmplifierPoco>
     {
         protected override void ColumnInit()
         {
@@ -21,7 +17,7 @@ namespace WpfApp.ViewModel
 
         protected override void Init()
         {
-            DataGridItemSource = repos.FinderAmplifiers.GetAll().ToList();
+            DataGridItemSource = repos.FinderAmplifiersPoco.GetAll().ToList();
         }
     }
 }

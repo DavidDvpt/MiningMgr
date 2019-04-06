@@ -3,7 +3,7 @@
 namespace WpfApp.Model.Poco
 {
     public abstract class ToolPoco<TDto> : UnstackablePoco<TDto>
-        where TDto : ToolDto
+        where TDto : ToolDto, new()
     {
         public short UsePerMin
         {

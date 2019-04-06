@@ -1,9 +1,9 @@
 ﻿using System.Linq;
-using WpfApp.Model.Dto;
+using WpfApp.Model.Poco;
 
 namespace WpfApp.ViewModel
 {
-    public class FinderManagerViewModel : ManagerViewModel<FinderDto>
+    public class FinderManagerViewModel : ManagerViewModel<FinderPoco>
     {
         public FinderManagerViewModel()
         {
@@ -23,7 +23,7 @@ namespace WpfApp.ViewModel
 
         protected override void Init()
         {
-            DataGridItemSource = repos.Finders.GetAll().ToList();
+            DataGridItemSource = repos.FindersPoco.GetAll().ToList();
         }
 
     }

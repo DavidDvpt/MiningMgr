@@ -204,9 +204,9 @@ namespace WpfApp.Migrations
                         FinderId = c.Int(nullable: false),
                         FinderAmplifierId = c.Int(nullable: false),
                         SearchModeId = c.Int(nullable: false),
-                        DepthEnhancerQty = c.Int(nullable: false),
-                        RangeEnhancerQty = c.Int(nullable: false),
-                        SkillEnhancerQty = c.Int(nullable: false),
+                        DeptEnhancerQty = c.Short(nullable: false),
+                        RangeEnhancerQty = c.Short(nullable: false),
+                        SkillEnhancerQty = c.Short(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Commun", t => t.Id)

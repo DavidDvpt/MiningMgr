@@ -20,6 +20,6 @@ namespace WpfApp.Model.Dto
         public string Nom { get; set; }
 
         [Required]
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 }

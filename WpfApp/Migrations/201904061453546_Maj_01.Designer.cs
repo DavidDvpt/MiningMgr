@@ -13,7 +13,7 @@ namespace WpfApp.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201904051645567_Maj_01"; }
+            get { return "201904061453546_Maj_01"; }
         }
         
         string IMigrationMetadata.Source

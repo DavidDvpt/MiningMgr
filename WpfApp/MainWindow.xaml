@@ -10,7 +10,7 @@
         Title="MainWindow" Height="600" Width="1600">
 
     <Window.DataContext>
-        <local:MainWindowViewModel/>
+        <viewModels:MainWindowViewModel/>
     </Window.DataContext>
 
     <Window.Resources>

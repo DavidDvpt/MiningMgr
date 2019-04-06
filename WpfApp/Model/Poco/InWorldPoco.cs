@@ -1,10 +1,9 @@
 ﻿using WpfApp.Model.Dto;
-using WpfApp.Model.Dto.Interfaces;
 
 namespace WpfApp.Model.Poco
 {
     public class InWorldPoco<TDto> : CommunPoco<TDto>
-        where TDto : InWorldDto
+        where TDto : InWorldDto, new()
     {
         public decimal Value
         {

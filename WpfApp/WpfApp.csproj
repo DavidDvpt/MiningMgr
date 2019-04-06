@@ -79,9 +79,9 @@
     </ApplicationDefinition>
     <Compile Include="BindableBase.cs" />
     <Compile Include="Context\MiningContext.cs" />
-    <Compile Include="Migrations\201904051645567_Maj_01.cs" />
-    <Compile Include="Migrations\201904051645567_Maj_01.Designer.cs">
-      <DependentUpon>201904051645567_Maj_01.cs</DependentUpon>
+    <Compile Include="Migrations\201904061453546_Maj_01.cs" />
+    <Compile Include="Migrations\201904061453546_Maj_01.Designer.cs">
+      <DependentUpon>201904061453546_Maj_01.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Commands\MyICommand.cs" />
@@ -188,8 +188,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201904051645567_Maj_01.resx">
-      <DependentUpon>201904051645567_Maj_01.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904061453546_Maj_01.resx">
+      <DependentUpon>201904061453546_Maj_01.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
