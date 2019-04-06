@@ -75,7 +75,7 @@ namespace WpfApp.Repositories
             => _ToolAccessoiresPoco == null ? _ToolAccessoiresPoco = new Repository<ToolAccessoireDto, ToolAccessoirePoco>(ctx) : _ToolAccessoiresPoco;
 
         public IRepository<PlanetMaterialDto, PlanetMaterialPoco> PlanetMaterialsPoco
-            => PlanetMaterialPoco == null ? PlanetMaterialPoco = new Repository<PlanetMaterialDto, PlanetMaterialPoco>(ctx) : _PlanetMaterialsPoco;
+            => _PlanetMaterialsPoco == null ? _PlanetMaterialsPoco = new Repository<PlanetMaterialDto, PlanetMaterialPoco>(ctx) : _PlanetMaterialsPoco;
 
         public void Commit()
         {

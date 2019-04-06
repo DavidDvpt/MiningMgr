@@ -4,127 +4,28 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace WpfApp.Model.Dto
 {
     [Table("Setup")]
-    public class SetupDto : CommunDto//, INotifyPropertyChanged
+    public class SetupDto : CommunDto
     {
-        private SearchModeDto _searchMode;
-        private int _depthEnhancerQty;
-        private int _rangeEnhancerQty;
-        private int _skillEnhancerQty;
-        private FinderDto _finder;
-        private FinderAmplifierDto _finderAmplifier;
-
         public int FinderId { get; set; }
 
         public int FinderAmplifierId { get; set; }
 
         public int SearchModeId { get; set; }
 
-        public int DepthEnhancerQty
-        {
-            get => _depthEnhancerQty;
-            set
-            {
-                if (value != _depthEnhancerQty)
-                {
-                    _depthEnhancerQty = value;
-                    NomComposition();
-                    NotifyPropertyChanged();
-                }
-            }
-        }
+        public short DeptEnhancerQty { get; set; }
 
-        public int RangeEnhancerQty
-        {
-            get => _rangeEnhancerQty;
-            set
-            {
-                if (value != _rangeEnhancerQty)
-                {
-                    _rangeEnhancerQty = value;
-                    NomComposition();
-                    NotifyPropertyChanged();
-                }
-            }
-        }
+        public short RangeEnhancerQty { get; set; }
 
-        public int SkillEnhancerQty
-        {
-            get => _skillEnhancerQty;
-            set
-            {
-                if (value != _skillEnhancerQty)
-                {
-                    _skillEnhancerQty = value;
-                    NomComposition();
-                    NotifyPropertyChanged();
-                }
-            }
-        }
+        public short SkillEnhancerQty { get; set; }
 
         [ForeignKey("SearchModeId")]
-        public SearchModeDto SearchMode
-        {
-            get => _searchMode;
-            set
-            {
-                if (value != _searchMode)
-                {
-                    _searchMode = value;
-                    //SearchModeId = SearchMode.Id
-                    NomComposition();
-                    NotifyPropertyChanged();
-                }
-            }
-        }
+        public SearchModeDto SearchMode { get; set; }
 
         [ForeignKey("FinderId")]
-        public virtual FinderDto Finder
-        {
-            get => _finder;
-            set
-            {
-                if (value != _finder)
-                {
-                    _finder = value;
-                    //FinderId = Finder.Id;
-                    NomComposition();
-                    NotifyPropertyChanged();
-                }
-            }
-        }
+        public virtual FinderDto Finder { get; set; }
 
         [ForeignKey("FinderAmplifierId")]
-        public virtual FinderAmplifierDto FinderAmplifier
-        {
-            get => _finderAmplifier;
-            set
-            {
-                if (value != _finderAmplifier)
-                {
-                    _finderAmplifier = value;
-                    //FinderAmplifierId = FinderAmplifier.Id;
-                    NomComposition();
-                    NotifyPropertyChanged();
-                }
-            }
-        }
-
-        // cree le nom du setup à partir des outils utilises
-        private void NomComposition()
-        {
-            if (Finder != null && FinderAmplifier != null && SearchMode != null)
-            {
-                Nom = Finder.Code + "_" + FinderAmplifier.Code + "_T" + TierUsed().ToString() + "_D" + DepthEnhancerQty.ToString() + "R" + RangeEnhancerQty.ToString() + "S" + SkillEnhancerQty.ToString() + "_" + SearchMode.Abbrev;
-            }
-        }
-
-        // retourne le nombre d'enhancers poses sur le tool
-        public int TierUsed()
-        {
-            return DepthEnhancerQty + RangeEnhancerQty + SkillEnhancerQty;
-        }
-
-
+        public virtual FinderAmplifierDto FinderAmplifier { get; set; }
 
         // Ajouter dans la migration 
         // Sql("ALTER TABLE Setup ADD CONSTRAINT [CK_Setup_MaxEnhancerQty] CHECK (([FinderDepthEnhancerQty] + [FinderRangeEnhancerQty] + [FinderSkillEnhancerQty]) <= 10)");

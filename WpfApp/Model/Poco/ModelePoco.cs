@@ -1,4 +1,5 @@
-﻿using WpfApp.Model.Dto;
+﻿using System.Collections.ObjectModel;
+using WpfApp.Model.Dto;
 using WpfApp.Tools;
 
 namespace WpfApp.Model.Poco
@@ -35,7 +36,7 @@ namespace WpfApp.Model.Poco
             }
         }
 
-        //public virtual Collection<InWorldPoco> InWorldsPoco
-        //    => _Dto.InWorldsDto.ToPocoCollection<InWorldDto, InWorldPoco>();
+        public virtual Collection<InWorldPoco<InWorldDto>> InWorldsPoco
+            => _Dto.InWorldsDto.ToPocoCollection<InWorldDto, InWorldPoco<InWorldDto>>();
     }
 }

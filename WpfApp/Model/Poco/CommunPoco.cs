@@ -1,16 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WpfApp.Model.Dto;
-using WpfApp.Model.Dto.Interfaces;
+﻿using WpfApp.Model.Dto;
 
 namespace WpfApp.Model.Poco
 {
     public abstract class CommunPoco<TDto> : BasePoco<TDto>
-        where TDto : ICommunDto
+        where TDto : CommunDto, new()
     {
+        public int Id
+        {
+            get => _Dto.Id;
+            set
+            {
+                if (value != _Dto.Id)
+                {
+                    _Dto.Id = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
         public string Nom
         {
             get => _Dto.Nom;

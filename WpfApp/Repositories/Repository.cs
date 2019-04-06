@@ -11,7 +11,7 @@ namespace WpfApp.Repositories
 {
     public class Repository<TDto, TPoco> : IRepository<TDto, TPoco>
         where TDto : class, new()
-        where TPoco : class, IPoco<TDto>, new()
+        where TPoco : IPoco<TDto>, new()
     {
         protected MiningContext Context { get; set; }
 

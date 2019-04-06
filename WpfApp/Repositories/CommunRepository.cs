@@ -4,13 +4,12 @@ using System.Data.Entity;
 using WpfApp.Context;
 using System.Linq;
 using WpfApp.Tools;
-using WpfApp.Model.Dto.Interfaces;
 using WpfApp.Model.Poco.Interfaces;
 
 namespace WpfApp.Repositories
 {
     public class CommunRepository<TDto, TPoco> : Repository<TDto, TPoco>, ICommunRepository<TDto, TPoco>
-        where TDto : class, ICommunDto, new()
+        where TDto : CommunDto, new()
         where TPoco : class, IPoco<TDto>, new()
     {
         public CommunRepository(MiningContext ctx)

@@ -4,30 +4,31 @@ using WpfApp.Model.Poco.Interfaces;
 
 namespace WpfApp.Model.Poco
 {
-    public abstract class BasePoco<T> : IPoco<T>, INotifyPropertyChanged
+    public abstract class BasePoco<TDto> : IPoco<TDto>, INotifyPropertyChanged
+        where TDto : class, new()
     {
-        protected T _Dto;
+        protected TDto _Dto;
 
         public BasePoco()
         {
-            _Dto = new T();
+            _Dto = new TDto();
         }
 
-        public BasePoco(T dto)
+        public BasePoco(TDto dto)
         {
             if (dto != null)
             {
                 SetDto(dto);
             }
-            _Dto = new T(); 
+            _Dto = new TDto(); 
         }
 
-        public void SetDto(T entity)
+        public void SetDto(TDto entity)
         {
             if (entity != null) _Dto = entity;
         }
 
-        public T GetDto()
+        public TDto GetDto()
         {
             return _Dto;
         }
