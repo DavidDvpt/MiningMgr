@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using WpfApp.Model.Dto;
-using WpfApp.Model.Poco;
 
 namespace WpfApp.ViewModel
 {
-    public class ExcavatorManagerViewModel : ManagerViewModel<ExcavatorPoco>
+    public class ExcavatorManagerViewModel : ManagerViewModel<ExcavatorDto>
     {
         protected override void ColumnInit()
         {
@@ -23,7 +18,7 @@ namespace WpfApp.ViewModel
 
         protected override void Init()
         {
-            DataGridItemSource = repos.ExcavatorsPoco.GetAll().ToList();
+            DataGridItemSource = repos.ExcavatorsDto.GetAll().ToList();
         }
 
 

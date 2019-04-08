@@ -1,16 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using WpfApp.Model.Poco;
+using WpfApp.Model.Dto;
 
 namespace WpfApp.ViewModel
 {
-    public class ModeleManagerViewModel : ManagerViewModel<ModelePoco>
+    public class ModeleManagerViewModel : ManagerViewModel<ModeleDto>
     {
-        private CategoriePoco _selectedCategorie;
         public ModeleManagerViewModel()
         {
-            CategoriesPoco = repos.CategoriesPoco.GetAll().ToList();
-            SelectedCategorie = repos.CategoriesPoco.GetByNom("Tool");
+
         }
 
         protected override void ColumnInit()
@@ -22,34 +20,10 @@ namespace WpfApp.ViewModel
 
         protected override void Init()
         {
-            DataGridItemSource = repos.ModelesPoco.GetAll().ToList();
+            DataGridItemSource = repos.ModelesDto.GetAll().ToList();
+            Categories = repos.CategoriesDto.GetAll().ToList();
         }
 
-        public ICollection<CategoriePoco> CategoriesPoco { get; set; }
-
-        public ModelePoco DgSelectedItem
-        {
-            get => _dgSelectedItem;
-            set
-            {
-                if (_dgSelectedItem != value)
-                {
-                    _dgSelectedItem = value;
-                    //SelectedCategorie = DgSelectedItem.CategoriePoco;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        public CategoriePoco SelectedCategorie
-        {
-            get { return _selectedCategorie; }
-            set
-            {
-                _selectedCategorie = value;
-                OnPropertyChanged();
-            }
-        }
-
+        public ICollection<CategorieDto> Categories { get; set; }
     }
 }

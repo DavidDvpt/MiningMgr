@@ -1,13 +1,13 @@
 ﻿using System.Linq;
-using WpfApp.Model.Poco;
+using WpfApp.Model.Dto;
 
 namespace WpfApp.ViewModel
 {
-    public class PlanetManagerViewModel : ManagerViewModel<PlanetPoco>
+    public class PlanetManagerViewModel : ManagerViewModel<PlanetDto>
     {
         protected override void Init()
         {
-            DataGridItemSource = repos.PlanetsPoco.GetAll().ToList();
+            DataGridItemSource = repos.PlanetsDto.GetAll().ToList();
         }
 
         protected override void ColumnInit()

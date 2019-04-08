@@ -50,9 +50,6 @@
         <DataTemplate DataType="{x:Type viewModels:EnhancerManagerViewModel}">
             <views:ManagerView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModels:TestManagerVM}">
-            <views:TestView/>
-        </DataTemplate>
     </Window.Resources>
     
     <DockPanel>

@@ -1,9 +1,10 @@
 ﻿using System.Linq;
+using WpfApp.Model.Dto;
 using WpfApp.Model.Poco;
 
 namespace WpfApp.ViewModel
 {
-    public class EnhancerManagerViewModel : ManagerViewModel<EnhancerPoco>
+    public class EnhancerManagerViewModel : ManagerViewModel<EnhancerDto>
     {
         protected override void ColumnInit()
         {
@@ -15,7 +16,7 @@ namespace WpfApp.ViewModel
 
         protected override void Init()
         {
-            DataGridItemSource = repos.EnhancersPoco.GetAll().ToList();
+            DataGridItemSource = repos.EnhancersDto.GetAll().ToList();
         }
     }
 }

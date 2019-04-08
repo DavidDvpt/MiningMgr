@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
-using WpfApp.Model.Poco;
 
 namespace WpfApp.ViewModel
 {
-    public abstract class ManagerViewModel<TPoco> : BaseViewModel
-        where TPoco : class
+    public abstract class ManagerViewModel<TDto> : BaseViewModel
+        where TDto : class
     {
-        protected TPoco _dgSelectedItem;
-        private ICollection<TPoco> _dataGridItemSources;
+        protected TDto _dgSelectedItem;
+        //private ICollection<TDto> _dataGridItemSources;
 
         public ManagerViewModel()
         {
@@ -16,17 +15,17 @@ namespace WpfApp.ViewModel
 
         protected abstract void ColumnInit();
 
-        public ICollection<TPoco> DataGridItemSource
-        {
-            get { return _dataGridItemSources; }
-            set
-            {
-                if(_dataGridItemSources != value)
-                {
-                    _dataGridItemSources = value;
-                }
-            }
-        }
+        public ICollection<TDto> DataGridItemSource { get; set; }
+        //{
+        //    get { return _dataGridItemSources; }
+        //    set
+        //    {
+        //        if(_dataGridItemSources != value)
+        //        {
+        //            _dataGridItemSources = value;
+        //        }
+        //    }
+        //}
 
         #region DataGridColumnVisibility
         // Commun, Categorie, Planet
@@ -78,21 +77,17 @@ namespace WpfApp.ViewModel
         public bool SkillEnhancerQtyVisibility { get; set; } = false;
         #endregion
 
-
-        //public TPoco DgSelectedItem
-        //{
-        //    get => _dgSelectedItem;
-        //    set
-        //    {
-        //        if (_dgSelectedItem != value)
-        //        {
-        //            _dgSelectedItem = value;
-        //            OnPropertyChanged();
-        //        }
-        //    }
-        //}
-
-        //public CategoriePoco SelectedCategorie { get; set; }
-
+        public TDto DgSelectedItem
+        {
+            get => _dgSelectedItem;
+            set
+            {
+                if (_dgSelectedItem != value)
+                {
+                    _dgSelectedItem = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
     }
 }

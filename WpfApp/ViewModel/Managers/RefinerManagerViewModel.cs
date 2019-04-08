@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using WpfApp.Model.Dto;
-using WpfApp.Model.Poco;
 
 namespace WpfApp.ViewModel
 {
-    public class RefinerManagerViewModel : ManagerViewModel<RefinerPoco>
+    public class RefinerManagerViewModel : ManagerViewModel<RefinerDto>
     {
         protected override void ColumnInit()
         {
@@ -22,7 +17,7 @@ namespace WpfApp.ViewModel
 
         protected override void Init()
         {
-            DataGridItemSource = repos.RefinersPoco.GetAll().ToList();
+            DataGridItemSource = repos.RefinersDto.GetAll().ToList();
         }
     }
 }
