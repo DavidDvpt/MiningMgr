@@ -5,9 +5,5 @@ namespace WpfApp.Model.Dto
     [Table("Material")]
     public class MaterialDto : InWorldDto
     {
-        public MaterialDto()
-        {
-            
-        }
     }
 }

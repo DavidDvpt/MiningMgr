@@ -4,7 +4,23 @@ namespace WpfApp.Model.Dto
 {
     [Table("Tool")]
     public abstract class ToolDto : UnstackableDto
-    { 
-        public short UsePerMin { get; set; } = 0;
+    {
+        #region SiPoco
+        //public short UsePerMin { get; set; } = 0;
+        #endregion
+
+        #region SiDto
+        private short _usePerMin;
+
+        public short UsePerMin
+        {
+            get => _usePerMin;
+            set
+            {
+                _usePerMin = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
     }
 }

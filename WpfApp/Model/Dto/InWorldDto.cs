@@ -6,12 +6,52 @@ namespace WpfApp.Model.Dto
     [Table("InWorld")]
     public abstract class InWorldDto : CommunDto
     {
-        [Required]
-        public decimal Value { get; set; }
+        #region SiPoco
+        //[Required]
+        //public decimal Value { get; set; }
 
-        public int ModeleId { get; set; }
+        //public int ModeleId { get; set; }
+
+        //[ForeignKey("ModeleId")]
+        //public virtual ModeleDto Modele { get; set; }
+        #endregion
+
+        #region SiDto
+        [Required]
+        private decimal _value;
+        private int _modeleId;
+        private ModeleDto _modele;
+
+        public decimal Value
+        {
+            get => _value;
+            set
+            {
+                _value = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public int ModeleId
+        {
+            get => _modeleId;
+            set
+            {
+                _modeleId = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         [ForeignKey("ModeleId")]
-        public virtual ModeleDto Modele { get; set; }
+        public virtual ModeleDto Modele
+        {
+            get => _modele;
+            set
+            {
+                _modele = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
     }
 }
