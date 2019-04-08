@@ -110,11 +110,17 @@
     <Compile Include="Model\Poco\ToolAccessoirePoco.cs" />
     <Compile Include="Model\Poco\ToolPoco.cs" />
     <Compile Include="Model\Poco\UnstackablePoco.cs" />
+    <Compile Include="Repositories\CommunRepositoryDto.cs" />
     <Compile Include="Repositories\CommunRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICommunRepositoryDto.cs" />
     <Compile Include="Repositories\Interfaces\ICommunRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRepositoriesDtoUoW.cs" />
     <Compile Include="Repositories\Interfaces\IRepositoriesUoW.cs" />
+    <Compile Include="Repositories\Interfaces\IRepositoryDto.cs" />
     <Compile Include="Repositories\Interfaces\IRepository.cs" />
+    <Compile Include="Repositories\RepositoriesDtoUoW.cs" />
     <Compile Include="Repositories\RepositoriesUoW.cs" />
+    <Compile Include="Repositories\RepositoryDto.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Context\SeedClass.cs" />
     <Compile Include="Context\SeedStaticMethods.cs" />
