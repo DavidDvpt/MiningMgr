@@ -6,6 +6,10 @@ namespace WpfApp.Model.Poco
 {
     public class ModelePoco : CommunPoco<ModeleDto>
     {
+        public ModelePoco()
+        {
+            //CategoriePoco = new CategoriePoco();
+        }
         public bool IsStackable
         {
             get => _Dto.IsStackable;
@@ -26,7 +30,7 @@ namespace WpfApp.Model.Poco
             }
         }
 
-        public virtual CategoriePoco CategoriePoco
+        public CategoriePoco CategoriePoco
         {
             get => _Dto.CategorieDto.ToPoco<CategorieDto, CategoriePoco>();
             set

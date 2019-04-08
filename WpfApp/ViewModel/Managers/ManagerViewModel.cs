@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using WpfApp.Model.Poco;
 
 namespace WpfApp.ViewModel
@@ -7,7 +6,7 @@ namespace WpfApp.ViewModel
     public abstract class ManagerViewModel<TPoco> : BaseViewModel
         where TPoco : class
     {
-        private TPoco _dgSelectedItem;
+        protected TPoco _dgSelectedItem;
         private ICollection<TPoco> _dataGridItemSources;
 
         public ManagerViewModel()
@@ -79,18 +78,21 @@ namespace WpfApp.ViewModel
         public bool SkillEnhancerQtyVisibility { get; set; } = false;
         #endregion
 
-        public TPoco DgSelectedItem
-        {
-            get => _dgSelectedItem;
-            set
-            {
-                if (_dgSelectedItem != value)
-                {
-                    _dgSelectedItem = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+
+        //public TPoco DgSelectedItem
+        //{
+        //    get => _dgSelectedItem;
+        //    set
+        //    {
+        //        if (_dgSelectedItem != value)
+        //        {
+        //            _dgSelectedItem = value;
+        //            OnPropertyChanged();
+        //        }
+        //    }
+        //}
+
+        //public CategoriePoco SelectedCategorie { get; set; }
 
     }
 }

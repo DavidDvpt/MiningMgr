@@ -6,7 +6,7 @@
              xmlns:root="clr-namespace:WpfApp"
              xmlns:local="clr-namespace:WpfApp.Views"
              xmlns:viewModels="clr-namespace:WpfApp.ViewModel"
-             xmlns:models="clr-namespace:WpfApp.Model"
+             xmlns:models="clr-namespace:WpfApp.Model.Poco"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
@@ -46,8 +46,7 @@
         <DataGrid Name="dgGeneric"
                   ItemsSource="{Binding DataGridItemSource}"
                   AutoGenerateColumns="False"
-                  SelectedItem="{Binding DgSelectedItem, Mode=TwoWay}"
-                  SelectionChanged="DgGeneric_SelectionChanged">
+                  SelectedItem="{Binding DgSelectedItem, Mode=TwoWay}">
             <DataGrid.Resources>
 
             </DataGrid.Resources>
@@ -56,7 +55,7 @@
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource idVis}}"/>
                 <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource nomVis}}"/>
                 <DataGridTextColumn Header="Categorie" Binding="{Binding CategoriePoco.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource categorieNomVis}}"/>
-                <DataGridTextColumn Header="Categorie" Binding="{Binding Modele.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource modeleNomVis}}"/>
+                <DataGridTextColumn Header="Modele" Binding="{Binding Modele.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource modeleNomVis}}"/>
                 <DataGridTextColumn Header="Value" Binding="{Binding Value}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource valueVis}}"/>
                 <DataGridCheckBoxColumn Header="Limited" Binding="{Binding IsLimited}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isLimitedVis}}"/>
                 <DataGridTextColumn Header="Decay" Binding="{Binding Decay}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource decayVis}}"/>
@@ -82,30 +81,35 @@
         </DataGrid>
 
         <DockPanel Grid.Column="2">
+            <DockPanel.Resources>
+
+            </DockPanel.Resources>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Height="40" HorizontalAlignment="Center" >
                 <Button Name="btnValider" Content="Sauver" Width="100" Margin="10,0"/>
                 <Button Name="btnAnnuler" Content="Annuler" Width="100" Margin="10,0"/>
             </StackPanel>
-<!--DataContext="{Binding DgSelectedItem}"-->
+            
             <StackPanel Name="spEntity"  Height="auto">
                 <StackPanel Name="spId" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource idVis}}">
                     <Label Name="lbId" Content="Id : " Width="100"/>
-                    <TextBlock Name="tbkId" Text="{Binding DgSelectedItem.Id}" Width="auto"/>
+                    <TextBlock Name="tbkId" Text="{Binding Path = DgSelectedItem.Id}" Width="auto"/>
                 </StackPanel>
 
                 <StackPanel Name="spNom" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource nomVis}}">
                     <Label Name="lbnom" Content="Nom : " Width="100"/>
-                    <TextBox Name="tbkNom" Text="{Binding DgSelectedItem.Nom}" Width="auto"/>
+                    <TextBox Name="tbkNom" Text="{Binding Path=DgSelectedItem.Nom}" Width="auto"/>
                 </StackPanel>
 
                 <StackPanel Name="spIsActive" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isActiveVis}}">
                     <Label Name="lbIsActive" Content="Actif : " Width="100"/>
-                    <CheckBox Name="ckxIsActive" IsChecked="{Binding DgSelectedItem.IsActive}" Width="auto"/>
+                    <CheckBox Name="ckxIsActive" IsChecked="{Binding Path=DgSelectedItem.IsActive}" Width="auto"/>
                 </StackPanel>
                 
                 <StackPanel Name="spCategorie" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource categorieNomVis}}">
                     <Label Name="lbCategorie" Content="Catégorie : " Width="100"/>
-                    <ComboBox Name="cbxIsActive" ItemsSource="{Binding CategoriesPoco}" DisplayMemberPath="Nom" SelectedItem="{Binding DsSelectedItem.CategoriePoco, Mode=TwoWay}" Width="100"/>
+                    <ComboBox Name="cbxCategorie" ItemsSource="{Binding Path=CategoriesPoco}"
+                              DisplayMemberPath="Nom"
+                              SelectedItem="{Binding SelectedCategorie}" Width="100"/>
                 </StackPanel>
             </StackPanel>
         </DockPanel>

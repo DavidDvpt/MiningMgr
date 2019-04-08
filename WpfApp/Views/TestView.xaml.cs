@@ -12,21 +12,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfApp.Model;
-using WpfApp.Model.Poco;
 using WpfApp.Repositories;
 using WpfApp.Repositories.Interfaces;
 
 namespace WpfApp.Views
 {
     /// <summary>
-    /// Logique d'interaction pour ManagerView.xaml
+    /// Logique d'interaction pour TestView.xaml
     /// </summary>
-    public partial class ManagerView : UserControl
+    public partial class TestView : UserControl
     {
-        public ManagerView()
+        public TestView()
         {
             InitializeComponent();
+        }
+
+        private void BtnAnnuler_Click(object sender, RoutedEventArgs e)
+        {
+            IRepositoriesUoW repos = new RepositoriesUoW();
+            cbxCategorie.SelectedItem = repos.CategoriesPoco.GetByNom("Tool");
         }
     }
 }
