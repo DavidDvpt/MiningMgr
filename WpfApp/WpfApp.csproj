@@ -88,6 +88,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Commands\MyICommand.cs" />
     <Compile Include="Commands\NavCommand.cs" />
+    <Compile Include="Model\Dto\BasePoco.cs" />
     <Compile Include="Model\Dto\FinderAmplifierDto.cs" />
     <Compile Include="Model\Dto\InterfacesDto\ICommunDto.cs" />
     <Compile Include="Model\Dto\PlanetMaterialDto.cs" />
@@ -145,9 +146,6 @@
     <Compile Include="Views\SetupView.xaml.cs">
       <DependentUpon>SetupView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TestView.xaml.cs">
-      <DependentUpon>TestView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="VML\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -166,10 +164,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SetupView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\TestView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
