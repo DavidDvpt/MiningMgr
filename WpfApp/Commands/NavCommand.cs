@@ -3,6 +3,7 @@ using System.Windows.Input;
 
 namespace WpfApp.Commands
 {
+    // Commande avec parametre string
     public class NavCommand<T> : ICommand
     {
         // Methode cible à executer
@@ -23,6 +24,8 @@ namespace WpfApp.Commands
             _TargetExecuteMethod = executeMethod;
             _TargetCanExecuteMethod = canExecuteMethod;
         }
+
+
 
         // evenement qui relance la methode CanExecute
         public void RaiseCanExecuteChanged()

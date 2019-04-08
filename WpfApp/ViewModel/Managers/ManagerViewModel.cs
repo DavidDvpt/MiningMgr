@@ -1,31 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using WpfApp.Commands;
 
 namespace WpfApp.ViewModel
 {
-    public abstract class ManagerViewModel<TDto> : BaseViewModel
-        where TDto : class
+    public abstract class ManagerViewModel<T> : BaseViewModel
+        where T : class
     {
-        protected TDto _dgSelectedItem;
-        //private ICollection<TDto> _dataGridItemSources;
+        protected T _dgSelectedItem;
+        protected T _itemForm;
 
         public ManagerViewModel()
         {
             ColumnInit();
+            UpdateButton = new MyICommand(UpdateItem);
         }
 
         protected abstract void ColumnInit();
 
-        public ICollection<TDto> DataGridItemSource { get; set; }
-        //{
-        //    get { return _dataGridItemSources; }
-        //    set
-        //    {
-        //        if(_dataGridItemSources != value)
-        //        {
-        //            _dataGridItemSources = value;
-        //        }
-        //    }
-        //}
+        public MyICommand UpdateButton { get; private set; }
+
+        public ICollection<T> DataGridItemSource { get; set; }
 
         #region DataGridColumnVisibility
         // Commun, Categorie, Planet
@@ -77,7 +72,7 @@ namespace WpfApp.ViewModel
         public bool SkillEnhancerQtyVisibility { get; set; } = false;
         #endregion
 
-        public TDto DgSelectedItem
+        public T DgSelectedItem
         {
             get => _dgSelectedItem;
             set
@@ -88,6 +83,25 @@ namespace WpfApp.ViewModel
                     OnPropertyChanged();
                 }
             }
+        }
+
+        public T ItemForm
+        {
+            get => _itemForm;
+            set
+            {
+                if (_itemForm != value)
+                {
+                    _itemForm = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+
+        private void UpdateItem()
+        {
+            ItemForm = DgSelectedItem;
         }
     }
 }

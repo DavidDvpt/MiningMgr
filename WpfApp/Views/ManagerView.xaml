@@ -15,6 +15,7 @@
         <root:DataGridColumnVisibilityBinding x:Key="usePerMinVis" Data="{Binding UsePerMinVisibility}"/>
         <root:DataGridColumnVisibilityBinding x:Key="depthVis" Data="{Binding DepthVisibility}"/>
         <root:DataGridColumnVisibilityBinding x:Key="rangeVis" Data="{Binding RangeVisibility}"/>
+        <root:DataGridColumnVisibilityBinding x:Key="basePecSearchVis" Data="{Binding RangeVisibility}"/>
         <root:DataGridColumnVisibilityBinding x:Key="categorieNomVis" Data="{Binding CategorieNomVisibility}"/>
         <root:DataGridColumnVisibilityBinding x:Key="modeleNomVis" Data="{Binding ModeleNomVisibility}"/>
         <root:DataGridColumnVisibilityBinding x:Key="isActiveVis" Data="{Binding IsActiveVisibility}"/>
@@ -41,48 +42,57 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        
+        <DockPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Height="40" HorizontalAlignment="Center" >
+                <Button Name="btnUpdate" Content="Modifier" Width="100" Margin="10,0" Command="{Binding UpdateButton}"/>
+                <Button Name="btnCreate" Content="Créer" Width="100" Margin="10,0"/>
+            </StackPanel>
 
-        <DataGrid Name="dgGeneric"
-                  ItemsSource="{Binding DataGridItemSource}"
-                  AutoGenerateColumns="False"
-                  SelectedItem="{Binding DgSelectedItem, Mode=TwoWay}">
-            <DataGrid.Resources>
+            <DataGrid Name="dgGeneric"
+                      ItemsSource="{Binding DataGridItemSource}"
+                      AutoGenerateColumns="False"
+                      SelectedItem="{Binding DgSelectedItem, Mode=TwoWay}">
 
-            </DataGrid.Resources>
-            
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource idVis}}"/>
-                <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource nomVis}}"/>
-                <DataGridTextColumn Header="Categorie" Binding="{Binding Categorie.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource categorieNomVis}}"/>
-                <DataGridTextColumn Header="Modele" Binding="{Binding Modele.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource modeleNomVis}}"/>
-                <DataGridTextColumn Header="Value" Binding="{Binding Value}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource valueVis}}"/>
-                <DataGridCheckBoxColumn Header="Limited" Binding="{Binding IsLimited}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isLimitedVis}}"/>
-                <DataGridTextColumn Header="Decay" Binding="{Binding Decay}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource decayVis}}"/>
-                <DataGridTextColumn Header="Slot" Binding="{Binding Slot}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource slotVis}}"/>
-                <DataGridTextColumn Header="BonusValue1" Binding="{Binding BonusValue1}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource bonusValue1Vis}}"/>
-                <DataGridTextColumn Header="BonusValue2" Binding="{Binding BonusValue2}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource bonusValue2Vis}}"/>
-                <DataGridTextColumn Header="Depth" Binding="{Binding Depth}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource depthVis}}"/>
-                <DataGridTextColumn Header="Range" Binding="{Binding Range}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource rangeVis}}"/>
-                <DataGridTextColumn Header="UsePerMin" Binding="{Binding UsePerMin}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource usePerMinVis}}"/>
-                <DataGridTextColumn Header="Coefficient" Binding="{Binding Coefficient}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource coefficientVis}}"/>
-                <DataGridTextColumn Header="Efficienty" Binding="{Binding Efficienty}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource efficientyVis}}"/>
-                <DataGridTextColumn Header="Abbrev" Binding="{Binding Abbrev}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource abbrevVis}}"/>
-                <DataGridTextColumn Header="Multiplicateur" Binding="{Binding Multiplicateur}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource multiplicateurVis}}"/>
-                <DataGridTextColumn Header="SearchMode" Binding="{Binding SearchMode.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource searchModeVis}}"/>
-                <DataGridTextColumn Header="Finder" Binding="{Binding Finder.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource finderVis}}"/>
-                <DataGridTextColumn Header="Finder Amplifier" Binding="{Binding FinderAmplifier.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource finderAmplifierVis}}"/>
-                <DataGridTextColumn Header="Depth Enhancer Quantity" Binding="{Binding DepthEnhancerQty}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource depthEnhancerQtyVis}}"/>
-                <DataGridTextColumn Header="Range Enhancer Quantity" Binding="{Binding RangeEnhancerQty}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource rangeEnhancerQtyVis}}"/>
-                <DataGridTextColumn Header="Skill Enhancer Quantity" Binding="{Binding SkillEnhancerQty}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource skillEnhancerQtyVis}}"/>
-                <DataGridCheckBoxColumn Header="Actif" Binding="{Binding IsActive}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isActiveVis}}"/>
+                <DataGrid.Resources>
 
-            </DataGrid.Columns>
-        </DataGrid>
+                </DataGrid.Resources>
 
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource idVis}}"/>
+                    <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource nomVis}}"/>
+                    <DataGridTextColumn Header="Categorie" Binding="{Binding Categorie.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource categorieNomVis}}"/>
+                    <DataGridTextColumn Header="Modele" Binding="{Binding Modele.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource modeleNomVis}}"/>
+                    <DataGridTextColumn Header="Value" Binding="{Binding Value}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource valueVis}}"/>
+                    <DataGridCheckBoxColumn Header="Limited" Binding="{Binding IsLimited}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isLimitedVis}}"/>
+                    <DataGridTextColumn Header="Decay" Binding="{Binding Decay}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource decayVis}}"/>
+                    <DataGridTextColumn Header="Slot" Binding="{Binding Slot}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource slotVis}}"/>
+                    <DataGridTextColumn Header="BonusValue1" Binding="{Binding BonusValue1}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource bonusValue1Vis}}"/>
+                    <DataGridTextColumn Header="BonusValue2" Binding="{Binding BonusValue2}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource bonusValue2Vis}}"/>
+                    <DataGridTextColumn Header="Depth" Binding="{Binding Depth}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource depthVis}}"/>
+                    <DataGridTextColumn Header="Range" Binding="{Binding Range}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource rangeVis}}"/>
+                    <DataGridTextColumn Header="BasePecSearch" Binding="{Binding BasePecSearch}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource basePecSearchVis}}"/>
+                    <DataGridTextColumn Header="UsePerMin" Binding="{Binding UsePerMin}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource usePerMinVis}}"/>
+                    <DataGridTextColumn Header="Coefficient" Binding="{Binding Coefficient}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource coefficientVis}}"/>
+                    <DataGridTextColumn Header="Efficienty" Binding="{Binding Efficienty}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource efficientyVis}}"/>
+                    <DataGridTextColumn Header="Abbrev" Binding="{Binding Abbrev}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource abbrevVis}}"/>
+                    <DataGridTextColumn Header="Multiplicateur" Binding="{Binding Multiplicateur}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource multiplicateurVis}}"/>
+                    <DataGridTextColumn Header="SearchMode" Binding="{Binding SearchMode.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource searchModeVis}}"/>
+                    <DataGridTextColumn Header="Finder" Binding="{Binding Finder.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource finderVis}}"/>
+                    <DataGridTextColumn Header="Finder Amplifier" Binding="{Binding FinderAmplifier.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource finderAmplifierVis}}"/>
+                    <DataGridTextColumn Header="Depth Enhancer Quantity" Binding="{Binding DepthEnhancerQty}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource depthEnhancerQtyVis}}"/>
+                    <DataGridTextColumn Header="Range Enhancer Quantity" Binding="{Binding RangeEnhancerQty}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource rangeEnhancerQtyVis}}"/>
+                    <DataGridTextColumn Header="Skill Enhancer Quantity" Binding="{Binding SkillEnhancerQty}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource skillEnhancerQtyVis}}"/>
+                    <DataGridCheckBoxColumn Header="Actif" Binding="{Binding IsActive}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isActiveVis}}"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
         <DockPanel Grid.Column="2">
             <DockPanel.Resources>
 
             </DockPanel.Resources>
+            
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Height="40" HorizontalAlignment="Center" >
                 <Button Name="btnValider" Content="Sauver" Width="100" Margin="10,0"/>
                 <Button Name="btnAnnuler" Content="Annuler" Width="100" Margin="10,0"/>
@@ -91,24 +101,61 @@
             <StackPanel Name="spEntity"  Height="auto">
                 <StackPanel Name="spId" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource idVis}}">
                     <Label Name="lbId" Content="Id : " Width="100"/>
-                    <TextBlock Name="tbkId" Text="{Binding DgSelectedItem.Id}" Width="auto"/>
+                    <TextBlock Name="tbkId" Text="{Binding ItemForm.Id}" Width="auto"/>
                 </StackPanel>
 
                 <StackPanel Name="spNom" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource nomVis}}">
                     <Label Name="lbnom" Content="Nom : " Width="100"/>
-                    <TextBox Name="tbkNom" Text="{Binding DgSelectedItem.Nom}" Width="auto"/>
+                    <TextBox Name="tbkNom" Text="{Binding ItemForm.Nom}" Width="auto"/>
                 </StackPanel>
 
                 <StackPanel Name="spIsActive" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isActiveVis}}">
                     <Label Name="lbIsActive" Content="Actif : " Width="100"/>
-                    <CheckBox Name="ckxIsActive" IsChecked="{Binding DgSelectedItem.IsActive}" Width="auto"/>
+                    <CheckBox Name="ckxIsActive" IsChecked="{Binding ItemForm.IsActive}" Width="auto"/>
                 </StackPanel>
                 
                 <StackPanel Name="spCategorie" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource categorieNomVis}}">
                     <Label Name="lbCategorie" Content="Catégorie : " Width="100"/>
                     <ComboBox Name="cbxCategorie" ItemsSource="{Binding Categories}"
                               DisplayMemberPath="Nom"
-                              SelectedItem="{Binding DgSelectedItem.CategorieDto}" Width="100"/>
+                              SelectedItem="{Binding ItemForm.CategorieDto}" Width="100"/>
+                </StackPanel>
+                <StackPanel Name="spUsePerMin" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource usePerMinVis}}">
+                    <Label Name="lbUsePerMin" Content="Use per Minute : " Width="100"/>
+                    <TextBlock Name="tbkUsePerMin" Text="{Binding ItemForm.UsePerMin}" Width="auto"/>
+                </StackPanel>
+                <StackPanel Name="spDepth" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource depthVis}}">
+                    <Label Name="lbDepth" Content="Depth : " Width="100"/>
+                    <TextBlock Name="tbkDepth" Text="{Binding ItemForm.Depth}" Width="auto"/>
+                </StackPanel>
+                <StackPanel Name="spRange" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource rangeVis}}">
+                    <Label Name="lbRange" Content="Range : " Width="100"/>
+                    <TextBlock Name="tbkRange" Text="{Binding ItemForm.Range}" Width="auto"/>
+                </StackPanel>
+                <StackPanel Name="spBasePecSearch" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource basePecSearchVis}}">
+                    <Label Name="lbBasePecSearch" Content="Base Pec Search : " Width="100"/>
+                    <TextBlock Name="tbkBasePecSearch" Text="{Binding ItemForm.BasePecSearch}" Width="auto"/>
+                </StackPanel>
+                <StackPanel Name="spEfficienty" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource efficientyVis}}">
+                    <Label Name="lbEfficienty" Content="Efficienty : " Width="100"/>
+                    <TextBlock Name="tbkEfficienty" Text="{Binding ItemForm.Efficienty}" Width="auto"/>
+                </StackPanel>
+                <StackPanel Name="spCoefficient" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource coefficientVis}}">
+                    <Label Name="lbCoefficient" Content="Coefficient : " Width="100"/>
+                    <TextBlock Name="tbkCoefficient" Text="{Binding ItemForm.Coefficient}" Width="auto"/>
+                </StackPanel>
+
+                <StackPanel Name="spSlot" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource slotVis}}">
+                    <Label Name="lbSlot" Content="Base Pec Search : " Width="100"/>
+                    <TextBlock Name="tbkSlot" Text="{Binding ItemForm.Slot}" Width="auto"/>
+                </StackPanel>
+                <StackPanel Name="spBonusValue1" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource bonusValue1Vis}}">
+                    <Label Name="lbBonusValue1" Content="Bonus Value 1 : " Width="100"/>
+                    <TextBlock Name="tbkBonusValue1" Text="{Binding ItemForm.BonusValue1}" Width="auto"/>
+                </StackPanel>
+                <StackPanel Name="spBonusValue2" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource bonusValue1Vis}}">
+                    <Label Name="lbBonusValue2" Content="Bonus Value 2 : " Width="100"/>
+                    <TextBlock Name="tbkBonusValue2" Text="{Binding ItemForm.BonusValue2}" Width="auto"/>
                 </StackPanel>
             </StackPanel>
         </DockPanel>
