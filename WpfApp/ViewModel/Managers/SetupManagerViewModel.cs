@@ -89,5 +89,9 @@ namespace WpfApp.ViewModel
             repos.SetupsDto.Update(SetupDto);
         }
 
+        protected override void ValiderItem()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

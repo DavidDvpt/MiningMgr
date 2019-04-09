@@ -19,5 +19,10 @@ namespace WpfApp.ViewModel
         {
             DataGridItemSource = repos.RefinersDto.GetAll().ToList();
         }
+
+        protected override void ValiderItem()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

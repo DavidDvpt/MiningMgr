@@ -21,6 +21,9 @@ namespace WpfApp.ViewModel
             DataGridItemSource = repos.ExcavatorsDto.GetAll().ToList();
         }
 
-
+        protected override void ValiderItem()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -6,7 +6,7 @@ using System;
 
 namespace WpfApp.Context
 {
-    public class SeedClass : DropCreateDatabaseAlways<MiningContext>
+    public class SeedClass : CreateDatabaseIfNotExists<MiningContext>
     {
         private IRepositoriesDtoUoW repositories;
 

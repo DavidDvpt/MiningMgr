@@ -24,5 +24,20 @@ namespace WpfApp.ViewModel
         {
             DataGridItemSource = repos.CategoriesDto.GetAll().ToList();         
         }
+
+        protected override void ValiderItem()
+        {
+            if (ItemForm.Id > 0)
+            {
+                repos.CategoriesDto.Update(ItemForm);
+            }
+            else
+            {
+                repos.CategoriesDto.Add(ItemForm);
+                DataGridItemSource = repos.CategoriesDto.GetAll().ToList();
+            }
+
+            
+        }
     }
 }

@@ -26,5 +26,9 @@ namespace WpfApp.ViewModel
             DataGridItemSource = repos.FindersDto.GetAll().ToList();
         }
 
+        protected override void ValiderItem()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

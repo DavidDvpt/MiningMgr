@@ -4,8 +4,6 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using WpfApp.Context;
-using WpfApp.Model.Poco.Interfaces;
-using WpfApp.Tools;
 
 namespace WpfApp.Repositories
 {
@@ -76,7 +74,7 @@ namespace WpfApp.Repositories
             {
                 DbSet.Attach(entity);
             }
-            dbEntityEntry.State = EntityState.Deleted;
+            //dbEntityEntry.State = EntityState.Deleted;
             SaveChanges();
         }
 

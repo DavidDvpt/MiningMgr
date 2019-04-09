@@ -5,20 +5,25 @@ using WpfApp.Commands;
 namespace WpfApp.ViewModel
 {
     public abstract class ManagerViewModel<T> : BaseViewModel
-        where T : class
+        where T : class, new()
     {
+        // item seectionné ds le datagrid
         protected T _dgSelectedItem;
+        // Item actif du formulaire
         protected T _itemForm;
 
         public ManagerViewModel()
         {
             ColumnInit();
             UpdateButton = new MyICommand(UpdateItem);
+            CreateButton = new MyICommand(CreateItem);
+            ValiderButton = new MyICommand(ValiderItem);
+            AnnulerButton = new MyICommand(AnnulerItem);
         }
 
         protected abstract void ColumnInit();
 
-        public MyICommand UpdateButton { get; private set; }
+
 
         public ICollection<T> DataGridItemSource { get; set; }
 
@@ -98,10 +103,27 @@ namespace WpfApp.ViewModel
             }
         }
 
-
+        #region Commands
+        public MyICommand UpdateButton { get; private set; }
+        public MyICommand CreateButton { get; private set; }
+        public MyICommand ValiderButton { get; private set; }
+        public MyICommand AnnulerButton { get; private set; }
+     
         private void UpdateItem()
         {
             ItemForm = DgSelectedItem;
         }
+        private void CreateItem()
+        {
+            ItemForm = new T();
+        }
+        protected abstract void ValiderItem();
+
+        private void AnnulerItem()
+        {
+            ItemForm = null;
+            
+        }
+        #endregion
     }
 }

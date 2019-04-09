@@ -15,5 +15,10 @@ namespace WpfApp.ViewModel
             NomVisibility = true;
             IsActiveVisibility = true;
         }
+
+        protected override void ValiderItem()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

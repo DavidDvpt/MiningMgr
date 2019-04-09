@@ -46,7 +46,7 @@
         <DockPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Height="40" HorizontalAlignment="Center" >
                 <Button Name="btnUpdate" Content="Modifier" Width="100" Margin="10,0" Command="{Binding UpdateButton}"/>
-                <Button Name="btnCreate" Content="Créer" Width="100" Margin="10,0"/>
+                <Button Name="btnCreate" Content="Créer" Width="100" Margin="10,0" Command="{Binding CreateButton}"/>
             </StackPanel>
 
             <DataGrid Name="dgGeneric"
@@ -90,15 +90,22 @@
         </DockPanel>
         <DockPanel Grid.Column="2">
             <DockPanel.Resources>
-
+                <Style TargetType="StackPanel">
+                    <Setter Property="Background" Value="LightGray"/>
+                </Style>
+                <Style TargetType="Label">
+                    <Setter Property="Width" Value="150"/>
+                    <Setter Property="Background" Value="LightGray"/>
+                </Style>
             </DockPanel.Resources>
             
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Height="40" HorizontalAlignment="Center" >
-                <Button Name="btnValider" Content="Sauver" Width="100" Margin="10,0"/>
-                <Button Name="btnAnnuler" Content="Annuler" Width="100" Margin="10,0"/>
+                <Button Name="btnValider" Content="Sauver" Width="100" Margin="10,0" Command="{Binding ValiderButton}"/>
+                <Button Name="btnAnnuler" Content="Annuler" Width="100" Margin="10,0" Command="{Binding AnnulerButton}"/>
             </StackPanel>
             
             <StackPanel Name="spEntity"  Height="auto">
+                
                 <StackPanel Name="spId" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource idVis}}">
                     <Label Name="lbId" Content="Id : " Width="100"/>
                     <TextBlock Name="tbkId" Text="{Binding ItemForm.Id}" Width="auto"/>

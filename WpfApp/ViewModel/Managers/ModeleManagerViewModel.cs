@@ -24,6 +24,11 @@ namespace WpfApp.ViewModel
             Categories = repos.CategoriesDto.GetAll().ToList();
         }
 
+        protected override void ValiderItem()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public ICollection<CategorieDto> Categories { get; set; }
     }
 }
