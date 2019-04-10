@@ -45,31 +45,31 @@ namespace WpfApp.ViewModel
             switch (destination)
             {
                 case "setup":
-                    CurrentViewModel = setupManagerViewModel;
+                    CurrentViewModel = new SetupManagerViewModel();
                     break;
                 case "categorie":
-                    CurrentViewModel = categorieViewModel;
+                    CurrentViewModel = new CategorieManagerViewModel();
                     break;
                 case "modele":
-                    CurrentViewModel = modeleViewModel;
+                    CurrentViewModel = new ModeleManagerViewModel();
                     break;
                 case "planet":
-                    CurrentViewModel = planetViewModel;
+                    CurrentViewModel = new PlanetManagerViewModel();
                     break;
                 case "finder":
-                    CurrentViewModel = finderViewModel;
+                    CurrentViewModel = new FinderManagerViewModel();
                     break;
                 case "excavator":
-                    CurrentViewModel = excavatorViewModel;
+                    CurrentViewModel = new ExcavatorManagerViewModel();
                     break;
                 case "refiner":
-                    CurrentViewModel = refinerViewModel;
+                    CurrentViewModel = new RefinerManagerViewModel();
                     break;
                 case "finderAmplifier":
-                    CurrentViewModel = finderAmplifierViewModel;
+                    CurrentViewModel = new FinderAmplifierManagerViewModel();
                     break;
                 case "enhancer":
-                    CurrentViewModel = enhancerViewModel;
+                    CurrentViewModel = new EnhancerManagerViewModel();
                     break;
                     //case "searchMode":
                     //default:
