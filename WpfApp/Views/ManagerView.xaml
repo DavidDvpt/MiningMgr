@@ -35,6 +35,18 @@
         <root:DataGridColumnVisibilityBinding x:Key="depthEnhancerQtyVis" Data="{Binding DepthEnhancerQtyVisibility}"/>
         <root:DataGridColumnVisibilityBinding x:Key="rangeEnhancerQtyVis" Data="{Binding RangeEnhancerQtyVisibility}"/>
         <root:DataGridColumnVisibilityBinding x:Key="skillEnhancerQtyVis" Data="{Binding SkillEnhancerQtyVisibility}"/>
+        
+        <Style TargetType="StackPanel">
+            <Setter Property="Background" Value="LightGray"/>
+        </Style>
+        <Style TargetType="Grid">
+            <Setter Property="Background" Value="LightGray"/>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Background" Value="LightGray"/>
+        </Style>
     </UserControl.Resources>
     
     <Grid>
@@ -44,12 +56,16 @@
         </Grid.ColumnDefinitions>
         
         <DockPanel>
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Height="40" HorizontalAlignment="Center" >
-                <Button Name="btnUpdate" Content="Modifier" Width="100" Margin="10,0" Command="{Binding UpdateButton}"/>
-                <Button Name="btnCreate" Content="Créer" Width="100" Margin="10,0" Command="{Binding CreateButton}"/>
-            </StackPanel>
+            <Grid DockPanel.Dock="Bottom" Height="40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Name="btnUpdate" Content="Modifier" Command="{Binding UpdateButton}"/>
+                <Button Name="btnCreate" Grid.Column="1" Content="Créer" Command="{Binding CreateButton}"/>
+            </Grid>
 
-            <DataGrid Name="dgGeneric"
+            <DataGrid Name="dgGeneric" 
                       ItemsSource="{Binding DataGridItemSource}"
                       AutoGenerateColumns="False"
                       SelectedItem="{Binding DgSelectedItem, Mode=TwoWay}">
@@ -90,19 +106,17 @@
         </DockPanel>
         <DockPanel Grid.Column="2">
             <DockPanel.Resources>
-                <Style TargetType="StackPanel">
-                    <Setter Property="Background" Value="LightGray"/>
-                </Style>
-                <Style TargetType="Label">
-                    <Setter Property="Width" Value="150"/>
-                    <Setter Property="Background" Value="LightGray"/>
-                </Style>
+
             </DockPanel.Resources>
             
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Height="40" HorizontalAlignment="Center" >
-                <Button Name="btnValider" Content="Sauver" Width="100" Margin="10,0" Command="{Binding ValiderButton}"/>
-                <Button Name="btnAnnuler" Content="Annuler" Width="100" Margin="10,0" Command="{Binding AnnulerButton}"/>
-            </StackPanel>
+            <Grid DockPanel.Dock="Bottom" Height="40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Name="btnValider" Content="Sauver" Command="{Binding ValiderButton}"/>
+                <Button Name="btnAnnuler" Grid.Column="1" Content="Annuler" Command="{Binding AnnulerButton}"/>
+            </Grid>
             
             <StackPanel Name="spEntity"  Height="auto">
                 
