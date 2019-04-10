@@ -18,15 +18,15 @@ namespace WpfApp.ViewModel
         public NavCommand<string> NavCommand { get; private set; }
 
         #region ViewModels
-        private SetupManagerViewModel setupManagerViewModel = new SetupManagerViewModel();
-        private CategorieManagerViewModel categorieViewModel = new CategorieManagerViewModel();
-        private ModeleManagerViewModel modeleViewModel = new ModeleManagerViewModel();
-        private FinderManagerViewModel finderViewModel = new FinderManagerViewModel();
-        private PlanetManagerViewModel planetViewModel = new PlanetManagerViewModel();
-        private ExcavatorManagerViewModel excavatorViewModel = new ExcavatorManagerViewModel();
-        private RefinerManagerViewModel refinerViewModel = new RefinerManagerViewModel();
-        private FinderAmplifierManagerViewModel finderAmplifierViewModel = new FinderAmplifierManagerViewModel();
-        private EnhancerManagerViewModel enhancerViewModel = new EnhancerManagerViewModel();
+        //private SetupManagerViewModel setupManagerViewModel = new SetupManagerViewModel();
+        //private CategorieManagerViewModel categorieViewModel = new CategorieManagerViewModel();
+        //private ModeleManagerViewModel modeleViewModel = new ModeleManagerViewModel();
+        //private FinderManagerViewModel finderViewModel = new FinderManagerViewModel();
+        //private PlanetManagerViewModel planetViewModel = new PlanetManagerViewModel();
+        //private ExcavatorManagerViewModel excavatorViewModel = new ExcavatorManagerViewModel();
+        //private RefinerManagerViewModel refinerViewModel = new RefinerManagerViewModel();
+        //private FinderAmplifierManagerViewModel finderAmplifierViewModel = new FinderAmplifierManagerViewModel();
+        //private EnhancerManagerViewModel enhancerViewModel = new EnhancerManagerViewModel();
         #endregion
 
         private BindableBase _CurrentViewModel;
