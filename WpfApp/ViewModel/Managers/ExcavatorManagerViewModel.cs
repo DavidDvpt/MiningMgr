@@ -18,12 +18,8 @@ namespace WpfApp.ViewModel
 
         protected override void Init()
         {
-            DataGridItemSource = repos.ExcavatorsDto.GetAll().ToList();
+            //DataGridItemSource = repos.ExcavatorsDto.GetAll().ToList();
         }
 
-        protected override void ValiderItem()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

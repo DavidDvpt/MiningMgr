@@ -1,6 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using WpfApp.Commands;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using WpfApp.Repositories;
 
 namespace WpfApp.ViewModel
 {
@@ -11,6 +12,9 @@ namespace WpfApp.ViewModel
         protected T _dgSelectedItem;
         // Item actif du formulaire
         protected T _itemForm;
+        protected bool ModifySelected = false;
+        protected RepositoryDto<T> genericRepo;
+        protected ICollection<T> _dataGridItemSource;
 
         public ManagerViewModel()
         {
@@ -19,13 +23,11 @@ namespace WpfApp.ViewModel
             CreateButton = new MyICommand(CreateItem);
             ValiderButton = new MyICommand(ValiderItem);
             AnnulerButton = new MyICommand(AnnulerItem);
+            genericRepo = new RepositoryDto<T>(repos.GetContext());
+            ItemSourceUpdated();
         }
 
         protected abstract void ColumnInit();
-
-
-
-        public ICollection<T> DataGridItemSource { get; set; }
 
         #region DataGridColumnVisibility
         // Commun, Categorie, Planet
@@ -103,7 +105,24 @@ namespace WpfApp.ViewModel
             }
         }
 
-        #region Commands
+        public ICollection<T> DataGridItemSource
+        {
+            get { return _dataGridItemSource; }
+            set
+            {
+                if (_dataGridItemSource != value)
+                {
+                    _dataGridItemSource = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private void ItemSourceUpdated()
+        {
+            DataGridItemSource = genericRepo.GetAll().ToList();
+        }
+
+        #region Commands et actions
         public MyICommand UpdateButton { get; private set; }
         public MyICommand CreateButton { get; private set; }
         public MyICommand ValiderButton { get; private set; }
@@ -112,12 +131,28 @@ namespace WpfApp.ViewModel
         private void UpdateItem()
         {
             ItemForm = DgSelectedItem;
+            ModifySelected = true;
         }
+
         private void CreateItem()
         {
             ItemForm = new T();
         }
-        protected abstract void ValiderItem();
+
+        protected void ValiderItem()
+        {
+            if (ModifySelected)
+            {
+                genericRepo.Update(ItemForm);
+            }
+            else
+            {
+                genericRepo.Add(ItemForm);
+                ModifySelected = false;                
+            }
+            ItemForm = null;
+            ItemSourceUpdated();
+        }
 
         private void AnnulerItem()
         {

@@ -17,12 +17,8 @@ namespace WpfApp.ViewModel
 
         protected override void Init()
         {
-            DataGridItemSource = repos.FinderAmplifiersDto.GetAll().ToList();
+            //DataGridItemSource = repos.FinderAmplifiersDto.GetAll().ToList();
         }
 
-        protected override void ValiderItem()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

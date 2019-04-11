@@ -60,6 +60,7 @@ namespace WpfApp.Model.Dto
                 if (value != _categorieDto)
                 {
                     _categorieDto = value;
+                    CategorieId = CategorieDto.Id;
                     NotifyPropertyChanged();
                 }
             }

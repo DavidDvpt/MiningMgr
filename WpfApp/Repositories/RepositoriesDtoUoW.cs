@@ -80,5 +80,10 @@ namespace WpfApp.Repositories
         {
             ctx.SaveChanges();
         }
+
+        public MiningContext GetContext()
+        {
+            return ctx;
+        }
     }
 }

@@ -17,12 +17,8 @@ namespace WpfApp.ViewModel
 
         protected override void Init()
         {
-            DataGridItemSource = repos.RefinersDto.GetAll().ToList();
+            //DataGridItemSource = repos.RefinersDto.GetAll().ToList();
         }
 
-        protected override void ValiderItem()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

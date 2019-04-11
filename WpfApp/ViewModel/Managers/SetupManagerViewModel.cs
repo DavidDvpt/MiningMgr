@@ -28,7 +28,7 @@ namespace WpfApp.ViewModel
             //Setup.FinderAmplifier = FinderAmplifiers.First();
             //Setup.SearchMode = SearchModes.First();
             //CreerCommand = new MyICommand(OnCreate, CanCreate);
-            DataGridItemSource = repos.SetupsDto.GetAll().ToList();
+            //DataGridItemSource = repos.SetupsDto.GetAll().ToList();
         }
 
         public MyICommand CreerCommand { get; set; }
@@ -89,9 +89,5 @@ namespace WpfApp.ViewModel
             repos.SetupsDto.Update(SetupDto);
         }
 
-        protected override void ValiderItem()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

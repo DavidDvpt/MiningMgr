@@ -7,7 +7,7 @@ namespace WpfApp.ViewModel
     {
         protected override void Init()
         {
-            DataGridItemSource = repos.PlanetsDto.GetAll().ToList();
+            //DataGridItemSource = repos.PlanetsDto.GetAll().ToList();
         }
 
         protected override void ColumnInit()
@@ -16,9 +16,5 @@ namespace WpfApp.ViewModel
             IsActiveVisibility = true;
         }
 
-        protected override void ValiderItem()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

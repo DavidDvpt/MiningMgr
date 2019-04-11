@@ -66,9 +66,10 @@
             </Grid>
 
             <DataGrid Name="dgGeneric" 
-                      ItemsSource="{Binding DataGridItemSource}"
+                      ItemsSource="{Binding DataGridItemSource, Mode=TwoWay}"
                       AutoGenerateColumns="False"
-                      SelectedItem="{Binding DgSelectedItem, Mode=TwoWay}">
+                      SelectedItem="{Binding DgSelectedItem, Mode=TwoWay}"
+                      Margin="5,3">
 
                 <DataGrid.Resources>
 
@@ -77,7 +78,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource idVis}}"/>
                     <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource nomVis}}"/>
-                    <DataGridTextColumn Header="Categorie" Binding="{Binding Categorie.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource categorieNomVis}}"/>
+                    <DataGridTextColumn Header="Categorie" Binding="{Binding CategorieDto.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource categorieNomVis}}"/>
                     <DataGridTextColumn Header="Modele" Binding="{Binding Modele.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource modeleNomVis}}"/>
                     <DataGridTextColumn Header="Value" Binding="{Binding Value}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource valueVis}}"/>
                     <DataGridCheckBoxColumn Header="Limited" Binding="{Binding IsLimited}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isLimitedVis}}"/>

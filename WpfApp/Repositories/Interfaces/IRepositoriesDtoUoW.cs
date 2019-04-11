@@ -1,10 +1,13 @@
-﻿using WpfApp.Model.Dto;
+﻿using WpfApp.Context;
+using WpfApp.Model.Dto;
 
 namespace WpfApp.Repositories.Interfaces
 {
     public interface IRepositoriesDtoUoW
     {
         void Commit();
+
+        MiningContext GetContext();
 
         ICommunRepositoryDto<CategorieDto> CategoriesDto { get; }
         ICommunRepositoryDto<ModeleDto> ModelesDto { get; }
