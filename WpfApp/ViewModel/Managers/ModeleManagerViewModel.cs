@@ -20,7 +20,6 @@ namespace WpfApp.ViewModel
 
         protected override void Init()
         {
-            //DataGridItemSource = repos.ModelesDto.GetAll().ToList();
             Categories = repos.CategoriesDto.GetAll().ToList();
         }
 

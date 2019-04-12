@@ -12,13 +12,15 @@ namespace WpfApp.ViewModel
         protected override void ColumnInit()
         {
             NomVisibility = true;
+            CodeVisibility = true;
+            IsActiveVisibility = true;
+            IsLimitedVisibility = true;
             ValueVisibility = true;
             DecayVisibility = true;
             UsePerMinVisibility = true;
-            IsLimitedVisibility = true;
-            IsActiveVisibility = true;
             DepthVisibility = true;
             RangeVisibility = true;
+            BasePecSearchVisibility = true;
         }
 
         protected override void Init()

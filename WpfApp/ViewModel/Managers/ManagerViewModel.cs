@@ -45,7 +45,7 @@ namespace WpfApp.ViewModel
         // Unstackable
         public bool IsLimitedVisibility { get; set; } = false;
         public bool DecayVisibility { get; set; } = false;
-        public bool CodeMinVisibility { get; set; } = false;
+        public bool CodeVisibility { get; set; } = false;
 
         // Tool
         public bool UsePerMinVisibility { get; set; } = false;
@@ -53,6 +53,7 @@ namespace WpfApp.ViewModel
         //Depth
         public bool DepthVisibility { get; set; } = false;
         public bool RangeVisibility { get; set; } = false;
+        public bool BasePecSearchVisibility { get; set; } = false;
 
         // Excavator
         public bool EfficientyVisibility { get; set; } = false;
