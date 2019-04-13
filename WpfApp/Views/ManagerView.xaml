@@ -79,6 +79,13 @@
         <!-- DATAGRID + bouttons modifier et creer -->       
         <DockPanel>
             <!-- BOUTONS -->
+            <!-- COMBOBOX DE SELECTION DU TYPE DE MATERIAL -->
+            <StackPanel Name="spModeles" Orientation="Horizontal" DockPanel.Dock="Top" Visibility="Visible">
+                <Label Name="lbModeles" Content="Modèles : " Width="100"/>
+                <ComboBox Name="cbxModeles" ItemsSource="{Binding Modeles}"
+                              DisplayMemberPath="Nom"
+                              SelectedItem="{Binding SelectedModele}" Width="150"/>
+            </StackPanel>
             <Grid DockPanel.Dock="Bottom" Height="40">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -135,7 +142,6 @@
         <DockPanel Grid.Column="2">
             <DockPanel.Resources>
             </DockPanel.Resources>
-            
             <!-- BOUTONS -->
             <Grid DockPanel.Dock="Bottom" Height="40">
                 <Grid.ColumnDefinitions>

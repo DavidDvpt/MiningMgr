@@ -138,7 +138,7 @@ namespace WpfApp.ViewModel
             ModifySelected = true;
         }
 
-        private void CreateItem()
+        protected virtual void CreateItem()
         {
             ItemForm = new T();
         }

@@ -119,10 +119,12 @@
     <Compile Include="Repositories\CommunRepository.cs" />
     <Compile Include="Repositories\Interfaces\ICommunRepositoryDto.cs" />
     <Compile Include="Repositories\Interfaces\ICommunRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMaterialRepositoryDto.cs" />
     <Compile Include="Repositories\Interfaces\IRepositoriesDtoUoW.cs" />
     <Compile Include="Repositories\Interfaces\IRepositoriesUoW.cs" />
     <Compile Include="Repositories\Interfaces\IRepositoryDto.cs" />
     <Compile Include="Repositories\Interfaces\IRepository.cs" />
+    <Compile Include="Repositories\MaterialRepositoryDto.cs" />
     <Compile Include="Repositories\RepositoriesDtoUoW.cs" />
     <Compile Include="Repositories\RepositoriesUoW.cs" />
     <Compile Include="Repositories\RepositoryDto.cs" />
@@ -144,6 +146,7 @@
     <Compile Include="ViewModel\Managers\RefinerManagerViewModel.cs" />
     <Compile Include="ViewModel\Managers\SearchModeManagerViewModel.cs" />
     <Compile Include="ViewModel\Managers\SetupManagerViewModel.cs" />
+    <Compile Include="ViewModel\Managers\MaterialManagerViewModel.cs" />
     <Compile Include="Views\ManagerView.xaml.cs">
       <DependentUpon>ManagerView.xaml</DependentUpon>
     </Compile>

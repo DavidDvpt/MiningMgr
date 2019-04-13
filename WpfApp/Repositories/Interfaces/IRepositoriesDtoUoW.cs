@@ -11,15 +11,15 @@ namespace WpfApp.Repositories.Interfaces
 
         ICommunRepositoryDto<CategorieDto> CategoriesDto { get; }
         ICommunRepositoryDto<ModeleDto> ModelesDto { get; }
-        IRepositoryDto<FinderDto> FindersDto { get; }
-        IRepositoryDto<ExcavatorDto> ExcavatorsDto { get; }
-        IRepositoryDto<RefinerDto> RefinersDto { get; }
-        IRepositoryDto<FinderAmplifierDto> FinderAmplifiersDto { get; }
-        IRepositoryDto<SearchModeDto> SearchModesDto { get; }
-        IRepositoryDto<SetupDto> SetupsDto { get; }
-        IRepositoryDto<PlanetDto> PlanetsDto { get; }
-        IRepositoryDto<EnhancerDto> EnhancersDto { get; }
-        IRepositoryDto<MaterialDto> MaterialsDto { get; }
+        ICommunRepositoryDto<FinderDto> FindersDto { get; }
+        ICommunRepositoryDto<ExcavatorDto> ExcavatorsDto { get; }
+        ICommunRepositoryDto<RefinerDto> RefinersDto { get; }
+        ICommunRepositoryDto<FinderAmplifierDto> FinderAmplifiersDto { get; }
+        ICommunRepositoryDto<SearchModeDto> SearchModesDto { get; }
+        ICommunRepositoryDto<SetupDto> SetupsDto { get; }
+        ICommunRepositoryDto<PlanetDto> PlanetsDto { get; }
+        ICommunRepositoryDto<EnhancerDto> EnhancersDto { get; }
+        IMaterialRepositoryDto MaterialsDto { get; }
         IRepositoryDto<ToolAccessoireDto> ToolAccessoiresDto { get; }
         IRepositoryDto<PlanetMaterialDto> PlanetMaterialsDto { get; }
 

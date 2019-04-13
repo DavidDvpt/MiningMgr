@@ -51,6 +51,10 @@
             <views:ManagerView/>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type viewModels:MaterialManagerViewModel}">
+            <views:ManagerView/>
+        </DataTemplate>
+
         <DataTemplate DataType="{x:Type viewModels:SearchModeManagerViewModel}">
             <views:ManagerView/>
         </DataTemplate>
@@ -84,6 +88,8 @@
                 <Separator />
                 <MenuItem Header="SearchMode" Command="{Binding NavCommand}" CommandParameter="searchMode"/>
                 <MenuItem Header="Setup" Command="{Binding NavCommand}" CommandParameter="setup"/>
+                <Separator />
+                <MenuItem Header="Material" Command="{Binding NavCommand}" CommandParameter="material"/>
             </MenuItem>
         </Menu>
         
