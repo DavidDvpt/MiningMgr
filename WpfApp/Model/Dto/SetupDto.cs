@@ -6,6 +6,13 @@ namespace WpfApp.Model.Dto
     [Table("Setup")]
     public class SetupDto : CommunDto
     {
+        public SetupDto()
+        {
+            SearchMode = new SearchModeDto();
+            Finder = new FinderDto();
+            FinderAmplifier = new FinderAmplifierDto();
+            PropertyChanged += NomComposition;
+        }
         #region SiPoco
         //public int FinderId { get; set; }
 
@@ -70,7 +77,7 @@ namespace WpfApp.Model.Dto
             }
         }
 
-        public short DeptEnhancerQty
+        public short DepthEnhancerQty
         {
             get => _depthEnhancerQty;
             set
@@ -134,6 +141,20 @@ namespace WpfApp.Model.Dto
         }
         #endregion
 
+
+        // cree le nom du setup à partir des outils utilises
+        private void NomComposition(object sender, PropertyChangedEventArgs e)
+        {
+            if (Finder != null && FinderAmplifier != null && SearchMode != null)
+            {
+                Nom = Finder.Code + "_" + FinderAmplifier.Code + "_T" + TierUsed().ToString() + "_D" + DepthEnhancerQty.ToString() + "R" + RangeEnhancerQty.ToString() + "S" + SkillEnhancerQty.ToString() + "_" + SearchMode.Abbrev;
+            }
+        }
+
+        public int TierUsed()
+        {
+            return DepthEnhancerQty + RangeEnhancerQty + SkillEnhancerQty;
+        }
         // Ajouter dans la migration 
         // Sql("ALTER TABLE Setup ADD CONSTRAINT [CK_Setup_MaxEnhancerQty] CHECK (([FinderDepthEnhancerQty] + [FinderRangeEnhancerQty] + [FinderSkillEnhancerQty]) <= 10)");
 

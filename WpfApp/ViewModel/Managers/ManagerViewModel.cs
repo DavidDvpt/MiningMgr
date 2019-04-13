@@ -80,6 +80,9 @@ namespace WpfApp.ViewModel
         public bool SkillEnhancerQtyVisibility { get; set; } = false;
         #endregion
 
+        #region Enabled Champ Formulaire
+        public bool NomFormEnabled { get; set; } = true;
+        #endregion
         public T DgSelectedItem
         {
             get => _dgSelectedItem;

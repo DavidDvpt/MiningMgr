@@ -13,6 +13,7 @@ namespace WpfApp.ViewModel
             CoefficientVisibility = true;
             IsLimitedVisibility = true;
             IsActiveVisibility = true;
+            CodeVisibility = true;
         }
 
         protected override void Init()

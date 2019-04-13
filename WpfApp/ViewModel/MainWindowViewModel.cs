@@ -71,10 +71,10 @@ namespace WpfApp.ViewModel
                 case "enhancer":
                     CurrentViewModel = new EnhancerManagerViewModel();
                     break;
-                    //case "searchMode":
-                    //default:
-                    //    CurrentViewModel = searchModeViewModel;
-                    //    break;
+                case "searchMode":
+                default:
+                    CurrentViewModel = new SearchModeManagerViewModel();
+                    break;
             }
         }
     }

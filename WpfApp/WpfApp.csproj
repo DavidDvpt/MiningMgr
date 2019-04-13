@@ -85,6 +85,10 @@
     <Compile Include="Migrations\201904061453546_Maj_01.Designer.cs">
       <DependentUpon>201904061453546_Maj_01.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904131532426_Maj_02.cs" />
+    <Compile Include="Migrations\201904131532426_Maj_02.Designer.cs">
+      <DependentUpon>201904131532426_Maj_02.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Commands\MyICommand.cs" />
     <Compile Include="Commands\NavCommand.cs" />
@@ -138,6 +142,7 @@
     <Compile Include="ViewModel\Managers\FinderManagerViewModel.cs" />
     <Compile Include="ViewModel\Managers\PlanetManagerViewModel.cs" />
     <Compile Include="ViewModel\Managers\RefinerManagerViewModel.cs" />
+    <Compile Include="ViewModel\Managers\SearchModeManagerViewModel.cs" />
     <Compile Include="ViewModel\Managers\SetupManagerViewModel.cs" />
     <Compile Include="Views\ManagerView.xaml.cs">
       <DependentUpon>ManagerView.xaml</DependentUpon>
@@ -198,6 +203,9 @@
     </Compile>
     <EmbeddedResource Include="Migrations\201904061453546_Maj_01.resx">
       <DependentUpon>201904061453546_Maj_01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904131532426_Maj_02.resx">
+      <DependentUpon>201904131532426_Maj_02.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

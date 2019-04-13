@@ -12,11 +12,13 @@ namespace WpfApp.ViewModel
             ValueVisibility = true;
             ModeleNomVisibility = true;
             IsActiveVisibility = true;
+            SlotVisibility = true;
+            BonusValue1Visibility = true;
+            BonusValue2Visibility = true;
         }
 
         protected override void Init()
         {
-            //DataGridItemSource = repos.EnhancersDto.GetAll().ToList();
         }
 
     }

@@ -41,12 +41,12 @@ namespace WpfApp.Model.Poco
 
         public short DepthEnhancerQty
         {
-            get => _Dto.DeptEnhancerQty;
+            get => _Dto.DepthEnhancerQty;
             set
             {
-                if (value != _Dto.DeptEnhancerQty && TierUsed() <= 10)
+                if (value != _Dto.DepthEnhancerQty && TierUsed() <= 10)
                 {
-                    _Dto.DeptEnhancerQty = value;
+                    _Dto.DepthEnhancerQty = value;
                     NotifyPropertyChanged();
                 }
             }
@@ -86,7 +86,7 @@ namespace WpfApp.Model.Poco
                 if (value != _Dto.SearchMode)
                 {
                     _Dto.SearchMode = value;
-                    //SearchModeId = SearchMode.Id
+                    SearchModeId = SearchMode.Id;
                     NotifyPropertyChanged();
                 }
             }
@@ -100,7 +100,7 @@ namespace WpfApp.Model.Poco
                 if (value != _Dto.Finder)
                 {
                     _Dto.Finder = value;
-                    //FinderId = Finder.Id;
+                    FinderId = Finder.Id;
                     NotifyPropertyChanged();
                 }
             }
@@ -114,7 +114,7 @@ namespace WpfApp.Model.Poco
                 if (value != _Dto.FinderAmplifier)
                 {
                     _Dto.FinderAmplifier = value;
-                    //FinderAmplifierId = FinderAmplifier.Id;
+                    FinderAmplifierId = FinderAmplifier.Id;
                     NotifyPropertyChanged();
                 }
             }

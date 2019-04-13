@@ -111,6 +111,7 @@
                     <DataGridTextColumn Header="BonusValue1" Binding="{Binding BonusValue1}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource bonusValue1Vis}}"/>
                     <DataGridTextColumn Header="BonusValue2" Binding="{Binding BonusValue2}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource bonusValue2Vis}}"/>
                     <DataGridTextColumn Header="Depth" Binding="{Binding Depth}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource depthVis}}"/>
+                    <DataGridTextColumn Header="Code" Binding="{Binding Code}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource codeVis}}"/>
                     <DataGridTextColumn Header="Range" Binding="{Binding Range}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource rangeVis}}"/>
                     <DataGridTextColumn Header="BasePecSearch" Binding="{Binding BasePecSearch}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource basePecSearchVis}}"/>
                     <DataGridTextColumn Header="UsePerMin" Binding="{Binding UsePerMin}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource usePerMinVis}}"/>
@@ -133,7 +134,6 @@
         <!--FORMULAIRE-->
         <DockPanel Grid.Column="2">
             <DockPanel.Resources>
-
             </DockPanel.Resources>
             
             <!-- BOUTONS -->
@@ -149,92 +149,24 @@
             <!-- FORMULAIRE -->
             <StackPanel Name="spEntity"  Height="auto" Orientation="Vertical">
                 <StackPanel.Resources>
-                    <DataTemplate x:Key="EconomieInfos">
-                        <Border BorderThickness="1" BorderBrush="Black">
-                            <StackPanel Orientation="Horizontal">
-                                <StackPanel Name="spValue" Orientation="Horizontal">
-                                    <Label Name="lbValue" Content="Valeur (Ped) :" Width="80"/>
-                                    <TextBox Name="tbxValue" Text="{Binding ItemForm.UsePerMin}" Width="50"/>
-                                </StackPanel>
-                                <StackPanel Name="spDecay" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource decayVis}}" Margin="10,0,0,0">
-                                    <Label Name="lbDecay" Content="Decay (Pec) :" Width="80"/>
-                                    <TextBox Name="tbxDecay" Text="{Binding ItemForm.Decay}" Width="50"/>
-                                </StackPanel>
-                                <StackPanel Name="spUsePerMin" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource usePerMinVis}}" Margin="10,0,0,0">
-                                    <Label Name="lbUsePerMin" Content="Use per Minute : " Width="100"/>
-                                    <TextBox Name="tbxUsePerMin" Text="{Binding ItemForm.UsePerMin}" Width="50"/>
-                                </StackPanel>
-                            </StackPanel>
-                        </Border>
-                    </DataTemplate>
-                    
-                    <DataTemplate x:Key="FinderInfo">
-                        <StackPanel Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource depthVis}}">
-                            <StackPanel Name="spDepth" Orientation="Horizontal">
-                                <Label Name="lbDepth" Content="Depth (m) :" Width="70"/>
-                                <TextBox Name="tbxDepth" Text="{Binding ItemForm.Depth}" Width="50"/>
-                            </StackPanel>
-
-                            <StackPanel Name="spRange" Orientation="Horizontal" Margin="10,0,0,0">
-                                <Label Name="lbRange" Content="Range (m) :" Width="70"/>
-                                <TextBox Name="tbxRange" Text="{Binding ItemForm.Range}" Width="50"/>
-                            </StackPanel>
-
-                            <StackPanel Name="spBasePecSearch" Orientation="Horizontal" Margin="10,0,0,0">
-                                <Label Name="lbBasePecSearch" Content="Base Pec Search (m) :" Width="120"/>
-                                <TextBox Name="tbxBasePecSearch" Text="{Binding ItemForm.BasePecSearch}" Width="50"/>
-                            </StackPanel>
-                        </StackPanel>
-                    </DataTemplate>
-
-                    <DataTemplate x:Key="ExcavatorInfo">
-                        <StackPanel Name="spEfficienty" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource efficientyVis}}">
-                            <Label Name="lbEfficienty" Content="Efficienty :" Width="70"/>
-                            <TextBox Name="tbxEfficienty" Text="{Binding ItemForm.Efficienty}" Width="50"/>
-                        </StackPanel>
-                    </DataTemplate>
-
-                    <DataTemplate x:Key="FinderAmplifierInfo">
-                        <StackPanel Name="spCoefficient" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource coefficientVis}}">
-                            <Label Name="lbCoefficient" Content="Coefficient :" Width="70"/>
-                            <TextBox Name="tbxCoefficient" Text="{Binding ItemForm.Coefficient}" Width="50"/>
-                        </StackPanel>
-                    </DataTemplate>
-
-                    <DataTemplate x:Key="EnhancerInfo">
-                        <StackPanel Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource slotVis}}">
-                            <StackPanel Name="spSlot" Orientation="Horizontal">
-                                <Label Name="lbSlot" Content="Slot :" Width="50"/>
-                                <TextBox Name="tbxSlot" Text="{Binding ItemForm.Slot}" Width="50"/>
-                            </StackPanel>
-                            <StackPanel Name="spBonusValue1" Orientation="Horizontal">
-                                <Label Name="lbBonusValue1" Content="Bonus Value 1 : " Width="100"/>
-                                <TextBlock Name="tbxBonusValue1" Text="{Binding ItemForm.BonusValue1}" Width="50"/>
-                            </StackPanel>
-                            <StackPanel Name="spBonusValue2" Orientation="Horizontal">
-                                <Label Name="lbBonusValue2" Content="Bonus Value 2 : " Width="100"/>
-                                <TextBox Name="tbxBonusValue2" Text="{Binding ItemForm.BonusValue2}" Width="50"/>
-                            </StackPanel>
-                        </StackPanel>
-                    </DataTemplate>
-
-
-                    
-                    <Style TargetType="{x:Type StackPanel}">
-                        <Setter Property="Margin" Value="0,2"/>
-                    </Style>
                 </StackPanel.Resources>
                 
+                <!-- Infos generales -->
                 <StackPanel Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource nomVis}}">
                     <StackPanel Name="spNom" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource nomVis}}">
                         <Label Name="lbnom" Content="Nom : " Width="100"/>
-                        <TextBox Name="tbxNom" Text="{Binding ItemForm.Nom}" Width="220"/>
+                        <TextBox Name="tbxNom" Text="{Binding ItemForm.Nom}" Width="220" IsEnabled="{Binding NomFormEnabled}" />
                     </StackPanel>
                     <StackPanel Name="spCode" Orientation="Horizontal" Margin="10,0,0,0" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource codeVis}}">
                         <Label Name="lbCode" Content="Code : " Width="50"/>
                         <TextBox Name="tbxCode" Text="{Binding ItemForm.Code}" Width="50"/>
                     </StackPanel>
+                    <StackPanel Name="spAbbrev" Orientation="Horizontal" Margin="10,0,0,0" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource abbrevVis}}">
+                        <Label Name="lbAbbrev" Content="Abbrev : " Width="50"/>
+                        <TextBox Name="tbxAbbrev" Text="{Binding ItemForm.Abbrev}" Width="50"/>
+                    </StackPanel>
                 </StackPanel>
+
                 <!-- Checkbox -->
                 <StackPanel Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isActiveVis}}">
                     <StackPanel Name="spIsActive" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isActiveVis}}">
@@ -247,6 +179,7 @@
                         <CheckBox Name="ckxLimited" IsChecked="{Binding ItemForm.IsActive}" Width="50"/>
                     </StackPanel>
                 </StackPanel>
+                
                 <!-- MODELE -->
                 <StackPanel Name="spCategorie" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource categorieNomVis}}">
                     <Label Name="lbCategorie" Content="Catégorie : " Width="100"/>
@@ -254,26 +187,111 @@
                               DisplayMemberPath="Nom"
                               SelectedItem="{Binding ItemForm.CategorieDto}" Width="150"/>
                 </StackPanel>
-                <!-- Economie -->
+                
+                <!-- ECONOMIE -->
                 <StackPanel Orientation="Vertical" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource valueVis}}">
                     <TextBlock Text="Informations économiques" FontSize="16" FontWeight="Medium"/>
-                    
-                    <ContentControl ContentTemplate="{StaticResource EconomieInfos}"/>
+
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Name="spValue" Orientation="Horizontal">
+                            <Label Name="lbValue" Content="Valeur (Ped) :" Width="80"/>
+                            <TextBox Name="tbxValue" Text="{Binding ItemForm.UsePerMin}" Width="50"/>
+                        </StackPanel>
+                        <StackPanel Name="spDecay" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource decayVis}}" Margin="10,0,0,0">
+                            <Label Name="lbDecay" Content="Decay (Pec) :" Width="80"/>
+                            <TextBox Name="tbxDecay" Text="{Binding ItemForm.Decay}" Width="50"/>
+                        </StackPanel>
+                        <StackPanel Name="spUsePerMin" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource usePerMinVis}}" Margin="10,0,0,0">
+                            <Label Name="lbUsePerMin" Content="Use per Minute : " Width="100"/>
+                            <TextBox Name="tbxUsePerMin" Text="{Binding ItemForm.UsePerMin}" Width="50"/>
+                        </StackPanel>
+                    </StackPanel>
                 </StackPanel>
               
+                <!-- Infos spécifiques -->
                 <StackPanel>
                     <TextBlock Text="Informations spécifiques" FontSize="16" FontWeight="Medium" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource valueVis}}"/>
                     <!-- FINDER -->
-                    <ContentControl ContentTemplate="{StaticResource FinderInfo}"/>
-                    
+                    <StackPanel Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource depthVis}}">
+                        <StackPanel Name="spDepth" Orientation="Horizontal">
+                            <Label Name="lbDepth" Content="Depth (m) :" Width="70"/>
+                            <TextBox Name="tbxDepth" Text="{Binding ItemForm.Depth}" Width="50"/>
+                        </StackPanel>
+
+                        <StackPanel Name="spRange" Orientation="Horizontal" Margin="10,0,0,0">
+                            <Label Name="lbRange" Content="Range (m) :" Width="70"/>
+                            <TextBox Name="tbxRange" Text="{Binding ItemForm.Range}" Width="50"/>
+                        </StackPanel>
+
+                        <StackPanel Name="spBasePecSearch" Orientation="Horizontal" Margin="10,0,0,0">
+                            <Label Name="lbBasePecSearch" Content="Base Pec Search (m) :" Width="120"/>
+                            <TextBox Name="tbxBasePecSearch" Text="{Binding ItemForm.BasePecSearch}" Width="50"/>
+                        </StackPanel>
+                    </StackPanel>
+
                     <!-- EXCAVATOR -->
-                    <ContentControl ContentTemplate="{StaticResource ExcavatorInfo}"/>
-                    
+                    <StackPanel Name="spEfficienty" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource efficientyVis}}">
+                        <Label Name="lbEfficienty" Content="Efficienty :" Width="70"/>
+                        <TextBox Name="tbxEfficienty" Text="{Binding ItemForm.Efficienty}" Width="50"/>
+                    </StackPanel>
+
                     <!-- FINDER AMPLIFIER -->
-                    <ContentControl ContentTemplate="{StaticResource FinderAmplifierInfo}"/>
+                    <StackPanel Name="spCoefficient" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource coefficientVis}}">
+                        <Label Name="lbCoefficient" Content="Coefficient :" Width="70"/>
+                        <TextBox Name="tbxCoefficient" Text="{Binding ItemForm.Coefficient}" Width="50"/>
+                    </StackPanel>
 
                     <!-- ENHANCER -->
-                    <ContentControl ContentTemplate="{StaticResource EnhancerInfo}"/>
+                    <StackPanel Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource slotVis}}">
+                        <StackPanel Name="spSlot" Orientation="Horizontal">
+                            <Label Name="lbSlot" Content="Slot :" Width="50"/>
+                            <TextBox Name="tbxSlot" Text="{Binding ItemForm.Slot}" Width="50"/>
+                        </StackPanel>
+                        <StackPanel Name="spBonusValue1" Orientation="Horizontal">
+                            <Label Name="lbBonusValue1" Content="Bonus Value 1 :" Width="100"/>
+                            <TextBox Name="tbxBonusValue1" Text="{Binding ItemForm.BonusValue1}" Width="50"/>
+                        </StackPanel>
+                        <StackPanel Name="spBonusValue2" Orientation="Horizontal">
+                            <Label Name="lbBonusValue2" Content="Bonus Value 2 :" Width="100"/>
+                            <TextBox Name="tbxBonusValue2" Text="{Binding ItemForm.BonusValue2}" Width="50"/>
+                        </StackPanel>
+                    </StackPanel>
+                    
+                    <!-- SETUP -->
+                    <StackPanel Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource searchModeVis}}">
+                        <StackPanel Name="spSearchMode" Orientation="Horizontal">
+                            <Label Name="lbSearchMode" Content="Search mode :" Width="100"/>
+                            <ComboBox Name="cbxSearchMode" ItemsSource="{Binding SearchModes}"
+                              DisplayMemberPath="Nom"
+                              SelectedItem="{Binding ItemForm.SearchMode}" Width="200"/>
+                        </StackPanel>
+                        <StackPanel Name="spFinder" Orientation="Horizontal">
+                            <Label Name="lbFinder" Content="Finder :" Width="100"/>
+                            <ComboBox Name="cbxFinder" ItemsSource="{Binding Finders}"
+                              DisplayMemberPath="Nom"
+                              SelectedItem="{Binding ItemForm.Finder}" Width="200"/>
+                        </StackPanel>
+                        <StackPanel Name="spFinderAmplifier" Orientation="Horizontal">
+                            <Label Name="lbFinderAmplifier" Content="Finder Amplifier :" Width="100"/>
+                            <ComboBox Name="cbxFinderAmplifier" ItemsSource="{Binding FinderAmplifiers}"
+                              DisplayMemberPath="Nom"
+                              SelectedItem="{Binding ItemForm.FinderAmplifier}" Width="200"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Name="spDepthEnancerQty" Orientation="Horizontal">
+                                <Label Name="lbDepthEnancerQty" Content="Depth Enhancer Qty :" Width="100"/>
+                                <TextBox Name="tbxDepthEnancerQty" Text="{Binding ItemForm.DepthEnhancerQty}" Width="50"/>
+                            </StackPanel>
+                            <StackPanel Name="spRangeEnancerQty" Orientation="Horizontal">
+                                <Label Name="lbRangeEnancerQty" Content="Range Enhancer Qty :" Width="100"/>
+                                <TextBox Name="tbxRangeEnancerQty" Text="{Binding ItemForm.RangeEnhancerQty}" Width="50"/>
+                            </StackPanel>
+                            <StackPanel Name="spSkillEnancerQty" Orientation="Horizontal">
+                                <Label Name="lbSkillEnancerQty" Content="Skill Enhancer Qty :" Width="100"/>
+                                <TextBox Name="tbxSkillEnancerQty" Text="{Binding ItemForm.SkillEnhancerQty}" Width="50"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
 
                 </StackPanel>
             </StackPanel>
