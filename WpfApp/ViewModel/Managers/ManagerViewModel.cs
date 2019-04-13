@@ -8,28 +8,39 @@ namespace WpfApp.ViewModel
     public abstract class ManagerViewModel<T> : BaseViewModel
         where T : class, new()
     {
-        // item seectionné ds le datagrid
-        protected T _dgSelectedItem;
-        // Item actif du formulaire
-        protected T _itemForm;
-        protected bool ModifySelected = false;
-        protected RepositoryDto<T> genericRepo;
-        protected ICollection<T> _dataGridItemSource;
+        #region attributs
+        protected T _dgSelectedItem;// item seectionné ds le datagrid
+        protected T _itemForm;  // Item actif du formulaire
+        protected bool ModifySelected = false; // indique que l'item du datagrid selectionne est en cours de modification
+        protected RepositoryDto<T> genericRepo; // repository generique utilisé par 80% des manager
+        protected ICollection<T> _dataGridItemSource; // source du datagrid principal
+        protected bool _modifyBtnEnabled = false;
+        protected bool _createBtnEnabled = true;
+        protected bool _validateBtnEnabled = false;
+        protected bool _cancelBtnEnabled = false;
+        #endregion
 
         public ManagerViewModel()
         {
             ColumnInit();
+            CommandInit();
+            genericRepo = new RepositoryDto<T>(repos.GetContext());
+            ItemSourceLoad();
+        }
+
+        private void CommandInit()
+        {
             UpdateButton = new MyICommand(UpdateItem);
             CreateButton = new MyICommand(CreateItem);
             ValiderButton = new MyICommand(ValiderItem);
             AnnulerButton = new MyICommand(AnnulerItem);
-            genericRepo = new RepositoryDto<T>(repos.GetContext());
-            ItemSourceUpdated();
         }
 
         protected abstract void ColumnInit();
 
-        #region DataGridColumnVisibility
+        // Affichage ou non des colonnes du datagrid  ou des control )
+        // à l'initialisation de la classe
+        #region ColumnAndControlVisibility
         // Commun, Categorie, Planet
         public bool IdVisibility { get; set; } = false;
         public bool NomVisibility { get; set; } = false;
@@ -78,11 +89,14 @@ namespace WpfApp.ViewModel
         public bool DepthEnhancerQtyVisibility { get; set; } = false;
         public bool RangeEnhancerQtyVisibility { get; set; } = false;
         public bool SkillEnhancerQtyVisibility { get; set; } = false;
+
+        public bool CbxModelesChoiceVisibility { get; set; } = false;
         #endregion
 
         #region Enabled Champ Formulaire
-        public bool NomFormEnabled { get; set; } = true;
+        public bool NomFormEnabled { get; set; } = false;
         #endregion
+
         public T DgSelectedItem
         {
             get => _dgSelectedItem;
@@ -91,6 +105,11 @@ namespace WpfApp.ViewModel
                 if (_dgSelectedItem != value)
                 {
                     _dgSelectedItem = value;
+                    if (value != null)
+                    {
+                        ModifyBtnEnabled = true;
+                    }
+                    
                     OnPropertyChanged();
                 }
             }
@@ -121,7 +140,13 @@ namespace WpfApp.ViewModel
                 }
             }
         }
-        private void ItemSourceUpdated()
+
+        private void ItemSourceLoad()
+        {
+            DataGridItemSource = genericRepo.GetAll().ToList();
+        }
+
+        protected virtual void ItemSourceUpdated()
         {
             DataGridItemSource = genericRepo.GetAll().ToList();
         }
@@ -136,11 +161,14 @@ namespace WpfApp.ViewModel
         {
             ItemForm = DgSelectedItem;
             ModifySelected = true;
+            OnModifyBtnClick();
         }
 
         protected virtual void CreateItem()
         {
             ItemForm = new T();
+            NomFormEnabled = true;
+            OnCreateBtnClick();
         }
 
         protected void ValiderItem()
@@ -156,12 +184,91 @@ namespace WpfApp.ViewModel
             }
             ItemForm = null;
             ItemSourceUpdated();
+            OnValidateBtnClick();
         }
 
         private void AnnulerItem()
         {
             ItemForm = null;
-            
+            DgSelectedItem = null;
+            OnCancelBtnClick();
+        }
+        #endregion
+
+        #region Gestion Des Boutons
+        public bool ModifyBtnEnabled
+        {
+            get { return _modifyBtnEnabled; }
+            set
+            {
+                if (ModifyBtnEnabled != value)
+                {
+                    _modifyBtnEnabled = !ModifyBtnEnabled;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public bool CreateBtnEnabled
+        {
+            get { return _createBtnEnabled; }
+            set
+            {
+                if (CreateBtnEnabled != value)
+                {
+                    _createBtnEnabled = !CreateBtnEnabled;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public bool ValidateBtnEnabled
+        {
+            get { return _validateBtnEnabled; }
+            set
+            {
+                if (ValidateBtnEnabled != value)
+                {
+                    _validateBtnEnabled = !ValidateBtnEnabled;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public bool CancelBtnEnabled
+        {
+            get { return _cancelBtnEnabled; }
+            set
+            {
+                if (CancelBtnEnabled != value)
+                {
+                    _cancelBtnEnabled = !CancelBtnEnabled;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public void OnModifyBtnClick()
+        {
+            ValidateBtnEnabled = false;
+            CreateBtnEnabled = false;
+            ModifyBtnEnabled = false;
+            CancelBtnEnabled = true;
+        }
+        public void OnCreateBtnClick()
+        {
+            ModifyBtnEnabled = false;
+            CancelBtnEnabled = true;
+            ValidateBtnEnabled = false;
+            CreateBtnEnabled = false;
+        }
+        public void OnCancelBtnClick()
+        {
+            ModifyBtnEnabled = false;
+            CancelBtnEnabled = false;
+            ValidateBtnEnabled = false;
+            CreateBtnEnabled = true;
+        }
+        public void OnValidateBtnClick()
+        {
+
         }
         #endregion
     }

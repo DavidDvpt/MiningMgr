@@ -24,7 +24,7 @@ namespace WpfApp.Repositories
         }
 
         private ICommunRepositoryDto<CategorieDto> _CategoriesDto;
-        private ICommunRepositoryDto<ModeleDto> _ModelesDto;
+        private IModeleRepositoryDto _ModelesDto;
         private ICommunRepositoryDto<FinderDto> _FindersDto;
         private ICommunRepositoryDto<ExcavatorDto> _ExcavatorsDto;
         private ICommunRepositoryDto<RefinerDto> _RefinersDto;
@@ -40,8 +40,8 @@ namespace WpfApp.Repositories
         public ICommunRepositoryDto<CategorieDto> CategoriesDto
             => _CategoriesDto == null? _CategoriesDto = new CommunRepositoryDto<CategorieDto>(ctx) : _CategoriesDto;
 
-        public ICommunRepositoryDto<ModeleDto> ModelesDto
-            => _ModelesDto == null ? _ModelesDto = new CommunRepositoryDto<ModeleDto>(ctx) : _ModelesDto;
+        public IModeleRepositoryDto ModelesDto
+            => _ModelesDto == null ? _ModelesDto = new ModeleRepositoryDto(ctx) : _ModelesDto;
 
         public ICommunRepositoryDto<FinderDto> FindersDto
             => _FindersDto == null ? _FindersDto = new CommunRepositoryDto<FinderDto>(ctx) : _FindersDto;

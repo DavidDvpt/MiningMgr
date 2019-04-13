@@ -10,7 +10,7 @@ namespace WpfApp.Repositories.Interfaces
         MiningContext GetContext();
 
         ICommunRepositoryDto<CategorieDto> CategoriesDto { get; }
-        ICommunRepositoryDto<ModeleDto> ModelesDto { get; }
+        IModeleRepositoryDto ModelesDto { get; }
         ICommunRepositoryDto<FinderDto> FindersDto { get; }
         ICommunRepositoryDto<ExcavatorDto> ExcavatorsDto { get; }
         ICommunRepositoryDto<RefinerDto> RefinersDto { get; }

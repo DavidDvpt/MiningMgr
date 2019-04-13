@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WpfApp.Model.Dto;
 
 namespace WpfApp.ViewModel
@@ -17,11 +14,13 @@ namespace WpfApp.ViewModel
             NomVisibility = true;
             IsActiveVisibility = true;
             ValueVisibility = true;
+
+            CbxModelesChoiceVisibility = true;
         }
 
         protected override void Init()
         {
-            Modeles = repos.ModelesDto.GetAll().ToList();
+            Modeles = repos.ModelesDto.GetByCategorieName("Material").ToList();
         }
 
         public ModeleDto SelectedModele
@@ -30,20 +29,20 @@ namespace WpfApp.ViewModel
             set
             {
                 _selectedModele = value;
-                ItemSourceChanged();
+                ItemSourceUpdated();
                 OnPropertyChanged();
             }
         }
 
-        private void ItemSourceChanged()
+        protected override void ItemSourceUpdated()
         {
             DataGridItemSource = repos.MaterialsDto.GetByModeleId(SelectedModele.Id);
         }
 
         protected override void CreateItem()
         {
-            ItemForm = new MaterialDto();
-            ItemForm.Modele = SelectedModele;
+            ItemForm = new MaterialDto { Modele = SelectedModele };
+            NomFormEnabled = true;
         }
 
     }

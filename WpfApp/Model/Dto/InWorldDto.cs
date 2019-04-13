@@ -8,7 +8,7 @@ namespace WpfApp.Model.Dto
     {
         public InWorldDto()
         {
-            Modele = new ModeleDto();
+
         }
 
         #region SiPoco
