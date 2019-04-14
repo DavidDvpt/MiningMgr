@@ -36,6 +36,7 @@ namespace WpfApp.Repositories
         private IMaterialRepositoryDto _MaterialsDto;
         private IRepositoryDto<ToolAccessoireDto> _ToolAccessoiresDto;
         private IRepositoryDto<PlanetMaterialDto> _PlanetMaterialsDto;
+        private IRepositoryDto<RefinableDto> _RefinablesDto;
 
         public ICommunRepositoryDto<CategorieDto> CategoriesDto
             => _CategoriesDto == null? _CategoriesDto = new CommunRepositoryDto<CategorieDto>(ctx) : _CategoriesDto;
@@ -75,6 +76,9 @@ namespace WpfApp.Repositories
 
         public IRepositoryDto<PlanetMaterialDto> PlanetMaterialsDto
             => _PlanetMaterialsDto == null ? _PlanetMaterialsDto = new RepositoryDto<PlanetMaterialDto>(ctx) : _PlanetMaterialsDto;
+
+        public IRepositoryDto<RefinableDto> RefinablesDto
+            => _RefinablesDto == null ? _RefinablesDto = new RepositoryDto<RefinableDto>(ctx) : _RefinablesDto;
 
         public void Commit()
         {

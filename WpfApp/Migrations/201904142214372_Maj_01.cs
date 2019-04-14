@@ -19,6 +19,20 @@ namespace WpfApp.Migrations
                 .Index(t => t.Nom, unique: true);
             
             CreateTable(
+                "dbo.Refinable",
+                c => new
+                    {
+                        UnrefinedId = c.Int(nullable: false),
+                        RefinedId = c.Int(nullable: false),
+                        Quantity = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.UnrefinedId, t.RefinedId })
+                .ForeignKey("dbo.Material", t => t.UnrefinedId)
+                .ForeignKey("dbo.Material", t => t.RefinedId)
+                .Index(t => t.UnrefinedId)
+                .Index(t => t.RefinedId);
+            
+            CreateTable(
                 "dbo.PlanetMaterial",
                 c => new
                     {
@@ -204,7 +218,7 @@ namespace WpfApp.Migrations
                         FinderId = c.Int(nullable: false),
                         FinderAmplifierId = c.Int(nullable: false),
                         SearchModeId = c.Int(nullable: false),
-                        DeptEnhancerQty = c.Short(nullable: false),
+                        DepthEnhancerQty = c.Short(nullable: false),
                         RangeEnhancerQty = c.Short(nullable: false),
                         SkillEnhancerQty = c.Short(nullable: false),
                     })
@@ -245,6 +259,8 @@ namespace WpfApp.Migrations
             DropForeignKey("dbo.ToolAccessoire", "AccessoireId", "dbo.Modele");
             DropForeignKey("dbo.PlanetMaterial", "PlanetId", "dbo.Planet");
             DropForeignKey("dbo.PlanetMaterial", "MaterialId", "dbo.Material");
+            DropForeignKey("dbo.Refinable", "RefinedId", "dbo.Material");
+            DropForeignKey("dbo.Refinable", "UnrefinedId", "dbo.Material");
             DropIndex("dbo.Setup", new[] { "SearchModeId" });
             DropIndex("dbo.Setup", new[] { "FinderAmplifierId" });
             DropIndex("dbo.Setup", new[] { "FinderId" });
@@ -268,6 +284,8 @@ namespace WpfApp.Migrations
             DropIndex("dbo.ToolAccessoire", new[] { "ToolId" });
             DropIndex("dbo.PlanetMaterial", new[] { "MaterialId" });
             DropIndex("dbo.PlanetMaterial", new[] { "PlanetId" });
+            DropIndex("dbo.Refinable", new[] { "RefinedId" });
+            DropIndex("dbo.Refinable", new[] { "UnrefinedId" });
             DropIndex("dbo.Commun", new[] { "Nom" });
             DropTable("dbo.Setup");
             DropTable("dbo.SearchMode");
@@ -285,6 +303,7 @@ namespace WpfApp.Migrations
             DropTable("dbo.Categorie");
             DropTable("dbo.ToolAccessoire");
             DropTable("dbo.PlanetMaterial");
+            DropTable("dbo.Refinable");
             DropTable("dbo.Commun");
         }
     }

@@ -22,6 +22,7 @@ namespace WpfApp.Repositories.Interfaces
         IMaterialRepositoryDto MaterialsDto { get; }
         IRepositoryDto<ToolAccessoireDto> ToolAccessoiresDto { get; }
         IRepositoryDto<PlanetMaterialDto> PlanetMaterialsDto { get; }
+        IRepositoryDto<RefinableDto> RefinablesDto { get; }
 
     }
 }

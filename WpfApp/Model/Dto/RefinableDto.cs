@@ -19,9 +19,9 @@ namespace WpfApp.Model.Dto
             get { return _unrefinedId; }
             set
             {
-                if (_unrefinedId != value)
+                if (UnrefinedId != value)
                 {
-                    UnrefinedId = value;
+                    _unrefinedId = value;
                     OnPropertyChanged();
                 }
             }
@@ -34,9 +34,9 @@ namespace WpfApp.Model.Dto
             get { return _refinedId; }
             set
             {
-                if (_refinedId != value)
+                if (RefinedId != value)
                 {
-                    RefinedId = value;
+                    _refinedId = value;
                     OnPropertyChanged();
                 }
             }
@@ -48,22 +48,23 @@ namespace WpfApp.Model.Dto
             get { return _unrefinedMaterial; }
             set
             {
-                if (_unrefinedMaterial != value)
+                if (UnrefinedMaterial != value)
                 {
-                    UnrefinedMaterial = value;
+                    _unrefinedMaterial = value;
                     OnPropertyChanged();
                 }
             }
         }
-        [ForeignKey("UnrefinedId")]
+
+        [ForeignKey("RefinedId")]
         public MaterialDto RefinedMaterial
         {
             get { return _refinedMaterial; }
             set
             {
-                if (_refinedMaterial != value)
+                if (RefinedMaterial != value)
                 {
-                    RefinedMaterial = value;
+                    _refinedMaterial = value;
                     OnPropertyChanged();
                 }
             }
@@ -76,7 +77,7 @@ namespace WpfApp.Model.Dto
             {
                 if (_quantity != value)
                 {
-                    Quantity = value;
+                    _quantity = value;
                     OnPropertyChanged();
                 }
             }
