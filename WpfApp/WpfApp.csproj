@@ -89,6 +89,10 @@
     <Compile Include="Migrations\201904131532426_Maj_02.Designer.cs">
       <DependentUpon>201904131532426_Maj_02.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904141006017_Maj_03.cs" />
+    <Compile Include="Migrations\201904141006017_Maj_03.Designer.cs">
+      <DependentUpon>201904141006017_Maj_03.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Commands\MyICommand.cs" />
     <Compile Include="Commands\NavCommand.cs" />
@@ -96,6 +100,7 @@
     <Compile Include="Model\Dto\FinderAmplifierDto.cs" />
     <Compile Include="Model\Dto\InterfacesDto\ICommunDto.cs" />
     <Compile Include="Model\Dto\PlanetMaterialDto.cs" />
+    <Compile Include="Model\Dto\RefinableDto.cs" />
     <Compile Include="Model\Poco\BasePoco.cs" />
     <Compile Include="Model\Poco\CategoriePoco.cs" />
     <Compile Include="Model\Poco\CommunPoco.cs" />
@@ -211,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904131532426_Maj_02.resx">
       <DependentUpon>201904131532426_Maj_02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904141006017_Maj_03.resx">
+      <DependentUpon>201904141006017_Maj_03.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

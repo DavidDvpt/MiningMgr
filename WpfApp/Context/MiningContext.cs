@@ -30,6 +30,7 @@ namespace WpfApp.Context
         public DbSet<MaterialDto> Materials { get; set; }
         public DbSet<ToolAccessoireDto> ToolAccessoires { get; set; }
         public DbSet<PlanetMaterialDto> PlanetMaterials { get; set; }
+        public DbSet<RefinableDto> Refinables { get; set; }
         public DbSet<PlanetDto> Planets { get; set; }
 
         public DbSet<SearchModeDto> SearchModes { get; set; }
