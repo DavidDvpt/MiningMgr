@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using WpfApp.Model.Dto;
 using WpfApp.Repositories;
@@ -16,10 +15,10 @@ namespace WpfApp.ViewModel
         protected bool ModifySelected = false; // indique que l'item du datagrid selectionne est en cours de modification
         protected ICommunRepositoryDto<T> genericRepo; // repository generique utilisé par 80% des manager
         protected ICollection<T> _dataGridItemSource; // source du datagrid principal
-        protected bool _modifyBtnEnabled = false;
+        protected bool _modifyBtnEnabled = true;
         protected bool _createBtnEnabled = true;
-        protected bool _validateBtnEnabled = false;
-        protected bool _cancelBtnEnabled = false;
+        protected bool _validateBtnEnabled = true;
+        protected bool _cancelBtnEnabled = true;
         #endregion
 
         public ManagerViewModel()
@@ -32,10 +31,15 @@ namespace WpfApp.ViewModel
 
         private void CommandInit()
         {
-            UpdateButton = new MyICommand(UpdateItem);
-            CreateButton = new MyICommand(CreateItem);
-            ValiderButton = new MyICommand(ValiderItem);
-            AnnulerButton = new MyICommand(AnnulerItem);
+            UpdateButton = new MyICommand(UpdateItem, ModifyBtnCanExecute);
+            CreateButton = new MyICommand(CreateItem, CreateBtnCanExecute);
+            ValiderButton = new MyICommand(ValiderItem, ValidateBtnCanExecute);
+            AnnulerButton = new MyICommand(AnnulerItem, CancelBtnCanExecute);
+        }
+
+        public bool CanExecuteTest()
+        {
+            return false;
         }
 
         protected abstract void ColumnInit();
@@ -107,11 +111,7 @@ namespace WpfApp.ViewModel
                 if (_dgSelectedItem != value)
                 {
                     _dgSelectedItem = value;
-                    if (value != null)
-                    {
-                        ModifyBtnEnabled = true;
-                    }
-                    
+                    RaiseCanExecuteChanged();
                     OnPropertyChanged();
                 }
             }
@@ -162,115 +162,114 @@ namespace WpfApp.ViewModel
         private void UpdateItem()
         {
             ItemForm = DgSelectedItem;
-            ModifySelected = true;
-            OnModifyBtnClick();
+            DgSelectedItem = null;
+            RaiseCanExecuteChanged();
         }
 
         protected virtual void CreateItem()
         {
             ItemForm = new T();
-            NomFormEnabled = true;
-            OnCreateBtnClick();
+            RaiseCanExecuteChanged();
         }
 
         protected void ValiderItem()
         {
-            if (ModifySelected)
-            {
-                genericRepo.Update(ItemForm);
-            }
-            else
-            {
-                genericRepo.Add(ItemForm);
-                ModifySelected = false;                
-            }
-            ItemForm = null;
-            ItemSourceUpdated();
-            OnValidateBtnClick();
+            //if (ModifySelected)
+            //{
+            //    genericRepo.Update(ItemForm);
+            //}
+            //else
+            //{
+            //    genericRepo.Add(ItemForm);
+            //    ModifySelected = false;                
+            //}
+            //ItemForm = null;
+            //ItemSourceUpdated();
+            ////OnValidateBtnClick();
         }
 
         private void AnnulerItem()
         {
             ItemForm = null;
-            DgSelectedItem = null;
-            OnCancelBtnClick();
+            RaiseCanExecuteChanged();
         }
         #endregion
 
         #region Gestion Des Boutons
-        public bool ModifyBtnEnabled
+        //public bool ModifyBtnEnabled
+        //{
+        //    get { return _modifyBtnEnabled; }
+        //    set
+        //    {
+        //        if (ModifyBtnEnabled != value)
+        //        {
+        //            _modifyBtnEnabled = !ModifyBtnEnabled;
+        //            OnPropertyChanged();
+        //        }
+        //    }
+        //}
+        //public bool CreateBtnEnabled
+        //{
+        //    get { return _createBtnEnabled; }
+        //    set
+        //    {
+        //        if (CreateBtnEnabled != value)
+        //        {
+        //            _createBtnEnabled = !CreateBtnEnabled;
+        //            OnPropertyChanged();
+        //        }
+        //    }
+        //}
+        //public bool ValidateBtnEnabled
+        //{
+        //    get { return _validateBtnEnabled; }
+        //    set
+        //    {
+        //        if (ValidateBtnEnabled != value)
+        //        {
+        //            _validateBtnEnabled = !ValidateBtnEnabled;
+        //            OnPropertyChanged();
+        //        }
+        //    }
+        //}
+        //public bool CancelBtnEnabled
+        //{
+        //    get { return _cancelBtnEnabled; }
+        //    set
+        //    {
+        //        if (CancelBtnEnabled != value)
+        //        {
+        //            _cancelBtnEnabled = !CancelBtnEnabled;
+        //            OnPropertyChanged();
+        //        }
+        //    }
+        //}
+        public bool CancelBtnCanExecute()
         {
-            get { return _modifyBtnEnabled; }
-            set
-            {
-                if (ModifyBtnEnabled != value)
-                {
-                    _modifyBtnEnabled = !ModifyBtnEnabled;
-                    OnPropertyChanged();
-                }
-            }
-        }
-        public bool CreateBtnEnabled
-        {
-            get { return _createBtnEnabled; }
-            set
-            {
-                if (CreateBtnEnabled != value)
-                {
-                    _createBtnEnabled = !CreateBtnEnabled;
-                    OnPropertyChanged();
-                }
-            }
-        }
-        public bool ValidateBtnEnabled
-        {
-            get { return _validateBtnEnabled; }
-            set
-            {
-                if (ValidateBtnEnabled != value)
-                {
-                    _validateBtnEnabled = !ValidateBtnEnabled;
-                    OnPropertyChanged();
-                }
-            }
-        }
-        public bool CancelBtnEnabled
-        {
-            get { return _cancelBtnEnabled; }
-            set
-            {
-                if (CancelBtnEnabled != value)
-                {
-                    _cancelBtnEnabled = !CancelBtnEnabled;
-                    OnPropertyChanged();
-                }
-            }
+            return ItemForm == null ? false : true;
         }
 
-        public void OnModifyBtnClick()
+        public bool ModifyBtnCanExecute()
         {
-            ValidateBtnEnabled = false;
-            CreateBtnEnabled = false;
-            ModifyBtnEnabled = false;
-            CancelBtnEnabled = true;
+            return DgSelectedItem != null ? true : false;
         }
-        public void OnCreateBtnClick()
-        {
-            ModifyBtnEnabled = false;
-            CancelBtnEnabled = true;
-            ValidateBtnEnabled = false;
-            CreateBtnEnabled = false;
-        }
-        public void OnCancelBtnClick()
-        {
-            ModifyBtnEnabled = false;
-            CancelBtnEnabled = false;
-            ValidateBtnEnabled = false;
-            CreateBtnEnabled = true;
-        }
-        public void OnValidateBtnClick()
-        {
 
+        public bool CreateBtnCanExecute()
+        {
+            return ItemForm == null ? true : false;
+        }
+
+        public bool ValidateBtnCanExecute()
+        {
+            return false;
+        }
+
+        private void RaiseCanExecuteChanged()
+        {
+            UpdateButton.RaiseCanExecuteChanged();
+            CreateButton.RaiseCanExecuteChanged();
+            ValiderButton.RaiseCanExecuteChanged();
+            AnnulerButton.RaiseCanExecuteChanged();
         }
         #endregion
     }
