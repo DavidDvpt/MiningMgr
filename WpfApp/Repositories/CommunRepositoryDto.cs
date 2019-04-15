@@ -19,5 +19,10 @@ namespace WpfApp.Repositories
         {
             return DbSet.FirstOrDefault(x => x.Nom == nom);
         }
+
+        public override IQueryable<TDto> GetAll()
+        {
+            return DbSet.OrderBy(x => x.Nom);
+        }
     }
 }

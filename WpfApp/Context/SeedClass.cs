@@ -31,8 +31,8 @@ namespace WpfApp.Context
             AddFinderAmplifiers();
             AddEnhancers();
             AddEnmatters();
-            //AddOres();
-            //AddTreasures();
+            AddOres();
+            AddTreasures();
             //AddPlanetMaterial(repositories);
 
             AddSearchModes();

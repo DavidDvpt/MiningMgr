@@ -57,7 +57,7 @@ namespace WpfApp.Repositories
             SaveChanges();
         }
 
-        public IQueryable<TDto> GetAll()
+        public virtual IQueryable<TDto> GetAll()
         {
             return DbSet;
         }

@@ -1,18 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using WpfApp.Model.Dto;
 using WpfApp.Repositories;
+using WpfApp.Repositories.Interfaces;
 
 namespace WpfApp.ViewModel
 {
     public abstract class ManagerViewModel<T> : BaseViewModel
-        where T : class, new()
+        where T : CommunDto, new()
     {
         #region attributs
         protected T _dgSelectedItem;// item seectionné ds le datagrid
         protected T _itemForm;  // Item actif du formulaire
         protected bool ModifySelected = false; // indique que l'item du datagrid selectionne est en cours de modification
-        protected RepositoryDto<T> genericRepo; // repository generique utilisé par 80% des manager
+        protected ICommunRepositoryDto<T> genericRepo; // repository generique utilisé par 80% des manager
         protected ICollection<T> _dataGridItemSource; // source du datagrid principal
         protected bool _modifyBtnEnabled = false;
         protected bool _createBtnEnabled = true;
@@ -24,7 +26,7 @@ namespace WpfApp.ViewModel
         {
             ColumnInit();
             CommandInit();
-            genericRepo = new RepositoryDto<T>(repos.GetContext());
+            genericRepo = new CommunRepositoryDto<T>(repos.GetContext());
             ItemSourceLoad();
         }
 
@@ -141,7 +143,7 @@ namespace WpfApp.ViewModel
             }
         }
 
-        private void ItemSourceLoad()
+        protected virtual void ItemSourceLoad()
         {
             DataGridItemSource = genericRepo.GetAll().ToList();
         }

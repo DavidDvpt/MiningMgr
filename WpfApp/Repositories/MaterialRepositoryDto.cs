@@ -18,12 +18,12 @@ namespace WpfApp.Repositories
         }
         public ICollection<MaterialDto> GetByModeleId(int id)
         {
-            return DbSet.Where(x => x.ModeleId == id).ToList();
+            return DbSet.Where(x => x.ModeleId == id).OrderBy(x=>x.Nom).ToList();
         }
 
         public ICollection<MaterialDto> GetByModeleName(string nom)
         {
-            return DbSet.Where(x => x.Modele.Nom == nom).ToList();
+            return DbSet.Where(x => x.Modele.Nom == nom).OrderBy(x => x.Nom).ToList();
         }
     }
 }
