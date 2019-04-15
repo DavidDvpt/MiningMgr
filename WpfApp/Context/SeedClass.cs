@@ -783,208 +783,460 @@ namespace WpfApp.Context
             });
         }
 
-        private void AddOres()
+private void AddOres()
         {
             int idU = repositories.ModelesDto.GetByNom("Ore").Id;
             int idR = repositories.ModelesDto.GetByNom("Refined Ore").Id;
-            //repositories.RefinablesDto.Add(new RefinableDto()
-            //{
-            //    UnrefinedMaterial = ,
-            //        RefinedMaterial = ,
-            //        Quantity = 2
-            //    });
-            //    // Ores
-            //    int id = repositories.ModelesDto.GetByNom("Enmatter").Id;
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Adomasite Stone", ModeleId = id, Value = 0.6M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Alferix Stone", ModeleId = id, Value = 0.95M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Alternative Rock", ModeleId = id, Value = 0.01M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Aqeeq Stone", ModeleId = id, Value = 0.02M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Arekite Stone", ModeleId = id, Value = 0.1M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Azzurdite Stone", ModeleId = id, Value = 1.2M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Banite Stones", ModeleId = id, Value = 0.08M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Blausariam Stone", ModeleId = id, Value = 0.04M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Blues Rock", ModeleId = id, Value = 0.02M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Caldorite stone", ModeleId = id, Value = 0.17M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Cobalt Stone", ModeleId = id, Value = 0.2M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Copper Stone", ModeleId = id, Value = 0.16M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Cordul Stone", ModeleId = id, Value = 0.2M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Cumbriz Stone", ModeleId = id, Value = 0.15M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Cyrenium Ore", ModeleId = id, Value = 0.5M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Dark Lysterium", ModeleId = id, Value = 0.02M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Dianum Ore", ModeleId = id, Value = 1.25M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Durulium Stone", ModeleId = id, Value = 0.8M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Erdorium Stone", ModeleId = id, Value = 0.4M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Erionite Stone", ModeleId = id, Value = 0.2M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Fairuz Stone", ModeleId = id, Value = 0.05M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Folk Rock", ModeleId = id, Value = 0.03M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Frakite Stone", ModeleId = id, Value = 0.3M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Frigulite Stone", ModeleId = id, Value = 0.12M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Ganganite Stone", ModeleId = id, Value = 0.12M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Gazzurdite Stone", ModeleId = id, Value = 0.25M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Glam Rock", ModeleId = id, Value = 0.04M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Gold Stone", ModeleId = id, Value = 1 });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Grunge Rock", ModeleId = id, Value = 0.04M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Hansidian Rock", ModeleId = id, Value = 0.01M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Hard Rock", ModeleId = id, Value = 0.05M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Hebredite Stones", ModeleId = id, Value = 0.25M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Himi Rock", ModeleId = id, Value = 0.142M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Ignisium Stone", ModeleId = id, Value = 0.7M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Iolite Stone", ModeleId = id, Value = 0.2M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Iridium Ore", ModeleId = id, Value = 0.05M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Iron Stone", ModeleId = id, Value = 0.13M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Jazz Rock", ModeleId = id, Value = 0.06M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Kaisenite Stone", ModeleId = id, Value = 0.02M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Kanerium Ore", ModeleId = id, Value = 2.5M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Kaz Stones", ModeleId = id, Value = 0.04M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Kirtz Stone", ModeleId = id, Value = 5.6M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Langotz Ore", ModeleId = id, Value = 0.9M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Lanorium Stone", ModeleId = id, Value = 0.22M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Lidacon Stones", ModeleId = id, Value = 1.5M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Lulu Stone", ModeleId = id, Value = 0.12M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Lysterium Stone", ModeleId = id, Value = 0.01M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Maganite Ore", ModeleId = id, Value = 1.05M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Maladrite Stone", ModeleId = id, Value = 0.04M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Maro Stone", ModeleId = id, Value = 0.13M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Megan Stone", ModeleId = id, Value = 0.18M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Melatinum Stone", ModeleId = id, Value = 0.1M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Morpheus Stone", ModeleId = id, Value = 0.83M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Motorhead Keg", ModeleId = id, Value = 0.01M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Narcanisum Stone", ModeleId = id, Value = 0.08M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Niksarium Stone", ModeleId = id, Value = 0.65M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Nosifer Stone", ModeleId = id, Value = 0.08M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Olerin Stone", ModeleId = id, Value = 0.07M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Ospra Stones", ModeleId = id, Value = 0.02M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Petonium Stone", ModeleId = id, Value = 1.79M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Platinum Stone", ModeleId = id, Value = 3 });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Praetonium", ModeleId = id, Value = 0.02M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Punk Rock", ModeleId = id, Value = 0.07M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Pyrite Stone", ModeleId = id, Value = 0.2M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Qasdeer Stone", ModeleId = id, Value = 0.25M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Quantium Stone", ModeleId = id, Value = 0.6M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Redulite Ore", ModeleId = id, Value = 2.2M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Reggea Rock", ModeleId = id, Value = 0.08M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Rugaritz Ore", ModeleId = id, Value = 1.5M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Sothorite Ore", ModeleId = id, Value = 0.09M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Sunburst Stone", ModeleId = id, Value = 0.11M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Tananite Ore", ModeleId = id, Value = 0.15M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Techno Rock", ModeleId = id, Value = 0.1M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Telfium Stones", ModeleId = id, Value = 0.14M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Terrudite Stone", ModeleId = id, Value = 1.1M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Tridenite Ore", ModeleId = id, Value = 2 });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Valurite Stone", ModeleId = id, Value = 6 });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Veda Stones", ModeleId = id, Value = 0.06M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Vesperdite Ore", ModeleId = id, Value = 1.8M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Wenrex Stones", ModeleId = id, Value = 0.17M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Wiles Stone", ModeleId = id, Value = 0.3M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Xeremite Ore", ModeleId = id, Value = 4 });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Yulerium Stones", ModeleId = id, Value = 0.5M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Zanderium Ore", ModeleId = id, Value = 2.5M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Zinc Stone", ModeleId = id, Value = 0.1M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Zircon Stone", ModeleId = id, Value = 0.05M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Zorn Star Ore", ModeleId = id, Value = 0.01M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Zulax Stones", ModeleId = id, Value = 0.65M });
-
-
-
-            //    Refined Ores
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Adomasite Ingot", ModeleId = id, Value = 1.8M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Alferix Ingot", ModeleId = id, Value = 2.85M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Alternative Ingot", ModeleId = id, Value = 0.03M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Aqeeq Ingot", ModeleId = id, Value = 0.06M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Arekite Ingot", ModeleId = id, Value = 0.3M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Aumorphite Ingot", ModeleId = id, Value = 8.09M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Azzurdite Ingot", ModeleId = id, Value = 3.6M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Banite Ingot", ModeleId = id, Value = 0.24M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Belkar Ingot", ModeleId = id, Value = 0.06M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Blausariam Ingot", ModeleId = id, Value = 0.12M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Blues Ingot", ModeleId = id, Value = 0.06M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Caldorite Ingot", ModeleId = id, Value = 0.51M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Chalinum Alloy", ModeleId = id, Value = 2.601M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Cobalt Ingot", ModeleId = id, Value = 0.6M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Cobaltium Ingot", ModeleId = id, Value = 2.001M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Copper Ingot", ModeleId = id, Value = 0.48M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Cordul Ingot", ModeleId = id, Value = 0.6M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Cumbriz Ingot", ModeleId = id, Value = 0.45M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Cyrenium Ingot", ModeleId = id, Value = 1.5M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Dark Lysterium Bar", ModeleId = id, Value = 0.06M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Dianum Ingot", ModeleId = id, Value = 3.75M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Durulium Ingot", ModeleId = id, Value = 2.4M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Erdorium Ingot", ModeleId = id, Value = 1.2M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Erionite Ingot", ModeleId = id, Value = 0.6M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Fairuz Ingot", ModeleId = id, Value = 0.15M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Folk Ingot", ModeleId = id, Value = 0.09M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Frakite Ingot", ModeleId = id, Value = 0.9M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Frigulerian Dust", ModeleId = id, Value = 3.4405M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Frigulite Ingot", ModeleId = id, Value = 0.36M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Galaurphite Ingot", ModeleId = id, Value = 14.7353M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Galvesperdite Ingot", ModeleId = id, Value = 6.3625M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Ganganite Ingot", ModeleId = id, Value = 0.36M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Gazzurdite Ingot", ModeleId = id, Value = 0.75M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Glam Ingot", ModeleId = id, Value = 0.12M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Gold Ingot", ModeleId = id, Value = 3M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Grunge Ingot", ModeleId = id, Value = 0.12M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Hansidian Ingot", ModeleId = id, Value = 0.03M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Hard Ingot", ModeleId = id, Value = 0.15M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Hebredite Ingot", ModeleId = id, Value = 0.75M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Himi Ingot", ModeleId = id, Value = 0.426M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Ignisium Ingot", ModeleId = id, Value = 2.1M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Iolite Ingot", ModeleId = id, Value = 0.6M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Iridium Ingot", ModeleId = id, Value = 0.15M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Iron Ingot", ModeleId = id, Value = 0.39M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Jazz Ingot", ModeleId = id, Value = 0.18M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Kaisenite Ingot", ModeleId = id, Value = 0.06M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Kanerium Ingot", ModeleId = id, Value = 7.5M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Kaz Ingot", ModeleId = id, Value = 0.12M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Kirtz Ingot", ModeleId = id, Value = 16.8M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Langotz Ingot", ModeleId = id, Value = 2.7M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Lanorium Ingot", ModeleId = id, Value = 0.66M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Leethiz Ingot", ModeleId = id, Value = 0.45M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Lidacon Ingot", ModeleId = id, Value = 4.5M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Lulu pearl", ModeleId = id, Value = 0.36M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Lysterium Ingot", ModeleId = id, Value = 0.03M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Lystionite Steel Ingot", ModeleId = id, Value = 4.0146M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Maganite Ingot", ModeleId = id, Value = 3.15M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Maladrite Ingot", ModeleId = id, Value = 0.12M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Maro Ingot", ModeleId = id, Value = 0.52M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Megan Ingot", ModeleId = id, Value = 0.54M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Melatinum Ingot", ModeleId = id, Value = 0.3M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Morpheus Ingot", ModeleId = id, Value = 2.49M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Narcanisum Ingot", ModeleId = id, Value = 0.24M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Niksarium Ingot", ModeleId = id, Value = 1.95M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Nosi Ingot", ModeleId = id, Value = 0.24M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Olerin Ingot", ModeleId = id, Value = 0.21M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Ospra Ingot", ModeleId = id, Value = 0.06M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Petonium Ingot", ModeleId = id, Value = 5.37M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Platinum Ingot", ModeleId = id, Value = 9M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Praetonium Ingot", ModeleId = id, Value = 0.04M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Punk Ingot", ModeleId = id, Value = 0.21M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Pyrite Ingot", ModeleId = id, Value = 0.6M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Qasdeer Ingot", ModeleId = id, Value = 0.75M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Quantium Ingot", ModeleId = id, Value = 1.8M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Redulite Ingot", ModeleId = id, Value = 6.6M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Reggea Ingot", ModeleId = id, Value = 0.24M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Rugaritz Ingot", ModeleId = id, Value = 4.5M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Solares Ingot", ModeleId = id, Value = 3.59M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Sothorite Ingot", ModeleId = id, Value = 0.27M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Sunburst Ingot", ModeleId = id, Value = 0.77M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Techno Ingot", ModeleId = id, Value = 0.3M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Telfium Ingot", ModeleId = id, Value = 0.42M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Terrudite Ingot", ModeleId = id, Value = 3.3M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Tridenite Ingot", ModeleId = id, Value = 6M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Valurite Ingot", ModeleId = id, Value = 18M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Veda Ingot", ModeleId = id, Value = 0.18M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Vesperdite Ingot", ModeleId = id, Value = 5.4M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Wenrex Ingot", ModeleId = id, Value = 0.51M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Wiley Ingot", ModeleId = id, Value = 0.9M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Xeremite Ingot", ModeleId = id, Value = 12M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Yashib Ingot", ModeleId = id, Value = 0.65M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Ycy Ingot", ModeleId = id, Value = 1.05M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Yulerium Ingot", ModeleId = id, Value = 1.5M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Zanderium Ingot", ModeleId = id, Value = 7.5M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Zinc Ingot", ModeleId = id, Value = 0.3M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Zircon Ingot", ModeleId = id, Value = 0.15M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Zorn Star Ingot", ModeleId = id, Value = 0.03M });
-            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Zulax Ingot", ModeleId = id, Value = 1.95M });
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Adomasite Stone", ModeleId = idU, Value = 0.6M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Adomasite Ingot", ModeleId = idR, Value = 1.8M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Alferix Stone", ModeleId = idU, Value = 0.95M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Alferix Ingot", ModeleId = idR, Value = 2.85M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Azzurdite Stone", ModeleId = idU, Value = 1.2M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Azzurdite Ingot", ModeleId = idR, Value = 3.6M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Belkar Stone", ModeleId = idU, Value = 0.04M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Belkar Ingot", ModeleId = idR, Value = 0.06M }),
+                    Quantity = 3});
+			repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Blausariam Stone", ModeleId = idU, Value = 0.04M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Blausariam Ingot", ModeleId = idR, Value = 0.12M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Caldorite stone", ModeleId = idU, Value = 0.17M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Caldorite Ingot", ModeleId = idR, Value = 0.51M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Cobalt Stone", ModeleId = idU, Value = 0.2M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Cobalt Ingot", ModeleId = idR, Value = 0.6M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Copper Stone", ModeleId = idU, Value = 0.16M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Copper Ingot", ModeleId = idR, Value = 0.48M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Cumbriz Stone", ModeleId = idU, Value = 0.15M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Cumbriz Ingot", ModeleId = idR, Value = 0.45M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Dianum Ore", ModeleId = idU, Value = 1.25M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Dianum Ingot", ModeleId = idR, Value = 3.75M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Durulium Stone", ModeleId = idU, Value = 0.8M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Durulium Ingot", ModeleId = idR, Value = 2.4M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Erdorium Stone", ModeleId = idU, Value = 0.4M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Erdorium Ingot", ModeleId = idR, Value = 1.2M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Erionite Stone", ModeleId = idU, Value = 0.2M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Erionite Ingot", ModeleId = idR, Value = 0.6M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Frigulite Stone", ModeleId = idU, Value = 0.12M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Frigulite Ingot", ModeleId = idR, Value = 0.36M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Ganganite Stone", ModeleId = idU, Value = 0.12M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Ganganite Ingot", ModeleId = idR, Value = 0.36M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Gazzurdite Stone", ModeleId = idU, Value = 0.25M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Gazzurdite Ingot", ModeleId = idR, Value = 0.75M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial =  repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Gold Stone", ModeleId = idU, Value = 1 }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Gold Ingot", ModeleId = idR, Value = 3M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Hansidian Rock", ModeleId = idU, Value = 0.01M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Hansidian Ingot", ModeleId = idR, Value = 0.03M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Himi Rock", ModeleId = idU, Value = 0.142M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Himi Ingot", ModeleId = idR, Value = 0.426M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Ignisium Stone", ModeleId = idU, Value = 0.7M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Ignisium Ingot", ModeleId = idR, Value = 2.1M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Iolite Stone", ModeleId = idU, Value = 0.2M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Iolite Ingot", ModeleId = idR, Value = 0.6M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Iron Stone", ModeleId = idU, Value = 0.13M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Iron Ingot", ModeleId = idR, Value = 0.39M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Kanerium Ore", ModeleId = idU, Value = 2.5M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Kanerium Ingot", ModeleId = idR, Value = 7.5M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Kirtz Stone", ModeleId = idU, Value = 5.6M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Kirtz Ingot", ModeleId = idR, Value = 16.8M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Langotz Ore", ModeleId = idU, Value = 0.9M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Langotz Ingot", ModeleId = idR, Value = 2.7M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Lanorium Stone", ModeleId = idU, Value = 0.22M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Lanorium Ingot", ModeleId = idR, Value = 0.66M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Lysterium Stone", ModeleId = idU, Value = 0.01M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Lysterium Ingot", ModeleId = idR, Value = 0.03M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Maganite Ore", ModeleId = idU, Value = 1.05M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Maganite Ingot", ModeleId = idR, Value = 3.15M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Megan Stone", ModeleId = idU, Value = 0.18M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Megan Ingot", ModeleId = idR, Value = 0.54M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Morpheus Stone", ModeleId = idU, Value = 0.83M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Morpheus Ingot", ModeleId = idR, Value = 2.49M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Narcanisum Stone", ModeleId = idU, Value = 0.08M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Narcanisum Ingot", ModeleId = idR, Value = 0.24M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Niksarium Stone", ModeleId = idU, Value = 0.65M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Niksarium Ingot", ModeleId = idR, Value = 1.95M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Petonium Stone", ModeleId = idU, Value = 1.79M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Petonium Ingot", ModeleId = idR, Value = 5.37M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Platinum Stone", ModeleId = idU, Value = 3 }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Platinum Ingot", ModeleId = idR, Value = 9M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Pyrite Stone", ModeleId = idU, Value = 0.2M }),
+                    RefinedMaterial =repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Pyrite Ingot", ModeleId = idR, Value = 0.6M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Quantium Stone", ModeleId = idU, Value = 0.6M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Quantium Ingot", ModeleId = idR, Value = 1.8M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Redulite Ore", ModeleId = idU, Value = 2.2M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Redulite Ingot", ModeleId = idR, Value = 6.6M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Rugaritz Ore", ModeleId = idU, Value = 1.5M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Rugaritz Ingot", ModeleId = idR, Value = 4.5M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Terrudite Stone", ModeleId = idU, Value = 1.1M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Terrudite Ingot", ModeleId = idR, Value = 3.3M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Tridenite Ore", ModeleId = idU, Value = 2 }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Tridenite Ingot", ModeleId = idR, Value = 6M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Valurite Stone", ModeleId = idU, Value = 6 }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Valurite Ingot", ModeleId = idR, Value = 18M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Vesperdite Ore", ModeleId = idU, Value = 1.8M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Vesperdite Ingot", ModeleId = idR, Value = 5.4M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Xeremite Ore", ModeleId = idU, Value = 4 }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Xeremite Ingot", ModeleId = idR, Value = 12M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Zanderium Ore", ModeleId = idU, Value = 2.5M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Zanderium Ingot", ModeleId = idR, Value = 7.5M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Zinc Stone", ModeleId = idU, Value = 0.1M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Zinc Ingot", ModeleId = idR, Value = 0.3M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Alternative Rock", ModeleId = idU, Value = 0.01M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Alternative Ingot", ModeleId = idR, Value = 0.03M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Aqeeq Stone", ModeleId = idU, Value = 0.02M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Aqeeq Ingot", ModeleId = idR, Value = 0.06M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Arekite Stone", ModeleId = idU, Value = 0.1M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Arekite Ingot", ModeleId = idR, Value = 0.3M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Banite Stones", ModeleId = idU, Value = 0.08M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Banite Ingot", ModeleId = idR, Value = 0.24M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Blues Rock", ModeleId = idU, Value = 0.02M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Blues Ingot", ModeleId = idR, Value = 0.06M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Cordul Stone", ModeleId = idU, Value = 0.2M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Cordul Ingot", ModeleId = idR, Value = 0.6M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Cyrenium Ore", ModeleId = idU, Value = 0.5M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Cyrenium Ingot", ModeleId = idR, Value = 1.5M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Dark Lysterium", ModeleId = idU, Value = 0.02M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Dark Lysterium Bar", ModeleId = idR, Value = 0.06M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Fairuz Stone", ModeleId = idU, Value = 0.05M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Fairuz Ingot", ModeleId = idR, Value = 0.15M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Folk Rock", ModeleId = idU, Value = 0.03M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Folk Ingot", ModeleId = idR, Value = 0.09M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Frakite Stone", ModeleId = idU, Value = 0.3M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Frakite Ingot", ModeleId = idR, Value = 0.9M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Glam Rock", ModeleId = idU, Value = 0.04M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Glam Ingot", ModeleId = idR, Value = 0.12M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Grunge Rock", ModeleId = idU, Value = 0.04M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Grunge Ingot", ModeleId = idR, Value = 0.12M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Hard Rock", ModeleId = idU, Value = 0.05M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Hard Ingot", ModeleId = idR, Value = 0.15M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Hebredite Stones", ModeleId = idU, Value = 0.25M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Hebredite Ingot", ModeleId = idR, Value = 0.75M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Iridium Ore", ModeleId = idU, Value = 0.05M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Iridium Ingot", ModeleId = idR, Value = 0.15M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Jazz Rock", ModeleId = idU, Value = 0.06M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Jazz Ingot", ModeleId = idR, Value = 0.18M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Kaisenite Stone", ModeleId = idU, Value = 0.02M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Kaisenite Ingot", ModeleId = idR, Value = 0.06M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Kaz Stones", ModeleId = idU, Value = 0.04M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Kaz Ingot", ModeleId = idR, Value = 0.12M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Lidacon Stones", ModeleId = idU, Value = 1.5M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Lidacon Ingot", ModeleId = idR, Value = 4.5M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Lulu Stone", ModeleId = idU, Value = 0.12M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Lulu pearl", ModeleId = idR, Value = 0.36M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Maladrite Stone", ModeleId = idU, Value = 0.04M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Maladrite Ingot", ModeleId = idR, Value = 0.12M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Maro Stone", ModeleId = idU, Value = 0.13M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Maro Ingot", ModeleId = idR, Value = 0.52M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Melatinum Stone", ModeleId = idU, Value = 0.1M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Melatinum Ingot", ModeleId = idR, Value = 0.3M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Olerin Stone", ModeleId = idU, Value = 0.07M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Olerin Ingot", ModeleId = idR, Value = 0.21M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Ospra Stones", ModeleId = idU, Value = 0.02M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Ospra Ingot", ModeleId = idR, Value = 0.06M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Praetonium", ModeleId = idU, Value = 0.02M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Praetonium Ingot", ModeleId = idR, Value = 0.04M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Punk Rock", ModeleId = idU, Value = 0.07M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Punk Ingot", ModeleId = idR, Value = 0.21M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Qasdeer Stone", ModeleId = idU, Value = 0.25M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Qasdeer Ingot", ModeleId = idR, Value = 0.75M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Reggea Rock", ModeleId = idU, Value = 0.08M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Reggea Ingot", ModeleId = idR, Value = 0.24M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Sothorite Ore", ModeleId = idU, Value = 0.09M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Sothorite Ingot", ModeleId = idR, Value = 0.27M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Sunburst Stone", ModeleId = idU, Value = 0.11M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Sunburst Ingot", ModeleId = idR, Value = 0.77M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Tananite Ore", ModeleId = idU, Value = 0.15M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Leethiz Ingot", ModeleId = idR, Value = 0.45M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Techno Rock", ModeleId = idU, Value = 0.1M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Techno Ingot", ModeleId = idR, Value = 0.3M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Telfium Stones", ModeleId = idU, Value = 0.14M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Telfium Ingot", ModeleId = idR, Value = 0.42M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Veda Stones", ModeleId = idU, Value = 0.06M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Veda Ingot", ModeleId = idR, Value = 0.18M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Wenrex Stones", ModeleId = idU, Value = 0.17M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Wenrex Ingot", ModeleId = idR, Value = 0.51M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Wiles Stone", ModeleId = idU, Value = 0.3M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Wiley Ingot", ModeleId = idR, Value = 0.9M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Yulerium Stones", ModeleId = idU, Value = 0.5M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Yulerium Ingot", ModeleId = idR, Value = 1.5M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Zircon Stone", ModeleId = idU, Value = 0.05M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Zircon Ingot", ModeleId = idR, Value = 0.15M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Zorn Star Ore", ModeleId = idU, Value = 0.01M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Zorn Star Ingot", ModeleId = idR, Value = 0.03M }),
+                    Quantity = 3});
+            repositories.RefinablesDto.Add(new RefinableDto()
+            {
+                UnrefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Zulax Stones", ModeleId = idU, Value = 0.65M }),
+                    RefinedMaterial = repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Zulax Ingot", ModeleId = idR, Value = 1.95M }),
+                    Quantity = 3});
+			// Complexe ore
+			// repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Motorhead Keg", ModeleId = idU, Value = 0.01M })	
+			// repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Nosifer Stone", ModeleId = idU, Value = 0.08M })			
+			// Complexe ingot
+            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Aumorphite Ingot", ModeleId = idR, Value = 8.09M });
+            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Chalinum Alloy", ModeleId = idR, Value = 2.601M });
+            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Cobaltium Ingot", ModeleId = idR, Value = 2.001M });
+            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Frigulerian Dust", ModeleId = idR, Value = 3.4405M });
+            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Galaurphite Ingot", ModeleId = idR, Value = 14.7353M });
+            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Galvesperdite Ingot", ModeleId = idR, Value = 6.3625M });
+            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Lystionite Steel Ingot", ModeleId = idR, Value = 4.0146M });
+            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Nosi Ingot", ModeleId = idR, Value = 0.24M });
+            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Solares Ingot", ModeleId = idR, Value = 3.59M });
+            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Yashib Ingot", ModeleId = idR, Value = 0.65M });
+            //    repositories.MaterialsDto.Add(new MaterialDto() { Nom = "Ycy Ingot", ModeleId = idR, Value = 1.05M });
             }
 
         private void AddTreasures()
