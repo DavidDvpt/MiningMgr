@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WpfApp.Model
@@ -24,7 +25,6 @@ namespace WpfApp.Model
             PropertyChanged += NomComposition;
         }
 
-
         public int FinderId
         {
             get => _finderId;
@@ -45,6 +45,7 @@ namespace WpfApp.Model
             }
         }
 
+        [Required(ErrorMessage = "Le mode de recherche est requis dans un setup")]
         public int SearchModeId
         {
             get => _searchModeId;
@@ -55,6 +56,7 @@ namespace WpfApp.Model
             }
         }
 
+        [Range(1, 10, ErrorMessage = "Le nombre d'enhancer doit être compris entre 1 et 10")]
         public short DepthEnhancerQty
         {
             get => _depthEnhancerQty;
@@ -65,6 +67,7 @@ namespace WpfApp.Model
             }
         }
 
+        [Range(1, 10, ErrorMessage = "Le nombre d'enhancer doit être compris entre 1 et 10")]
         public short RangeEnhancerQty
         {
             get => _rangeEnhancerQty;
@@ -75,6 +78,7 @@ namespace WpfApp.Model
             }
         }
 
+        [Range(1, 10, ErrorMessage = "Le nombre d'enhancer doit être compris entre 1 et 10")]
         public short SkillEnhancerQty
         {
             get => _skillEnhancerQty;
@@ -97,6 +101,7 @@ namespace WpfApp.Model
         }
 
         [ForeignKey("FinderId")]
+        [Required(ErrorMessage = "Le finder est requis dans un setup")]
         public virtual Finder Finder
         {
             get => _finder;

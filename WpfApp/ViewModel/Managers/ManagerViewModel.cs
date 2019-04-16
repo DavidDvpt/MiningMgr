@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using WpfApp.Model;
 using WpfApp.Repositories;
@@ -6,7 +9,7 @@ using WpfApp.Repositories.Interfaces;
 
 namespace WpfApp.ViewModel
 {
-    public abstract class ManagerViewModel<T> : BaseViewModel
+    public abstract class ManagerViewModel<T> : BaseViewModel, INotifyDataErrorInfo
         where T : Commun, new()
     {
         #region attributs
@@ -15,6 +18,8 @@ namespace WpfApp.ViewModel
         protected bool ModifySelected = false; // indique que l'item du datagrid selectionne est en cours de modification
         protected ICommunRepository<T> genericRepo; // repository generique utilisé par 80% des manager
         protected ICollection<T> _dataGridItemSource; // source du datagrid principal
+
+        
         #endregion
 
         public ManagerViewModel()
@@ -149,7 +154,7 @@ namespace WpfApp.ViewModel
         public CmdWithoutParam CreateButton { get; private set; }
         public CmdWithoutParam ValiderButton { get; private set; }
         public CmdWithoutParam AnnulerButton { get; private set; }
-     
+
         private void UpdateItem()
         {
             ItemForm = DgSelectedItem;
@@ -220,5 +225,17 @@ namespace WpfApp.ViewModel
             AnnulerButton.RaiseCanExecuteChanged();
         }
         #endregion
+
+        #region INotifyDataErrorInfo
+        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
+
+        public bool HasErrors => throw new NotImplementedException();
+
+        public IEnumerable GetErrors(string propertyName)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
     }
 }

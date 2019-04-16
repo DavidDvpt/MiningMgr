@@ -5,9 +5,9 @@ namespace WpfApp.Model
     [Table("Finder")]
     public class Finder : Tool
     {
-        private decimal _depth;
-        private decimal _range;
-        private short _basePecSearch;
+        private decimal _depth = 0;
+        private decimal _range = 0;
+        private short _basePecSearch = 0;
 
         public decimal Depth
         {

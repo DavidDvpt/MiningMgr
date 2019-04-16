@@ -39,6 +39,7 @@ namespace WpfApp.Model
         }
 
         [ForeignKey("CategorieId")]
+        [Required]
         public virtual Categorie Categorie
         {
             get => _categorie;

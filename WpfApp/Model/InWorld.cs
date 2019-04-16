@@ -7,7 +7,7 @@ namespace WpfApp.Model
     public abstract class InWorld : Commun
     {
         [Required]
-        private decimal _value;
+        private decimal _value = 0;
         private int _modeleId;
         private Modele _modele;
 

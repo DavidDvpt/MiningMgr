@@ -10,6 +10,7 @@ namespace WpfApp.Model
         private decimal _bonusValue1;
         private decimal _bonusValue2;
 
+        [Range(1,10, ErrorMessage = "Le n° du slot doit être compris entre 1 et 10")]
         public byte Slot
         {
             get => _slot;

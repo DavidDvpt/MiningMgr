@@ -5,7 +5,7 @@ namespace WpfApp.Model
     [Table("Excavator")]
     public class Excavator : Tool
     {
-        private decimal _efficienty;
+        private decimal _efficienty = 0;
 
         public decimal Efficienty
         {

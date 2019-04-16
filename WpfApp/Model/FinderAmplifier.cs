@@ -5,7 +5,7 @@ namespace WpfApp.Model
     [Table("FinderAmplifier")]
     public class FinderAmplifier : Unstackable
     {
-        private decimal _coefficient;
+        private decimal _coefficient = 0;
 
         public decimal Coefficient
         {
