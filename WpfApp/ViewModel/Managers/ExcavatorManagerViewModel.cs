@@ -1,9 +1,8 @@
-﻿using System.Linq;
-using WpfApp.Model.Dto;
+﻿using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class ExcavatorManagerViewModel : ManagerViewModel<ExcavatorDto>
+    public class ExcavatorManagerViewModel : ManagerViewModel<Excavator>
     {
         protected override void ColumnInit()
         {

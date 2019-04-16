@@ -1,9 +1,9 @@
 ﻿using System.Linq;
-using WpfApp.Model.Dto;
+using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class RefinerManagerViewModel : ManagerViewModel<RefinerDto>
+    public class RefinerManagerViewModel : ManagerViewModel<Refiner>
     {
         protected override void ColumnInit()
         {

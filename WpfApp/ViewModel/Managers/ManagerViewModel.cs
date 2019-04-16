@@ -1,19 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using WpfApp.Model.Dto;
+using WpfApp.Model;
 using WpfApp.Repositories;
 using WpfApp.Repositories.Interfaces;
 
 namespace WpfApp.ViewModel
 {
     public abstract class ManagerViewModel<T> : BaseViewModel
-        where T : CommunDto, new()
+        where T : Commun, new()
     {
         #region attributs
         protected T _dgSelectedItem;// item seectionné ds le datagrid
         protected T _itemForm;  // Item actif du formulaire
         protected bool ModifySelected = false; // indique que l'item du datagrid selectionne est en cours de modification
-        protected ICommunRepositoryDto<T> genericRepo; // repository generique utilisé par 80% des manager
+        protected ICommunRepository<T> genericRepo; // repository generique utilisé par 80% des manager
         protected ICollection<T> _dataGridItemSource; // source du datagrid principal
         #endregion
 
@@ -21,16 +21,16 @@ namespace WpfApp.ViewModel
         {
             ColumnInit();
             CommandInit();
-            genericRepo = new CommunRepositoryDto<T>(repos.GetContext());
+            genericRepo = new CommunRepository<T>(repos.GetContext());
             ItemSourceLoad();
         }
 
         private void CommandInit()
         {
-            UpdateButton = new CommandWithoutParam(UpdateItem, ModifyBtnCanExecute);
-            CreateButton = new CommandWithoutParam(CreateItem, CreateBtnCanExecute);
-            ValiderButton = new CommandWithoutParam(ValiderItem, ValidateBtnCanExecute);
-            AnnulerButton = new CommandWithoutParam(AnnulerItem, CancelBtnCanExecute);
+            UpdateButton = new CmdWithoutParam(UpdateItem, ModifyBtnCanExecute);
+            CreateButton = new CmdWithoutParam(CreateItem, CreateBtnCanExecute);
+            ValiderButton = new CmdWithoutParam(ValiderItem, ValidateBtnCanExecute);
+            AnnulerButton = new CmdWithoutParam(AnnulerItem, CancelBtnCanExecute);
         }
 
         protected abstract void ColumnInit();
@@ -145,10 +145,10 @@ namespace WpfApp.ViewModel
         }
 
         #region Commands et actions
-        public CommandWithoutParam UpdateButton { get; private set; }
-        public CommandWithoutParam CreateButton { get; private set; }
-        public CommandWithoutParam ValiderButton { get; private set; }
-        public CommandWithoutParam AnnulerButton { get; private set; }
+        public CmdWithoutParam UpdateButton { get; private set; }
+        public CmdWithoutParam CreateButton { get; private set; }
+        public CmdWithoutParam ValiderButton { get; private set; }
+        public CmdWithoutParam AnnulerButton { get; private set; }
      
         private void UpdateItem()
         {

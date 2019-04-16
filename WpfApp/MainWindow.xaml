@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:WpfApp"
         xmlns:views = "clr-namespace:WpfApp.Views"
         xmlns:viewModels = "clr-namespace:WpfApp.ViewModel"
-        xmlns:pocos = "clr-namespace:WpfApp.Model.Poco"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1600">
 
@@ -70,10 +69,6 @@
                 <MenuItem Header="_Quitter" />                
             </MenuItem>
 
-            <MenuItem Header="Setup">
-                <MenuItem Header="Creer" Command="{Binding NavCommand}" CommandParameter="setup"/>
-                <MenuItem Header="Lister"/>
-            </MenuItem>
             <MenuItem Header="Manager">
                 <MenuItem Header="Categorie" Command="{Binding NavCommand}" CommandParameter="categorie"/>
                 <MenuItem Header="Modele" Command="{Binding NavCommand}" CommandParameter="modele"/>
@@ -99,20 +94,6 @@
 
         <Grid Name="container">
             <ContentControl Content="{Binding CurrentViewModel}"/>
-            <!--<StackPanel Margin="50">
-                <ComboBox Name="cbx1"
-                          ItemsSource="{Binding Categories}"
-                          SelectedItem="{Binding SelectedCategorie}"
-                          Width="200"
-                          DisplayMemberPath="Nom"/>
-
-                <ComboBox Name="cbx2" 
-                          ItemsSource="{Binding Users}"
-                            SelectedItem="{Binding SelectedUser}"
-                          DisplayMemberPath="Nom"
-                        Width="200"
-                        Margin="50"/>
-            </StackPanel>-->
         </Grid>
         
     </DockPanel>

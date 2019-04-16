@@ -1,9 +1,8 @@
-﻿using System.Linq;
-using WpfApp.Model.Dto;
+﻿using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class FinderAmplifierManagerViewModel : ManagerViewModel<FinderAmplifierDto>
+    public class FinderAmplifierManagerViewModel : ManagerViewModel<FinderAmplifier>
     {
         protected override void ColumnInit()
         {

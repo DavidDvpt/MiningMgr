@@ -1,10 +1,8 @@
-﻿using System.Linq;
-using WpfApp.Model.Dto;
-using WpfApp.Model.Poco;
+﻿using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class EnhancerManagerViewModel : ManagerViewModel<EnhancerDto>
+    public class EnhancerManagerViewModel : ManagerViewModel<Enhancer>
     {
         protected override void ColumnInit()
         {

@@ -1,9 +1,9 @@
 ﻿using System;
-using WpfApp.Model.Dto;
+using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class SearchModeManagerViewModel : ManagerViewModel<SearchModeDto>
+    public class SearchModeManagerViewModel : ManagerViewModel<SearchMode>
     {
         protected override void ColumnInit()
         {

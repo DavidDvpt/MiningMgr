@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using WpfApp.Model.Dto;
+using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class MaterialManagerViewModel : ManagerViewModel<MaterialDto>
+    public class MaterialManagerViewModel : ManagerViewModel<Material>
     {
-        private ModeleDto _selectedModele;
-        public ICollection<ModeleDto> Modeles { get; set; }
+        private Modele _selectedModele;
+        public ICollection<Modele> Modeles { get; set; }
 
         protected override void ColumnInit()
         {
@@ -20,10 +20,10 @@ namespace WpfApp.ViewModel
 
         protected override void Init()
         {
-            Modeles = repos.ModelesDto.GetByCategorieName("Material").ToList();
+            Modeles = repos.Modeles.GetByCategorieName("Material").ToList();
         }
 
-        public ModeleDto SelectedModele
+        public Modele SelectedModele
         {
             get { return _selectedModele; }
             set
@@ -36,12 +36,12 @@ namespace WpfApp.ViewModel
 
         protected override void ItemSourceUpdated()
         {
-            DataGridItemSource = repos.MaterialsDto.GetByModeleId(SelectedModele.Id);
+            DataGridItemSource = repos.Materials.GetByModeleId(SelectedModele.Id);
         }
 
         protected override void CreateItem()
         {
-            ItemForm = new MaterialDto { Modele = SelectedModele };
+            ItemForm = new Material { Modele = SelectedModele };
             NomFormEnabled = true;
         }
 

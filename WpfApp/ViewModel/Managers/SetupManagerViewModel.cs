@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using WpfApp.Model.Dto;
+using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class SetupManagerViewModel : ManagerViewModel<SetupDto>
+    public class SetupManagerViewModel : ManagerViewModel<Setup>
     {
         protected override void ColumnInit()
         {
@@ -21,18 +21,18 @@ namespace WpfApp.ViewModel
         protected override void Init()
         {
             NomFormEnabled = false;
-            SearchModes = repos.SearchModesDto.GetAll().ToList();
-            Finders = repos.FindersDto.GetAll().ToList();
-            FinderAmplifiers = repos.FinderAmplifiersDto.GetAll().ToList();
+            SearchModes = repos.SearchModes.GetAll().ToList();
+            Finders = repos.Finders.GetAll().ToList();
+            FinderAmplifiers = repos.FinderAmplifiers.GetAll().ToList();
         }
 
         // Affichage de la liste des searchMode ds le combobox
-        public ICollection<SearchModeDto> SearchModes { get; set; }
+        public ICollection<SearchMode> SearchModes { get; set; }
 
         // Affichage de la liste des finder ds le combobox
-        public ICollection<FinderDto> Finders { get; set; }
+        public ICollection<Finder> Finders { get; set; }
 
         // Affichage de la liste des finderamplifier ds le combobox
-        public ICollection<FinderAmplifierDto> FinderAmplifiers { get; set; }
+        public ICollection<FinderAmplifier> FinderAmplifiers { get; set; }
     }
 }

@@ -1,18 +1,16 @@
 ﻿using System.Linq;
-using WpfApp.Model.Poco.Interfaces;
 
 namespace WpfApp.Repositories.Interfaces
 {
-    public interface IRepository<TDto, TPoco>
-        where TDto : class, new()
-        where TPoco : IPoco<TDto>, new()
+    public interface IRepository<T>
+        where T : class, new()
     {
-        IQueryable<TPoco> GetAll();
-        TPoco GetById(int id);
-        TPoco Add(TPoco entity);
-        void Update(TPoco entity);
+        IQueryable<T> GetAll();
+        T GetById(int id);
+        T Add(T entity);
+        void Update(T entity);
         void Delete(int id);
-        void Delete(TPoco entity);
+        void Delete(T entity);
         void SaveChanges();
     }
 }

@@ -1,9 +1,8 @@
-﻿using System.Linq;
-using WpfApp.Model.Dto;
+﻿using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class FinderManagerViewModel : ManagerViewModel<FinderDto>
+    public class FinderManagerViewModel : ManagerViewModel<Finder>
     {
         public FinderManagerViewModel()
         {

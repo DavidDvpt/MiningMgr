@@ -1,16 +1,13 @@
-﻿using WpfApp.Model.Dto;
+﻿using WpfApp.Model;
 using WpfApp.Repositories.Interfaces;
 using System.Data.Entity;
 using WpfApp.Context;
 using System.Linq;
-using WpfApp.Tools;
-using WpfApp.Model.Poco.Interfaces;
 
 namespace WpfApp.Repositories
 {
-    public class CommunRepository<TDto, TPoco> : Repository<TDto, TPoco>, ICommunRepository<TDto, TPoco>
-        where TDto : CommunDto, new()
-        where TPoco : class, IPoco<TDto>, new()
+    public class CommunRepository<T> : Repository<T>, ICommunRepository<T>
+        where T : Commun, new()
     {
         public CommunRepository(MiningContext ctx)
             : base(ctx)
@@ -18,9 +15,14 @@ namespace WpfApp.Repositories
 
         }
 
-        public TPoco GetByNom(string nom)
+        public T GetByNom(string nom)
         {
-            return DbSet.FirstOrDefault(x => x.Nom == nom).ToPoco<TDto, TPoco>();
+            return DbSet.FirstOrDefault(x => x.Nom == nom);
+        }
+
+        public override IQueryable<T> GetAll()
+        {
+            return DbSet.OrderBy(x => x.Nom);
         }
     }
 }

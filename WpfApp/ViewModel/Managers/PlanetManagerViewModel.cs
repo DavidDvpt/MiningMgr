@@ -1,9 +1,8 @@
-﻿using System.Linq;
-using WpfApp.Model.Dto;
+﻿using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class PlanetManagerViewModel : ManagerViewModel<PlanetDto>
+    public class PlanetManagerViewModel : ManagerViewModel<Planet>
     {
         protected override void Init()
         {
