@@ -4,7 +4,7 @@ using System.Windows.Input;
 namespace WpfApp.Commands
 {
     // Commande avec parametre string
-    public class NavCommand<T> : ICommand
+    public class CommandWithStringParam<T> : ICommand
     {
         // Methode cible à executer
         Action<T> _TargetExecuteMethod;
@@ -13,13 +13,13 @@ namespace WpfApp.Commands
         Func<T, bool> _TargetCanExecuteMethod;
 
         // Constructeur avec la methode à éxécuter simple (CanExecute = true par defaut)
-        public NavCommand(Action<T> executeMethod)
+        public CommandWithStringParam(Action<T> executeMethod)
         {
             _TargetExecuteMethod = executeMethod;
         }
 
         // Constructeur avec la methode à éxécuter et la méthode de validation
-        public NavCommand(Action<T> executeMethod, Func<T, bool> canExecuteMethod)
+        public CommandWithStringParam(Action<T> executeMethod, Func<T, bool> canExecuteMethod)
         {
             _TargetExecuteMethod = executeMethod;
             _TargetCanExecuteMethod = canExecuteMethod;
@@ -34,7 +34,6 @@ namespace WpfApp.Commands
         }
 
         #region ICommand Members
-
         // Methode autorisant l'execution de la méthode de commande
         bool ICommand.CanExecute(object parameter)
         {

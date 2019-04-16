@@ -86,8 +86,8 @@
       <DependentUpon>201904142214372_Maj_01.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Commands\MyICommand.cs" />
-    <Compile Include="Commands\NavCommand.cs" />
+    <Compile Include="Commands\CommandWithoutParam.cs" />
+    <Compile Include="Commands\CommandWithStringParam.cs" />
     <Compile Include="Model\Dto\BasePoco.cs" />
     <Compile Include="Model\Dto\FinderAmplifierDto.cs" />
     <Compile Include="Model\Dto\InterfacesDto\ICommunDto.cs" />

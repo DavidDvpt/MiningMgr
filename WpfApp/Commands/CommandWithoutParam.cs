@@ -1,28 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace WpfApp
 {
-    public class MyICommand : ICommand
+    public class CommandWithoutParam : ICommand
     {
-        Action _TargetExecuteMethod;
-        Func<bool> _TargetCanExecuteMethod;
+        Action _TargetExecuteMethod; // methode "execute"
+        Func<bool> _TargetCanExecuteMethod; // methode "canExecute"
 
-        public MyICommand(Action executeMethod)
+        //constructeur sans "canExecute" donc true par defaut
+        public CommandWithoutParam(Action executeMethod)
         {
             _TargetExecuteMethod = executeMethod;
         }
 
-        public MyICommand(Action executeMethod, Func<bool> canExecuteMethod)
+        //constructeur avec "canExecute"
+        public CommandWithoutParam(Action executeMethod, Func<bool> canExecuteMethod)
         {
             _TargetExecuteMethod = executeMethod;
             _TargetCanExecuteMethod = canExecuteMethod;
         }
 
+        // methode de mise à jour des etats de "can"execute"
         public void RaiseCanExecuteChanged()
         {
             CanExecuteChanged(this, EventArgs.Empty);

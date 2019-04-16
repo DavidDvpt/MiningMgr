@@ -15,10 +15,6 @@ namespace WpfApp.ViewModel
         protected bool ModifySelected = false; // indique que l'item du datagrid selectionne est en cours de modification
         protected ICommunRepositoryDto<T> genericRepo; // repository generique utilisé par 80% des manager
         protected ICollection<T> _dataGridItemSource; // source du datagrid principal
-        protected bool _modifyBtnEnabled = true;
-        protected bool _createBtnEnabled = true;
-        protected bool _validateBtnEnabled = true;
-        protected bool _cancelBtnEnabled = true;
         #endregion
 
         public ManagerViewModel()
@@ -31,15 +27,10 @@ namespace WpfApp.ViewModel
 
         private void CommandInit()
         {
-            UpdateButton = new MyICommand(UpdateItem, ModifyBtnCanExecute);
-            CreateButton = new MyICommand(CreateItem, CreateBtnCanExecute);
-            ValiderButton = new MyICommand(ValiderItem, ValidateBtnCanExecute);
-            AnnulerButton = new MyICommand(AnnulerItem, CancelBtnCanExecute);
-        }
-
-        public bool CanExecuteTest()
-        {
-            return false;
+            UpdateButton = new CommandWithoutParam(UpdateItem, ModifyBtnCanExecute);
+            CreateButton = new CommandWithoutParam(CreateItem, CreateBtnCanExecute);
+            ValiderButton = new CommandWithoutParam(ValiderItem, ValidateBtnCanExecute);
+            AnnulerButton = new CommandWithoutParam(AnnulerItem, CancelBtnCanExecute);
         }
 
         protected abstract void ColumnInit();
@@ -154,10 +145,10 @@ namespace WpfApp.ViewModel
         }
 
         #region Commands et actions
-        public MyICommand UpdateButton { get; private set; }
-        public MyICommand CreateButton { get; private set; }
-        public MyICommand ValiderButton { get; private set; }
-        public MyICommand AnnulerButton { get; private set; }
+        public CommandWithoutParam UpdateButton { get; private set; }
+        public CommandWithoutParam CreateButton { get; private set; }
+        public CommandWithoutParam ValiderButton { get; private set; }
+        public CommandWithoutParam AnnulerButton { get; private set; }
      
         private void UpdateItem()
         {
@@ -169,10 +160,11 @@ namespace WpfApp.ViewModel
         protected virtual void CreateItem()
         {
             ItemForm = new T();
+            NomFormEnabled = true;
             RaiseCanExecuteChanged();
         }
 
-        protected void ValiderItem()
+        protected virtual void ValiderItem()
         {
             //if (ModifySelected)
             //{
@@ -186,64 +178,20 @@ namespace WpfApp.ViewModel
             //ItemForm = null;
             //ItemSourceUpdated();
             ////OnValidateBtnClick();
+            ItemForm = null;
+            NomFormEnabled = false;
         }
 
         private void AnnulerItem()
         {
             ItemForm = null;
+            NomFormEnabled = false;
             RaiseCanExecuteChanged();
         }
         #endregion
 
         #region Gestion Des Boutons
-        //public bool ModifyBtnEnabled
-        //{
-        //    get { return _modifyBtnEnabled; }
-        //    set
-        //    {
-        //        if (ModifyBtnEnabled != value)
-        //        {
-        //            _modifyBtnEnabled = !ModifyBtnEnabled;
-        //            OnPropertyChanged();
-        //        }
-        //    }
-        //}
-        //public bool CreateBtnEnabled
-        //{
-        //    get { return _createBtnEnabled; }
-        //    set
-        //    {
-        //        if (CreateBtnEnabled != value)
-        //        {
-        //            _createBtnEnabled = !CreateBtnEnabled;
-        //            OnPropertyChanged();
-        //        }
-        //    }
-        //}
-        //public bool ValidateBtnEnabled
-        //{
-        //    get { return _validateBtnEnabled; }
-        //    set
-        //    {
-        //        if (ValidateBtnEnabled != value)
-        //        {
-        //            _validateBtnEnabled = !ValidateBtnEnabled;
-        //            OnPropertyChanged();
-        //        }
-        //    }
-        //}
-        //public bool CancelBtnEnabled
-        //{
-        //    get { return _cancelBtnEnabled; }
-        //    set
-        //    {
-        //        if (CancelBtnEnabled != value)
-        //        {
-        //            _cancelBtnEnabled = !CancelBtnEnabled;
-        //            OnPropertyChanged();
-        //        }
-        //    }
-        //}
+
         public bool CancelBtnCanExecute()
         {
             return ItemForm == null ? false : true;
@@ -251,7 +199,7 @@ namespace WpfApp.ViewModel
 
         public bool ModifyBtnCanExecute()
         {
-            return DgSelectedItem != null ? true : false;
+            return ((DgSelectedItem != null) && (ItemForm == null)) ? true : false;
         }
 
         public bool CreateBtnCanExecute()

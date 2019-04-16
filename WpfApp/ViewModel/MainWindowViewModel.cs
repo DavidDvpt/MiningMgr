@@ -12,10 +12,10 @@ namespace WpfApp.ViewModel
 
         protected override void Init()
         {
-            NavCommand = new NavCommand<string>(OnNav);
+            NavCommand = new CommandWithStringParam<string>(OnNav);
         }
 
-        public NavCommand<string> NavCommand { get; private set; }
+        public CommandWithStringParam<string> NavCommand { get; private set; }
 
         #region ViewModels
         //private SetupManagerViewModel setupManagerViewModel = new SetupManagerViewModel();

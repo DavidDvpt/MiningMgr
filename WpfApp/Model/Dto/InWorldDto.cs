@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WpfApp.Model.Dto
@@ -54,8 +55,12 @@ namespace WpfApp.Model.Dto
             set
             {
                 _modele = value;
-                ModeleId = value.Id;
-                NotifyPropertyChanged();
+                if (value != null)
+                {
+                    
+                    ModeleId = value.Id;
+                    NotifyPropertyChanged(); 
+                }
             }
         }
         #endregion

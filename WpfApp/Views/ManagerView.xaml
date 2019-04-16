@@ -203,7 +203,8 @@
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Name="spValue" Orientation="Horizontal">
                             <Label Name="lbValue" Content="Valeur (Ped) :" Width="80"/>
-                            <TextBox Name="tbxValue" Text="{Binding ItemForm.UsePerMin}" Width="50"/>
+                            <TextBox Name="tbxValue" Text="{Binding ItemForm.Value}" Width="50">
+                            </TextBox>
                         </StackPanel>
                         <StackPanel Name="spDecay" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource decayVis}}" Margin="10,0,0,0">
                             <Label Name="lbDecay" Content="Decay (Pec) :" Width="80"/>
