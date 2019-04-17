@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.Linq;
 using WpfApp.Model;
 using WpfApp.Repositories;
@@ -9,7 +6,7 @@ using WpfApp.Repositories.Interfaces;
 
 namespace WpfApp.ViewModel
 {
-    public abstract class ManagerViewModel<T> : BaseViewModel, INotifyDataErrorInfo
+    public abstract class ManagerViewModel<T> : BaseViewModel
         where T : Commun, new()
     {
         #region attributs
@@ -225,17 +222,5 @@ namespace WpfApp.ViewModel
             AnnulerButton.RaiseCanExecuteChanged();
         }
         #endregion
-
-        #region INotifyDataErrorInfo
-        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
-
-        public bool HasErrors => throw new NotImplementedException();
-
-        public IEnumerable GetErrors(string propertyName)
-        {
-            throw new NotImplementedException();
-        }
-        #endregion
-
     }
 }
