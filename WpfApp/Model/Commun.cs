@@ -27,8 +27,8 @@ namespace WpfApp.Model
 
         [Required(ErrorMessage = "Le Nom est requis")]
         [Column(TypeName = "VARCHAR")]
-        [StringLength(50, ErrorMessage = "La longueur maximum est de 50")]
-        [Index(IsUnique = true)]      
+        [MaxLength(50, ErrorMessage = "La longueur maximum est de 50")]
+        [Index(IsUnique = true)]
         public string Nom
         {
             get => _nom;
@@ -42,7 +42,6 @@ namespace WpfApp.Model
             }
         }
 
-        [Required]
         public bool IsActive
         {
             get => _isActive;

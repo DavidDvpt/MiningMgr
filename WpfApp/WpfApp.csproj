@@ -100,6 +100,7 @@
     <Compile Include="Repositories\RepositoriesUoW.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Context\SeedClass.cs" />
+    <Compile Include="AttributValidation\Unique.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="DataGridColumnVisibilityBinding.cs" />
     <Compile Include="ViewModel\Managers\EnhancerManagerViewModel.cs" />
