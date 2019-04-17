@@ -1,0 +1,82 @@
+* [33me78d5c3[m[33m ([m[1;36mHEAD -> [m[1;32mEpurationPoco[m[33m, [m[1;31morigin/EpurationPoco[m[33m)[m implementation de INotifyDataErrorInfo en cours
+* [33m5eea1fb[m Suppression de tous les poco et de a terminaison Dto dans les classes
+* [33m859d507[m[33m ([m[1;31morigin/SansPoco[m[33m, [m[1;32mSansPoco[m[33m)[m push avant epuration de la solution
+* [33m0278729[m travail sur la gestion des boutons
+* [33mfe26abc[m diversmodifs
+* [33m833c8c6[m Update SeedClass.cs
+* [33md4a8173[m Update SeedClass.cs
+* [33m7224880[m Update SeedClass.cs
+* [33mc6ef2d0[m ajout des enmatters ds le seed
+* [33mfcba0c1[m Ajout des resources et de la classe refinable
+* [33m1f92aab[m Travail sur le gestionnaire de button des managers
+* [33mbdd3898[m Ajout du Manager Material et premiers test ok
+* [33mf0d58f1[m Fin de création des ManagerViewModel des outils, reste les matriaux
+* [33m20c71b5[m Mise en page du formulaire
+* [33mff5b441[m Modif du design et generisation des methodes du ManagerView
+* [33mb9c0225[m test de styles button
+* [33m33d552e[m Update MainWindowViewModel.cs
+* [33mb990b02[m Update MainWindowViewModel.cs
+* [33mab786d5[m implementation des commandes update/add ...
+* [33m6051787[m Ajout des boutons Modifier et creer
+* [33mc3a480a[m Ajout de InotifyPropertyChanged sur les Dto Generation OK
+* [33mb56f681[m Le binding fonctionne sur la classe Modele !!!
+* [33m25a12e5[m Passage des viewModel de Poco à Dto genenation Ok
+* [33me59c722[m Creation d'un repository avec abstraction des Poco Generation ok
+* [33m0cc79a1[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m Incorporation des pocos qui fonctionne pas
+* [33m906f2e1[m Tout fonctionne sauf le selected item du combobox Categorie
+* [33m39abed5[m Fin d'implementation des Pocos ds le Model et les repositories
+* [33mbcb3e5e[m Renommage de toutes les methodes des repositories
+* [33m182075f[m implementation de la classe business (Poco)
+* [33maf50992[m passage de la branche FullWPF en master et renomage des Model en Dto
+* [33m2b22001[m[33m ([m[1;31morigin/FullWPF[m[33m)[m implementation du detail des items partie 1
+* [33md6f91cf[m Implementation des manager de classe partie 2. les classes principales fonctionnent. reste les tables associatives et les material
+* [33mdc9bfae[m Implementation du datagrid generique Partie 1 :remplissage et activation des methodes de visibilité des colonnes
+* [33m3af63e3[m Premier jet du ManagerViewModel qui fonctionne. sans datatemplate
+* [33m2a3b1d2[m Base avant de l'ajout du datagrid générique
+* [33m892a7a7[m tout va bien
+* [33m63f1240[m Ca fonctionne !
+* [33mded2202[m marche pas
+* [33mca4e106[m Renommage des classes modele pour coller à la charte de nommage Model/View/ViewModel
+* [33m9e5f91f[m la navigation fonctionne.
+* [33m7bff0e1[m chantier navigation qui ne fonctionne pas
+* [33m2856feb[m Ajout de la classe ICommand
+* [33m502f669[m Ajout de iCommand et VML
+* [33medac420[m Creation d'un setup qui fonctionne
+* [33m635ea78[m Push avant ajout du searchmode dans setup
+* [33m91ef6b6[m Ajout de InotifyPropertyChanged sur la classe Setup du modele
+* [33md4e7198[m Travail sur le setup
+* [33ma99c855[m erreur
+* [33m4836c59[m Ajout de la classe abstrete BaseViewModel parent de toutes les autres
+* [33mcd14efe[m Validation apres resolution d'erreurs sur le formulaires SetupView
+* [33m9497d48[m validation avant test de seed
+* [33m7d0c12f[m Travail sur SetupView, SetupViewModel, Setup
+* [33m5d4f427[m Application fonctionne, les namespaces sont corrects. push avant début MVVM
+* [33m82daefb[m[33m ([m[1;31morigin/CodeFirstTPT[m[33m, [m[1;32mCodeFirstTPT[m[33m)[m Connexionstring enfin fonctionne
+* [33m5d774bc[m Push avant ajout du projet wpf
+* [33mf9a5811[m Correction des dernières erreurs dans la classe statique d'insertion de donnee dans la bdd SeedStaticMethods
+* [33meaebe9a[m Validation de l'insertion des donnees Categorie/Modele/planete/Finder
+* [33m5625495[m Corrections de la classe StaticSeedMethods
+* [33m909578b[m Ajout de classes seed et repository
+* [33m5406de8[m Update Material.cs
+* [33m2837042[m Update Enhancer.cs
+* [33mac0177e[m Update Tool.cs
+* [33maeca1b9[m Update Unstackable.cs
+* [33m02423d6[m Update Tool.cs
+* [33m8682309[m Update Repository.cs
+* [33m23c0da5[m Update Repository.cs
+* [33m1e2406b[m Creation des classes seed
+* [33m1bcf409[m Ajout ModelCodeFirstTPT
+* [33m3f5b5a1[m Correction de la base et du modele pour une bonne publication et lecture du modele
+* [33mf92183c[m correction et finalisation des dernières sp
+* [33m38d0837[m Correction d'erreurs dans les procedures stockees
+* [33m88eab9c[m Ajout du fichier insert ds le projet SQL
+* [33mc804031[m Ajoue de vue avec intégration dans les sp
+* [33m81da54a[m Ajout de quelques Procédures stockées sans maj du model de données
+* [33m6cd51ec[m Test serveur distant github : ajout procedure stockée PlanetCreate
+* [33m8bc2cbc[m Ajout de quelques  Procedures stockees sans MAJ du DbContext
+* [33m51734a2[m Ajout de la table SearchMode et Setup
+* [33ma0f3c3d[m Suppression de WpfApp non utile pour le moment
+* [33mce0e434[m Ajout du projet context
+* [33m5e5d057[m 1er Push
+* [33m2fb35f2[m Ajoutez des fichiers projet.
+* [33m165e7be[m Ajoutez les fichiers .gitignore et .gitattributes.
