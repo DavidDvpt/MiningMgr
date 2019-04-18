@@ -4,8 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:root="clr-namespace:WpfApp"
-             xmlns:local="clr-namespace:WpfApp.Views"
-             xmlns:viewModels="clr-namespace:WpfApp.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
@@ -70,6 +68,24 @@
         <Style TargetType="TextBox">
             <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            CornerRadius="8"
+                            BorderBrush="Black"
+                            BorderThickness="1"
+                            Margin="5,2">
+                            <ContentPresenter Margin="2"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </UserControl.Resources>
     
     <Grid>
@@ -102,11 +118,8 @@
                       ItemsSource="{Binding DataGridItemSource, Mode=TwoWay}"
                       AutoGenerateColumns="False"
                       SelectedItem="{Binding DgSelectedItem, Mode=TwoWay}"
-                      Margin="5,3">
-
-                <DataGrid.Resources>
-
-                </DataGrid.Resources>
+                      Margin="5,3"
+                      IsReadOnly="True">
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource idVis}}"/>
@@ -156,6 +169,7 @@
             
             <!-- FORMULAIRE -->
             <StackPanel Name="spEntity"  Height="auto" Orientation="Vertical">
+                
                 <StackPanel.Resources>
                 </StackPanel.Resources>
                 
@@ -209,8 +223,7 @@
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Name="spValue" Orientation="Horizontal">
                             <Label Name="lbValue" Content="Valeur (Ped) :" Width="80"/>
-                            <TextBox Name="tbxValue" Text="{Binding ItemForm.Value}" Width="50">
-                            </TextBox>
+                            <TextBox Name="tbxValue" Text="{Binding ItemForm.Value}" Width="50"/>
                         </StackPanel>
                         <StackPanel Name="spDecay" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource decayVis}}" Margin="10,0,0,0">
                             <Label Name="lbDecay" Content="Decay (Pec) :" Width="80"/>
