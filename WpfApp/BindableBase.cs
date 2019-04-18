@@ -6,7 +6,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
-using System.Windows.Controls;
 
 namespace WpfApp
 {
@@ -120,10 +119,10 @@ namespace WpfApp
             return error;
         }
 
-        protected void ValidationError(object sender, ValidationErrorEventArgs e)
+        protected void ValidationError(object sender, System.Windows.Controls.ValidationErrorEventArgs e)
         {
-            if (e.Action == ValidationErrorEventAction.Added) Errors += 1;
-            if (e.Action == ValidationErrorEventAction.Added) Errors -= 1;
+            if (e.Action == System.Windows.Controls.ValidationErrorEventAction.Added) Errors += 1;
+            if (e.Action == System.Windows.Controls.ValidationErrorEventAction.Added) Errors -= 1;
         }
         #endregion
 
