@@ -6,38 +6,46 @@ namespace WpfApp.Model
     [Table("Enhancer")]
     public class Enhancer : InWorld
     {
-        private byte _slot;
-        private decimal _bonusValue1;
-        private decimal _bonusValue2;
+        public Enhancer()
+        {
+            BonusValue1 = 0;
+            BonusValue2 = 0;
+        }
 
         [Range(1,10, ErrorMessage = "Le n° du slot doit être compris entre 1 et 10")]
         public byte Slot
         {
-            get => _slot;
+            get { return GetValue(() => Slot); }
             set
             {
-                _slot = value;
-                NotifyPropertyChanged();
+                if (value != Slot)
+                {
+                    SetValue(() => Slot, value);
+                }
             }
         }
 
         public decimal BonusValue1
         {
-            get => _bonusValue1;
+            get { return GetValue(() => BonusValue1); }
             set
             {
-                _bonusValue1 = value;
-                NotifyPropertyChanged();
+                if (value != BonusValue1)
+                {
+                    SetValue(() => BonusValue1, value);
+                }
             }
         }
 
         public decimal BonusValue2
         {
-            get => _bonusValue2;
+            get { return GetValue(() => BonusValue2); }
             set
             {
-                _bonusValue2 = value;
-                NotifyPropertyChanged();
+                if (value != BonusValue2)
+                {
+                    SetValue(() => BonusValue2, value);
+                }
             }
         }
     }

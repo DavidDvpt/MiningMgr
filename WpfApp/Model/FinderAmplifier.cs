@@ -5,15 +5,20 @@ namespace WpfApp.Model
     [Table("FinderAmplifier")]
     public class FinderAmplifier : Unstackable
     {
-        private decimal _coefficient = 0;
+        public FinderAmplifier()
+        {
+            Coefficient = 0;
+        }
 
         public decimal Coefficient
         {
-            get => _coefficient;
+            get { return GetValue(() => Coefficient); }
             set
             {
-                _coefficient = value;
-                NotifyPropertyChanged();
+                if (value != Coefficient)
+                {
+                    SetValue(() => Coefficient, value);
+                }
             }
         }
     }

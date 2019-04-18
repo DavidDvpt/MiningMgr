@@ -1,30 +1,39 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WpfApp.Model
 {
     [Table("SearchMode")]
     public class SearchMode : Commun
     {
-        private string _abbrev;
-        private decimal _multiplicateur;
+        public SearchMode()
+        {
+            Multiplicateur = 1;
+        }
 
+        [MaxLength(3, ErrorMessage = "L'abbreviation peut contenir que 3 lettres")]
         public string Abbrev
         {
-            get => _abbrev;
+            get { return GetValue(() => Abbrev); }
             set
             {
-                _abbrev = value;
-                NotifyPropertyChanged();
+                if (value != Abbrev)
+                {
+                    SetValue(() => Abbrev, value);
+                }
             }
         }
 
+        [Range(1, 6, ErrorMessage = "Le multiplicateur doit être compris entre 1 et 6")]
         public decimal Multiplicateur
         {
-            get => _multiplicateur;
+            get { return GetValue(() => Multiplicateur); }
             set
             {
-                _multiplicateur = value;
-                NotifyPropertyChanged();
+                if (value != Multiplicateur)
+                {
+                    SetValue(() => Multiplicateur, value);
+                }
             }
         }
     }

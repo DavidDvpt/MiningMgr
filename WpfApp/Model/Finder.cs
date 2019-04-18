@@ -5,37 +5,46 @@ namespace WpfApp.Model
     [Table("Finder")]
     public class Finder : Tool
     {
-        private decimal _depth = 0;
-        private decimal _range = 0;
-        private short _basePecSearch = 0;
+        public Finder()
+        {
+            Depth = 0;
+            Range = 0;
+            BasePecSearch = 0;
+        }
 
         public decimal Depth
         {
-            get => _depth;
+            get { return GetValue(() => Depth); }
             set
             {
-                _depth = value;
-                NotifyPropertyChanged();
+                if (value != Depth)
+                {
+                    SetValue(() => Depth, value);
+                }
             }
         }
 
         public decimal Range
         {
-            get => _range;
+            get { return GetValue(() => Range); }
             set
             {
-                _range = value;
-                NotifyPropertyChanged();
+                if (value != Range)
+                {
+                    SetValue(() => Range, value);
+                }
             }
         }
 
         public short BasePecSearch
         {
-            get => _basePecSearch;
+            get { return GetValue(() => BasePecSearch); }
             set
             {
-                _basePecSearch = value;
-                NotifyPropertyChanged();
+                if (value != BasePecSearch)
+                {
+                    SetValue(() => BasePecSearch, value);
+                }
             }
         }
     }

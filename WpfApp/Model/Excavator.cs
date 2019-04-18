@@ -5,15 +5,20 @@ namespace WpfApp.Model
     [Table("Excavator")]
     public class Excavator : Tool
     {
-        private decimal _efficienty = 0;
+        public Excavator()
+        {
+            Efficienty = 0;
+        }
 
         public decimal Efficienty
         {
-            get => _efficienty;
+            get { return GetValue(() => Efficienty); }
             set
             {
-                _efficienty = value;
-                NotifyPropertyChanged();
+                if (value != Efficienty)
+                {
+                    SetValue(() => Efficienty, value);
+                }
             }
         }
     }

@@ -7,96 +7,102 @@ namespace WpfApp.Model
     [Table("Setup")]
     public class Setup : Commun
     {
-        private int _finderId;
-        private Finder _finder;
-        private int _finderAmplifierId;
-        private FinderAmplifier _finderAmplifier;
-        private int _searchModeId;
-        private SearchMode _searchMode;
-        private short _depthEnhancerQty;
-        private short _rangeEnhancerQty;
-        private short _skillEnhancerQty;
-
         public Setup()
         {
-            SearchMode = new SearchMode();
-            Finder = new Finder();
-            FinderAmplifier = new FinderAmplifier();
             PropertyChanged += NomComposition;
+            DepthEnhancerQty = 0;
+            RangeEnhancerQty = 0;
+            SkillEnhancerQty = 0;
         }
 
         public int FinderId
         {
-            get => _finderId;
+            get { return GetValue(() => FinderId); }
             set
             {
-                _finderId = value;
-                NotifyPropertyChanged();
+                if (value != FinderId)
+                {
+                    SetValue(() => FinderId, value);
+                }
             }
         }
 
         public int FinderAmplifierId
         {
-            get => _finderAmplifierId;
+            get { return GetValue(() => FinderAmplifierId); }
             set
             {
-                _finderAmplifierId = value;
-                NotifyPropertyChanged();
+                if (value != FinderAmplifierId)
+                {
+                    SetValue(() => FinderAmplifierId, value);
+                }
             }
         }
 
         [Required(ErrorMessage = "Le mode de recherche est requis dans un setup")]
         public int SearchModeId
         {
-            get => _searchModeId;
+            get { return GetValue(() => SearchModeId); }
             set
             {
-                _searchModeId = value;
-                NotifyPropertyChanged();
+                if (value != SearchModeId)
+                {
+                    SetValue(() => SearchModeId, value);
+                }
             }
         }
 
         [Range(1, 10, ErrorMessage = "Le nombre d'enhancer doit être compris entre 1 et 10")]
         public short DepthEnhancerQty
         {
-            get => _depthEnhancerQty;
+            get { return GetValue(() => DepthEnhancerQty); }
             set
             {
-                _depthEnhancerQty = value;
-                NotifyPropertyChanged();
+                if (value != DepthEnhancerQty)
+                {
+                    SetValue(() => DepthEnhancerQty, value);
+                }
             }
         }
 
         [Range(1, 10, ErrorMessage = "Le nombre d'enhancer doit être compris entre 1 et 10")]
         public short RangeEnhancerQty
         {
-            get => _rangeEnhancerQty;
+            get { return GetValue(() => RangeEnhancerQty); }
             set
             {
-                _rangeEnhancerQty = value;
-                NotifyPropertyChanged();
+                if (value != RangeEnhancerQty)
+                {
+                    SetValue(() => RangeEnhancerQty, value);
+                }
             }
         }
 
         [Range(1, 10, ErrorMessage = "Le nombre d'enhancer doit être compris entre 1 et 10")]
         public short SkillEnhancerQty
         {
-            get => _skillEnhancerQty;
+            get { return GetValue(() => SkillEnhancerQty); }
             set
             {
-                _skillEnhancerQty = value;
-                NotifyPropertyChanged();
+                if (value != SkillEnhancerQty)
+                {
+                    SetValue(() => SkillEnhancerQty, value);
+                }
             }
         }
 
         [ForeignKey("SearchModeId")]
+        [Required(ErrorMessage = "Le mode de recherche est requis dans un setup")]
         public SearchMode SearchMode
         {
-            get => _searchMode;
+            get { return GetValue(() => SearchMode); }
             set
             {
-                _searchMode = value;
-                NotifyPropertyChanged();
+                if (value != SearchMode)
+                {
+                    SetValue(() => SearchMode, value);
+                    SearchModeId = value.Id;
+                }
             }
         }
 
@@ -104,25 +110,30 @@ namespace WpfApp.Model
         [Required(ErrorMessage = "Le finder est requis dans un setup")]
         public virtual Finder Finder
         {
-            get => _finder;
+            get { return GetValue(() => Finder); }
             set
             {
-                _finder = value;
-                NotifyPropertyChanged();
+                if (value != Finder)
+                {
+                    SetValue(() => Finder, value);
+                    FinderId = value.Id;
+                }
             }
         }
 
         [ForeignKey("FinderAmplifierId")]
         public virtual FinderAmplifier FinderAmplifier
         {
-            get => _finderAmplifier;
+            get { return GetValue(() => FinderAmplifier); }
             set
             {
-                _finderAmplifier = value;
-                NotifyPropertyChanged();
+                if (value != FinderAmplifier)
+                {
+                    SetValue(() => FinderAmplifier, value);
+                    FinderAmplifierId = value.Id;
+                }
             }
         }
-
 
         // cree le nom du setup à partir des outils utilises
         private void NomComposition(object sender, PropertyChangedEventArgs e)

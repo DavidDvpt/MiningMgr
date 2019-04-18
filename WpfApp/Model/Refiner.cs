@@ -5,5 +5,9 @@ namespace WpfApp.Model
     [Table("Refiner")]
     public class Refiner : Tool
     {
+        public Refiner()
+        {
+
+        }
     }
 }

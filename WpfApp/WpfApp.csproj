@@ -79,11 +79,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AttributValidation\MaxEnhancer.cs" />
     <Compile Include="BindableBase.cs" />
     <Compile Include="Context\MiningContext.cs" />
     <Compile Include="Migrations\201904180824112_Maj_01.cs" />
     <Compile Include="Migrations\201904180824112_Maj_01.Designer.cs">
       <DependentUpon>201904180824112_Maj_01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904181644164_Maj_02.cs" />
+    <Compile Include="Migrations\201904181644164_Maj_02.Designer.cs">
+      <DependentUpon>201904181644164_Maj_02.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Commands\CmdWithoutParam.cs" />
@@ -179,6 +184,9 @@
     </Compile>
     <EmbeddedResource Include="Migrations\201904180824112_Maj_01.resx">
       <DependentUpon>201904180824112_Maj_01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904181644164_Maj_02.resx">
+      <DependentUpon>201904181644164_Maj_02.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

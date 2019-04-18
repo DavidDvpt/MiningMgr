@@ -24,7 +24,7 @@ namespace WpfApp.ViewModel
             ColumnInit();
             CommandInit();
             genericRepo = new CommunRepository<T>(repos.GetContext());
-            ItemSourceUpdated();
+            DataGridItemSource = genericRepo.GetAll().ToList();
         }
 
         private void CommandInit()
@@ -138,11 +138,6 @@ namespace WpfApp.ViewModel
                     OnPropertyChanged();
                 }
             }
-        }
-
-        protected virtual void ItemSourceUpdated()
-        {
-            DataGridItemSource = genericRepo.GetAll().ToList();
         }
 
         #region Commands et actions

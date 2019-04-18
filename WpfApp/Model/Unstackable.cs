@@ -6,38 +6,47 @@ namespace WpfApp.Model
     [Table("Unstackable")]
     public abstract class Unstackable : InWorld
     {
-        private bool _isLimited = true;
-        private decimal _decay;
-        private string _code = "";
+        public Unstackable()
+        {
+            IsLimited = true;
+            Decay = 0;
+
+        }
 
         [Required]
         public bool IsLimited
         {
-            get => _isLimited;
+            get { return GetValue(() => IsLimited); }
             set
             {
-                _isLimited = value;
-                NotifyPropertyChanged();
+                if (value != IsLimited)
+                {
+                    SetValue(() => IsLimited, value);
+                }
             }
         }
 
         public decimal Decay
         {
-            get => _decay;
+            get { return GetValue(() => Decay); }
             set
             {
-                _decay = value;
-                NotifyPropertyChanged();
+                if (value != Decay)
+                {
+                    SetValue(() => Decay, value);
+                }
             }
         }
 
         public string Code
         {
-            get => _code;
+            get { return GetValue(() => Code); }
             set
             {
-                _code = value;
-                NotifyPropertyChanged();
+                if (value != Code)
+                {
+                    SetValue(() => Code, value);
+                }
             }
         }
     }

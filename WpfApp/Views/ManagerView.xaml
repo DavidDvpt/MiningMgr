@@ -111,7 +111,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource idVis}}"/>
                     <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource nomVis}}"/>
-                    <DataGridTextColumn Header="Categorie" Binding="{Binding CategorieDto.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource categorieNomVis}}"/>
+                    <DataGridTextColumn Header="Categorie" Binding="{Binding Categorie.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource categorieNomVis}}"/>
                     <DataGridTextColumn Header="Modele" Binding="{Binding Modele.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource modeleNomVis}}"/>
                     <DataGridTextColumn Header="Value" Binding="{Binding Value}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource valueVis}}"/>
                     <DataGridCheckBoxColumn Header="Limited" Binding="{Binding IsLimited}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isLimitedVis}}"/>
@@ -199,7 +199,7 @@
                     <Label Name="lbCategorie" Content="Catégorie : " Width="100"/>
                     <ComboBox Name="cbxCategorie" ItemsSource="{Binding Categories}"
                               DisplayMemberPath="Nom"
-                              SelectedItem="{Binding ItemForm.CategorieDto}" Width="150"/>
+                              SelectedItem="{Binding ItemForm.Categorie}" Width="150"/>
                 </StackPanel>
                 
                 <!-- ECONOMIE -->

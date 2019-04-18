@@ -5,15 +5,20 @@ namespace WpfApp.Model
     [Table("Tool")]
     public abstract class Tool : Unstackable
     {
-        private short _usePerMin;
+        public Tool()
+        {
+            UsePerMin = 0;
+        }
 
         public short UsePerMin
         {
-            get => _usePerMin;
+            get { return GetValue(() => UsePerMin); }
             set
             {
-                _usePerMin = value;
-                NotifyPropertyChanged();
+                if (value != UsePerMin)
+                {
+                    SetValue(() => UsePerMin, value);
+                }
             }
         }
     }

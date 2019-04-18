@@ -4,33 +4,38 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace WpfApp.Model
 {
     [Table("ToolAccessoire")]
-    public class ToolAccessoire : BaseModel
+    public class ToolAccessoire : BindableBase
     {
-        private int _toolId;
-        private Modele _tool;
-        private int _accessoireId;
-        private Modele _accessoire;
+        public ToolAccessoire()
+        {
+
+        }
 
         [Key]
         [Column(Order = 1)]
         public int ToolId
         {
-            get => _toolId;
+            get { return GetValue(() => ToolId); }
             set
             {
-                _toolId = value;
-                NotifyPropertyChanged();
+                if (value != ToolId)
+                {
+                    SetValue(() => ToolId, value);
+                }
             }
         }
 
         [ForeignKey("ToolId")]
         public Modele Tool
         {
-            get => _tool;
+            get { return GetValue(() => Tool); }
             set
             {
-                _tool = value;
-                NotifyPropertyChanged();
+                if (value != Tool)
+                {
+                    SetValue(() => Tool, value);
+                    ToolId = value.Id;
+                }
             }
         }
 
@@ -38,22 +43,27 @@ namespace WpfApp.Model
         [Column(Order = 2)]
         public int AccessoireId
         {
-            get => _accessoireId;
+            get { return GetValue(() => AccessoireId); }
             set
             {
-                _accessoireId = value;
-                NotifyPropertyChanged();
+                if (value != AccessoireId)
+                {
+                    SetValue(() => AccessoireId, value);
+                }
             }
         }
 
         [ForeignKey("AccessoireId")]
         public Modele Accessoire
         {
-            get => _accessoire;
+            get { return GetValue(() => Accessoire); }
             set
             {
-                _accessoire = value;
-                NotifyPropertyChanged();
+                if (value != Accessoire)
+                {
+                    SetValue(() => Accessoire, value);
+                    AccessoireId = value.Id;
+                }
             }
         }
     }

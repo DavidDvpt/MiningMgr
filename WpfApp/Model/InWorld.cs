@@ -6,43 +6,46 @@ namespace WpfApp.Model
     [Table("InWorld")]
     public abstract class InWorld : Commun
     {
-        [Required]
-        private decimal _value = 0;
-        private int _modeleId;
-        private Modele _modele;
+        public InWorld()
+        {
+            Value = 0;
+            ModeleId = 0;
+        }
 
         public decimal Value
         {
-            get => _value;
+            get { return GetValue(() => Value); }
             set
             {
-                _value = value;
-                NotifyPropertyChanged();
+                if (value != Value)
+                {
+                    SetValue(() => Value, value);
+                }
             }
         }
 
         public int ModeleId
         {
-            get => _modeleId;
+            get { return GetValue(() => ModeleId); }
             set
             {
-                _modeleId = value;
-                NotifyPropertyChanged();
+                if (value != ModeleId)
+                {
+                    SetValue(() => ModeleId, value);
+                }
             }
         }
 
         [ForeignKey("ModeleId")]
         public virtual Modele Modele
         {
-            get => _modele;
+            get { return GetValue(() => Modele); }
             set
             {
-                _modele = value;
-                if (value != null)
+                if (value != Modele)
                 {
-                    
+                    SetValue(() => Modele, value);
                     ModeleId = value.Id;
-                    NotifyPropertyChanged(); 
                 }
             }
         }

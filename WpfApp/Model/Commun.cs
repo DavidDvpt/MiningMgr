@@ -7,21 +7,21 @@ namespace WpfApp.Model
     [Table("Commun")]
     public abstract class Commun : BindableBase
     {
-        private int _id;
-        private string _nom;
-        private bool _isActive = true;
+        public Commun()
+        {
+            IsActive = true;
+        }
 
         [Key]
         [Required]
         public int Id
         {
-            get => _id;
+            get { return GetValue(() => Id); }
             set
             {
-                if (value != _id)
+                if (value != Id)
                 {
-                    _id = value;
-                    NotifyPropertyChanged();
+                    SetValue(() => Id, value);
                 }
             }
         }
@@ -31,39 +31,25 @@ namespace WpfApp.Model
         [MaxLength(50, ErrorMessage = "La longueur maximum est de 50")]
         [Index(IsUnique = true)]
         [Unique(ErrorMessage ="Ce nom est déjà utilisé")]
-        //public string Nom
-        //{
-        //    get => _nom;
-        //    set
-        //    {
-        //        if (value != _nom)
-        //        {
-        //            _nom = value;
-        //            NotifyPropertyChanged();
-        //        }
-        //    }
-        //}
         public string Nom
         {
-            get
-            {
-                return GetValue(() => Nom);
-            }
+            get { return GetValue(() => Nom); }
             set
             {
-                SetValue(() => Nom, value);
-            }
+                if (Nom != value)
+                {
+                    SetValue(() => Nom, value); 
+                } }
         }
 
         public bool IsActive
         {
-            get => _isActive;
+            get { return GetValue(() => IsActive); }
             set
             {
-                if (value != _isActive)
+                if (value != IsActive)
                 {
-                    _isActive = value;
-                    NotifyPropertyChanged();
+                    SetValue(() => IsActive, value);
                 }
             }
         }

@@ -7,49 +7,48 @@ namespace WpfApp.Model
     [Table("Modele")]
     public class Modele : Commun
     {
-        private bool _isStackable = false;
-        private int _categorieId;
-        private Categorie _categorie;
+        public Modele()
+        {
+            IsStackable = false;
+            CategorieId = 0;
+        }
 
         [Required]
         public bool IsStackable
         {
-            get => _isStackable;
+            get { return GetValue(() => IsStackable); }
             set
             {
-                if (value != _isStackable)
+                if (value != IsStackable)
                 {
-                    _isStackable = value;
-                    NotifyPropertyChanged();
+                    SetValue(() => IsStackable, value);
                 }
             }
         }
 
         public int CategorieId
         {
-            get => _categorieId;
+            get { return GetValue(() => CategorieId); }
             set
             {
-                if (value != _categorieId)
+                if (value != CategorieId)
                 {
-                    _categorieId = value;
-                    NotifyPropertyChanged();
+                    SetValue(() => CategorieId, value);
                 }
             }
         }
 
-        [ForeignKey("CategorieId")]
         [Required]
+        [ForeignKey("CategorieId")]
         public virtual Categorie Categorie
         {
-            get => _categorie;
+            get { return GetValue(() => Categorie); }
             set
             {
-                if (value != _categorie)
+                if (value != Categorie)
                 {
-                    _categorie = value;
-                    CategorieId = Categorie.Id;
-                    NotifyPropertyChanged();
+                    SetValue(() => Categorie, value);
+                    CategorieId = value.Id;
                 }
             }
         }

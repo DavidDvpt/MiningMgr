@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using WpfApp.Context;
+using System.Collections.Generic;
 
 namespace WpfApp.Repositories
 {
@@ -22,16 +23,30 @@ namespace WpfApp.Repositories
 
         public T Add(T entity)
         {
+            AttachEntity(entity);
+            DbSet.Add(entity);
+            SaveChanges();
+            return entity;
+        }
+
+        public void AddRange(List<T> entities)
+        {
+            List<T> list = new List<T>();
+            foreach (T entity in entities)
+            {
+                DbSet.Add(AttachEntity(entity));
+            }
+
+            SaveChanges();
+        }
+
+        private T AttachEntity(T entity)
+        {
             DbEntityEntry dbEntityEntry = Context.Entry(entity);
             if (dbEntityEntry.State != EntityState.Detached)
             {
                 dbEntityEntry.State = EntityState.Added;
             }
-            else
-            {
-                DbSet.Add(entity);
-            }
-            SaveChanges();
             return entity;
         }
 

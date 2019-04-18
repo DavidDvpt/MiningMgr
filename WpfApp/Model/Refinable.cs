@@ -6,23 +6,17 @@ namespace WpfApp.Model
     [Table("Refinable")]
     public class Refinable : BindableBase
     {
-        private int _unrefinedId;
-        private int _refinedId;
-        private Material _unrefinedMaterial;
-        private Material _refinedMaterial;
-        private int _quantity = 1;
 
         [Key]
         [Column(Order = 1)]
         public int UnrefinedId
         {
-            get { return _unrefinedId; }
+            get { return GetValue(() => UnrefinedId); }
             set
             {
-                if (UnrefinedId != value)
+                if (value != UnrefinedId)
                 {
-                    _unrefinedId = value;
-                    OnPropertyChanged();
+                    SetValue(() => UnrefinedId, value);
                 }
             }
         }
@@ -31,13 +25,12 @@ namespace WpfApp.Model
         [Column(Order = 2)]
         public int RefinedId
         {
-            get { return _refinedId; }
+            get { return GetValue(() => RefinedId); }
             set
             {
-                if (RefinedId != value)
+                if (value != RefinedId)
                 {
-                    _refinedId = value;
-                    OnPropertyChanged();
+                    SetValue(() => RefinedId, value);
                 }
             }
         }
@@ -45,13 +38,13 @@ namespace WpfApp.Model
         [ForeignKey("UnrefinedId")]
         public Material UnrefinedMaterial
         {
-            get { return _unrefinedMaterial; }
+            get { return GetValue(() => UnrefinedMaterial); }
             set
             {
-                if (UnrefinedMaterial != value)
+                if (value != UnrefinedMaterial)
                 {
-                    _unrefinedMaterial = value;
-                    OnPropertyChanged();
+                    SetValue(() => UnrefinedMaterial, value);
+                    UnrefinedId = value.Id;
                 }
             }
         }
@@ -59,26 +52,25 @@ namespace WpfApp.Model
         [ForeignKey("RefinedId")]
         public Material RefinedMaterial
         {
-            get { return _refinedMaterial; }
+            get { return GetValue(() => RefinedMaterial); }
             set
             {
-                if (RefinedMaterial != value)
+                if (value != RefinedMaterial)
                 {
-                    _refinedMaterial = value;
-                    OnPropertyChanged();
+                    SetValue(() => RefinedMaterial, value);
+                    RefinedId = value.Id;
                 }
             }
         }
 
         public int Quantity
         {
-            get { return _quantity; }
+            get { return GetValue(() => Quantity); }
             set
             {
-                if (_quantity != value)
+                if (value != Quantity)
                 {
-                    _quantity = value;
-                    OnPropertyChanged();
+                    SetValue(() => Quantity, value);
                 }
             }
         }

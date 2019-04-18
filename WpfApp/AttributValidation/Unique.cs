@@ -17,7 +17,7 @@ namespace WpfApp.AttributValidation
 
             //Verification que le Nom n'existe pas avec un id different
             // si on verifie pas l'il, la notification Unique se declenche si simmple modif de l'item
-            var contains = repo.GetContext().Communs.Any(x => x.Nom.Contains(value.ToString()) && x.Id != actualId);
+            var contains = repo.GetContext().Communs.Any(x => x.Nom == value.ToString() && x.Id != actualId);
 
             if (contains)
             {

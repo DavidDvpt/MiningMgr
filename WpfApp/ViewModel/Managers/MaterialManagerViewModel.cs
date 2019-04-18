@@ -6,7 +6,6 @@ namespace WpfApp.ViewModel
 {
     public class MaterialManagerViewModel : ManagerViewModel<Material>
     {
-        private Modele _selectedModele;
         public ICollection<Modele> Modeles { get; set; }
 
         protected override void ColumnInit()
@@ -25,16 +24,18 @@ namespace WpfApp.ViewModel
 
         public Modele SelectedModele
         {
-            get { return _selectedModele; }
+            get { return GetValue(() => SelectedModele); }
             set
             {
-                _selectedModele = value;
-                ItemSourceUpdated();
-                OnPropertyChanged();
+                if (SelectedModele != value)
+                {
+                    SetValue(() => SelectedModele, value);
+                    ItemSourceUpdated();
+                }
             }
         }
 
-        protected override void ItemSourceUpdated()
+        protected void ItemSourceUpdated()
         {
             DataGridItemSource = repos.Materials.GetByModeleId(SelectedModele.Id);
         }
