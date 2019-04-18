@@ -24,7 +24,7 @@ namespace WpfApp.ViewModel
             ColumnInit();
             CommandInit();
             genericRepo = new CommunRepository<T>(repos.GetContext());
-            ItemSourceLoad();
+            ItemSourceUpdated();
         }
 
         private void CommandInit()
@@ -93,7 +93,11 @@ namespace WpfApp.ViewModel
         #endregion
 
         #region Enabled Champ Formulaire
-        public bool NomFormEnabled { get; set; } = false;
+        public bool NomFormEnabled
+        {
+            get { return GetValue(() => NomFormEnabled); }
+            set { SetValue(() => NomFormEnabled, value); }
+        }
         #endregion
 
         public T DgSelectedItem
@@ -134,11 +138,6 @@ namespace WpfApp.ViewModel
                     OnPropertyChanged();
                 }
             }
-        }
-
-        protected virtual void ItemSourceLoad()
-        {
-            DataGridItemSource = genericRepo.GetAll().ToList();
         }
 
         protected virtual void ItemSourceUpdated()

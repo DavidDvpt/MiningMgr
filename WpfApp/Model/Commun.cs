@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using WpfApp.AttributValidation;
 
 namespace WpfApp.Model
 {
     [Table("Commun")]
-    public abstract class Commun : BaseModel
+    public abstract class Commun : BindableBase
     {
         private int _id;
         private string _nom;
@@ -29,16 +30,28 @@ namespace WpfApp.Model
         [Column(TypeName = "VARCHAR")]
         [MaxLength(50, ErrorMessage = "La longueur maximum est de 50")]
         [Index(IsUnique = true)]
+        [Unique(ErrorMessage ="Ce nom est déjà utilisé")]
+        //public string Nom
+        //{
+        //    get => _nom;
+        //    set
+        //    {
+        //        if (value != _nom)
+        //        {
+        //            _nom = value;
+        //            NotifyPropertyChanged();
+        //        }
+        //    }
+        //}
         public string Nom
         {
-            get => _nom;
+            get
+            {
+                return GetValue(() => Nom);
+            }
             set
             {
-                if (value != _nom)
-                {
-                    _nom = value;
-                    NotifyPropertyChanged();
-                }
+                SetValue(() => Nom, value);
             }
         }
 

@@ -163,7 +163,13 @@
                 <StackPanel Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource nomVis}}">
                     <StackPanel Name="spNom" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource nomVis}}">
                         <Label Name="lbnom" Content="Nom : " Width="100"/>
-                        <TextBox Name="tbxNom" Text="{Binding ItemForm.Nom}" Width="220" IsEnabled="{Binding NomFormEnabled}" />
+                        <TextBox Name="tbxNom"
+                                 Text="{Binding ItemForm.Nom, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
+                                 Width="220"
+                                 IsEnabled="{Binding NomFormEnabled}"
+                                 Validation.Error="Validation_Error"
+                                 />
+                        <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxNom}" Foreground="Red" Margin="5,0,0,0"/>
                     </StackPanel>
                     <StackPanel Name="spCode" Orientation="Horizontal" Margin="10,0,0,0" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource codeVis}}">
                         <Label Name="lbCode" Content="Code : " Width="50"/>

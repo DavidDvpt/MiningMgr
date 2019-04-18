@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 
 namespace WpfApp
 {
-    public class BindableBase : INotifyPropertyChanged, IDataErrorInfo
+    public abstract class BindableBase : INotifyPropertyChanged, IDataErrorInfo
     {
         #region Fields
 
@@ -119,11 +119,6 @@ namespace WpfApp
             return error;
         }
 
-        protected void ValidationError(object sender, System.Windows.Controls.ValidationErrorEventArgs e)
-        {
-            if (e.Action == System.Windows.Controls.ValidationErrorEventAction.Added) Errors += 1;
-            if (e.Action == System.Windows.Controls.ValidationErrorEventAction.Added) Errors -= 1;
-        }
         #endregion
 
         #region Change Notification
@@ -137,7 +132,7 @@ namespace WpfApp
         /// Raises this object's PropertyChanged event.
         /// </summary>
         /// <param name="propertyName">The property that has a new value.</param>
-        protected void NotifyPropertyChanged(string propertyName)
+        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
         {
             this.VerifyPropertyName(propertyName);
 
@@ -161,7 +156,8 @@ namespace WpfApp
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            NotifyPropertyChanged(propertyName);
+            //PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
 
         #endregion
