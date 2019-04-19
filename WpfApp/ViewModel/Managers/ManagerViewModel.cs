@@ -16,7 +16,6 @@ namespace WpfApp.ViewModel
         protected ICommunRepository<T> genericRepo; // repository generique utilisé par 80% des manager
         protected ICollection<T> _dataGridItemSource; // source du datagrid principal
 
-        
         #endregion
 
         public ManagerViewModel()
