@@ -87,6 +87,7 @@
                               DisplayMemberPath="Nom"
                               SelectedItem="{Binding SelectedModele}" Width="150"/>
             </StackPanel>
+            
             <Grid DockPanel.Dock="Bottom" Height="40">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -139,6 +140,19 @@
         <!--FORMULAIRE-->
         <DockPanel Grid.Column="2">
             <DockPanel.Resources>
+                <Style x:Key="spBlocControl" TargetType="StackPanel">
+                    <Setter Property="Height" Value="30"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Margin" Value="5"/>
+                </Style>
+                <Style TargetType="Label">
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Margin" Value="5,0"/>
+                </Style>
+                <Style TargetType="CheckBox">
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Margin" Value="5,0"/>
+                </Style>
             </DockPanel.Resources>
             <!-- BOUTONS -->
             <Grid DockPanel.Dock="Bottom" Height="40">
@@ -157,38 +171,29 @@
                 </StackPanel.Resources>
                 
                 <!-- Infos generales -->
-                <StackPanel Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource nomVis}}">
+
+                <StackPanel Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource nomVis}}" Style="{StaticResource spBlocControl}">
                     <StackPanel Name="spNom" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource nomVis}}">
-                        <Label Name="lbnom" Content="Nom : " Width="100"/>
-                        <TextBox Name="tbxNom"
-                                 Text="{Binding ItemForm.Nom, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
-                                 Width="220"
-                                 IsEnabled="{Binding NomFormEnabled}"
-                                 Validation.Error="Validation_Error"
-                                 />
+                        <Label Name="lbNom" Content="Nom : " Width="100"/>
+                        <TextBox Name="tbxNom" Text="{Binding ItemForm.Nom, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
+                                 Width="220" IsEnabled="{Binding NomFormEnabled}" Validation.Error="Validation_Error"/>
                         <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxNom}" Foreground="Red" Margin="5,0,0,0"/>
                     </StackPanel>
-                    <StackPanel Name="spCode" Orientation="Horizontal" Margin="10,0,0,0" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource codeVis}}">
+                    <StackPanel Name="spCode" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource codeVis}}">
                         <Label Name="lbCode" Content="Code : " Width="50"/>
                         <TextBox Name="tbxCode" Text="{Binding ItemForm.Code}" Width="50"/>
                     </StackPanel>
-                    <StackPanel Name="spAbbrev" Orientation="Horizontal" Margin="10,0,0,0" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource abbrevVis}}">
+                    <StackPanel Name="spAbbrev" Orientation="Horizontal" Margin="10,0,0,0" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource abbrevVis}}" Style="{StaticResource spBlocControl}">
                         <Label Name="lbAbbrev" Content="Abbrev : " Width="50"/>
                         <TextBox Name="tbxAbbrev" Text="{Binding ItemForm.Abbrev}" Width="50"/>
                     </StackPanel>
                 </StackPanel>
 
                 <!-- Checkbox -->
-                <StackPanel Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isActiveVis}}">
-                    <StackPanel Name="spIsActive" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isActiveVis}}">
-                        <Label Name="lbIsActive" Content="Actif : " Width="50"/>
-                        <CheckBox Name="ckxIsActive" IsChecked="{Binding ItemForm.IsActive}" Width="50"/>
-                    </StackPanel>
-                
-                    <StackPanel Name="spIsLimited" Grid.Column="2" Orientation="Horizontal" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isLimitedVis}}">
-                        <Label Name="lbLimited" Content="Limited : " Width="50"/>
-                        <CheckBox Name="ckxLimited" IsChecked="{Binding ItemForm.IsActive}" Width="50"/>
-                    </StackPanel>
+                <StackPanel Orientation="Horizontal" Style="{StaticResource spBlocControl}">
+                    <CheckBox Name="ckxIsActive" IsChecked="{Binding ItemForm.IsActive}" Width="100" Content="Actif :" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isActiveVis}}"/>
+
+                    <CheckBox Name="ckxLimited" IsChecked="{Binding ItemForm.IsActive}" Width="100" Content="Limited" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isLimitedVis}}"/>
                 </StackPanel>
                 
                 <!-- MODELE -->

@@ -168,7 +168,7 @@ namespace WpfApp
         {
             get
             {
-                throw new NotSupportedException("IDataErrorInfo.Error n'est pas supporté, utiliser plutot IDataErrorInfo.this[propertyName]");
+                return "";//throw new NotSupportedException("IDataErrorInfo.Error n'est pas supporté, utiliser plutot IDataErrorInfo.this[propertyName]");
             }
         }
 
