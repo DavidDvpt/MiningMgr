@@ -93,8 +93,8 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Name="btnUpdate" Content="Modifier" Command="{Binding UpdateButton}" IsEnabled="{Binding ModifyBtnEnabled}" />
-                <Button Name="btnCreate" Content="Créer" Grid.Column="1" Command="{Binding CreateButton}" IsEnabled="{Binding CreateBtnEnabled}"/>
+                <Button Name="btnUpdate" Content="Modifier" Command="{Binding UpdateButton}" />
+                <Button Name="btnCreate" Content="Créer" Grid.Column="1" Command="{Binding CreateButton}"/>
             </Grid>
             
             <!-- DATAGRID-->
@@ -148,8 +148,8 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Name="btnValider" Content="Sauver" Command="{Binding ValiderButton}" IsEnabled="{Binding ValidateBtnEnabled}"/>
-                <Button Name="btnAnnuler" Grid.Column="1" Content="Annuler" Command="{Binding AnnulerButton}" IsEnabled="{Binding CancelBtnEnabled}"/>
+                <Button Name="btnValider" Content="Sauver" Command="{Binding SubmitButton}"/>
+                <Button Name="btnAnnuler" Grid.Column="1" Content="Annuler" Command="{Binding CancelButton}" IsEnabled="{Binding CancelBtnCanExecute}"/>
             </Grid>
             
             <!-- FORMULAIRE -->

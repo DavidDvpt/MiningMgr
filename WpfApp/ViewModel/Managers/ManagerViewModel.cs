@@ -12,7 +12,7 @@ namespace WpfApp.ViewModel
         #region attributs
         protected T _dgSelectedItem;// item seectionné ds le datagrid
         protected T _itemForm;  // Item actif du formulaire
-        protected bool ModifySelected = false; // indique que l'item du datagrid selectionne est en cours de modification
+        //protected bool ModifySelected = false; // indique que l'item du datagrid selectionne est en cours de modification
         protected ICommunRepository<T> genericRepo; // repository generique utilisé par 80% des manager
         protected ICollection<T> _dataGridItemSource; // source du datagrid principal
 
@@ -30,8 +30,8 @@ namespace WpfApp.ViewModel
         {
             UpdateButton = new CmdWithoutParam(UpdateItem, ModifyBtnCanExecute);
             CreateButton = new CmdWithoutParam(CreateItem, CreateBtnCanExecute);
-            ValiderButton = new CmdWithoutParam(ValiderItem, ValidateBtnCanExecute);
-            AnnulerButton = new CmdWithoutParam(AnnulerItem, CancelBtnCanExecute);
+            SubmitButton = new CmdWithoutParam(SubmitItem, ValidateBtnCanExecute);
+            CancelButton = new CmdWithoutParam(CancelItem, CancelBtnCanExecute);
         }
 
         protected abstract void ColumnInit();
@@ -107,7 +107,7 @@ namespace WpfApp.ViewModel
                 if (_dgSelectedItem != value)
                 {
                     _dgSelectedItem = value;
-                    RaiseCanExecuteChanged();
+                    //RaiseCanExecuteChanged();
                     OnPropertyChanged();
                 }
             }
@@ -142,46 +142,34 @@ namespace WpfApp.ViewModel
         #region Commands et actions
         public CmdWithoutParam UpdateButton { get; private set; }
         public CmdWithoutParam CreateButton { get; private set; }
-        public CmdWithoutParam ValiderButton { get; private set; }
-        public CmdWithoutParam AnnulerButton { get; private set; }
+        public CmdWithoutParam SubmitButton { get; private set; }
+        public CmdWithoutParam CancelButton { get; private set; }
 
         private void UpdateItem()
         {
             ItemForm = DgSelectedItem;
             DgSelectedItem = null;
-            RaiseCanExecuteChanged();
+            //RaiseCanExecuteChanged();
         }
 
         protected virtual void CreateItem()
         {
             ItemForm = new T();
             NomFormEnabled = true;
-            RaiseCanExecuteChanged();
+            //RaiseCanExecuteChanged();
         }
 
-        protected virtual void ValiderItem()
+        protected virtual void SubmitItem()
         {
-            //if (ModifySelected)
-            //{
-            //    genericRepo.Update(ItemForm);
-            //}
-            //else
-            //{
-            //    genericRepo.Add(ItemForm);
-            //    ModifySelected = false;                
-            //}
-            //ItemForm = null;
-            //ItemSourceUpdated();
-            ////OnValidateBtnClick();
             ItemForm = null;
             NomFormEnabled = false;
         }
 
-        private void AnnulerItem()
+        private void CancelItem()
         {
             ItemForm = null;
             NomFormEnabled = false;
-            RaiseCanExecuteChanged();
+            //RaiseCanExecuteChanged();
         }
         #endregion
 
@@ -211,8 +199,8 @@ namespace WpfApp.ViewModel
         {
             UpdateButton.RaiseCanExecuteChanged();
             CreateButton.RaiseCanExecuteChanged();
-            ValiderButton.RaiseCanExecuteChanged();
-            AnnulerButton.RaiseCanExecuteChanged();
+            SubmitButton.RaiseCanExecuteChanged();
+            CancelButton.RaiseCanExecuteChanged();
         }
         #endregion
     }
