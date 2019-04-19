@@ -3,55 +3,55 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:root="clr-namespace:WpfApp"
+             xmlns:dps="clr-namespace:WpfApp.DependencyProperties"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
     <UserControl.Resources>
         <!-- Affichage ou non des colonnes du datagrid et des stackpanel du formulaire -->
         <!-- Commun -->
-        <root:DataGridColumnVisibilityBinding x:Key="idVis" Data="{Binding IdVisibility}"/>
-        <root:DataGridColumnVisibilityBinding x:Key="nomVis" Data="{Binding NomVisibility}"/>
-        <root:DataGridColumnVisibilityBinding x:Key="isActiveVis" Data="{Binding IsActiveVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="idVis" Data="{Binding IdVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="nomVis" Data="{Binding NomVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="isActiveVis" Data="{Binding IsActiveVisibility}"/>
         <!-- Modele -->
-        <root:DataGridColumnVisibilityBinding x:Key="categorieNomVis" Data="{Binding CategorieNomVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="categorieNomVis" Data="{Binding CategorieNomVisibility}"/>
         <!-- InWorld -->
-        <root:DataGridColumnVisibilityBinding x:Key="modeleNomVis" Data="{Binding ModeleNomVisibility}"/>
-        <root:DataGridColumnVisibilityBinding x:Key="valueVis" Data="{Binding ValueVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="modeleNomVis" Data="{Binding ModeleNomVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="valueVis" Data="{Binding ValueVisibility}"/>
         <!-- Unstackable-->
-        <root:DataGridColumnVisibilityBinding x:Key="isLimitedVis" Data="{Binding IsLimitedVisibility}"/>
-        <root:DataGridColumnVisibilityBinding x:Key="decayVis" Data="{Binding DecayVisibility}"/>
-        <root:DataGridColumnVisibilityBinding x:Key="codeVis" Data="{Binding CodeVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="isLimitedVis" Data="{Binding IsLimitedVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="decayVis" Data="{Binding DecayVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="codeVis" Data="{Binding CodeVisibility}"/>
         <!-- Tool -->
-        <root:DataGridColumnVisibilityBinding x:Key="usePerMinVis" Data="{Binding UsePerMinVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="usePerMinVis" Data="{Binding UsePerMinVisibility}"/>
         <!-- Finder -->
-        <root:DataGridColumnVisibilityBinding x:Key="depthVis" Data="{Binding DepthVisibility}"/>
-        <root:DataGridColumnVisibilityBinding x:Key="rangeVis" Data="{Binding RangeVisibility}"/>
-        <root:DataGridColumnVisibilityBinding x:Key="basePecSearchVis" Data="{Binding BasePecSearchVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="depthVis" Data="{Binding DepthVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="rangeVis" Data="{Binding RangeVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="basePecSearchVis" Data="{Binding BasePecSearchVisibility}"/>
         <!-- Excavator -->
-        <root:DataGridColumnVisibilityBinding x:Key="efficientyVis" Data="{Binding EfficientyVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="efficientyVis" Data="{Binding EfficientyVisibility}"/>
         
         <!-- Finder Amplifier -->
-        <root:DataGridColumnVisibilityBinding x:Key="coefficientVis" Data="{Binding CoefficientVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="coefficientVis" Data="{Binding CoefficientVisibility}"/>
         
         <!-- Enhancers -->
-        <root:DataGridColumnVisibilityBinding x:Key="bonusValue1Vis" Data="{Binding BonusValue1Visibility}"/>
-        <root:DataGridColumnVisibilityBinding x:Key="bonusValue2Vis" Data="{Binding BonusValue2Visibility}"/>
-        <root:DataGridColumnVisibilityBinding x:Key="slotVis" Data="{Binding SlotVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="bonusValue1Vis" Data="{Binding BonusValue1Visibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="bonusValue2Vis" Data="{Binding BonusValue2Visibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="slotVis" Data="{Binding SlotVisibility}"/>
         
         <!-- SearchMode -->
-        <root:DataGridColumnVisibilityBinding x:Key="abbrevVis" Data="{Binding AbbrevVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="abbrevVis" Data="{Binding AbbrevVisibility}"/>
         
         <!-- Setup -->
-        <root:DataGridColumnVisibilityBinding x:Key="multiplicateurVis" Data="{Binding MultiplicateurVisibility}"/>
-        <root:DataGridColumnVisibilityBinding x:Key="searchModeVis" Data="{Binding SearchModeVisibility}"/>
-        <root:DataGridColumnVisibilityBinding x:Key="finderVis" Data="{Binding FinderVisibility}"/>
-        <root:DataGridColumnVisibilityBinding x:Key="finderAmplifierVis" Data="{Binding FinderAmplifierVisibility}"/>
-        <root:DataGridColumnVisibilityBinding x:Key="depthEnhancerQtyVis" Data="{Binding DepthEnhancerQtyVisibility}"/>
-        <root:DataGridColumnVisibilityBinding x:Key="rangeEnhancerQtyVis" Data="{Binding RangeEnhancerQtyVisibility}"/>
-        <root:DataGridColumnVisibilityBinding x:Key="skillEnhancerQtyVis" Data="{Binding SkillEnhancerQtyVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="multiplicateurVis" Data="{Binding MultiplicateurVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="searchModeVis" Data="{Binding SearchModeVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="finderVis" Data="{Binding FinderVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="finderAmplifierVis" Data="{Binding FinderAmplifierVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="depthEnhancerQtyVis" Data="{Binding DepthEnhancerQtyVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="rangeEnhancerQtyVis" Data="{Binding RangeEnhancerQtyVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="skillEnhancerQtyVis" Data="{Binding SkillEnhancerQtyVisibility}"/>
 
-        <root:DataGridColumnVisibilityBinding x:Key="cbxModelesChoiceEnabled" Data="{Binding CbxModelesChoiceVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="cbxModelesChoiceEnabled" Data="{Binding CbxModelesChoiceVisibility}"/>
 
         <Style TargetType="StackPanel">
             <Setter Property="Background" Value="LightGray"/>
@@ -68,24 +68,7 @@
         <Style TargetType="TextBox">
             <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
-        <Style TargetType="Button">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border
-                            CornerRadius="8"
-                            BorderBrush="Black"
-                            BorderThickness="1"
-                            Margin="5,2">
-                            <ContentPresenter Margin="2"
-                                              HorizontalAlignment="Center"
-                                              VerticalAlignment="Center"
-                                              />
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+
     </UserControl.Resources>
     
     <Grid>

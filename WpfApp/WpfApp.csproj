@@ -111,7 +111,7 @@
     <Compile Include="Context\SeedClass.cs" />
     <Compile Include="AttributValidation\Unique.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
-    <Compile Include="DataGridColumnVisibilityBinding.cs" />
+    <Compile Include="DependencyProperties\DataGridColumnVisibilityBinding.cs" />
     <Compile Include="ViewModel\Managers\EnhancerManagerViewModel.cs" />
     <Compile Include="ViewModel\Managers\FinderAmplifierManagerViewModel.cs" />
     <Compile Include="ViewModel\Managers\ExcavatorManagerViewModel.cs" />
