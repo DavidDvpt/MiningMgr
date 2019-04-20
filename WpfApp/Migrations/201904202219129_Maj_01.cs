@@ -203,7 +203,7 @@ namespace WpfApp.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false),
-                        Abbrev = c.String(),
+                        Abbrev = c.String(maxLength: 3),
                         Multiplicateur = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => t.Id)

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
+using WpfApp.Commands;
 using WpfApp.Model;
 using WpfApp.Repositories;
 using WpfApp.Repositories.Interfaces;
@@ -10,31 +12,34 @@ namespace WpfApp.ViewModel
         where T : Commun, new()
     {
         #region attributs
-        protected T _dgSelectedItem;// item seectionné ds le datagrid
-        protected T _itemForm;  // Item actif du formulaire
-        //protected bool ModifySelected = false; // indique que l'item du datagrid selectionne est en cours de modification
+        
+        //protected T _dgSelectedItem;// item seectionné ds le datagrid
+        //protected T _itemForm;  // Item actif du formulaire
         protected ICommunRepository<T> genericRepo; // repository generique utilisé par 80% des manager
-        protected ICollection<T> _dataGridItemSource; // source du datagrid principal
 
         #endregion
 
+        #region Constructeurs et Initialisations
+
         public ManagerViewModel()
         {
-            ColumnInit();
             CommandInit();
+            ColumnInit();
             genericRepo = new CommunRepository<T>(repos.GetContext());
-            DataGridItemSource = genericRepo.GetAll().ToList();
+            DataGridItemSourceLoad();
         }
 
         private void CommandInit()
         {
-            UpdateButton = new CmdWithoutParam(UpdateItem, ModifyBtnCanExecute);
-            CreateButton = new CmdWithoutParam(CreateItem, CreateBtnCanExecute);
-            SubmitButton = new CmdWithoutParam(SubmitItem, ValidateBtnCanExecute);
-            CancelButton = new CmdWithoutParam(CancelItem, CancelBtnCanExecute);
+            UpdateCommand = new RelayCommand(UpdateExecute, UpdateCanExecute);
+            CreateCommand = new RelayCommand(CreateExecute, CreateCanExecute);
+            SubmitCommand = new RelayCommand(SubmitExecute, SubmitCanExecute);
+            CancelCommand = new RelayCommand(CancelExecute, CancelCanExecute);
         }
 
         protected abstract void ColumnInit();
+
+        #endregion  
 
         // Affichage ou non des colonnes du datagrid  ou des control )
         // à l'initialisation de la classe
@@ -92,116 +97,140 @@ namespace WpfApp.ViewModel
         #endregion
 
         #region Enabled Champ Formulaire
+
         public bool NomFormEnabled
         {
             get { return GetValue(() => NomFormEnabled); }
-            set { SetValue(() => NomFormEnabled, value); }
-        }
-        #endregion
-
-        public T DgSelectedItem
-        {
-            get => _dgSelectedItem;
             set
             {
-                if (_dgSelectedItem != value)
+                if (NomFormEnabled != value)
                 {
-                    _dgSelectedItem = value;
-                    //RaiseCanExecuteChanged();
-                    OnPropertyChanged();
+                    SetValue(() => NomFormEnabled, value); 
                 }
             }
         }
 
-        public T ItemForm
+        #endregion
+
+        #region Datagrid
+
+        protected virtual void DataGridItemSourceLoad()
         {
-            get => _itemForm;
+            DataGridItemSource = genericRepo.GetAll().ToList();
+        }
+
+        public T DgSelectedItem
+        {
+            get { return GetValue(() => DgSelectedItem); }
             set
             {
-                if (_itemForm != value)
+                if (DgSelectedItem != value)
                 {
-                    _itemForm = value;
-                    OnPropertyChanged();
+                    SetValue(() =>DgSelectedItem, value);
                 }
             }
         }
 
         public ICollection<T> DataGridItemSource
         {
-            get { return _dataGridItemSource; }
+            get { return GetValue(() => DataGridItemSource); }
             set
             {
-                if (_dataGridItemSource != value)
+                if (DataGridItemSource != value)
                 {
-                    _dataGridItemSource = value;
-                    OnPropertyChanged();
+                    SetValue(() => DataGridItemSource, value);
                 }
             }
         }
 
-        #region Commands et actions
-        public CmdWithoutParam UpdateButton { get; private set; }
-        public CmdWithoutParam CreateButton { get; private set; }
-        public CmdWithoutParam SubmitButton { get; private set; }
-        public CmdWithoutParam CancelButton { get; private set; }
+        #endregion
 
-        private void UpdateItem()
+        #region Formulaire
+
+        public T ItemForm
+        {
+            get => GetValue(() => ItemForm);
+            set
+            {
+                if (ItemForm != value)
+                {
+                    SetValue(() => ItemForm, value);
+                }
+            }
+        }
+
+        #region Execute
+
+        public RelayCommand UpdateCommand { get; set; }
+        public RelayCommand CreateCommand { get; set; }
+        public RelayCommand SubmitCommand { get; set; }
+        public RelayCommand CancelCommand { get; set; }
+
+        public void UpdateExecute(object param)
         {
             ItemForm = DgSelectedItem;
             DgSelectedItem = null;
-            //RaiseCanExecuteChanged();
         }
-
-        protected virtual void CreateItem()
+        public virtual void CreateExecute(object param)
         {
             ItemForm = new T();
             NomFormEnabled = true;
-            //RaiseCanExecuteChanged();
         }
+        public virtual void SubmitExecute(object param)
+        {
+            genericRepo.Add(ItemForm);
+            DataGridItemSourceLoad();
+            AfficherMessage();
+            ItemForm = null;
+            NomFormEnabled = false;
 
-        protected virtual void SubmitItem()
+        }
+        public void CancelExecute(object param)
         {
             ItemForm = null;
             NomFormEnabled = false;
-        }
-
-        private void CancelItem()
-        {
-            ItemForm = null;
-            NomFormEnabled = false;
             //RaiseCanExecuteChanged();
         }
+        
         #endregion
 
-        #region Gestion Des Boutons
+        #region Can Execute
 
-        public bool CancelBtnCanExecute()
+        public bool CancelCanExecute(object param)
         {
             return ItemForm == null ? false : true;
         }
-
-        public bool ModifyBtnCanExecute()
+        public bool UpdateCanExecute(object param)
         {
             return ((DgSelectedItem != null) && (ItemForm == null)) ? true : false;
         }
-
-        public bool CreateBtnCanExecute()
+        public bool CreateCanExecute(object param)
         {
             return ItemForm == null ? true : false;
         }
-
-        public bool ValidateBtnCanExecute()
+        public bool SubmitCanExecute(object param)
         {
-            return false;
+            if (ItemForm == null)
+            {
+                return false;
+            }
+            if (Errors == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        private void RaiseCanExecuteChanged()
-        {
-            UpdateButton.RaiseCanExecuteChanged();
-            CreateButton.RaiseCanExecuteChanged();
-            SubmitButton.RaiseCanExecuteChanged();
-            CancelButton.RaiseCanExecuteChanged();
-        }
         #endregion
+
+        #endregion
+
+        private void AfficherMessage()
+        {
+            MessageBox.Show("l'item " + ItemForm.Nom + "a bien été ajouté", "Info",MessageBoxButton.OK,MessageBoxImage.Information);
+        }
     }
 }

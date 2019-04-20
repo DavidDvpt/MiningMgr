@@ -12,9 +12,7 @@ namespace WpfApp
     public abstract class BindableBase : INotifyPropertyChanged, IDataErrorInfo
     {
         #region Fields
-
         private readonly Dictionary<string, object> _values = new Dictionary<string, object>();
-
         #endregion
 
         public static int Errors { get; set; }

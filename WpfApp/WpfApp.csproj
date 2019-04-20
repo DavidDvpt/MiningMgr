@@ -82,17 +82,13 @@
     <Compile Include="AttributValidation\MaxEnhancer.cs" />
     <Compile Include="BindableBase.cs" />
     <Compile Include="Context\MiningContext.cs" />
-    <Compile Include="Migrations\201904180824112_Maj_01.cs" />
-    <Compile Include="Migrations\201904180824112_Maj_01.Designer.cs">
-      <DependentUpon>201904180824112_Maj_01.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904181644164_Maj_02.cs" />
-    <Compile Include="Migrations\201904181644164_Maj_02.Designer.cs">
-      <DependentUpon>201904181644164_Maj_02.cs</DependentUpon>
+    <Compile Include="Migrations\201904202219129_Maj_01.cs" />
+    <Compile Include="Migrations\201904202219129_Maj_01.Designer.cs">
+      <DependentUpon>201904202219129_Maj_01.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Commands\CmdWithoutParam.cs" />
-    <Compile Include="Commands\CmdWithStringParam.cs" />
+    <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Model\BaseModel.cs" />
     <Compile Include="Model\FinderAmplifier.cs" />
     <Compile Include="Model\Interfaces\ICommun.cs" />
@@ -182,11 +178,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201904180824112_Maj_01.resx">
-      <DependentUpon>201904180824112_Maj_01.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904181644164_Maj_02.resx">
-      <DependentUpon>201904181644164_Maj_02.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904202219129_Maj_01.resx">
+      <DependentUpon>201904202219129_Maj_01.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -12,10 +12,10 @@ namespace WpfApp.ViewModel
 
         protected override void Init()
         {
-            NavCommand = new CmdWithStringParam<string>(OnNav);
+            NavCommand = new RelayCommand(OnNav);
         }
 
-        public CmdWithStringParam<string> NavCommand { get; private set; }
+        public RelayCommand NavCommand { get; private set; }
 
         #region ViewModels
         //private SetupManagerViewModel setupManagerViewModel = new SetupManagerViewModel();
@@ -40,7 +40,7 @@ namespace WpfApp.ViewModel
             }
         }
 
-        private void OnNav(string destination)
+        private void OnNav(object destination)
         {
             switch (destination)
             {

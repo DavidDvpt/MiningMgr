@@ -93,8 +93,8 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Name="btnUpdate" Content="Modifier" Command="{Binding UpdateButton}" />
-                <Button Name="btnCreate" Content="Créer" Grid.Column="1" Command="{Binding CreateButton}"/>
+                <Button Name="btnUpdate" Content="Modifier" Command="{Binding UpdateCommand}" />
+                <Button Name="btnCreate" Content="Créer" Grid.Column="1" Command="{Binding CreateCommand}"/>
             </Grid>
             
             <!-- DATAGRID-->
@@ -148,8 +148,8 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Name="btnValider" Content="Sauver" Command="{Binding SubmitButton}"/>
-                <Button Name="btnAnnuler" Grid.Column="1" Content="Annuler" Command="{Binding CancelButton}" IsEnabled="{Binding CancelBtnCanExecute}"/>
+                <Button Name="btnValider" Content="Sauver" Command="{Binding SubmitCommand}"/>
+                <Button Name="btnAnnuler" Grid.Column="1" Content="Annuler" Command="{Binding CancelCommand}"/>
             </Grid>
             
             <!-- FORMULAIRE -->
@@ -226,7 +226,18 @@
                               SelectedItem="{Binding ItemForm.Categorie}" Width="100"/>
                 
                 </StackPanel>
-                
+
+                <!-- InWorld -->
+                <StackPanel Name="spModele" Style="{StaticResource spBlocControl}"
+                            Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource modeleNomVis}}">
+
+                    <Label Name="lbModele" Content="Modèle : "/>
+                    <ComboBox Name="cbxModele" ItemsSource="{Binding Modeles}" DisplayMemberPath="Nom" VerticalContentAlignment="Center"
+                              SelectedItem="{Binding ItemForm.Modele}" Width="100"
+                              IsEnabled="{Binding ModeleEnabled}"/>
+
+                </StackPanel>
+
                 <!-- ECONOMIE -->
                 <StackPanel Orientation="Vertical"
                             Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource valueVis}}">

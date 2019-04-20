@@ -35,12 +35,12 @@ namespace WpfApp.ViewModel
             }
         }
 
-        protected void ItemSourceUpdated()
+        public void ItemSourceUpdated()
         {
             DataGridItemSource = repos.Materials.GetByModeleId(SelectedModele.Id);
         }
 
-        protected override void CreateItem()
+        public override void CreateExecute(object param)
         {
             ItemForm = new Material { Modele = SelectedModele };
             NomFormEnabled = true;
