@@ -11,7 +11,7 @@ namespace WpfApp.Model
             Coefficient = 0;
         }
 
-        [Range(0.1, 100, ErrorMessage = "Le coefficient doit être compris entre 0.1 et 100")]
+        [Range(0, 100, ErrorMessage = "Le coefficient doit être compris entre 0.1 et 100")]
         public decimal Coefficient
         {
             get { return GetValue(() => Coefficient); }

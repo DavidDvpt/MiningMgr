@@ -26,7 +26,7 @@ namespace WpfApp.Model
             }
         }
 
-        [Range(0.001, 9999.001, ErrorMessage = "la valeur doit être entre 0,00001 et 9999,99999")]
+        [Range(0, 9999.999, ErrorMessage = "la valeur doit être entre 0,00001 et 9999,99999")]
         public decimal Decay
         {
             get { return GetValue(() => Decay); }

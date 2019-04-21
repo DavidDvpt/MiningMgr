@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WpfApp.Model
 {
@@ -12,6 +13,7 @@ namespace WpfApp.Model
             BasePecSearch = 0;
         }
 
+        [Range(0, 1000, ErrorMessage = "La profondeur doit être comprise entre 0 et 1000")]
         public decimal Depth
         {
             get { return GetValue(() => Depth); }
@@ -24,6 +26,7 @@ namespace WpfApp.Model
             }
         }
 
+        [Range(0, 60, ErrorMessage = "La profondeur doit être comprise entre 0 et 1000")]
         public decimal Range
         {
             get { return GetValue(() => Range); }
