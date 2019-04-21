@@ -156,12 +156,12 @@ namespace WpfApp.Model
 
             if (FinderAmplifier != null)
             {
-                finderCode = FinderAmplifier.Code;
+                finderAmplifierCode = FinderAmplifier.Code;
             }
 
             if (SearchMode != null)
             {
-                finderCode = SearchMode.Abbrev;
+                searchModeAbbrev = SearchMode.Abbrev;
             }
 
             Nom = finderCode + "_" + finderAmplifierCode + "_T" + TierUsed().ToString() + "_D" + DepthEnhancerQty.ToString() + "R" + RangeEnhancerQty.ToString() + "S" + SkillEnhancerQty.ToString() + "_" + searchModeAbbrev;

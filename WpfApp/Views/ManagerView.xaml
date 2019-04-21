@@ -51,6 +51,9 @@
         <dps:DataGridColumnVisibilityBinding x:Key="rangeEnhancerQtyVis" Data="{Binding RangeEnhancerQtyVisibility}"/>
         <dps:DataGridColumnVisibilityBinding x:Key="skillEnhancerQtyVis" Data="{Binding SkillEnhancerQtyVisibility}"/>
 
+        <dps:DataGridColumnVisibilityBinding x:Key="refinedToVisibility" Data="{Binding RefinedToVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="quantityVisibility" Data="{Binding QuantityVisibility}"/>
+
         <dps:DataGridColumnVisibilityBinding x:Key="cbxModelesChoiceEnabled" Data="{Binding CbxModelesChoiceVisibility}"/>
 
         <Style TargetType="StackPanel">
@@ -131,7 +134,9 @@
                     <DataGridTextColumn Header="Depth Enhancer Quantity" Binding="{Binding DepthEnhancerQty}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource depthEnhancerQtyVis}}"/>
                     <DataGridTextColumn Header="Range Enhancer Quantity" Binding="{Binding RangeEnhancerQty}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource rangeEnhancerQtyVis}}"/>
                     <DataGridTextColumn Header="Skill Enhancer Quantity" Binding="{Binding SkillEnhancerQty}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource skillEnhancerQtyVis}}"/>
-                    <DataGridCheckBoxColumn Header="Actif" Binding="{Binding IsActive}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isActiveVis}}"/>
+                    <DataGridTextColumn Header="Refined To" Binding="{Binding SkillEnhancerQty}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource refinedToVisibility}}"/>
+                    <DataGridTextColumn Header="Quantity" Binding="{Binding RefinedTo.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource quantityVisibility}}"/>
+                    <DataGridCheckBoxColumn Header="Actif" Binding="{Binding Quantity}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isActiveVis}}"/>
 
                 </DataGrid.Columns>
             </DataGrid>
@@ -233,7 +238,7 @@
 
                     <Label Name="lbModele" Content="Modèle : "/>
                     <ComboBox Name="cbxModele" ItemsSource="{Binding Modeles}" DisplayMemberPath="Nom" VerticalContentAlignment="Center"
-                              SelectedItem="{Binding ItemForm.Modele}" Width="100"
+                              SelectedItem="{Binding ItemForm.Modele}" Width="150"
                               IsEnabled="{Binding ModeleEnabled}"/>
 
                 </StackPanel>

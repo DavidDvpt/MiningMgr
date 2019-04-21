@@ -13,6 +13,8 @@ namespace WpfApp.ViewModel
             NomVisibility = true;
             IsActiveVisibility = true;
             ValueVisibility = true;
+            RefinedToVisibility = true;
+            QuantityVisibility = true;
 
             CbxModelesChoiceVisibility = true;
         }

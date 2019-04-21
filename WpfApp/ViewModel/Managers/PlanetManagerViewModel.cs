@@ -13,7 +13,7 @@ namespace WpfApp.ViewModel
         {
             NomVisibility = true;
             IsActiveVisibility = true;
-        }
+    }
 
     }
 }

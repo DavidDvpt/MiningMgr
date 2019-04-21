@@ -8,7 +8,7 @@ namespace WpfApp.ViewModel
 
         public FinderAmplifierManagerViewModel()
         {
-            _nomUnstackable = "FinderAmplifier";
+            _nomUnstackable = "Finder Amplifier";
         }
 
         protected override void ColumnInit()
