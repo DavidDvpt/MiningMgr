@@ -1,13 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using WpfApp.Model;
+﻿using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class FinderManagerViewModel : ManagerViewModel<Finder>
+    public class FinderManagerViewModel : UnstackableManagerViewModel<Finder>
     {
+        #region Constructeurs et initialisations
+
         public FinderManagerViewModel()
         {
+            _nomUnstackable = "Finder";
         }
 
         protected override void ColumnInit()
@@ -25,25 +26,6 @@ namespace WpfApp.ViewModel
             ModeleNomVisibility = true;
         }
 
-        protected override void Init()
-        {
-            Modeles = repos.Modeles.GetAll().ToList();
-        }
-
-        public bool ModeleEnabled { get; set; } = false;
-        private Modele ModeleLoad()
-        {
-            return repos.Modeles.GetByNom("Finder");
-        }
-
-        public ICollection<Modele> Modeles { get; set; }
-
-        public override void CreateExecute(object param)
-        {
-            ItemForm = new Finder();
-            ItemForm.Modele = ModeleLoad();
-            NomFormEnabled = true;
-        }
-
+        #endregion
     }
 }

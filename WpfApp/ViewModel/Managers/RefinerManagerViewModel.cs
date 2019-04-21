@@ -3,8 +3,15 @@ using WpfApp.Model;
 
 namespace WpfApp.ViewModel
 {
-    public class RefinerManagerViewModel : ManagerViewModel<Refiner>
+    public class RefinerManagerViewModel : UnstackableManagerViewModel<Refiner>
     {
+        #region Constructeurs et initialisation
+
+        public RefinerManagerViewModel()
+        {
+            _nomUnstackable = "Refiner";
+        }
+
         protected override void ColumnInit()
         {
             NomVisibility = true;
@@ -14,12 +21,10 @@ namespace WpfApp.ViewModel
             IsLimitedVisibility = true;
             IsActiveVisibility = true;
             CodeVisibility = true;
+            ModeleNomVisibility = true;
         }
 
-        protected override void Init()
-        {
-            //DataGridItemSource = repos.RefinersDto.GetAll().ToList();
-        }
+        #endregion
 
     }
 }

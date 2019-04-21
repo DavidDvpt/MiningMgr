@@ -19,7 +19,7 @@ namespace WpfApp.Model
             {
                 if (value != Abbrev)
                 {
-                    SetValue(() => Abbrev, value);
+                    SetValue(() => Abbrev, value.ToUpper());
                 }
             }
         }

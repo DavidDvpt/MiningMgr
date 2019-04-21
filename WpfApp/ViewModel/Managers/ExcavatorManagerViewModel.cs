@@ -2,8 +2,15 @@
 
 namespace WpfApp.ViewModel
 {
-    public class ExcavatorManagerViewModel : ManagerViewModel<Excavator>
+    public class ExcavatorManagerViewModel : UnstackableManagerViewModel<Excavator>
     {
+        #region Constructeur et initialisations
+
+        public ExcavatorManagerViewModel()
+        {
+            _nomUnstackable = "Excavator";
+        }
+
         protected override void ColumnInit()
         {
             NomVisibility = true;
@@ -14,12 +21,9 @@ namespace WpfApp.ViewModel
             IsActiveVisibility = true;
             EfficientyVisibility = true;
             CodeVisibility = true;
+            ModeleNomVisibility = true;
         }
 
-        protected override void Init()
-        {
-            //DataGridItemSource = repos.ExcavatorsDto.GetAll().ToList();
-        }
-
+        #endregion
     }
 }

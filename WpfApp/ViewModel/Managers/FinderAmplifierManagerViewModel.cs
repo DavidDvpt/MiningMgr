@@ -2,8 +2,15 @@
 
 namespace WpfApp.ViewModel
 {
-    public class FinderAmplifierManagerViewModel : ManagerViewModel<FinderAmplifier>
+    public class FinderAmplifierManagerViewModel : UnstackableManagerViewModel<FinderAmplifier>
     {
+        #region Constructeurs et initialisations
+
+        public FinderAmplifierManagerViewModel()
+        {
+            _nomUnstackable = "FinderAmplifier";
+        }
+
         protected override void ColumnInit()
         {
             NomVisibility = true;
@@ -13,12 +20,9 @@ namespace WpfApp.ViewModel
             IsLimitedVisibility = true;
             IsActiveVisibility = true;
             CodeVisibility = true;
+            ModeleNomVisibility = true;
         }
 
-        protected override void Init()
-        {
-            //DataGridItemSource = repos.FinderAmplifiersDto.GetAll().ToList();
-        }
-
+        #endregion
     }
 }

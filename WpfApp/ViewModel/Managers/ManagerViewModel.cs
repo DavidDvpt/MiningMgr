@@ -13,8 +13,6 @@ namespace WpfApp.ViewModel
     {
         #region attributs
         
-        //protected T _dgSelectedItem;// item seectionné ds le datagrid
-        //protected T _itemForm;  // Item actif du formulaire
         protected ICommunRepository<T> genericRepo; // repository generique utilisé par 80% des manager
 
         #endregion
@@ -44,6 +42,7 @@ namespace WpfApp.ViewModel
         // Affichage ou non des colonnes du datagrid  ou des control )
         // à l'initialisation de la classe
         #region ColumnAndControlVisibility
+
         // Commun, Categorie, Planet
         public bool IdVisibility { get; set; } = false;
         public bool NomVisibility { get; set; } = false;

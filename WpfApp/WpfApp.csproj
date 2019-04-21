@@ -121,6 +121,7 @@
     <Compile Include="ViewModel\Managers\SearchModeManagerViewModel.cs" />
     <Compile Include="ViewModel\Managers\SetupManagerViewModel.cs" />
     <Compile Include="ViewModel\Managers\MaterialManagerViewModel.cs" />
+    <Compile Include="ViewModel\Managers\UnstackableManagerViewModel.cs" />
     <Compile Include="Views\ManagerView.xaml.cs">
       <DependentUpon>ManagerView.xaml</DependentUpon>
     </Compile>

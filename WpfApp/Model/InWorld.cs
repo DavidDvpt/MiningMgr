@@ -12,6 +12,7 @@ namespace WpfApp.Model
             ModeleId = 0;
         }
 
+        [Range(0.00001, 9999.99999, ErrorMessage="la valeur doit être entre 0,00001 et 9999,99999")]
         public decimal Value
         {
             get { return GetValue(() => Value); }
