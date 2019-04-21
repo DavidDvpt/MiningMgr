@@ -14,6 +14,7 @@ namespace WpfApp.ViewModel
         #region attributs
         
         protected ICommunRepository<T> genericRepo; // repository generique utilisé par 80% des manager
+        protected bool IsModified = false;
 
         #endregion
 
@@ -168,6 +169,7 @@ namespace WpfApp.ViewModel
         public void UpdateExecute(object param)
         {
             ItemForm = DgSelectedItem;
+            IsModified = true;
             DgSelectedItem = null;
         }
         public virtual void CreateExecute(object param)
@@ -177,18 +179,25 @@ namespace WpfApp.ViewModel
         }
         public virtual void SubmitExecute(object param)
         {
-            genericRepo.Add(ItemForm);
+            if (IsModified)
+            {
+                genericRepo.Update(ItemForm);
+            }
+            else
+            {
+                genericRepo.Add(ItemForm);
+            }
+            IsModified = false;
             DataGridItemSourceLoad();
             AfficherMessage();
             ItemForm = null;
             NomFormEnabled = false;
-
         }
         public void CancelExecute(object param)
         {
             ItemForm = null;
             NomFormEnabled = false;
-            //RaiseCanExecuteChanged();
+            IsModified = false;
         }
         
         #endregion

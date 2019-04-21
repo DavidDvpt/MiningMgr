@@ -1,6 +1,6 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using WpfApp.AttributValidation;
 
 namespace WpfApp.Model
 {
@@ -9,7 +9,6 @@ namespace WpfApp.Model
     {
         public Setup()
         {
-            PropertyChanged += NomComposition;
             DepthEnhancerQty = 0;
             RangeEnhancerQty = 0;
             SkillEnhancerQty = 0;
@@ -39,7 +38,6 @@ namespace WpfApp.Model
             }
         }
 
-        [Required(ErrorMessage = "Le mode de recherche est requis dans un setup")]
         public int SearchModeId
         {
             get { return GetValue(() => SearchModeId); }
@@ -52,7 +50,8 @@ namespace WpfApp.Model
             }
         }
 
-        [Range(1, 10, ErrorMessage = "Le nombre d'enhancer doit être compris entre 1 et 10")]
+        [Range(0, 10, ErrorMessage = "Le nombre d'enhancer doit être compris entre 1 et 10")]
+        [MaxEnhancer(ErrorMessage = "Un outil peut accepter que 10 Enhancers maximum")]
         public short DepthEnhancerQty
         {
             get { return GetValue(() => DepthEnhancerQty); }
@@ -61,11 +60,13 @@ namespace WpfApp.Model
                 if (value != DepthEnhancerQty)
                 {
                     SetValue(() => DepthEnhancerQty, value);
+                    NomComposition();
                 }
             }
         }
 
-        [Range(1, 10, ErrorMessage = "Le nombre d'enhancer doit être compris entre 1 et 10")]
+        [Range(0, 10, ErrorMessage = "Le nombre d'enhancer doit être compris entre 1 et 10")]
+        [MaxEnhancer(ErrorMessage = "Un outil peut accepter que 10 Enhancers maximum")]
         public short RangeEnhancerQty
         {
             get { return GetValue(() => RangeEnhancerQty); }
@@ -74,11 +75,13 @@ namespace WpfApp.Model
                 if (value != RangeEnhancerQty)
                 {
                     SetValue(() => RangeEnhancerQty, value);
+                    NomComposition();
                 }
             }
         }
 
-        [Range(1, 10, ErrorMessage = "Le nombre d'enhancer doit être compris entre 1 et 10")]
+        [Range(0, 10, ErrorMessage = "Le nombre d'enhancer doit être compris entre 1 et 10")]
+        [MaxEnhancer(ErrorMessage = "Un outil peut accepter que 10 Enhancers maximum")]
         public short SkillEnhancerQty
         {
             get { return GetValue(() => SkillEnhancerQty); }
@@ -87,13 +90,14 @@ namespace WpfApp.Model
                 if (value != SkillEnhancerQty)
                 {
                     SetValue(() => SkillEnhancerQty, value);
+                    NomComposition();
                 }
             }
         }
 
         [ForeignKey("SearchModeId")]
-        [Required(ErrorMessage = "Le mode de recherche est requis dans un setup")]
-        public SearchMode SearchMode
+        [Required(ErrorMessage = "Le mode de recherche est requis.")]
+        public virtual SearchMode SearchMode
         {
             get { return GetValue(() => SearchMode); }
             set
@@ -102,12 +106,13 @@ namespace WpfApp.Model
                 {
                     SetValue(() => SearchMode, value);
                     SearchModeId = value.Id;
+                    NomComposition();
                 }
             }
         }
 
         [ForeignKey("FinderId")]
-        [Required(ErrorMessage = "Le finder est requis dans un setup")]
+        [Required(ErrorMessage = "Le finder est requis.")]
         public virtual Finder Finder
         {
             get { return GetValue(() => Finder); }
@@ -117,6 +122,7 @@ namespace WpfApp.Model
                 {
                     SetValue(() => Finder, value);
                     FinderId = value.Id;
+                    NomComposition();
                 }
             }
         }
@@ -131,17 +137,34 @@ namespace WpfApp.Model
                 {
                     SetValue(() => FinderAmplifier, value);
                     FinderAmplifierId = value.Id;
+                    NomComposition();
                 }
             }
         }
 
         // cree le nom du setup à partir des outils utilises
-        private void NomComposition(object sender, PropertyChangedEventArgs e)
+        private void NomComposition()
         {
-            if (Finder != null && FinderAmplifier != null && SearchMode != null)
+            string searchModeAbbrev = "";
+            string finderCode = "";
+            string finderAmplifierCode = "";
+
+            if (Finder != null)
             {
-                Nom = Finder.Code + "_" + FinderAmplifier.Code + "_T" + TierUsed().ToString() + "_D" + DepthEnhancerQty.ToString() + "R" + RangeEnhancerQty.ToString() + "S" + SkillEnhancerQty.ToString() + "_" + SearchMode.Abbrev;
+                finderCode = Finder.Code;
             }
+
+            if (FinderAmplifier != null)
+            {
+                finderCode = FinderAmplifier.Code;
+            }
+
+            if (SearchMode != null)
+            {
+                finderCode = SearchMode.Abbrev;
+            }
+
+            Nom = finderCode + "_" + finderAmplifierCode + "_T" + TierUsed().ToString() + "_D" + DepthEnhancerQty.ToString() + "R" + RangeEnhancerQty.ToString() + "S" + SkillEnhancerQty.ToString() + "_" + searchModeAbbrev;
         }
 
         public int TierUsed()

@@ -6,6 +6,13 @@ namespace WpfApp.ViewModel
 {
     public class SetupManagerViewModel : ManagerViewModel<Setup>
     {
+        #region Constructeur et initialisations
+
+        public SetupManagerViewModel()
+        {
+            NomFormEnabled = false;
+        }
+
         protected override void ColumnInit()
         {
             NomVisibility = true;
@@ -24,6 +31,13 @@ namespace WpfApp.ViewModel
             SearchModes = repos.SearchModes.GetAll().ToList();
             Finders = repos.Finders.GetAll().ToList();
             FinderAmplifiers = repos.FinderAmplifiers.GetAll().ToList();
+        }
+
+        #endregion
+
+        public override void CreateExecute(object param)
+        {
+            ItemForm = new Setup();
         }
 
         // Affichage de la liste des searchMode ds le combobox

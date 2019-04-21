@@ -21,9 +21,15 @@ namespace WpfApp.Repositories
             DbSet = Context.Set<T>();
         }
 
+            public void Update(T entity)
+            {
+                AttachEntity(entity, EntityState.Modified);
+                SaveChanges();
+            }
+
         public T Add(T entity)
         {
-            AttachEntity(entity);
+            AttachEntity(entity, EntityState.Added);
             DbSet.Add(entity);
             SaveChanges();
             return entity;
@@ -34,18 +40,18 @@ namespace WpfApp.Repositories
             List<T> list = new List<T>();
             foreach (T entity in entities)
             {
-                DbSet.Add(AttachEntity(entity));
+                DbSet.Add(AttachEntity(entity, EntityState.Added));
             }
 
             SaveChanges();
         }
 
-        private T AttachEntity(T entity)
+        private T AttachEntity(T entity, EntityState state)
         {
             DbEntityEntry dbEntityEntry = Context.Entry(entity);
             if (dbEntityEntry.State != EntityState.Detached)
             {
-                dbEntityEntry.State = EntityState.Added;
+                dbEntityEntry.State = state;
             }
             return entity;
         }
@@ -82,16 +88,6 @@ namespace WpfApp.Repositories
             return DbSet.Find(id);
         }
 
-        public void Update(T entity)
-        {
-            DbEntityEntry dbEntityEntry = Context.Entry(entity);
-            if (dbEntityEntry.State == EntityState.Detached)
-            {
-                DbSet.Attach(entity);
-            }
-            //dbEntityEntry.State = EntityState.Deleted;
-            SaveChanges();
-        }
 
         public void SaveChanges()
         {

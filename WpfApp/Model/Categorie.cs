@@ -11,6 +11,7 @@ namespace WpfApp.Model
         {
             Modeles = new List<Modele>();
         }
+
         public virtual ICollection<Modele> Modeles { get; set; }
     }
 }

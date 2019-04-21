@@ -62,8 +62,8 @@ namespace WpfApp.Context
             modelBuilder.Entity<FinderAmplifier>().Property(e => e.Coefficient).HasPrecision(4, 1);
 
             // Enhancer
-            modelBuilder.Entity<Enhancer>().Property(e => e.BonusValue1).HasPrecision(3, 1);
-            modelBuilder.Entity<Enhancer>().Property(e => e.BonusValue2).HasPrecision(3, 1);
+            modelBuilder.Entity<Enhancer>().Property(e => e.BonusValue1).HasPrecision(4, 2);
+            //modelBuilder.Entity<Enhancer>().Property(e => e.BonusValue2).HasPrecision(3, 1);
 
         }
 

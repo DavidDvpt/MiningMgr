@@ -348,7 +348,8 @@
                             <Label Name="lbSearchMode" Content="Search mode :"/>
                             <ComboBox Name="cbxSearchMode" ItemsSource="{Binding SearchModes}" VerticalContentAlignment="Center"
                               DisplayMemberPath="Nom"
-                              SelectedItem="{Binding ItemForm.SearchMode}" Width="200"/>
+                              SelectedItem="{Binding ItemForm.SearchMode, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="200"/>
+                            <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=cbxSearchMode}"/>
                         </StackPanel>
 
                         <!-- FINDER -->
@@ -356,7 +357,8 @@
                             <Label Name="lbFinder" Content="Finder :"/>
                             <ComboBox Name="cbxFinder" ItemsSource="{Binding Finders}" VerticalContentAlignment="Center"
                               DisplayMemberPath="Nom"
-                              SelectedItem="{Binding ItemForm.Finder}" Width="200"/>
+                              SelectedItem="{Binding ItemForm.Finder, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="200"/>
+                            <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=cbxFinder}"/>
                         </StackPanel>
 
                         <!-- FINDER AMPLIFIER -->
@@ -364,26 +366,27 @@
                             <Label Name="lbFinderAmplifier" Content="Finder Amplifier :"/>
                             <ComboBox Name="cbxFinderAmplifier" ItemsSource="{Binding FinderAmplifiers}" VerticalContentAlignment="Center"
                               DisplayMemberPath="Nom"
-                              SelectedItem="{Binding ItemForm.FinderAmplifier}" Width="200"/>
+                              SelectedItem="{Binding ItemForm.FinderAmplifier, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="200"/>
+                            <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=cbxFinderAmplifier}"/>
                         </StackPanel>
 
                         <!-- DEPTH ENHANCER QTY -->
                         <StackPanel Name="spDepthEnancerQty" Style="{StaticResource spBlocControl}">
-                            <Label Name="lbDepthEnancerQty" Content="Depth Enhancer Qty :"/>
+                            <Label Name="lbDepthEnancerQty" Content="Depth Enhancer Qty :" Width="120"/>
                             <TextBox Name="tbxDepthEnancerQty" Text="{Binding ItemForm.DepthEnhancerQty, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60"/>
                             <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxDepthEnancerQty}"/>
                         </StackPanel>
 
                         <!-- RANGE ENHANCER QTY -->
                         <StackPanel Name="spRangeEnancerQty" Style="{StaticResource spBlocControl}">
-                            <Label Name="lbRangeEnancerQty" Content="Range Enhancer Qty :"/>
+                            <Label Name="lbRangeEnancerQty" Content="Range Enhancer Qty :" Width="120"/>
                             <TextBox Name="tbxRangeEnancerQty" Text="{Binding ItemForm.RangeEnhancerQty, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60"/>
-                            <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxRange}"/>
+                            <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxRangeEnancerQty}"/>
                         </StackPanel>
 
                         <!-- SKILL ENHANCER QTY -->
                         <StackPanel Name="spSkillEnancerQty" Style="{StaticResource spBlocControl}">
-                            <Label Name="lbSkillEnancerQty" Content="Skill Enhancer Qty :"/>
+                            <Label Name="lbSkillEnancerQty" Content="Skill Enhancer Qty :" Width="120"/>
                             <TextBox Name="tbxSkillEnancerQty" Text="{Binding ItemForm.SkillEnhancerQty, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60"/>
                             <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxSkillEnancerQty}"/>
                         </StackPanel>

@@ -38,6 +38,7 @@ namespace WpfApp.Model
         }
 
         [ForeignKey("ModeleId")]
+        [Required(ErrorMessage = "Le modéle d'item est obligatoire")]
         public virtual Modele Modele
         {
             get { return GetValue(() => Modele); }

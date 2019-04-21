@@ -12,7 +12,7 @@ namespace WpfApp.Model
             BonusValue2 = 0;
         }
 
-        [Range(1,10, ErrorMessage = "Le n° du slot doit être compris entre 1 et 10")]
+        [Range(1, 10, ErrorMessage = "Le n° du slot doit être compris entre 1 et 10")]
         public byte Slot
         {
             get { return GetValue(() => Slot); }
@@ -25,6 +25,7 @@ namespace WpfApp.Model
             }
         }
 
+        [Range(0.01, 99.99, ErrorMessage = "Le bonus principal (%) est compris entre 0.01 et 99.99")]
         public decimal BonusValue1
         {
             get { return GetValue(() => BonusValue1); }
@@ -37,7 +38,8 @@ namespace WpfApp.Model
             }
         }
 
-        public decimal BonusValue2
+        [Range(0, 99, ErrorMessage = "Le bonus secondaire doit être compris entre 0 et 99")]
+        public short BonusValue2
         {
             get { return GetValue(() => BonusValue2); }
             set

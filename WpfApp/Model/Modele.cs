@@ -13,7 +13,7 @@ namespace WpfApp.Model
             CategorieId = 0;
         }
 
-        [Required]
+        [Required(ErrorMessage = "l'indication d'autorisation d'empilage est obligatoire")]
         public bool IsStackable
         {
             get { return GetValue(() => IsStackable); }
@@ -38,7 +38,7 @@ namespace WpfApp.Model
             }
         }
 
-        [Required]
+        [Required(ErrorMessage = "la catégorie est obligatoire")]
         [ForeignKey("CategorieId")]
         public virtual Categorie Categorie
         {

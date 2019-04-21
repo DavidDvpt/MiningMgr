@@ -27,7 +27,7 @@ namespace WpfApp.Model
         }
 
         [Required(ErrorMessage = "Le Nom est requis")]
-        [Column(TypeName = "VARCHAR")]
+        //[Column(TypeName = "VARCHAR")]
         [MaxLength(50, ErrorMessage = "La longueur maximum est de 50")]
         [Index(IsUnique = true)]
         [Unique(ErrorMessage ="Ce nom est déjà utilisé")]
@@ -39,9 +39,11 @@ namespace WpfApp.Model
                 if (Nom != value)
                 {
                     SetValue(() => Nom, value); 
-                } }
+                }
+            }
         }
 
+        [Required(ErrorMessage="L'indication IsActive est obligatoire")]
         public bool IsActive
         {
             get { return GetValue(() => IsActive); }
