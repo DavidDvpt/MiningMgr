@@ -13,6 +13,10 @@
     </Window.DataContext>
 
     <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModels:StockViewModel}">
+            <views:StockView/>
+        </DataTemplate>
+        
         <DataTemplate DataType="{x:Type viewModels:SetupManagerViewModel}">
             <views:ManagerView/>
         </DataTemplate>
@@ -66,6 +70,11 @@
                 <MenuItem Header="_Sauver" />
                 <Separator />
                 <MenuItem Header="_Quitter" />                
+            </MenuItem>
+
+            <MenuItem Header="_Stock">
+                <MenuItem Header="Général" Command="{Binding NavCommand}" CommandParameter="stockGeneral" />
+
             </MenuItem>
 
             <MenuItem Header="Manager">

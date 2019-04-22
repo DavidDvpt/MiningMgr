@@ -75,8 +75,11 @@ namespace WpfApp.ViewModel
                     CurrentViewModel = new MaterialManagerViewModel();
                     break;
                 case "searchMode":
-                default:
                     CurrentViewModel = new SearchModeManagerViewModel();
+                    break;
+                case "stockGeneral":
+                default:
+                    CurrentViewModel = new StockViewModel("stockGeneral");
                     break;
             }
         }
