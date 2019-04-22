@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using WpfApp.Model;
+using WpfApp.Model.Dto.Interfaces;
 
 namespace WpfApp.ViewModel
 {
@@ -22,6 +23,7 @@ namespace WpfApp.ViewModel
         protected override void Init()
         {
             Modeles = repos.Modeles.GetByCategorieName("Material").ToList();
+            SelectedModele = repos.Modeles.GetByNom("Ore");
         }
 
         #endregion
