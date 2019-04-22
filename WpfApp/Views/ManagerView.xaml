@@ -52,7 +52,10 @@
         <dps:DataGridColumnVisibilityBinding x:Key="skillEnhancerQtyVis" Data="{Binding SkillEnhancerQtyVisibility}"/>
 
         <dps:DataGridColumnVisibilityBinding x:Key="refinedToVisibility" Data="{Binding RefinedToVisibility}"/>
-        <dps:DataGridColumnVisibilityBinding x:Key="quantityVisibility" Data="{Binding QuantityVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="quantityToVisibility" Data="{Binding QuantityToVisibility}"/>
+
+        <dps:DataGridColumnVisibilityBinding x:Key="refinedFromVisibility" Data="{Binding RefinedFromVisibility}"/>
+        <dps:DataGridColumnVisibilityBinding x:Key="quantityFromVisibility" Data="{Binding QuantityFromVisibility}"/>
 
         <dps:DataGridColumnVisibilityBinding x:Key="cbxModelesChoiceEnabled" Data="{Binding CbxModelesChoiceVisibility}"/>
 
@@ -134,10 +137,13 @@
                     <DataGridTextColumn Header="Depth Enhancer Quantity" Binding="{Binding DepthEnhancerQty}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource depthEnhancerQtyVis}}"/>
                     <DataGridTextColumn Header="Range Enhancer Quantity" Binding="{Binding RangeEnhancerQty}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource rangeEnhancerQtyVis}}"/>
                     <DataGridTextColumn Header="Skill Enhancer Quantity" Binding="{Binding SkillEnhancerQty}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource skillEnhancerQtyVis}}"/>
-                    <DataGridTextColumn Header="Refined To" Binding="{Binding SkillEnhancerQty}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource refinedToVisibility}}"/>
-                    <DataGridTextColumn Header="Quantity" Binding="{Binding RefinedTo.Nom}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource quantityVisibility}}"/>
-                    <DataGridCheckBoxColumn Header="Actif" Binding="{Binding Quantity}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isActiveVis}}"/>
+                    <DataGridCheckBoxColumn Header="Actif" Binding="{Binding IsActive}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isActiveVis}}"/>
+                    
+                    <DataGridTextColumn Header="Refined To" Binding="{Binding RefinedToNomString}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource refinedToVisibility}}"/>
+                    <DataGridTextColumn Header="Quantity To" Binding="{Binding RefinedToQtyString}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource quantityToVisibility}}"/>
 
+                    <DataGridTextColumn Header="Refined From" Binding="{Binding RefinedFromNomString}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource refinedFromVisibility}}"/>
+                    <DataGridTextColumn Header="Quantity From" Binding="{Binding RefinedFromQtyString}" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource quantityFromVisibility}}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>
@@ -191,7 +197,7 @@
                 <StackPanel Orientation="Vertical">
                     <!-- NOM -->
                     <StackPanel Name="spNom" Style="{StaticResource spBlocControl}"
-                                Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource nomVis}}">
+                                Visibility="{Binding NomFormEnabled}">
                         <Label Name="lbNom" Content="Nom : "/>
                         <TextBox Name="tbxNom" Text="{Binding ItemForm.Nom, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
                                  Width="220" IsEnabled="{Binding NomFormEnabled}" Validation.Error="Validation_Error"/>

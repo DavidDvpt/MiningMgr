@@ -14,7 +14,10 @@ namespace WpfApp.ViewModel
             IsActiveVisibility = true;
             ValueVisibility = true;
             RefinedToVisibility = true;
-            QuantityVisibility = true;
+            QuantityToVisibility = true;
+            RefinedFromVisibility = true;
+            QuantityToVisibility = true;
+            QuantityFromVisibility = true;
 
             CbxModelesChoiceVisibility = true;
         }

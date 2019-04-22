@@ -92,10 +92,12 @@ namespace WpfApp.ViewModel
         public bool DepthEnhancerQtyVisibility { get; set; } = false;
         public bool RangeEnhancerQtyVisibility { get; set; } = false;
         public bool SkillEnhancerQtyVisibility { get; set; } = false;
-
-
+        
         public bool RefinedToVisibility { get; set; } = false;
-        public bool QuantityVisibility { get; set; } = false;
+        public bool QuantityToVisibility { get; set; } = false;
+
+        public bool RefinedFromVisibility { get; set; } = false;
+        public bool QuantityFromVisibility { get; set; } = false;
 
         public bool CbxModelesChoiceVisibility { get; set; } = false;
         #endregion
