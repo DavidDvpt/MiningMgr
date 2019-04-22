@@ -5,7 +5,7 @@ using WpfApp.AttributValidation;
 
 namespace WpfApp.Model
 {
-    class TradeMaterial : BindableBase
+    public class TradeMaterial : BindableBase
     {
         public TradeMaterial()
         {

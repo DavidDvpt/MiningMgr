@@ -37,6 +37,9 @@ namespace WpfApp.Repositories
         private IRepository<ToolAccessoire> _ToolAccessoires;
         private IRepository<PlanetMaterial> _PlanetMaterials;
         private IRepository<Refinable> _Refinables;
+        private IRepository<StockMaterial> _StockMaterials;
+        private IRepository<TradeMaterial> _TradeMaterials;
+        private IRepository<TradeState> _TradeStates;
 
         public ICommunRepository<Categorie> Categories
             => _Categories == null? _Categories = new CommunRepository<Categorie>(ctx) : _Categories;
@@ -79,6 +82,15 @@ namespace WpfApp.Repositories
 
         public IRepository<Refinable> Refinables
             => _Refinables == null ? _Refinables = new Repository<Refinable>(ctx) : _Refinables;
+
+        public IRepository<StockMaterial> StockMaterials
+            => _StockMaterials == null ? _StockMaterials = new Repository<StockMaterial>(ctx) : _StockMaterials;
+
+        public IRepository<TradeMaterial> TradeMaterials
+            => _TradeMaterials == null ? _TradeMaterials = new Repository<TradeMaterial>(ctx) : _TradeMaterials;
+
+        public IRepository<TradeState> TradeStates
+            => _TradeStates == null ? _TradeStates = new Repository<TradeState>(ctx) : _TradeStates;
 
         public void Commit()
         {

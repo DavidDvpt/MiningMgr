@@ -17,7 +17,10 @@
                       SelectedItem="{Binding DgSelectedItem, Mode=TwoWay}"
                       Margin="5,3"
                       IsReadOnly="True">
-            
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Material" Binding="{Binding Nom}"/>
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
+            </DataGrid.Columns>
         </DataGrid>
 
         <StackPanel Orientation="Vertical" Grid.Column="1">
@@ -25,8 +28,34 @@
                 <Label Name="lbModele" Content="Modèle : "/>
                 <ComboBox Name="cbxModele" ItemsSource="{Binding Modeles}" DisplayMemberPath="Nom" VerticalContentAlignment="Center"
                                   SelectedItem="{Binding SelectedModele}" Width="150"/>
-
             </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Content="Nom Material :" Grid.Row="1"/>
+                <Label Content="Quantité :" Grid.Row="2"/>
+                <Label Content="Valeur TT :" Grid.Row="3"/>
+                <Label Content="Fee :" Grid.Row="4"/>
+                <Label Content="Valeur vente :" Grid.Row="5"/>
+                <TextBlock Text="Vente de matériel" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding DgSelectedItem.Nom}" Grid.Column="1" Grid.Row="1"/>
+                <TextBox Text="{Binding DgSelectedItem.Quantity}" Grid.Column="1" Grid.Row="2"/>
+                <TextBox Text="{Binding TtCost}" Grid.Column="1" Grid.Row="3"/>
+                <TextBox Text="{Binding Fee}" Grid.Column="1" Grid.Row="4"/>
+                <TextBox Text="{Binding TtcCost}" Grid.Column="1" Grid.Row="5"/>
+            </Grid>
         </StackPanel>
     </Grid>
 </UserControl>

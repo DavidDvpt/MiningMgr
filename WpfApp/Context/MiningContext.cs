@@ -36,6 +36,11 @@ namespace WpfApp.Context
         public DbSet<SearchMode> SearchModes { get; set; }
         public DbSet<Setup> Setups { get; set; }
 
+        public DbSet<StockMaterial> StockMaterials { get; set; }
+        public DbSet<TradeMaterial> TradeMaterials { get; set; }
+        public DbSet<TradeState> TradeStates { get; set; }
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             // Commun

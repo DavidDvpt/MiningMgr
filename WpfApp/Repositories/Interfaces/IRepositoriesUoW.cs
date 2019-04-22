@@ -23,5 +23,8 @@ namespace WpfApp.Repositories.Interfaces
         IRepository<ToolAccessoire> ToolAccessoires { get; }
         IRepository<PlanetMaterial> PlanetMaterials { get; }
         IRepository<Refinable> Refinables { get; }
+        IRepository<StockMaterial> StockMaterials { get; }
+        IRepository<TradeMaterial> TradeMaterials { get; }
+        IRepository<TradeState> TradeStates { get; }
     }
 }

@@ -47,7 +47,7 @@ namespace WpfApp.ViewModel
 
         #region DataGrid
 
-        public ICollection<Material> DataGridItemSource
+        public ICollection<StockMaterial> DataGridItemSource
         {
             get { return GetValue(() => DataGridItemSource); }
             set
@@ -59,11 +59,44 @@ namespace WpfApp.ViewModel
             }
         }
 
+        /// <summary>
+        /// Modifie la source des que le modele change
+        /// </summary>
         private void ItemSourceUpdated()
         {
-            DataGridItemSource = repos.Materials.GetByModeleId(SelectedModele.Id);
+            DataGridItemSource = repos.StockMaterials.GetAll().Where(x=>x.ModeleId == SelectedModele.Id).ToList();
         }
-        
+
+        public StockMaterial DgSelectedItem
+        {
+            get { return GetValue(() => DgSelectedItem); }
+            set
+            {
+                if (DgSelectedItem != value)
+                {
+                    SetValue(() => DgSelectedItem, value);
+
+                }
+            }
+        }
+
         #endregion
+        // Ajouter le tradematerial comme formulaire
+        public decimal TtCost
+        {
+            get { return GetValue(() => TtCost); }
+            set
+            {
+                if (value != TtCost)
+                {
+                    SetValue(() => TtCost, value);
+                }
+            }
+        }
+
+        private void CalculAchat()
+        {
+            TtCost = DgSelectedItem.Quantity * DgSelectedItem.Value;
+        }
     }
 }
