@@ -7,6 +7,26 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Button Content="Test"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Name="dgStock" 
+                      ItemsSource="{Binding DataGridItemSource, Mode=TwoWay}"
+                      AutoGenerateColumns="False"
+                      SelectedItem="{Binding DgSelectedItem, Mode=TwoWay}"
+                      Margin="5,3"
+                      IsReadOnly="True">
+            
+        </DataGrid>
+
+        <StackPanel Orientation="Vertical" Grid.Column="1">
+            <StackPanel Name="spModele" Style="{StaticResource spBlocControl}">
+                <Label Name="lbModele" Content="Modèle : "/>
+                <ComboBox Name="cbxModele" ItemsSource="{Binding Modeles}" DisplayMemberPath="Nom" VerticalContentAlignment="Center"
+                                  SelectedItem="{Binding SelectedModele}" Width="150"/>
+
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </UserControl>
