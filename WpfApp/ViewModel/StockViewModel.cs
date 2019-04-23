@@ -9,6 +9,7 @@ namespace WpfApp.ViewModel
         #region Champs
 
         private string _dgItemSourceParam;
+        private string _tradeMaterial;
 
         #endregion
 
@@ -75,28 +76,36 @@ namespace WpfApp.ViewModel
                 if (DgSelectedItem != value)
                 {
                     SetValue(() => DgSelectedItem, value);
-
+                    CreateTradeMaterial();
                 }
             }
         }
 
         #endregion
-        // Ajouter le tradematerial comme formulaire
-        public decimal TtCost
+
+        public TradeMaterial TradeMaterial
         {
-            get { return GetValue(() => TtCost); }
+            get { return GetValue(() => TradeMaterial); }
             set
             {
-                if (value != TtCost)
+                if (TradeMaterial != value)
                 {
-                    SetValue(() => TtCost, value);
+                    SetValue(() => TradeMaterial, value);
+
                 }
             }
         }
 
-        private void CalculAchat()
+        private void CreateTradeMaterial()
         {
-            TtCost = DgSelectedItem.Quantity * DgSelectedItem.Value;
+            TradeMaterial = new TradeMaterial()
+            {
+                Material = DgSelectedItem,
+                Quantity = DgSelectedItem.Quantity,
+                State = repos.TradeStates.GetByNom("En Cours")
+            };
         }
+
+
     }
 }

@@ -25,6 +25,6 @@ namespace WpfApp.Repositories.Interfaces
         IRepository<Refinable> Refinables { get; }
         IRepository<StockMaterial> StockMaterials { get; }
         IRepository<TradeMaterial> TradeMaterials { get; }
-        IRepository<TradeState> TradeStates { get; }
+        ICommunRepository<TradeState> TradeStates { get; }
     }
 }

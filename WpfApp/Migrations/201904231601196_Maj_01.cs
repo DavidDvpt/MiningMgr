@@ -59,7 +59,7 @@ namespace WpfApp.Migrations
                 .Index(t => t.AccessoireId);
             
             CreateTable(
-                "dbo.TradeMaterials",
+                "dbo.TradeMaterial",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -73,7 +73,7 @@ namespace WpfApp.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Material", t => t.MaterialId)
-                .ForeignKey("dbo.Commun", t => t.TradeStateId, cascadeDelete: true)
+                .ForeignKey("dbo.TradeState", t => t.TradeStateId)
                 .Index(t => t.MaterialId)
                 .Index(t => t.TradeStateId);
             
@@ -262,10 +262,21 @@ namespace WpfApp.Migrations
                 .ForeignKey("dbo.Material", t => t.Id)
                 .Index(t => t.Id);
             
+            CreateTable(
+                "dbo.TradeState",
+                c => new
+                    {
+                        Id = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Commun", t => t.Id)
+                .Index(t => t.Id);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.TradeState", "Id", "dbo.Commun");
             DropForeignKey("dbo.StockMaterial", "Id", "dbo.Material");
             DropForeignKey("dbo.Setup", "SearchModeId", "dbo.SearchMode");
             DropForeignKey("dbo.Setup", "FinderAmplifierId", "dbo.FinderAmplifier");
@@ -286,14 +297,15 @@ namespace WpfApp.Migrations
             DropForeignKey("dbo.InWorld", "ModeleId", "dbo.Modele");
             DropForeignKey("dbo.InWorld", "Id", "dbo.Commun");
             DropForeignKey("dbo.Categorie", "Id", "dbo.Commun");
-            DropForeignKey("dbo.TradeMaterials", "TradeStateId", "dbo.Commun");
-            DropForeignKey("dbo.TradeMaterials", "MaterialId", "dbo.Material");
+            DropForeignKey("dbo.TradeMaterial", "TradeStateId", "dbo.TradeState");
+            DropForeignKey("dbo.TradeMaterial", "MaterialId", "dbo.Material");
             DropForeignKey("dbo.ToolAccessoire", "ToolId", "dbo.Modele");
             DropForeignKey("dbo.ToolAccessoire", "AccessoireId", "dbo.Modele");
             DropForeignKey("dbo.PlanetMaterial", "PlanetId", "dbo.Planet");
             DropForeignKey("dbo.PlanetMaterial", "MaterialId", "dbo.Material");
             DropForeignKey("dbo.Refinable", "UnrefinedId", "dbo.Material");
             DropForeignKey("dbo.Refinable", "RefinedId", "dbo.Material");
+            DropIndex("dbo.TradeState", new[] { "Id" });
             DropIndex("dbo.StockMaterial", new[] { "Id" });
             DropIndex("dbo.Setup", new[] { "SearchModeId" });
             DropIndex("dbo.Setup", new[] { "FinderAmplifierId" });
@@ -314,8 +326,8 @@ namespace WpfApp.Migrations
             DropIndex("dbo.InWorld", new[] { "ModeleId" });
             DropIndex("dbo.InWorld", new[] { "Id" });
             DropIndex("dbo.Categorie", new[] { "Id" });
-            DropIndex("dbo.TradeMaterials", new[] { "TradeStateId" });
-            DropIndex("dbo.TradeMaterials", new[] { "MaterialId" });
+            DropIndex("dbo.TradeMaterial", new[] { "TradeStateId" });
+            DropIndex("dbo.TradeMaterial", new[] { "MaterialId" });
             DropIndex("dbo.ToolAccessoire", new[] { "AccessoireId" });
             DropIndex("dbo.ToolAccessoire", new[] { "ToolId" });
             DropIndex("dbo.PlanetMaterial", new[] { "MaterialId" });
@@ -323,6 +335,7 @@ namespace WpfApp.Migrations
             DropIndex("dbo.Refinable", new[] { "RefinedId" });
             DropIndex("dbo.Refinable", new[] { "UnrefinedId" });
             DropIndex("dbo.Commun", new[] { "Nom" });
+            DropTable("dbo.TradeState");
             DropTable("dbo.StockMaterial");
             DropTable("dbo.Setup");
             DropTable("dbo.SearchMode");
@@ -338,7 +351,7 @@ namespace WpfApp.Migrations
             DropTable("dbo.Enhancer");
             DropTable("dbo.InWorld");
             DropTable("dbo.Categorie");
-            DropTable("dbo.TradeMaterials");
+            DropTable("dbo.TradeMaterial");
             DropTable("dbo.ToolAccessoire");
             DropTable("dbo.PlanetMaterial");
             DropTable("dbo.Refinable");

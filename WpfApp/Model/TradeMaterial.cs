@@ -5,13 +5,20 @@ using WpfApp.AttributValidation;
 
 namespace WpfApp.Model
 {
+    [Table("TradeMaterial")]
     public class TradeMaterial : BindableBase
     {
+        #region Constructor
+
         public TradeMaterial()
         {
             CreateDate = DateTime.Now;
-            Fee = 0;
+            Fee = 0; 
         }
+
+        #endregion
+
+        #region Mapped Methods
 
         [Key]
         public int Id
@@ -48,6 +55,7 @@ namespace WpfApp.Model
                 if (value != Quantity)
                 {
                     SetValue(() => Quantity, value);
+                    CalculAchat();
                 }
             }
         }
@@ -62,6 +70,7 @@ namespace WpfApp.Model
                 if (value != RealCost)
                 {
                     SetValue(() => RealCost, value);
+                    CalculFee();
                 }
             }
         }
@@ -128,6 +137,7 @@ namespace WpfApp.Model
                 if (value != State)
                 {
                     SetValue(() => State, value);
+                    TradeStateId = State.Id;
                 }
             }
         }
@@ -142,8 +152,57 @@ namespace WpfApp.Model
                 if (value != Material)
                 {
                     SetValue(() => Material, value);
+                    MaterialId = Material.Id;
+                    CalculAchat();
                 }
             }
         }
+
+        #endregion
+
+        #region Calculed Proprieties not mapped
+
+        [NotMapped]
+        public decimal TtCost
+        {
+            get { return GetValue(() => TtCost); }
+            set
+            {
+                if (value != TtCost)
+                {
+                    SetValue(() => TtCost, value);
+                }
+            }
+        }
+
+        private void CalculAchat()
+        {
+            TtCost = Quantity * Material.Value;
+            if (TtCost >= 0)
+            {
+                CalculMinVente();
+            }
+        }
+
+        private void CalculMinVente()
+        {
+            RealCost = Math.Ceiling(TtCost) -1;
+            do
+            {
+                RealCost++;
+                double mu = (double)(RealCost - TtCost);
+                Fee = (decimal)(0.5 + ((99.5 * 0.75 * mu) / ((1990 * 0.75) + mu)));
+
+            } while ((TtCost + Fee) > RealCost);
+            
+        }
+
+        private void CalculFee()
+        {
+            double mu = (double)(RealCost - TtCost);
+            Fee = (decimal)(0.5 + ((99.5 * 0.75 * mu) / ((1990 * 0.75) + mu)));
+        }
+
+        #endregion
     }
 }

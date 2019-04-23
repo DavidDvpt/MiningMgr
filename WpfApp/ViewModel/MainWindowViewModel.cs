@@ -77,6 +77,9 @@ namespace WpfApp.ViewModel
                 case "searchMode":
                     CurrentViewModel = new SearchModeManagerViewModel();
                     break;
+                case "tradeState":
+                    CurrentViewModel = new TradeStateManagerViewModel();
+                    break;
                 case "stockGeneral":
                 default:
                     CurrentViewModel = new StockViewModel("stockGeneral");

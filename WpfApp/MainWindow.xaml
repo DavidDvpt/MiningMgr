@@ -60,6 +60,10 @@
         <DataTemplate DataType="{x:Type viewModels:SearchModeManagerViewModel}">
             <views:ManagerView/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:TradeStateManagerViewModel}">
+            <views:ManagerView/>
+        </DataTemplate>
     </Window.Resources>
     
     <DockPanel>
@@ -93,6 +97,7 @@
                 <MenuItem Header="Setup" Command="{Binding NavCommand}" CommandParameter="setup"/>
                 <Separator />
                 <MenuItem Header="Material" Command="{Binding NavCommand}" CommandParameter="material"/>
+                <MenuItem Header="TradeState" Command="{Binding NavCommand}" CommandParameter="tradeState"/>
             </MenuItem>
         </Menu>
         
