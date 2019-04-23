@@ -163,6 +163,19 @@ namespace WpfApp.Model
         #region Calculed Proprieties not mapped
 
         [NotMapped]
+        public bool HandToHand
+        {
+            get { return GetValue(() => HandToHand); }
+            set
+            {
+                if (value != HandToHand)
+                {
+                    SetValue(() => HandToHand, value);
+                }
+            }
+        }
+
+        [NotMapped]
         public decimal TtCost
         {
             get { return GetValue(() => TtCost); }
@@ -175,12 +188,43 @@ namespace WpfApp.Model
             }
         }
 
+        [NotMapped]
+        public decimal MarkupBrut
+        {
+            get { return GetValue(() => MarkupBrut); }
+            set
+            {
+                if (value != MarkupBrut)
+                {
+                    SetValue(() => MarkupBrut, value);
+                }
+            }
+        }
+
+        [NotMapped]
+        public decimal MarkupNet
+        {
+            get { return GetValue(() => TtCost); }
+            set
+            {
+                if (value != TtCost)
+                {
+                    SetValue(() => TtCost, value);
+                }
+            }
+        }
+
+        #endregion
+
+        #region Private
+
         private void CalculAchat()
         {
             TtCost = Quantity * Material.Value;
             if (TtCost >= 0)
             {
                 CalculMinVente();
+                CalculMarkup();
             }
         }
 
@@ -190,17 +234,36 @@ namespace WpfApp.Model
             do
             {
                 RealCost++;
-                double mu = (double)(RealCost - TtCost);
-                Fee = (decimal)(0.5 + ((99.5 * 0.75 * mu) / ((1990 * 0.75) + mu)));
+                CalculFee();
 
             } while ((TtCost + Fee) > RealCost);
-            
         }
 
         private void CalculFee()
         {
-            double mu = (double)(RealCost - TtCost);
-            Fee = (decimal)(0.5 + ((99.5 * 0.75 * mu) / ((1990 * 0.75) + mu)));
+            if (HandToHand)
+            {
+                Fee = 0;
+            }
+            else
+            {
+                double mu = (double)(RealCost - TtCost);
+                Fee = Math.Round((decimal)(0.5 + ((99.5 * 0.75 * mu) / ((1990 * 0.75) + mu))-0.05),2);
+            }
+        }
+
+        private void CalculMarkup()
+        {
+            if (TtCost == 0)
+            {
+                MarkupBrut = 100;
+                MarkupNet = 100;
+            }
+            else
+            {
+                MarkupBrut = Math.Round((RealCost / TtCost) * 100,2);
+                MarkupNet = Math.Round(((RealCost - Fee) / TtCost) * 100,2);
+            }
         }
 
         #endregion

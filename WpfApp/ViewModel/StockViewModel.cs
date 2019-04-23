@@ -9,7 +9,6 @@ namespace WpfApp.ViewModel
         #region Champs
 
         private string _dgItemSourceParam;
-        private string _tradeMaterial;
 
         #endregion
 
@@ -23,6 +22,7 @@ namespace WpfApp.ViewModel
         protected override void Init()
         {
             Modeles = repos.Modeles.GetByCategorieName("Material").ToList();
+            AchatVisibility = false;
         }
 
         #endregion
@@ -77,6 +77,7 @@ namespace WpfApp.ViewModel
                 {
                     SetValue(() => DgSelectedItem, value);
                     CreateTradeMaterial();
+                    AchatVisibility = DgSelectedItem == null ? true : false;
                 }
             }
         }
@@ -105,7 +106,17 @@ namespace WpfApp.ViewModel
                 State = repos.TradeStates.GetByNom("En Cours")
             };
         }
-
-
+        
+        public bool AchatVisibility
+        {
+            get { return GetValue(() => AchatVisibility); }
+            set
+            {
+                if (AchatVisibility != value)
+                {
+                    SetValue(() => AchatVisibility, value);
+                }
+            }
+        }
     }
 }
