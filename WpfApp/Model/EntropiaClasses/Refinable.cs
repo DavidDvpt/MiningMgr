@@ -36,7 +36,7 @@ namespace WpfApp.Model
         }
 
         [ForeignKey("UnrefinedId")]
-        public Material UnrefinedMaterial
+        public virtual Material UnrefinedMaterial
         {
             get { return GetValue(() => UnrefinedMaterial); }
             set
@@ -50,7 +50,7 @@ namespace WpfApp.Model
         }
 
         [ForeignKey("RefinedId")]
-        public Material RefinedMaterial
+        public virtual Material RefinedMaterial
         {
             get { return GetValue(() => RefinedMaterial); }
             set

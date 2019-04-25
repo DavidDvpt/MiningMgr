@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
+using WpfApp.Commands;
 using WpfApp.Model;
 
 namespace WpfApp.ViewModel
@@ -23,7 +25,56 @@ namespace WpfApp.ViewModel
         {
             Modeles = repos.Modeles.GetByCategorieName("Material").ToList();
             AchatVisibility = false;
+            CancelAchatCommand = new RelayCommand(CancelAchatExecute, CancelAchatCanExecute);
+            ValidateAchatCommand = new RelayCommand(ValidateAchatExecute, ValidateAchatCanExecute);
         }
+
+        #endregion
+
+        #region Commands
+
+        public RelayCommand CancelAchatCommand { get; set; }
+        public RelayCommand ValidateAchatCommand { get; set; }
+
+        #region Execute
+
+        public void ValidateAchatExecute(object param)
+        {
+            repos.TradeMaterials.Add(TradeMaterial);
+            DgSelectedItem.Quantity -= TradeMaterial.Quantity;    
+            MessageBox.Show("L'achat a bien été enregistré", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            TradeMaterial = null;
+            DgSelectedItem = null;
+        }
+
+        public void CancelAchatExecute(object param)
+        {
+            TradeMaterial = null;
+            DgSelectedItem = null;
+        }
+
+        #endregion
+
+        #region CanExecute
+
+        public bool ValidateAchatCanExecute(object param)
+        {
+            if (Errors == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool CancelAchatCanExecute(object param)
+        {
+            return true;
+        }
+
+        #endregion
 
         #endregion
 
@@ -77,7 +128,7 @@ namespace WpfApp.ViewModel
                 {
                     SetValue(() => DgSelectedItem, value);
                     CreateTradeMaterial();
-                    AchatVisibility = DgSelectedItem == null ? true : false;
+                    AchatVisibility = DgSelectedItem != null ? true : false;
                 }
             }
         }
@@ -99,12 +150,16 @@ namespace WpfApp.ViewModel
 
         private void CreateTradeMaterial()
         {
-            TradeMaterial = new TradeMaterial()
+            if (DgSelectedItem != null)
             {
-                Material = DgSelectedItem,
-                Quantity = DgSelectedItem.Quantity,
-                State = repos.TradeStates.GetByNom("En Cours")
-            };
+                TradeMaterial = new TradeMaterial()
+                {
+                    Material = DgSelectedItem,
+                    Quantity = DgSelectedItem.Quantity,
+                    State = repos.TradeStates.GetByNom("En Cours")
+                };
+            }
+            
         }
         
         public bool AchatVisibility

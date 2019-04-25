@@ -208,7 +208,7 @@
                     <StackPanel Name="spAbbrev" Style="{StaticResource spBlocControl}"
                                 Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource abbrevVis}}">
                         <Label Name="lbAbbrev" Content="Abbrev : "/>
-                        <TextBox Name="tbxAbbrev" Text="{Binding ItemForm.Abbrev, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="50"/>
+                        <TextBox Name="tbxAbbrev" Text="{Binding ItemForm.Abbrev, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="50" Validation.Error="Validation_Error"/>
                         <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxAbbrev}"/>
                     </StackPanel>
                     
@@ -219,7 +219,8 @@
                             Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isActiveVis}}">
 
                     <CheckBox Name="ckxIsActive" IsChecked="{Binding ItemForm.IsActive, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="100" Content="Actif"/>
-                    <CheckBox Name="ckxLimited" IsChecked="{Binding ItemForm.IsLimited, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="100" Content="Limited" Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isLimitedVis}}"/>
+                    <CheckBox Name="ckxLimited" IsChecked="{Binding ItemForm.IsLimited, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="100" Content="Limited"
+                              Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource isLimitedVis}}"/>
                 
                 </StackPanel>
                 
@@ -252,7 +253,7 @@
                     <!-- VALUE -->
                     <StackPanel Name="spValue" Style="{StaticResource spBlocControl}">
                         <Label Name="lbValue" Content="Valeur (Ped) :"/>
-                        <TextBox Name="tbxValue" Text="{Binding ItemForm.Value, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60"/>
+                        <TextBox Name="tbxValue" Text="{Binding ItemForm.Value, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
                         <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxValue}"/>
                     </StackPanel>
                         
@@ -260,7 +261,7 @@
                     <StackPanel Name="spDecay" Style="{StaticResource spBlocControl}"
                                 Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource decayVis}}">
                         <Label Name="lbDecay" Content="Decay (Pec) :"/>
-                        <TextBox Name="tbxDecay" Text="{Binding ItemForm.Decay, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60"/>
+                        <TextBox Name="tbxDecay" Text="{Binding ItemForm.Decay, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
                         <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxDecay}"/>
                     </StackPanel>
                         
@@ -268,7 +269,7 @@
                     <StackPanel Name="spUsePerMin" Style="{StaticResource spBlocControl}"
                                 Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource usePerMinVis}}">
                         <Label Name="lbUsePerMin" Content="Use per Minute : "/>
-                        <TextBox Name="tbxUsePerMin" Text="{Binding ItemForm.UsePerMin, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60"/>
+                        <TextBox Name="tbxUsePerMin" Text="{Binding ItemForm.UsePerMin, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
                         <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxUsePerMin}"/>
                     </StackPanel>
                     
@@ -284,21 +285,21 @@
                         <!-- DEPTH -->
                         <StackPanel Name="spDepth" Style="{StaticResource spBlocControl}">
                             <Label Name="lbDepth" Content="Depth (m) :"/>
-                            <TextBox Name="tbxDepth" Text="{Binding ItemForm.Depth, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60"/>
+                            <TextBox Name="tbxDepth" Text="{Binding ItemForm.Depth, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
                             <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxDepth}"/>
                         </StackPanel>
                         
                         <!-- RANGE -->
                         <StackPanel Name="spRange" Style="{StaticResource spBlocControl}">
                             <Label Name="lbRange" Content="Range (m) :"/>
-                            <TextBox Name="tbxRange" Text="{Binding ItemForm.Range, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60"/>
+                            <TextBox Name="tbxRange" Text="{Binding ItemForm.Range, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
                             <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxRange}"/>
                         </StackPanel>
                         
                         <!-- BASE PEC SEARCH -->
                         <StackPanel Name="spBasePecSearch" Style="{StaticResource spBlocControl}">
                             <Label Name="lbBasePecSearch" Content="Base Probe (Pec) :"/>
-                            <TextBox Name="tbxBasePecSearch" Text="{Binding ItemForm.BasePecSearch, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60"/>
+                            <TextBox Name="tbxBasePecSearch" Text="{Binding ItemForm.BasePecSearch, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
                             <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxBasePecSearch}"/>
                         </StackPanel>
                     
@@ -308,7 +309,7 @@
                     <StackPanel Name="spEfficienty" Style="{StaticResource spBlocControl}"
                                 Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource efficientyVis}}">
                         <Label Name="lbEfficienty" Content="Efficienty :"/>
-                        <TextBox Name="tbxEfficienty" Text="{Binding ItemForm.Efficienty, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60"/>
+                        <TextBox Name="tbxEfficienty" Text="{Binding ItemForm.Efficienty, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
                         <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxEfficienty}"/>
                     </StackPanel>
 
@@ -316,7 +317,7 @@
                     <StackPanel Name="spCoefficient" Style="{StaticResource spBlocControl}"
                                 Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource coefficientVis}}">
                         <Label Name="lbCoefficient" Content="Coefficient :"/>
-                        <TextBox Name="tbxCoefficient" Text="{Binding ItemForm.Coefficient, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60"/>
+                        <TextBox Name="tbxCoefficient" Text="{Binding ItemForm.Coefficient, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
                         <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxCoefficient}"/>
                     </StackPanel>
 
@@ -326,21 +327,21 @@
                         <!-- SLOT -->
                         <StackPanel Name="spSlot" Style="{StaticResource spBlocControl}">
                             <Label Name="lbSlot" Content="Slot :"/>
-                            <TextBox Name="tbxSlot" Text="{Binding ItemForm.Slot, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60"/>
+                            <TextBox Name="tbxSlot" Text="{Binding ItemForm.Slot, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
                             <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxSlot}"/>
                         </StackPanel>
                         
                         <!-- BONUS VALUE 1 -->
                         <StackPanel Name="spBonusValue1" Style="{StaticResource spBlocControl}">
                             <Label Name="lbBonusValue1" Content="Bonus Value 1 :"/>
-                            <TextBox Name="tbxBonusValue1" Text="{Binding ItemForm.BonusValue1, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60"/>
+                            <TextBox Name="tbxBonusValue1" Text="{Binding ItemForm.BonusValue1, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
                             <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxBonusValue1}"/>
                         </StackPanel>
                         
                         <!-- BONUS VALUE 2 -->
                         <StackPanel Name="spBonusValue2" Style="{StaticResource spBlocControl}">
                             <Label Name="lbBonusValue2" Content="Bonus Value 2 :"/>
-                            <TextBox Name="tbxBonusValue2" Text="{Binding ItemForm.BonusValue2, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60"/>
+                            <TextBox Name="tbxBonusValue2" Text="{Binding ItemForm.BonusValue2, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
                             <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxBonusValue2}"/>
                         </StackPanel>
                     
@@ -354,7 +355,7 @@
                             <Label Name="lbSearchMode" Content="Search mode :"/>
                             <ComboBox Name="cbxSearchMode" ItemsSource="{Binding SearchModes}" VerticalContentAlignment="Center"
                               DisplayMemberPath="Nom"
-                              SelectedItem="{Binding ItemForm.SearchMode, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="200"/>
+                              SelectedItem="{Binding ItemForm.SearchMode, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="200" Validation.Error="Validation_Error"/>
                             <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=cbxSearchMode}"/>
                         </StackPanel>
 
@@ -363,7 +364,7 @@
                             <Label Name="lbFinder" Content="Finder :"/>
                             <ComboBox Name="cbxFinder" ItemsSource="{Binding Finders}" VerticalContentAlignment="Center"
                               DisplayMemberPath="Nom"
-                              SelectedItem="{Binding ItemForm.Finder, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="200"/>
+                              SelectedItem="{Binding ItemForm.Finder, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="200" Validation.Error="Validation_Error"/>
                             <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=cbxFinder}"/>
                         </StackPanel>
 
@@ -372,28 +373,28 @@
                             <Label Name="lbFinderAmplifier" Content="Finder Amplifier :"/>
                             <ComboBox Name="cbxFinderAmplifier" ItemsSource="{Binding FinderAmplifiers}" VerticalContentAlignment="Center"
                               DisplayMemberPath="Nom"
-                              SelectedItem="{Binding ItemForm.FinderAmplifier, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="200"/>
+                              SelectedItem="{Binding ItemForm.FinderAmplifier, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="200" Validation.Error="Validation_Error"/>
                             <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=cbxFinderAmplifier}"/>
                         </StackPanel>
 
                         <!-- DEPTH ENHANCER QTY -->
                         <StackPanel Name="spDepthEnancerQty" Style="{StaticResource spBlocControl}">
                             <Label Name="lbDepthEnancerQty" Content="Depth Enhancer Qty :" Width="120"/>
-                            <TextBox Name="tbxDepthEnancerQty" Text="{Binding ItemForm.DepthEnhancerQty, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60"/>
+                            <TextBox Name="tbxDepthEnancerQty" Text="{Binding ItemForm.DepthEnhancerQty, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
                             <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxDepthEnancerQty}"/>
                         </StackPanel>
 
                         <!-- RANGE ENHANCER QTY -->
                         <StackPanel Name="spRangeEnancerQty" Style="{StaticResource spBlocControl}">
                             <Label Name="lbRangeEnancerQty" Content="Range Enhancer Qty :" Width="120"/>
-                            <TextBox Name="tbxRangeEnancerQty" Text="{Binding ItemForm.RangeEnhancerQty, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60"/>
+                            <TextBox Name="tbxRangeEnancerQty" Text="{Binding ItemForm.RangeEnhancerQty, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
                             <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxRangeEnancerQty}"/>
                         </StackPanel>
 
                         <!-- SKILL ENHANCER QTY -->
                         <StackPanel Name="spSkillEnancerQty" Style="{StaticResource spBlocControl}">
                             <Label Name="lbSkillEnancerQty" Content="Skill Enhancer Qty :" Width="120"/>
-                            <TextBox Name="tbxSkillEnancerQty" Text="{Binding ItemForm.SkillEnhancerQty, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60"/>
+                            <TextBox Name="tbxSkillEnancerQty" Text="{Binding ItemForm.SkillEnhancerQty, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
                             <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxSkillEnancerQty}"/>
                         </StackPanel>
 

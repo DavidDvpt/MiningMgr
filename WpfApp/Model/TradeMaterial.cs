@@ -55,7 +55,7 @@ namespace WpfApp.Model
                 if (value != Quantity)
                 {
                     SetValue(() => Quantity, value);
-                    CalculAchat();
+                    TtCostUpdate(); ;
                 }
             }
         }
@@ -70,7 +70,7 @@ namespace WpfApp.Model
                 if (value != RealCost)
                 {
                     SetValue(() => RealCost, value);
-                    CalculFee();
+                    RealCostUpdate();
                 }
             }
         }
@@ -153,14 +153,13 @@ namespace WpfApp.Model
                 {
                     SetValue(() => Material, value);
                     MaterialId = Material.Id;
-                    CalculAchat();
                 }
             }
         }
 
         #endregion
 
-        #region Calculed Proprieties not mapped
+        #region Not Mapped Proprieties
 
         [NotMapped]
         public bool HandToHand
@@ -171,11 +170,13 @@ namespace WpfApp.Model
                 if (value != HandToHand)
                 {
                     SetValue(() => HandToHand, value);
+                    HandToHandUpdate();
                 }
             }
         }
 
         [NotMapped]
+        [Range(0, 10000, ErrorMessage ="la valeur doit être supérieure à 0")]
         public decimal TtCost
         {
             get { return GetValue(() => TtCost); }
@@ -184,6 +185,20 @@ namespace WpfApp.Model
                 if (value != TtCost)
                 {
                     SetValue(() => TtCost, value);
+                    RealCostUpdate();
+                }
+            }
+        }
+
+        [NotMapped]
+        public decimal Profit
+        {
+            get { return GetValue(() => Profit); }
+            set
+            {
+                if (value != Profit)
+                {
+                    SetValue(() => Profit, value);
                 }
             }
         }
@@ -204,12 +219,12 @@ namespace WpfApp.Model
         [NotMapped]
         public decimal MarkupNet
         {
-            get { return GetValue(() => TtCost); }
+            get { return GetValue(() => MarkupNet); }
             set
             {
-                if (value != TtCost)
+                if (value != MarkupNet)
                 {
-                    SetValue(() => TtCost, value);
+                    SetValue(() => MarkupNet, value);
                 }
             }
         }
@@ -218,14 +233,46 @@ namespace WpfApp.Model
 
         #region Private
 
-        private void CalculAchat()
+        private void TtCostUpdate()
         {
-            TtCost = Quantity * Material.Value;
-            if (TtCost >= 0)
+            TtCost = Material != null ? Material.Value * Quantity : 0;
+            
+        }
+
+        private void RealCostUpdate()
+        {
+            if (RealCost < (TtCost + Fee))
             {
                 CalculMinVente();
-                CalculMarkup();
             }
+            else
+            {
+                CalculFee();
+
+            }
+
+            CalculMarkup();
+            ProfitUpdate();
+        }
+
+        private void ProfitUpdate()
+        {
+            Profit = RealCost - Fee - TtCost;
+        }
+
+        private void HandToHandUpdate()
+        {
+            if (HandToHand)
+            {
+                Fee = 0;
+            }
+            else
+            {
+                CalculFee();
+            }
+
+            CalculMarkup();
+            ProfitUpdate();
         }
 
         private void CalculMinVente()
