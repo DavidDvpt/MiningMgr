@@ -5,8 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp.Views"
              xmlns:uc="clr-namespace:WpfApp.UserControls"
+             xmlns:vm="clr-namespace:WpfApp.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type vm:FormulaireAchatViewModel}">
+            <uc:UcFormulaireAchat/>
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -22,13 +28,16 @@
         </DataGrid>
 
         <StackPanel Orientation="Vertical" Grid.Column="1">
-           <!-- <StackPanel Name="spModele" Style="{StaticResource spBlocControl}">
+            <ContentControl Content="{Binding FormulaireAchat}"/>
+
+
+            <!-- <StackPanel Name="spModele" Style="{StaticResource spBlocControl}">
                 <Label Name="lbModele" Content="Modèle : "/>
                 <ComboBox Name="cbxModele" ItemsSource="{Binding Modeles}" DisplayMemberPath="Nom" VerticalContentAlignment="Center"
                                   SelectedItem="{Binding SelectedModele}" Width="150"/>
 
             </StackPanel>-->
-            <uc:UcCbxModeles LabelTexte="Modeles : " Modeles="{Binding Modeles}" Selected="{Binding SelectedModele}" SpStyle="{StaticResource spBlocControl}"/>
+            <!--<uc:UcCbxModeles LabelTexte="Modeles : " Modeles="{Binding Modeles}" Selected="{Binding SelectedModele}" SpStyle="{StaticResource spBlocControl}"/>-->
         </StackPanel>
     </Grid>
 </UserControl>

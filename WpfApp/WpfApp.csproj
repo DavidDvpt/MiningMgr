@@ -83,13 +83,9 @@
     <Compile Include="AttributValidation\MinimalRealCost.cs" />
     <Compile Include="BindableBase.cs" />
     <Compile Include="Context\MiningContext.cs" />
-    <Compile Include="Migrations\201904202219129_Maj_01.cs" />
-    <Compile Include="Migrations\201904202219129_Maj_01.Designer.cs">
-      <DependentUpon>201904202219129_Maj_01.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904211413106_Maj_02.cs" />
-    <Compile Include="Migrations\201904211413106_Maj_02.Designer.cs">
-      <DependentUpon>201904211413106_Maj_02.cs</DependentUpon>
+    <Compile Include="Migrations\201904251610383_Maj_03.cs" />
+    <Compile Include="Migrations\201904251610383_Maj_03.Designer.cs">
+      <DependentUpon>201904251610383_Maj_03.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Commands\CmdWithoutParam.cs" />
@@ -117,8 +113,12 @@
     <Compile Include="UserControls\UcCbxModeles.xaml.cs">
       <DependentUpon>UcCbxModeles.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UcFormulaireAchat.xaml.cs">
+      <DependentUpon>UcFormulaireAchat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="DependencyProperties\DataGridColumnVisibilityBinding.cs" />
+    <Compile Include="ViewModel\FormulaireAchatViewModel.cs" />
     <Compile Include="ViewModel\Managers\EnhancerManagerViewModel.cs" />
     <Compile Include="ViewModel\Managers\FinderAmplifierManagerViewModel.cs" />
     <Compile Include="ViewModel\Managers\ExcavatorManagerViewModel.cs" />
@@ -154,6 +154,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UserControls\UcCbxModeles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UcFormulaireAchat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -195,11 +199,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201904202219129_Maj_01.resx">
-      <DependentUpon>201904202219129_Maj_01.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904211413106_Maj_02.resx">
-      <DependentUpon>201904211413106_Maj_02.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904251610383_Maj_03.resx">
+      <DependentUpon>201904251610383_Maj_03.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

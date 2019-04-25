@@ -24,6 +24,7 @@ namespace WpfApp.ViewModel
         {
             Modeles = repos.Modeles.GetByCategorieName("Material").ToList();
             SelectedModele = repos.Modeles.GetByNom("Ore");
+            FormulaireAchat = new FormulaireAchatViewModel();
         }
 
         #endregion
@@ -65,7 +66,19 @@ namespace WpfApp.ViewModel
         {
             DataGridItemSource = repos.Materials.GetByModeleId(SelectedModele.Id);
         }
-        
+
         #endregion
+
+        public BindableBase FormulaireAchat
+        {
+            get { return GetValue(() => FormulaireAchat); }
+            set
+            {
+                if (value != FormulaireAchat)
+                {
+                    SetValue(() => FormulaireAchat, value);
+                }
+            }
+        }
     }
 }

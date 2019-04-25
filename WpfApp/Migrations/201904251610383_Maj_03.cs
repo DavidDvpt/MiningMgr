@@ -3,7 +3,7 @@ namespace WpfApp.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Maj_01 : DbMigration
+    public partial class Maj_03 : DbMigration
     {
         public override void Up()
         {
@@ -88,8 +88,8 @@ namespace WpfApp.Migrations
                     {
                         Id = c.Int(nullable: false),
                         Slot = c.Byte(nullable: false),
-                        BonusValue1 = c.Decimal(nullable: false, precision: 3, scale: 1),
-                        BonusValue2 = c.Decimal(nullable: false, precision: 3, scale: 1),
+                        BonusValue1 = c.Decimal(nullable: false, precision: 4, scale: 2),
+                        BonusValue2 = c.Short(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.InWorld", t => t.Id)

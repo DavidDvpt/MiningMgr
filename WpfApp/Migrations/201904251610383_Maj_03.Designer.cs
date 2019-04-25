@@ -7,13 +7,13 @@ namespace WpfApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Maj_02 : IMigrationMetadata
+    public sealed partial class Maj_03 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Maj_02));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Maj_03));
         
         string IMigrationMetadata.Id
         {
-            get { return "201904211413106_Maj_02"; }
+            get { return "201904251610383_Maj_03"; }
         }
         
         string IMigrationMetadata.Source
