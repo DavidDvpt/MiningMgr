@@ -9,13 +9,17 @@
              xmlns:ucVm="clr-namespace:WpfApp.ViewModel.UserControlViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    
     <UserControl.Resources>
+        
         <dps:DataGridColumnVisibilityBinding x:Key="achatVis" Data="{Binding AchatVisibility}"/>
         
         <DataTemplate DataType="{x:Type ucVm:FormulaireAchatViewModel}">
             <uc:FormulaireAchatUserControl/>
         </DataTemplate>
+        
     </UserControl.Resources>
+    
     <Grid>
         <Grid.Resources>
         </Grid.Resources>
@@ -42,7 +46,10 @@
                                   SelectedItem="{Binding SelectedModele}" Width="150"/>
             </StackPanel>
             <!--Visibility="{Binding .Data, Converter={StaticResource boolToVis}, Source={StaticResource achatVis}}"-->
-            
+
+            <Grid>
+                <ContentControl Content="{Binding FormulaireAchat}"/>
+            </Grid>
             
         </StackPanel>
     </Grid>

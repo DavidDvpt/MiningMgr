@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows;
 using WpfApp.Commands;
 using WpfApp.Model;
+using WpfApp.ViewModel.UserControlViewModels;
 
 namespace WpfApp.ViewModel
 {
@@ -27,6 +28,7 @@ namespace WpfApp.ViewModel
             AchatVisibility = false;
             CancelAchatCommand = new RelayCommand(CancelAchatExecute, CancelAchatCanExecute);
             ValidateAchatCommand = new RelayCommand(ValidateAchatExecute, ValidateAchatCanExecute);
+            FormulaireAchat = new FormulaireAchatViewModel();
         }
 
         #endregion
@@ -170,6 +172,18 @@ namespace WpfApp.ViewModel
                 if (AchatVisibility != value)
                 {
                     SetValue(() => AchatVisibility, value);
+                }
+            }
+        }
+
+        public BindableBase FormulaireAchat
+        {
+            get { return GetValue(() => FormulaireAchat); }
+            set
+            {
+                if (FormulaireAchat != value)
+                {
+                    SetValue(() => FormulaireAchat, value);
                 }
             }
         }
