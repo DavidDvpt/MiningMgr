@@ -83,6 +83,9 @@
     <Compile Include="AttributValidation\MinimalRealCost.cs" />
     <Compile Include="BindableBase.cs" />
     <Compile Include="Context\MiningContext.cs" />
+    <Compile Include="ControlUsers\FormulaireAchatUserControl.xaml.cs">
+      <DependentUpon>FormulaireAchatUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201904231601196_Maj_01.cs" />
     <Compile Include="Migrations\201904231601196_Maj_01.Designer.cs">
       <DependentUpon>201904231601196_Maj_01.cs</DependentUpon>
@@ -128,6 +131,7 @@
     <Compile Include="ViewModel\Managers\TradeStateManagerViewModel.cs" />
     <Compile Include="ViewModel\Managers\UnstackableManagerViewModel.cs" />
     <Compile Include="ViewModel\StockViewModel.cs" />
+    <Compile Include="ViewModel\UserControlViewModels\FormulaireAchatViewModel.cs" />
     <Compile Include="Views\ManagerView.xaml.cs">
       <DependentUpon>ManagerView.xaml</DependentUpon>
     </Compile>
@@ -135,6 +139,10 @@
       <DependentUpon>StockView.xaml</DependentUpon>
     </Compile>
     <Compile Include="VML\ViewModelLocator.cs" />
+    <Page Include="ControlUsers\FormulaireAchatUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
