@@ -2,40 +2,32 @@
 {
     public class Message
     {
-        #region Public Properties
+        #region Propriétés publiques
+
         /// <summary>
-        /// Has the message been handled
+        /// Le message a-t-il été traité?
         /// </summary>
-        public MessageHandledStatus HandledStatus
-        {
-            get;
-            set;
-        }
+        public MessageHandledStatus HandledStatus { get; set; }
+
         /// <summary>
-        /// What type of message is this
+        /// Quel type de message est-ce
         /// </summary>
-        private MessageTypes messageType;
-        public MessageTypes MessageType
-        {
-            get
-            {
-                return messageType;
-            }
-        }
+        public MessageTypes MessageType { get; private set; }
+
         /// <summary>
-        /// The payload for the message 
+        /// Le payload pour le message
         /// </summary>
-        public object Payload
-        {
-            get;
-            set;
-        }
+        public object Payload { get; set; }
+
         #endregion
+
         #region Constructor
+
         public Message(MessageTypes messageType)
         {
-            this.messageType = messageType;
+            MessageType = messageType;
         }
+
         #endregion
     }
 }

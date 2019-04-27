@@ -5,74 +5,61 @@ using System.Reflection;
 
 namespace Messengers
 {
-	public enum MessageHandledStatus
-	{
-		NotHandled,         // The message has not been handled
-		HandledContinue,    // I have handled the message, but let others know about it
-		HandledCompleted,   // I have handled the message but tell nobody else about it
-		NotHandledAbort     // I haven't handled the message but want to abort it anyway
-	}
-
-	public enum NotificationResult
-	{
-		MessageNotRegistered,       // The message had no handlers registered
-		MessageHandled,             // The message had one or more handlers, and was handled
-		MessageAborted,				// The message had a handler who aborted the message
-		MessageRegisteredNotHandled // Although the message had one or more handlers, none of them appeared to handle the message
-	}
-	/// <summary>
-	/// Provides loosely-coupled messaging between
-	/// various colleague objects.  All references to objects
-	/// are stored weakly, to prevent memory leaks.
-	/// Based on (stolen from!) the MVVMFoundation Messenger class - but modified to use an enumeration rather than a string
-	/// </summary>
-	public class Messenger
+    /// <summary>
+    /// Fournit une messagerie faiblement couplée entre
+    /// divers objets collègues.Toutes les références aux objets
+    /// sont stockés faiblement, pour éviter les fuites de mémoire.
+    /// Basé sur (volé!) La classe MVVMFoundation Messenger - mais modifié pour utiliser une énumération plutôt qu'une chaîne
+    /// </summary>
+    public class Messenger
 	{
 		static readonly Messenger instance = new Messenger();
 
-		#region Constructor
+		#region Constructeur
 
 		/// <summary>
-		/// Private constructor for this singleton - use Messenger.Instance
+		/// Constructeur privé pour ce singleton - utilise Messenger.Instance
 		/// </summary>
 		private Messenger()
 		{
 		}
 
-		#endregion // Constructor
+        #endregion
 
-		#region Public Properties
-		public static Messenger Instance
-		{
-			get
-			{
-				return instance;
-			}
-		}
-		#endregion // Public Properties
+        #region Propriétés publiques
 
-		#region Register
+        public static Messenger Instance => instance;
 
-		/// <summary>
-		/// Registers a call-back method, with no parameter, to be invoked when a specific message is broadcast.
-		/// </summary>
-		/// <param name="message">The message to register for.</param>
-		/// <param name="callback">The call-back to be called when this message is broadcasted.</param>
-		public void Register(MessageTypes message, Action callback)
+        #endregion
+
+        #region Enregistrement
+
+        /// <summary>
+        /// Enregistre une méthode call-back, sans paramètre, à appeler lorsqu'un message spécifique est diffusé.
+        /// </summary>
+        /// <param name="message">Message d'inscription.</param>
+        /// <param name="callback">call-back à appeler lorsque le message est diffusé.</param>
+        public void Register(MessageTypes message, Action callback)
 		{
 			this.Register(message, callback, null);
 		}
 
-		/// <summary>
-		/// Registers a call-back method, with a parameter, to be invoked when a specific message is broadcast.
+        /// <summary>
+        /// Enregistre une méthode ce call-back, avec un paramètre, à appeler lorsqu'un message spécifique est diffusé.
 		/// </summary>
-		/// <param name="message">The message to register for.</param>
-		/// <param name="callback">The call-back to be called when this message is broadcasted.</param>
+		/// <param name="message">Message d'inscription.</param>
+		/// <param name="callback">call-back à appeler lorsque le message est diffusé.</param>
 		public void Register<T>(MessageTypes message, Action<T> callback)
 		{
 			this.Register(message, callback, typeof(T));
 		}
 
+        /// <summary>
+        /// Methode appelée par les 2 autres methode d'enregistrement
+        /// </summary>
+        /// <param name="message"> message d'inscription</param>
+        /// <param name="callback"> methode de call-back à appeler lorsque le message est diffusé</param>
+        /// <param name="parameterType"> parametre de la méthode</param>
 		void Register(MessageTypes message, Delegate callback, Type parameterType)
 		{
 			if (callback == null)
@@ -83,25 +70,25 @@ namespace Messengers
 			_messageToActionsMap.AddAction(message, callback.Target, callback.Method, parameterType);
 		}
 
-		/// <summary>
-		/// When your class is listening for a message with a particular method, the DeRegister method will 
-		/// remove your delagte from the collection - so this particular listener will no lionger receive this particular message
-		/// </summary>
-		/// <param name="message"></param>
-		/// <param name="callback"></param>
-		public void DeRegister(MessageTypes message, Delegate callback)
+        /// <summary>
+        /// Lorsque votre classe écoute un message avec une méthode particulière, la méthode DeRegister
+        ///supprime votre delagate de la collection - pour que cet auditeur particulier ne reçoive pas ce message
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="callback"></param>
+        public void DeRegister(MessageTypes message, Delegate callback)
 		{
 			_messageToActionsMap.RemoveAction(message, callback.Target, callback.Method);
 		}
 
-		/// <summary>
-		/// When your class is listening to one or more messages, this DeRegister method will 
-		/// remove all delegates for that class from the collection.
-		/// Should be called when a ViewModel closes to ensure un-Garbage Collected objects don't continue to
-		/// receive messages
-		/// </summary>
-		/// <param name="callback"></param>
-		public void DeRegister(object target)
+        /// <summary>
+        /// Lorsque votre classe écoute un message avec une méthode particulière, la méthode DeRegister
+        /// supprime tous les delagate de la collection.
+        /// Doit être appelé à la fermeture d’un ViewModel pour s’assurer que les objets collectés non-Garbage ne continuent pas.
+        /// à recevoir des messages
+        /// </summary>
+        /// <param name="callback"></param>
+        public void DeRegister(object target)
 		{
 			_messageToActionsMap.RemoveActions(target);
 		}
@@ -116,7 +103,7 @@ namespace Messengers
 				{
 					if (!previouslyRegisteredParameterType.Equals(parameterType))
 						throw new InvalidOperationException(string.Format(
-							"The registered action's parameter type is inconsistent with the previously registered actions for message '{0}'.\nExpected: {1}\nAdding: {2}",
+                            "Le type de paramètre de l'action enregistrée est incompatible avec les actions précédemment enregistrées pour le message '{0}'.\nExpected: {1}\nAdding: {2}",
 							message,
 							previouslyRegisteredParameterType.FullName,
 							parameterType.FullName));
@@ -127,7 +114,7 @@ namespace Messengers
 					if (previouslyRegisteredParameterType != parameterType)   // not both null?
 					{
 						throw new TargetParameterCountException(string.Format(
-							"The registered action has a number of parameters inconsistent with the previously registered actions for message \"{0}\".\nExpected: {1}\nAdding: {2}",
+                            "L'action enregistrée a un certain nombre de paramètres incohérents avec les actions précédemment enregistrées pour le message. \"{0}\".\nExpected: {1}\nAdding: {2}",
 							message,
 							previouslyRegisteredParameterType == null ? 0 : 1,
 							parameterType == null ? 0 : 1));
@@ -136,16 +123,16 @@ namespace Messengers
 			}
 		}
 
-		#endregion // Register
+        #endregion
 
-		#region NotifyColleagues
+        #region NotifyColleagues
 
-		/// <summary>
-		/// Notifies all registered parties that a message is being broadcasted.
-		/// </summary>
-		/// <param name="messageType">The message to broadcast.</param>
-		/// <param name="parameter">The parameter to pass together with the message.</param>
-		public NotificationResult NotifyColleagues(MessageTypes messageType, object parameter)
+        /// <summary>
+        /// Notifie tous les partis enregistrés qu'un message est en cours de diffusion.
+        /// </summary>
+        /// <param name="messageType">Message à diffuser.</param>
+        /// <param name="parameter">paramettre à passer avec le message.</param>
+        public NotificationResult NotifyColleagues(MessageTypes messageType, object parameter)
 		{
 			//if (String.IsNullOrEmpty(message))
 			//    throw new ArgumentException("'message' cannot be null or empty.");
@@ -155,7 +142,7 @@ namespace Messengers
 			if (_messageToActionsMap.TryGetParameterType(messageType, out registeredParameterType))
 			{
 				if (registeredParameterType == null)
-					throw new TargetParameterCountException(string.Format("Cannot pass a parameter with message '{0}'. Registered action(s) expect no parameter.", messageType));
+					throw new TargetParameterCountException(string.Format("Impossible de transmettre un paramètre avec un message '{0}'. l'action enregistree(s) ne demande aucun parametre.", messageType));
 			}
 
 			var actions = _messageToActionsMap.GetActions(messageType);
@@ -201,11 +188,11 @@ namespace Messengers
 				method.DynamicInvoke(message);
 			}
 		}
-		/// <summary>
-		/// Notifies all registered parties that a message is being broadcasted.
-		/// </summary>
-		/// <param name="messageType">The message to broadcast.</param>
-		public void NotifyColleagues(MessageTypes messageType)
+        /// <summary>
+        /// Notifie tous les partis enregistrés qu'un message est en cours de diffusion.
+        /// </summary>
+        /// <param name="messageType">The message to broadcast.</param>
+        public void NotifyColleagues(MessageTypes messageType)
 		{
 			//if (String.IsNullOrEmpty(message))
 			//    throw new ArgumentException("'message' cannot be null or empty.");
@@ -229,7 +216,7 @@ namespace Messengers
 			}
 		}
 
-		#endregion // NotifyColleauges
+		#endregion 
 
 		#region MessageToActionsMap [nested class]
 
@@ -249,7 +236,7 @@ namespace Messengers
 			#region AddAction
 
 			/// <summary>
-			/// Adds an action to the list.
+			/// Ajoute une action à la liste.
 			/// </summary>
 			/// <param name="message">The message to register.</param>
 			/// <param name="target">The target object to invoke, or null.</param>
