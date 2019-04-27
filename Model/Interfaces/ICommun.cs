@@ -1,4 +1,4 @@
-﻿namespace WpfApp.Model.Dto.Interfaces
+﻿namespace Model.Interface
 {
     public interface ICommun
     {

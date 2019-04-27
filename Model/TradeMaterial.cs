@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WpfApp.Model
+namespace Model
 {
     [Table("TradeMaterial")]
     public class TradeMaterial

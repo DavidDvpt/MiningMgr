@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Models
+namespace Model
 {
     [Table("Refiner")]
     public class Refiner : Tool

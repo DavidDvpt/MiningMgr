@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WpfApp.Models
+namespace Model
 {
     [Table("StockMaterial")]
     public class StockMaterial : Material
