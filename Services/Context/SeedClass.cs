@@ -1,5 +1,4 @@
 ﻿using WpfApp.Repositories;
-using WpfApp.Repositories.Interfaces;
 using System.Data.Entity;
 using Model;
 using System;
@@ -7,6 +6,7 @@ using System.Configuration;
 using System.Collections.Generic;
 using System.IO;
 using System.Data.SqlClient;
+using Services.Repositories.Interfaces;
 
 namespace Services.Context
 {

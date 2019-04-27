@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ViewModels.BaseClasses
+namespace ViewModels
 {
     /// <summary>
     /// Quand le VueModel est fermé, les vues associées doivent fermer aussi
@@ -40,13 +40,13 @@ namespace ViewModels.BaseClasses
                 }
             }
         }
-
+        
+        #endregion
+        
         /// <summary>
         /// Si le viewModel veut faite quelque chose il a besoin du controller
         /// </summary>
         public IController Controller { get; set; }
-
-        #endregion
 
         #region Constructeurs
 
@@ -106,6 +106,7 @@ namespace ViewModels.BaseClasses
                 ViewModelActivating();
             }
         }
+
         #endregion
 
     }
