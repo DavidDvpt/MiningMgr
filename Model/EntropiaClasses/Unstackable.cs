@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Model
+namespace Models
 {
     [Table("Unstackable")]
     public abstract class Unstackable : InWorld

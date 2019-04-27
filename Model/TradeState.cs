@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WpfApp.Model
+namespace WpfApp.Models
 {
     [Table("TradeState")]
     public class TradeState : Commun

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Model
+namespace Models
 {
     [Table("Setup")]
     public class Setup : Commun

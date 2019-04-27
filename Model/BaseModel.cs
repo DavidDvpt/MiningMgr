@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace WpfApp.Model
+namespace WpfApp.Models
 {
     public abstract class BaseModel : INotifyPropertyChanged
     {
