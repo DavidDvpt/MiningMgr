@@ -2,7 +2,7 @@
 using Model;
 using Services.Repositories.Interfaces;
 
-namespace WpfApp.Repositories
+namespace Services.Repositories
 {
     public class RepositoriesUoW : IRepositoriesUoW
     {
@@ -23,52 +23,52 @@ namespace WpfApp.Repositories
             ctx = new MiningContext();
         }
 
-        private ICommunRepository<Categorie> _Categories;
-        private IModeleRepository _Modeles;
-        private ICommunRepository<Finder> _Finders;
-        private ICommunRepository<Excavator> _Excavators;
-        private ICommunRepository<Refiner> _Refiners;
-        private ICommunRepository<FinderAmplifier> _FinderAmplifiers;
-        private ICommunRepository<SearchMode> _SearchModes;
-        private ICommunRepository<Setup> _Setups;
-        private ICommunRepository<Planet> _Planets;
-        private ICommunRepository<Enhancer> _Enhancers;
+        private ICommunService<Categorie> _Categories;
+        private IModeleService _Modeles;
+        private ICommunService<Finder> _Finders;
+        private ICommunService<Excavator> _Excavators;
+        private ICommunService<Refiner> _Refiners;
+        private ICommunService<FinderAmplifier> _FinderAmplifiers;
+        private ICommunService<SearchMode> _SearchModes;
+        private ICommunService<Setup> _Setups;
+        private ICommunService<Planet> _Planets;
+        private ICommunService<Enhancer> _Enhancers;
         private IMaterialRepository _Materials;
         private IRepository<ToolAccessoire> _ToolAccessoires;
         private IRepository<PlanetMaterial> _PlanetMaterials;
         private IRepository<Refinable> _Refinables;
         private IRepository<StockMaterial> _StockMaterials;
         private IRepository<TradeMaterial> _TradeMaterials;
-        private ICommunRepository<TradeState> _TradeStates;
+        private ICommunService<TradeState> _TradeStates;
 
-        public ICommunRepository<Categorie> Categories
+        public ICommunService<Categorie> Categories
             => _Categories == null? _Categories = new CommunRepository<Categorie>(ctx) : _Categories;
 
-        public IModeleRepository Modeles
+        public IModeleService Modeles
             => _Modeles == null ? _Modeles = new ModeleRepository(ctx) : _Modeles;
 
-        public ICommunRepository<Finder> Finders
+        public ICommunService<Finder> Finders
             => _Finders == null ? _Finders = new CommunRepository<Finder>(ctx) : _Finders;
 
-        public ICommunRepository<Excavator> Excavators
+        public ICommunService<Excavator> Excavators
             => _Excavators == null ? _Excavators = new CommunRepository<Excavator>(ctx) : _Excavators;
 
-        public ICommunRepository<Refiner> Refiners
+        public ICommunService<Refiner> Refiners
             => _Refiners == null ? _Refiners = new CommunRepository<Refiner>(ctx) : _Refiners;
 
-        public ICommunRepository<FinderAmplifier> FinderAmplifiers
+        public ICommunService<FinderAmplifier> FinderAmplifiers
             => _FinderAmplifiers == null ? _FinderAmplifiers = new CommunRepository<FinderAmplifier>(ctx) : _FinderAmplifiers;
 
-        public ICommunRepository<SearchMode> SearchModes
+        public ICommunService<SearchMode> SearchModes
             => _SearchModes == null ? _SearchModes = new CommunRepository<SearchMode>(ctx) : _SearchModes;
 
-        public ICommunRepository<Setup> Setups
+        public ICommunService<Setup> Setups
             => _Setups == null ? _Setups = new CommunRepository<Setup>(ctx) : _Setups;
 
-        public ICommunRepository<Planet> Planets
+        public ICommunService<Planet> Planets
             => _Planets == null ? _Planets = new CommunRepository<Planet>(ctx) : _Planets;
 
-        public ICommunRepository<Enhancer> Enhancers
+        public ICommunService<Enhancer> Enhancers
             => _Enhancers == null? _Enhancers = new CommunRepository<Enhancer>(ctx) : _Enhancers;
 
         public IMaterialRepository Materials
@@ -89,7 +89,7 @@ namespace WpfApp.Repositories
         public IRepository<TradeMaterial> TradeMaterials
             => _TradeMaterials == null ? _TradeMaterials = new Repository<TradeMaterial>(ctx) : _TradeMaterials;
 
-        public ICommunRepository<TradeState> TradeStates
+        public ICommunService<TradeState> TradeStates
             => _TradeStates == null ? _TradeStates = new CommunRepository<TradeState>(ctx) : _TradeStates;
 
         public void Commit()

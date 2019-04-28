@@ -1,12 +1,11 @@
-﻿using Services.Repositories.Interfaces;
-using System;
+﻿using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using Services.Context;
 using System.Collections.Generic;
 
-namespace WpfApp.Repositories
+namespace Services.Repositories
 {
     public class Repository<T> : IRepository<T>
         where T : class, new()

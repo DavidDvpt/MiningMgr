@@ -4,7 +4,7 @@ using System.Data.Entity;
 using Services.Context;
 using System.Linq;
 
-namespace WpfApp.Repositories
+namespace Services
 {
     public class CommunRepository<T> : Repository<T>, ICommunRepository<T>
         where T : Commun, new()

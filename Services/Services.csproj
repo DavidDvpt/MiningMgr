@@ -50,17 +50,30 @@
   <ItemGroup>
     <Compile Include="Context\MiningContext.cs" />
     <Compile Include="Context\SeedClass.cs" />
-    <Compile Include="ICategorieService.cs" />
+    <Compile Include="Interfaces\IEnhancerService.cs" />
+    <Compile Include="Interfaces\IExcavatorService.cs" />
+    <Compile Include="Interfaces\IFinderAmplifierService.cs" />
+    <Compile Include="Interfaces\IFinderService.cs" />
+    <Compile Include="Interfaces\IInWorldService.cs" />
+    <Compile Include="Interfaces\ICategorieService.cs" />
+    <Compile Include="Interfaces\IMaterialService.cs" />
+    <Compile Include="Interfaces\IModeleService.cs" />
+    <Compile Include="Interfaces\IPlanetService.cs" />
+    <Compile Include="Interfaces\IRefinerService.cs" />
+    <Compile Include="Interfaces\ISearchModeService.cs" />
+    <Compile Include="Interfaces\IServiceBase.cs" />
+    <Compile Include="Interfaces\ISetupService.cs" />
+    <Compile Include="Interfaces\IToolService.cs" />
+    <Compile Include="Interfaces\IUnstackableService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CategorieServices.cs" />
-    <Compile Include="Repositories\CommunRepository.cs" />
-    <Compile Include="Repositories\Interfaces\ICommunRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IMaterialRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IModeleRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IRepositoriesUoW.cs" />
-    <Compile Include="Repositories\Interfaces\IRepository.cs" />
-    <Compile Include="Repositories\MaterialRepository.cs" />
-    <Compile Include="Repositories\ModeleRepository.cs" />
+    <Compile Include="CommunRepository.cs" />
+    <Compile Include="Interfaces\ICommunService.cs" />
+    <Compile Include="IMaterialRepository.cs" />
+    <Compile Include="Repositories\IRepositoriesUoW.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="MaterialRepository.cs" />
+    <Compile Include="ModeleRepository.cs" />
     <Compile Include="Repositories\RepositoriesUoW.cs" />
     <Compile Include="Repositories\Repository.cs" />
   </ItemGroup>
@@ -74,5 +87,6 @@
       <Name>Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
