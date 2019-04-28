@@ -42,12 +42,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseClasses\BaseController.cs" />
+    <Compile Include="CategorieController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Messengers\Messengers.csproj">
       <Project>{654E1437-3C2B-49B6-9A95-70349F959A29}</Project>
       <Name>Messengers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{D5040C48-B3E6-4CEC-8335-40CF4614C5DF}</Project>
+      <Name>Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\ViewModels\ViewModels.csproj">
       <Project>{DD8BD5B1-5120-4C8B-9768-0A41F77FE113}</Project>

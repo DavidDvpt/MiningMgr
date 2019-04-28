@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Messengers;
+﻿using Messengers;
 using ViewModels;
 
-namespace Controllers.BaseClasses
+namespace Controllers
 {
     public abstract class BaseController : IController
     {

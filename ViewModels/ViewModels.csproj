@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttributValidation\MaxEnhancer.cs" />
+    <Compile Include="AttributValidation\MinimalRealCost.cs" />
+    <Compile Include="AttributValidation\Unique.cs" />
     <Compile Include="BaseClasses\BaseViewData.cs" />
     <Compile Include="BaseClasses\BaseViewModel.cs" />
     <Compile Include="BaseClasses\BindableBase.cs" />
@@ -50,6 +53,9 @@
     <Compile Include="BaseClasses\IView.cs" />
     <Compile Include="BaseClasses\RelayCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewData\AbstractClasses\CommunEditViewData.cs" />
+    <Compile Include="ViewData\CategorieEditViewData.cs" />
+    <Compile Include="ViewData\AbstractClasses\CommunCreateViewData.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Messengers\Messengers.csproj">
