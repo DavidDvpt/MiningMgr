@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Model
 {
@@ -12,12 +11,10 @@ namespace Model
             BonusValue2 = 0;
         }
 
-        [Required]
-        public byte Slot { get; set; } = 1;
+        public byte Slot { get; set; }
 
-        [Required]
-        public decimal BonusValue1 { get; set; } = 0;
+        public decimal BonusValue1 { get; set; }
 
-        public short BonusValue2 { get; set; } = 0;
+        public short BonusValue2 { get; set; }
     }
 }
