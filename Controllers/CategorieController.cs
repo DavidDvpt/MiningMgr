@@ -1,4 +1,5 @@
 ﻿using Services;
+using Services.Interfaces;
 
 namespace Controllers
 {
@@ -15,7 +16,7 @@ namespace Controllers
 
         public CategorieController(ICategorieService categorService)
         {
-            ICategorieService ic = new CategorieServices();
+            ICategorieService ic = new CategorieService();
 
         }
 

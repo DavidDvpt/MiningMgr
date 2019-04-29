@@ -1,11 +1,17 @@
 using Services.Context;
-using Services.Repositories.Interfaces;
+using Services.Interfaces;
 
 namespace Services.Repositories
 {
     public class RepositoriesUoW : IRepositoriesUoW
     {
+        #region Champs
+
         private MiningContext ctx;
+
+        #endregion
+
+        #region Constructeurs
 
         public RepositoriesUoW()
         {
@@ -17,28 +23,44 @@ namespace Services.Repositories
             ctx = context;
         }
 
+        #endregion
+
+        public void Commit()
+        {
+            ctx.SaveChanges();
+        }
+
+        public MiningContext GetContext()
+        {
+            return ctx;
+        }
+
+        //public ICategorieService CategorieService { get; private set; } = new CategorieService(ctx);
+        //public IModeleService ModeleService { get; private set; } = new ModeleService(ctx);
+        //public IFinderService FinderService { get; private set; } = new FinderService(ctx);
+        //public IExcavatorService ExcavatorService { get; private set; } = new ExcavatorService(ctx);
+        //public IRefinerService RefinerService { get; private set; } = new RefinerService(ctx);
+        //public IFinderAmplifierService FinderAmplifierService { get; private set; } = new FinderAmplifierService(ctx);
+        //public ISearchModeService SearchModeService { get; private set; } = new SearchModeService(ctx);
+        //public ISetupService SetupService { get; private set; } = new SetupService(ctx);
+        //public IPlanetService PlanetService { get; private set; } = new PlanetService(ctx);
+        //public IEnhancerService EnhancerService { get; private set; } = new EnhancerService(ctx);
+        //public IMaterialService MaterialService { get; private set; } = new MaterialService(ctx);
+        //public IToolAccessoireService ToolAccessoireService { get; private set; } = new ToolAccessoireService(ctx);
+        //public IPlanetMaterialService PlanetMaterialService { get; private set; } = new PlanetMaterialService(ctx);
+        //public IRefinableService RefinableService { get; private set; } = new Refinables(ctx);
+        //public IStockMaterialService StockMaterialService { get; private set; } = new StockMaterialService(ctx);
+        //public ITradeMaterialService TradeMaterialService { get; private set; } = new TradeMaterialService(ctx);
+        //public ITradeStateService TradeStateService { get; private set; } = new TradeStateService(ctx);
+
+        #region private
+
         private void CreateDbContext()
         {
             ctx = new MiningContext();
         }
 
-        public ICategorieService CategorieService {	get; private set; } = new CategorieService(txt)
-        public IModeleService ModeleService {	get; public set; } = new ModeleService(txt)
-        public IFinderServices FinderService {	get; public set; } = new FinderService(txt)
-        public IExcavatorService ExcavatorService {	get; public set; } = new ExcavatorService(txt)
-        public IRefinerService RefinerService {	get; public set; } = new RefinerService(txt)
-        public IFinderAmplifierService FinderAmplifierService {	get; public set; } = new FinderAmplifierService(txt)
-        public ISearchModeService SearchModeService {	get; public set; } = new SearchModeService(txt)
-        public ISetupService SetupService {	get; public set; } = new SetupService(txt)
-        public IPlanetService PlanetService {	get; public set; } = new PlanetService(txt)
-        public IEnhancerService EnhancerService {	get; public set; } = new EnhancerService(txt)
-        public IMaterialService MaterialService {	get; public set; } = new MaterialService(txt)
-        public IToolAccessoireService ToolAccessoireService {	get; public set; } = new ToolAccessoireService(txt)
-        public IPlanetMaterialService PlanetMaterialService {	get; public set; } = new PlanetMaterialService(txt)
-        public IRefinableService Refinables {	get; public set; } = new Refinables(txt)
-        public IStockMaterialService StockMaterialService {	get; public set; } = new StockMaterialService(txt)
-        public ITradeMaterialService TradeMaterialService {	get; public set; } = new TradeMaterialService(txt)
-        public ITradeStateService TradeStateService {	get; public set; } = new TradeStateService(txt)
+        #endregion
 
         /*public ICommunService<Categorie> Categories
             => _Categories == null? _Categories = new CommunRepository<Categorie>(ctx) : _Categories;
@@ -91,14 +113,6 @@ namespace Services.Repositories
         public ICommunService<TradeState> TradeStates
             => _TradeStates == null ? _TradeStates = new CommunRepository<TradeState>(ctx) : _TradeStates;*/
 
-        public void Commit()
-        {
-            ctx.SaveChanges();
-        }
 
-        public MiningContext GetContext()
-        {
-            return ctx;
-        }
     }
 }

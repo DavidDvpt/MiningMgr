@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseService.cs" />
     <Compile Include="Context\MiningContext.cs" />
     <Compile Include="Context\SeedClass.cs" />
     <Compile Include="Interfaces\IEnhancerService.cs" />
@@ -58,24 +59,27 @@
     <Compile Include="Interfaces\ICategorieService.cs" />
     <Compile Include="Interfaces\IMaterialService.cs" />
     <Compile Include="Interfaces\IModeleService.cs" />
+    <Compile Include="Interfaces\IPlanetMaterialService.cs" />
     <Compile Include="Interfaces\IPlanetService.cs" />
+    <Compile Include="Interfaces\IRefinableService.cs" />
     <Compile Include="Interfaces\IRefinerService.cs" />
     <Compile Include="Interfaces\ISearchModeService.cs" />
-    <Compile Include="Interfaces\IServiceBase.cs" />
+    <Compile Include="Interfaces\IBaseService.cs" />
     <Compile Include="Interfaces\ISetupService.cs" />
+    <Compile Include="Interfaces\IStockMaterialService.cs" />
+    <Compile Include="Interfaces\IToolAccessoireService.cs" />
     <Compile Include="Interfaces\IToolService.cs" />
+    <Compile Include="Interfaces\ITradeMaterialService.cs" />
+    <Compile Include="Interfaces\ITradeStateService.cs" />
     <Compile Include="Interfaces\IUnstackableService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CategorieServices.cs" />
-    <Compile Include="CommunRepository.cs" />
+    <Compile Include="CategorieService.cs" />
+    <Compile Include="CommunService.cs" />
     <Compile Include="Interfaces\ICommunService.cs" />
-    <Compile Include="IMaterialRepository.cs" />
     <Compile Include="Repositories\IRepositoriesUoW.cs" />
-    <Compile Include="Repositories\IRepository.cs" />
-    <Compile Include="MaterialRepository.cs" />
-    <Compile Include="ModeleRepository.cs" />
+    <Compile Include="MaterialService.cs" />
+    <Compile Include="ModeleService.cs" />
     <Compile Include="Repositories\RepositoriesUoW.cs" />
-    <Compile Include="Repositories\Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
