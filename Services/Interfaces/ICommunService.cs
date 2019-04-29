@@ -21,7 +21,5 @@ namespace Services.Interfaces
         void Delete(T entity);
 
         T GetByNom(string nom);
-
-        void SaveChanges();
     }
 }

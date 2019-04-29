@@ -1,5 +1,4 @@
 ﻿using Services.Context;
-using Model;
 
 namespace Services.Repositories
 {
@@ -9,22 +8,22 @@ namespace Services.Repositories
 
         MiningContext GetContext();
 
-        ICommunService<Categorie> Categories { get; }
-        IModeleService Modeles { get; }
-        ICommunService<Finder> Finders { get; }
-        ICommunService<Excavator> Excavators { get; }
-        ICommunService<Refiner> Refiners { get; }
-        ICommunService<FinderAmplifier> FinderAmplifiers { get; }
-        ICommunService<SearchMode> SearchModes { get; }
-        ICommunService<Setup> Setups { get; }
-        ICommunService<Planet> Planets { get; }
-        ICommunService<Enhancer> Enhancers { get; }
-        IMaterialRepository Materials { get; }
-        IRepository<ToolAccessoire> ToolAccessoires { get; }
-        IRepository<PlanetMaterial> PlanetMaterials { get; }
-        IRepository<Refinable> Refinables { get; }
-        IRepository<StockMaterial> StockMaterials { get; }
-        IRepository<TradeMaterial> TradeMaterials { get; }
-        ICommunService<TradeState> TradeStates { get; }
+        ICategorieService CategorieService { get; }
+        IModeleService ModeleService { get; }
+        IFinderService FinderService { get; }
+        IExcavatorService ExcavatorService { get; }
+        IRefinerService RefinerService { get; }
+        IFinderAmplifierService FinderAmplifierService { get; }
+        ISearchModeService SearchModeService { get; }
+        ISetupService SetupService { get; }
+        IPlanetService PlanetService { get; }
+        IEnhancerService EnhancerService { get; }
+        I MaterialServiceService { get; }
+        IToolAccessoireService ToolAccessoireService { get; }
+        IPlanetMaterialService PlanetMaterialService { get; }
+        IRefinableService RefinableService { get; }
+        IStockMaterialService StockMaterialService { get; }
+        ITradeMaterialService TradeMaterialService { get; }
+        ITradeStateService TradeStateService { get; }
     }
 }

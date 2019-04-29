@@ -1,5 +1,4 @@
-﻿using Services.Context;
-using Model;
+using Services.Context;
 using Services.Repositories.Interfaces;
 
 namespace Services.Repositories
@@ -23,25 +22,25 @@ namespace Services.Repositories
             ctx = new MiningContext();
         }
 
-        private ICommunService<Categorie> _Categories;
-        private IModeleService _Modeles;
-        private ICommunService<Finder> _Finders;
-        private ICommunService<Excavator> _Excavators;
-        private ICommunService<Refiner> _Refiners;
-        private ICommunService<FinderAmplifier> _FinderAmplifiers;
-        private ICommunService<SearchMode> _SearchModes;
-        private ICommunService<Setup> _Setups;
-        private ICommunService<Planet> _Planets;
-        private ICommunService<Enhancer> _Enhancers;
-        private IMaterialRepository _Materials;
-        private IRepository<ToolAccessoire> _ToolAccessoires;
-        private IRepository<PlanetMaterial> _PlanetMaterials;
-        private IRepository<Refinable> _Refinables;
-        private IRepository<StockMaterial> _StockMaterials;
-        private IRepository<TradeMaterial> _TradeMaterials;
-        private ICommunService<TradeState> _TradeStates;
+        public ICategorieService CategorieService {	get; private set; } = new CategorieService(txt)
+        public IModeleService ModeleService {	get; public set; } = new ModeleService(txt)
+        public IFinderServices FinderService {	get; public set; } = new FinderService(txt)
+        public IExcavatorService ExcavatorService {	get; public set; } = new ExcavatorService(txt)
+        public IRefinerService RefinerService {	get; public set; } = new RefinerService(txt)
+        public IFinderAmplifierService FinderAmplifierService {	get; public set; } = new FinderAmplifierService(txt)
+        public ISearchModeService SearchModeService {	get; public set; } = new SearchModeService(txt)
+        public ISetupService SetupService {	get; public set; } = new SetupService(txt)
+        public IPlanetService PlanetService {	get; public set; } = new PlanetService(txt)
+        public IEnhancerService EnhancerService {	get; public set; } = new EnhancerService(txt)
+        public IMaterialService MaterialService {	get; public set; } = new MaterialService(txt)
+        public IToolAccessoireService ToolAccessoireService {	get; public set; } = new ToolAccessoireService(txt)
+        public IPlanetMaterialService PlanetMaterialService {	get; public set; } = new PlanetMaterialService(txt)
+        public IRefinableService Refinables {	get; public set; } = new Refinables(txt)
+        public IStockMaterialService StockMaterialService {	get; public set; } = new StockMaterialService(txt)
+        public ITradeMaterialService TradeMaterialService {	get; public set; } = new TradeMaterialService(txt)
+        public ITradeStateService TradeStateService {	get; public set; } = new TradeStateService(txt)
 
-        public ICommunService<Categorie> Categories
+        /*public ICommunService<Categorie> Categories
             => _Categories == null? _Categories = new CommunRepository<Categorie>(ctx) : _Categories;
 
         public IModeleService Modeles
@@ -90,7 +89,7 @@ namespace Services.Repositories
             => _TradeMaterials == null ? _TradeMaterials = new Repository<TradeMaterial>(ctx) : _TradeMaterials;
 
         public ICommunService<TradeState> TradeStates
-            => _TradeStates == null ? _TradeStates = new CommunRepository<TradeState>(ctx) : _TradeStates;
+            => _TradeStates == null ? _TradeStates = new CommunRepository<TradeState>(ctx) : _TradeStates;*/
 
         public void Commit()
         {
