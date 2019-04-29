@@ -5,8 +5,8 @@ namespace Services.Interfaces
 {
     public interface IModeleService : ICommunService<Modele>
     {
-        ICollection<Modele> GetByCategorieName(string nom);
+        ICollection<Modele> GetModelesByCategorieName(string nom);
 
-        ICollection<Modele> GetByCategorieId(int id);
+        ICollection<Modele> GetModelesByCategorieId(int id);
     }
 }
