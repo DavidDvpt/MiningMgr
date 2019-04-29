@@ -76,10 +76,8 @@
     <Compile Include="CategorieService.cs" />
     <Compile Include="CommunService.cs" />
     <Compile Include="Interfaces\ICommunService.cs" />
-    <Compile Include="Repositories\IRepositoriesUoW.cs" />
     <Compile Include="MaterialService.cs" />
     <Compile Include="ModeleService.cs" />
-    <Compile Include="Repositories\RepositoriesUoW.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

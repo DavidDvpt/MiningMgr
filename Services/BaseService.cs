@@ -11,35 +11,19 @@ namespace Services
     public class BaseService<T> : IBaseService<T>
         where T : class, new()
     {
-        #region Champs
+        #region Proprietes statiques
 
-        protected static MiningContext ctx;
-
-        protected static MiningContext GetContext()
-        {
-             return ctx = ctx ?? new MiningContext();
-        }
+        protected static MiningContext Instance { get; } = new MiningContext();
 
         #endregion
 
         #region Constructeur
 
-        //public BaseService(MiningContext context)
-        //{
-        //    ctx = context ?? throw new ArgumentNullException("Null DbContext");
-        //    DbSet = ctx.Set<T>();
-        //}
-
-        public BaseService()
-        {
-            DbSet = GetContext().Set<T>();
-        }
-
         #endregion
 
-        #region Proprietes
+        #region Proprietes 
 
-        public DbSet<T> DbSet { get; private set;}
+        protected DbSet<T> DbSet { get; private set;}
 
         #endregion
 
@@ -89,7 +73,7 @@ namespace Services
 
         public void Delete(T entity)
         {
-            DbEntityEntry dbEntityEntry = ctx.Entry(entity);
+            DbEntityEntry dbEntityEntry = Instance.Entry(entity);
             if (dbEntityEntry.State != EntityState.Deleted)
             {
                 dbEntityEntry.State = EntityState.Deleted;
@@ -105,7 +89,7 @@ namespace Services
 
         private T AttachEntity(T entity, EntityState state)
         {
-            DbEntityEntry dbEntityEntry = ctx.Entry(entity);
+            DbEntityEntry dbEntityEntry = Instance.Entry(entity);
             if (dbEntityEntry.State != EntityState.Detached)
             {
                 dbEntityEntry.State = state;
@@ -116,7 +100,7 @@ namespace Services
 
         public void Commit()
         {
-            ctx.SaveChanges();
+            Instance.SaveChanges();
         }
 
         //public MiningContext GetContext()

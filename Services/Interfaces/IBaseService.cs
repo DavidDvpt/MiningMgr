@@ -7,7 +7,7 @@ namespace Services.Interfaces
     public interface IBaseService<T>
         where T : class, new()
     {
-        DbSet<T> DbSet { get; }
+        //DbSet<T> DbSet { get; }
 
         T GetById(int Id);
 

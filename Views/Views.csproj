@@ -52,6 +52,9 @@
     <Compile Include="BaseClasses\ViewWindow.xaml.cs">
       <DependentUpon>ViewWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MenuView.xaml.cs">
+      <DependentUpon>MenuView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -76,6 +79,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="BaseClasses\ViewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

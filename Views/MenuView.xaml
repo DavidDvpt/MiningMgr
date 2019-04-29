@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Views.MenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="20" d:DesignWidth="800">
+    <Menu DockPanel.Dock="Top" BorderThickness="1" BorderBrush="Black">
+        <MenuItem Header="_File">
+            <MenuItem Header="_Nouveau" />
+            <MenuItem Header="_Ouvrir" />
+            <MenuItem Header="_Sauver" />
+            <Separator />
+            <MenuItem Header="_Quitter" />
+        </MenuItem>
+
+        <MenuItem Header="_Stock">
+            <MenuItem Header="Général" Command="{Binding NavCommand}" CommandParameter="stockGeneral" />
+
+        </MenuItem>
+
+        <MenuItem Header="Manager">
+            <MenuItem Header="Categorie" Command="{Binding NavCommand}" CommandParameter="categorie"/>
+            <MenuItem Header="Modele" Command="{Binding NavCommand}" CommandParameter="modele"/>
+            <Separator />
+            <MenuItem Header="Planet" Command="{Binding NavCommand}" CommandParameter="planet"/>
+            <MenuItem Header="Finder" Command="{Binding NavCommand}" CommandParameter="finder"/>
+            <MenuItem Header="Excavator" Command="{Binding NavCommand}" CommandParameter="excavator"/>
+            <MenuItem Header="Refiner" Command="{Binding NavCommand}" CommandParameter="refiner"/>
+            <Separator />
+            <MenuItem Header="Finder Amplifier" Command="{Binding NavCommand}" CommandParameter="finderAmplifier"/>
+            <MenuItem Header="Enhancer" Command="{Binding NavCommand}" CommandParameter="enhancer"/>
+            <Separator />
+            <MenuItem Header="SearchMode" Command="{Binding NavCommand}" CommandParameter="searchMode"/>
+            <MenuItem Header="Setup" Command="{Binding NavCommand}" CommandParameter="setup"/>
+            <Separator />
+            <MenuItem Header="Material" Command="{Binding NavCommand}" CommandParameter="material"/>
+            <MenuItem Header="TradeState" Command="{Binding NavCommand}" CommandParameter="tradeState"/>
+        </MenuItem>
+    </Menu>
+</UserControl>
