@@ -6,7 +6,7 @@ using Services.Repositories.Interfaces;
 
 namespace Services
 {
-    public class ModeleService : CommunService, IModeleRepository
+    public class ModeleService : CommunService, IModeleService
     {
         public ModeleService(MiningContext ctx)
             : base(ctx)
