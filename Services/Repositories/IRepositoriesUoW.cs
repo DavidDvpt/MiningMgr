@@ -1,5 +1,4 @@
 ﻿using Services.Context;
-using Model;
 
 namespace Services.Repositories
 {
