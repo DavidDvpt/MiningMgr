@@ -6,20 +6,20 @@ using Services.Repositories.Interfaces;
 
 namespace WpfApp.Repositories
 {
-    public class ModeleRepository : CommunRepository<Modele>, IModeleRepository
+    public class ModeleService : CommunService, IModeleRepository
     {
-        public ModeleRepository(MiningContext ctx)
+        public ModeleService(MiningContext ctx)
             : base(ctx)
         {
 
         }
 
-        public ICollection<Modele> GetByCategorieId(int id)
+        public ICollection<Modele> GetModelesByCategorieId(int id)
         {
             return DbSet.Where(x => x.Categorie.Id == id).ToList();
         }
 
-        public ICollection<Modele> GetByCategorieName(string nom)
+        public ICollection<Modele> GetModelesByCategorieName(string nom)
         {
             return DbSet.Where(x => x.Categorie.Nom == nom).ToList();
         }
