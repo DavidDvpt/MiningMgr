@@ -1,5 +1,4 @@
 using Services.Context;
-using Model;
 using Services.Repositories.Interfaces;
 
 namespace Services.Repositories
