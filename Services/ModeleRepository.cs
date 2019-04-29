@@ -4,7 +4,7 @@ using Services.Context;
 using Model;
 using Services.Repositories.Interfaces;
 
-namespace WpfApp.Repositories
+namespace Services
 {
     public class ModeleService : CommunService, IModeleRepository
     {
