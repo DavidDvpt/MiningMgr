@@ -37,8 +37,8 @@ namespace Messengers
         /// <summary>
         /// Enregistre une méthode call-back, sans paramètre, à appeler lorsqu'un message spécifique est diffusé.
         /// </summary>
-        /// <param name="message">Message d'inscription.</param>
-        /// <param name="callback">call-back à appeler lorsque le message est diffusé.</param>
+        /// <param name="message">Type du message.(enum)</param>
+        /// <param name="callback">Méthode à appeler lorsque le message est diffusé.</param>
         public void Register(MessageTypes message, Action callback)
 		{
 			this.Register(message, callback, null);
@@ -47,32 +47,35 @@ namespace Messengers
         /// <summary>
         /// Enregistre une méthode ce call-back, avec un paramètre, à appeler lorsqu'un message spécifique est diffusé.
 		/// </summary>
-		/// <param name="message">Message d'inscription.</param>
-		/// <param name="callback">call-back à appeler lorsque le message est diffusé.</param>
+		/// <param name="message">Type du message.(enum)</param>
+		/// <param name="callback">Méthode à appeler lorsque le message est diffusé.</param>
 		public void Register<T>(MessageTypes message, Action<T> callback)
 		{
 			this.Register(message, callback, typeof(T));
 		}
 
         /// <summary>
-        /// Methode appelée par les 2 autres methode d'enregistrement
+        /// Methode appelée par les 2 autres methodes d'enregistrement (séparation de la methode et du prametre)
         /// </summary>
         /// <param name="message"> message d'inscription</param>
         /// <param name="callback"> methode de call-back à appeler lorsque le message est diffusé</param>
         /// <param name="parameterType"> parametre de la méthode</param>
 		void Register(MessageTypes message, Delegate callback, Type parameterType)
 		{
+			// Si la méthode délégué est nulle on lance une erreur
 			if (callback == null)
 				throw new ArgumentNullException("callback");
 
+			// Verification si le parametre correspond bien au message
 			this.VerifyParameterType(message, parameterType);
 
+			// Ajout du message à la liste des messages enregistrés (target = instance de la classe à laquelle appartient la methode) (Method = methode sans le parametre)
 			_messageToActionsMap.AddAction(message, callback.Target, callback.Method, parameterType);
 		}
 
         /// <summary>
         /// Lorsque votre classe écoute un message avec une méthode particulière, la méthode DeRegister
-        ///supprime votre delagate de la collection - pour que cet auditeur particulier ne reçoive pas ce message
+        /// supprime votre delagate de la collection - pour que cet auditeur particulier ne reçoive pas ce message
         /// </summary>
         /// <param name="message"></param>
         /// <param name="callback"></param>
@@ -97,10 +100,14 @@ namespace Messengers
 		void VerifyParameterType(MessageTypes message, Type parameterType)
 		{
 			Type previouslyRegisteredParameterType = null;
+			//si le message est enregistré
 			if (_messageToActionsMap.TryGetParameterType(message, out previouslyRegisteredParameterType))
 			{
+				// si le param à verifier et le param trouvé ne sont pas nul
 				if (previouslyRegisteredParameterType != null && parameterType != null)
 				{
+					// On verifie si les 2 sont parametres sont egaux
+					// si ils sont differents, on declanche une erreur
 					if (!previouslyRegisteredParameterType.Equals(parameterType))
 						throw new InvalidOperationException(string.Format(
                             "Le type de paramètre de l'action enregistrée est incompatible avec les actions précédemment enregistrées pour le message '{0}'.\nExpected: {1}\nAdding: {2}",
@@ -110,8 +117,8 @@ namespace Messengers
 				}
 				else
 				{
-					// One, or both, of previouslyRegisteredParameterType or callbackParameterType are null.
-					if (previouslyRegisteredParameterType != parameterType)   // not both null?
+					// Si un des 2 seulement est nul, on declenche une erreur d'incohérence
+					if (previouslyRegisteredParameterType != parameterType)
 					{
 						throw new TargetParameterCountException(string.Format(
                             "L'action enregistrée a un certain nombre de paramètres incohérents avec les actions précédemment enregistrées pour le message. \"{0}\".\nExpected: {1}\nAdding: {2}",
@@ -139,13 +146,17 @@ namespace Messengers
 			NotificationResult result = NotificationResult.MessageNotRegistered;
 
 			Type registeredParameterType;
+			// le parametre ne doit pas être nul
 			if (_messageToActionsMap.TryGetParameterType(messageType, out registeredParameterType))
 			{
 				if (registeredParameterType == null)
 					throw new TargetParameterCountException(string.Format("Impossible de transmettre un paramètre avec un message '{0}'. l'action enregistree(s) ne demande aucun parametre.", messageType));
 			}
 
+			// Récupération de toutes les actions enregistrés pour ce message
 			var actions = _messageToActionsMap.GetActions(messageType);
+			
+			// si il existe des actions, on les traite
 			if (actions != null)
 			{
 				Message message = new Message(messageType)
@@ -181,10 +192,13 @@ namespace Messengers
 			return result;
 
 		}
+		
 		private void Invoke(Message message, Delegate method)
 		{
 			if (message.HandledStatus == MessageHandledStatus.HandledContinue || message.HandledStatus == MessageHandledStatus.NotHandled)
 			{
+				// Les methodes enregistrées doivent avoir "Message" en parametre (qui contient le parametre de la methode)
+				// il faut donc 2 signatures differentes, avec et sans "Message" en parametre
 				method.DynamicInvoke(message);
 			}
 		}
