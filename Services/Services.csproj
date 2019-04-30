@@ -72,6 +72,8 @@
     <Compile Include="Interfaces\ITradeMaterialService.cs" />
     <Compile Include="Interfaces\ITradeStateService.cs" />
     <Compile Include="Interfaces\IUnstackableService.cs" />
+    <Compile Include="Interfaces\IMenuService.cs" />
+    <Compile Include="MenuService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CategorieService.cs" />
     <Compile Include="CommunService.cs" />

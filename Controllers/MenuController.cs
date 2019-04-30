@@ -1,14 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Services.Interfaces;
+using ViewModels;
 using ViewModels.BaseClasses;
+using Views;
 
 namespace Controllers
 {
-    class MenuController : BaseController, IMenuController
+    public class MenuController : BaseController, IMenuController
     {
+        private static IMenuService MenuService;
+
+        #region Constructeurs
+
+        public MenuController(IMenuService menuService)
+        {
+            MenuService = menuService;
+        }
+
+        #endregion
+
         public void Start()
         {
             ShowViewMenu();
@@ -16,7 +25,17 @@ namespace Controllers
 
         private void ShowViewMenu()
         {
-            throw new NotImplementedException();
+            MenuView v = GetViewMenu();
+        }
+
+        private MenuView GetViewMenu()
+        {
+            MenuView v = new MenuView();
+            MenuViewModel vm = new MenuViewModel(this, v);
+
+            return v;
+
+
         }
     }
 }

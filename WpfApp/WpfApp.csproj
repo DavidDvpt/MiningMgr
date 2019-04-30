@@ -224,6 +224,19 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Controllers\Controllers.csproj">
+      <Project>{0359CA5C-A9B7-48A0-A0BB-5DA6BF87DBA2}</Project>
+      <Name>Controllers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{D5040C48-B3E6-4CEC-8335-40CF4614C5DF}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewModels\ViewModels.csproj">
+      <Project>{DD8BD5B1-5120-4C8B-9768-0A41F77FE113}</Project>
+      <Name>ViewModels</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

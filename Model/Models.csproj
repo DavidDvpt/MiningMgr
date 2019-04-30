@@ -68,6 +68,7 @@
     <Compile Include="EntropiaClasses\ToolAccessoire.cs" />
     <Compile Include="EntropiaClasses\Unstackable.cs" />
     <Compile Include="Interfaces\ICommun.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StockMaterial.cs" />
     <Compile Include="TradeMaterial.cs" />

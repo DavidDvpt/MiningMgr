@@ -1,19 +1,19 @@
-﻿using System.Windows;
-using WpfApp.Repositories.Interfaces;
+﻿using Controllers;
+using Services;
+using Services.Interfaces;
+using System.Windows;
 
-namespace WpfApp
+namespace MiningManager
 {
     /// <summary>
     /// Logique d'interaction pour App.xaml
     /// </summary>
     public partial class App : Application
     {
-        //private void Application_Startup(object sender, StartupEventArgs e)
-        //{
-        //    IRepositoriesUoW repos = null;//new RepositoriesUoW();
-
-        //    MainWindowView wnd = new MainWindowView(repos);
-        //    wnd.Show();
-        //}
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            MenuController controller = new MenuController(new MenuService());
+            controller.Start();
+        }
     }
 }

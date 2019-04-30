@@ -8,5 +8,14 @@ namespace ViewModels
 {
     public class MenuViewModel : BaseViewModel
     {
+        public MenuViewModel(IController controller)
+            : base(controller)
+        {
+        }
+
+        public MenuViewModel(IController controller, IView view)
+            : base(controller, view)
+        {
+        }
     }
 }
