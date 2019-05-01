@@ -1,6 +1,6 @@
 ﻿namespace ViewModels
 {
-    public interface IStatusController
+    public interface IContainerAppController
     {
         void Start();
     }

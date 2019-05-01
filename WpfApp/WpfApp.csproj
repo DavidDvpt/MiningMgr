@@ -237,6 +237,10 @@
       <Project>{DD8BD5B1-5120-4C8B-9768-0A41F77FE113}</Project>
       <Name>ViewModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Views\Views.csproj">
+      <Project>{2E11EBC9-BED1-47E9-9491-BF4E04920132}</Project>
+      <Name>Views</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

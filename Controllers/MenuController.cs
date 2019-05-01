@@ -1,7 +1,6 @@
 ﻿using Services.Interfaces;
 using System.Windows.Controls;
 using ViewModels;
-using ViewModels.BaseClasses;
 using Views;
 
 namespace Controllers
@@ -36,8 +35,6 @@ namespace Controllers
             MenuViewModel vm = new MenuViewModel(this, v);
 
             return v;
-
-
         }
     }
 }

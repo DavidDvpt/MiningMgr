@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using ViewModels;
@@ -153,7 +149,8 @@ namespace Views
         /// <param name="windowTitle"></param>
         public void ShowInWindow(bool modal, string windowTitle)
         {
-            ShowInWindow(modal, windowTitle, 0, 0, Dock.Top, null);
+            ShowInWindow(modal, windowTitle, 800, 450, Dock.Top, null);
+            //ShowInWindow(modal, windowTitle, 0, 0, Dock.Top, null);
         }
 
         /// <summary>
