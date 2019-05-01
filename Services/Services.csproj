@@ -49,8 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseService.cs" />
+    <Compile Include="ContainerAppService.cs" />
     <Compile Include="Context\MiningContext.cs" />
     <Compile Include="Context\SeedClass.cs" />
+    <Compile Include="Interfaces\IContainerAppService.cs" />
     <Compile Include="Interfaces\IEnhancerService.cs" />
     <Compile Include="Interfaces\IExcavatorService.cs" />
     <Compile Include="Interfaces\IFinderAmplifierService.cs" />
@@ -66,6 +68,7 @@
     <Compile Include="Interfaces\ISearchModeService.cs" />
     <Compile Include="Interfaces\IBaseService.cs" />
     <Compile Include="Interfaces\ISetupService.cs" />
+    <Compile Include="Interfaces\IStatusService.cs" />
     <Compile Include="Interfaces\IStockMaterialService.cs" />
     <Compile Include="Interfaces\IToolAccessoireService.cs" />
     <Compile Include="Interfaces\IToolService.cs" />
@@ -80,6 +83,7 @@
     <Compile Include="Interfaces\ICommunService.cs" />
     <Compile Include="MaterialService.cs" />
     <Compile Include="ModeleService.cs" />
+    <Compile Include="StatusService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

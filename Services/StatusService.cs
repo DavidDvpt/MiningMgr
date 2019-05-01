@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ViewModels.BaseClasses
+namespace Services
 {
-    public interface IMenuController : IController
+    class StatusService
     {
-        void Start();
     }
 }

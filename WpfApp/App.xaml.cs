@@ -12,8 +12,11 @@ namespace MiningManager
     {
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            MenuController controller = new MenuController(new MenuService());
-            controller.Start();
+            MenuController controllerMenu = new MenuController(new MenuService());
+            controllerMenu.Start();
+
+            StatusController controllerStatus = new StatusController(new IStatusService());
+            controllerStatus.Start();
         }
     }
 }

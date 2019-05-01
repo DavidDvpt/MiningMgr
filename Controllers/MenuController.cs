@@ -1,4 +1,5 @@
 ﻿using Services.Interfaces;
+using System.Windows.Controls;
 using ViewModels;
 using ViewModels.BaseClasses;
 using Views;
@@ -7,13 +8,13 @@ namespace Controllers
 {
     public class MenuController : BaseController, IMenuController
     {
-        private static IMenuService MenuService;
+        private static IMenuService _menuService;
 
         #region Constructeurs
 
         public MenuController(IMenuService menuService)
         {
-            MenuService = menuService;
+            _menuService = menuService;
         }
 
         #endregion
@@ -26,6 +27,7 @@ namespace Controllers
         private void ShowViewMenu()
         {
             MenuView v = GetViewMenu();
+            v.ShowInWindow(false, "Test",600,400, Dock.Top, null);
         }
 
         private MenuView GetViewMenu()
