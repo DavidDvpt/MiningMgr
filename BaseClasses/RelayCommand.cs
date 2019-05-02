@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace ViewModels
+namespace BaseClasses
 {
     // Commande avec parametre string
     public class RelayCommand : ICommand

@@ -1,6 +1,6 @@
 ﻿using Messengers;
 
-namespace ViewModels
+namespace BaseClasses
 {
     public interface IController
     {

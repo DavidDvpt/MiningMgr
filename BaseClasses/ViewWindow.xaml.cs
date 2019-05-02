@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Views
+namespace BaseClasses
 {
     /// <summary>
     /// Logique d'interaction pour ViewWindow.xaml

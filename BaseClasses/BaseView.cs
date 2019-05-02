@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Windows;
-using System.Windows.Controls;
-using ViewModels;
 
-namespace Views
+namespace BaseClasses
 {
     /// <summary>
     /// Délégué qui autorise le traitement de l'event WindowClosed 
@@ -11,7 +8,6 @@ namespace Views
     /// <param name="sender"></param>
     /// <param name="e"></param>
     public delegate void OnWindowClose(Object sender, EventArgs e);
-
 
     /// <summary>
     /// c'est la classe de base de toutes les vues
@@ -84,12 +80,14 @@ namespace Views
                     {
                         viewWindow.DialogResult = dialogResult;
                     }
+
                     viewWindow.DialogResult = dialogResult;
                 }
                 else
                 {
                     viewWindow.Close();
                 }
+
                 viewWindow = null;
             }
 
@@ -98,6 +96,9 @@ namespace Views
             ViewClosed();
         }
 
+        /// <summary>
+        /// Active la fenetre
+        /// </summary>
         public void ViewModelActivatingHandler()
         {
             if (viewWindow != null)
@@ -112,7 +113,6 @@ namespace Views
 
         public BaseView()
         {
-
         }
 
         #endregion

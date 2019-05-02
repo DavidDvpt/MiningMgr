@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ViewModels
+namespace BaseClasses
 {
     /// <summary>
     /// Quand le VueModel est fermé, les vues associées doivent fermer aussi
@@ -18,36 +18,13 @@ namespace ViewModels
     /// </summary>
     public class BaseViewModel : BindableBase
     {
+        /// <summary>
+        /// Fermeture des vues associées
+        /// </summary>
         public event ViewModelClosingEventHandler ViewModelClosing;
+
         public event ViewModelActivatingEventHandler ViewModelActivating;
-
-        /// <summary>
-        /// Conservez une liste de tous les enfants ViewModels afin que nous puissions
-        /// les supprimer en toute sécurité lorsque ce ViewModel est fermé.
-        /// </summary>
-        public List<BaseViewModel> ChildViewModels { get; private set; } = new List<BaseViewModel>();
-
-        #region Propriétés bindables
-
-        public BaseViewData ViewData
-        {
-            get { return GetValue(() => ViewData); }
-            set
-            {
-                if (ViewData != value)
-                {
-                    SetValue(() => ViewData, value);
-                }
-            }
-        }
         
-        #endregion
-        
-        /// <summary>
-        /// Si le viewModel veut faite quelque chose il a besoin du controller
-        /// </summary>
-        public IController Controller { get; set; }
-
         #region Constructeurs
 
         /// <summary>
@@ -79,6 +56,33 @@ namespace ViewModels
             }
         }
 
+        #endregion
+        
+        /// <summary>
+        /// Conservez une liste de tous les enfants ViewModels afin que nous puissions
+        /// les supprimer en toute sécurité lorsque ce ViewModel est fermé.
+        /// </summary>
+        public List<BaseViewModel> ChildViewModels { get; private set; } = new List<BaseViewModel>();
+        
+        /// <summary>
+        /// Si le viewModel veut faite quelque chose il a besoin du controller
+        /// </summary>
+        public IController Controller { get; set; }
+        
+        #region Propriétés bindables
+
+        public BaseViewData ViewData
+        {
+            get { return GetValue(() => ViewData); }
+            set
+            {
+                if (ViewData != value)
+                {
+                    SetValue(() => ViewData, value);
+                }
+            }
+        }
+        
         #endregion
 
         #region Methodes Publiques

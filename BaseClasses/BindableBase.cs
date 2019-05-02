@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 
-namespace ViewModels
+namespace BaseClasses
 {
     public abstract class BindableBase : INotifyPropertyChanged, IDataErrorInfo
     {
-        #region Fields
+        #region Champs
+
         private readonly Dictionary<string, object> _values = new Dictionary<string, object>();
+        
         #endregion
 
         public static int Errors { get; set; }
@@ -20,7 +21,7 @@ namespace ViewModels
         #region Protected
 
         /// <summary>
-        /// Sets the value of a property.
+        /// Affecte une valeur à la propriete.
         /// </summary>
         /// <typeparam name="T">The type of the property value.</typeparam>
         /// <param name="propertySelector">Expression tree contains the property definition.</param>
@@ -33,7 +34,7 @@ namespace ViewModels
         }
 
         /// <summary>
-        /// Sets the value of a property.
+        /// Affecte une valeur à la propriete.
         /// </summary>
         /// <typeparam name="T">The type of the property value.</typeparam>
         /// <param name="propertyName">The name of the property.</param>
