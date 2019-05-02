@@ -2,7 +2,7 @@
 
 namespace Services
 {
-    public class ContainerAppService : IContainerAppService
+    public class MainWindowService : IMainWindowService
     {
     }
 }

@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseClasses\BaseController.cs" />
-    <Compile Include="ContainerAppController.cs" />
+    <Compile Include="MainWindowController.cs" />
     <Compile Include="MenuController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StatusController.cs" />

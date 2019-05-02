@@ -1,6 +1,6 @@
 ﻿namespace Services.Interfaces
 {
-    public interface IContainerAppService
+    public interface IMainWindowService
     {
     }
 }

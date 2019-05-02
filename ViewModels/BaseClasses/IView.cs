@@ -4,6 +4,7 @@
     {
         // fermeture du viewModel
         void ViewModelClosingHandler(bool? dialogResult);
+
         // Activation du viewModel
         void ViewModelActivatingHandler();
         
