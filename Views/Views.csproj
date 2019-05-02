@@ -52,6 +52,9 @@
     <Compile Include="BaseClasses\ViewWindow.xaml.cs">
       <DependentUpon>ViewWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GeneralMgrView.xaml.cs">
+      <DependentUpon>GeneralMgrView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -85,6 +88,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="BaseClasses\ViewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GeneralMgrView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

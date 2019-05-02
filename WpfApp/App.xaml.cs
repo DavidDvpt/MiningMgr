@@ -12,14 +12,14 @@ namespace MiningManager
     {
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            bool mainWindow = true;
+            //bool mainWindow = true;
 
-            if (mainWindow)
-            {
-                MainWindowController = new 
-            }
-            ContainerAppController controllerContainerApp = new ContainerAppController(new ContainerAppService());
-            controllerContainerApp.Start();
+            //if (mainWindow)
+            //{
+            //    MainWindowController = new 
+            //}
+            //ContainerAppController controllerContainerApp = new ContainerAppController(new ContainerAppService());
+            //controllerContainerApp.Start();
 
             //MenuController controllerMenu = new MenuController(new MenuService(), new ViewWindow());
             //controllerMenu.Start();

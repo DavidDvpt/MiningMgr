@@ -51,6 +51,8 @@
     <Compile Include="BaseService.cs" />
     <Compile Include="Context\MiningContext.cs" />
     <Compile Include="Context\SeedClass.cs" />
+    <Compile Include="FinderMgrService.cs" />
+    <Compile Include="Interfaces\IFinderMgrService.cs" />
     <Compile Include="Interfaces\Model\IEnhancerService.cs" />
     <Compile Include="Interfaces\Model\IExcavatorService.cs" />
     <Compile Include="Interfaces\Model\IFinderAmplifierService.cs" />
@@ -75,6 +77,9 @@
     <Compile Include="Interfaces\Model\ITradeStateService.cs" />
     <Compile Include="Interfaces\Model\IUnstackableService.cs" />
     <Compile Include="Interfaces\IMenuService.cs" />
+    <Compile Include="ToolService.cs" />
+    <Compile Include="UnstackableService.cs" />
+    <Compile Include="InWorldService.cs" />
     <Compile Include="MainWindowService.cs" />
     <Compile Include="MenuService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

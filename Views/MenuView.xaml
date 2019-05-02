@@ -21,12 +21,12 @@
         </MenuItem>
 
         <MenuItem Header="Manager">
-            <MenuItem Header="Categorie" Command="{Binding NavCommand}" CommandParameter="categorie"/>
+            <!-- <MenuItem Header="Categorie" Command="{Binding CategorieMgr}"/>
             <MenuItem Header="Modele" Command="{Binding NavCommand}" CommandParameter="modele"/>
             <Separator />
-            <MenuItem Header="Planet" Command="{Binding NavCommand}" CommandParameter="planet"/>
-            <MenuItem Header="Finder" Command="{Binding NavCommand}" CommandParameter="finder"/>
-            <MenuItem Header="Excavator" Command="{Binding NavCommand}" CommandParameter="excavator"/>
+            <MenuItem Header="Planet" Command="{Binding NavCommand}" CommandParameter="planet"/>-->
+            <MenuItem Header="Finder" Command="{Binding FinderMgr}"/>
+            <!--<MenuItem Header="Excavator" Command="{Binding NavCommand}" CommandParameter="excavator"/>
             <MenuItem Header="Refiner" Command="{Binding NavCommand}" CommandParameter="refiner"/>
             <Separator />
             <MenuItem Header="Finder Amplifier" Command="{Binding NavCommand}" CommandParameter="finderAmplifier"/>
@@ -36,7 +36,7 @@
             <MenuItem Header="Setup" Command="{Binding NavCommand}" CommandParameter="setup"/>
             <Separator />
             <MenuItem Header="Material" Command="{Binding NavCommand}" CommandParameter="material"/>
-            <MenuItem Header="TradeState" Command="{Binding NavCommand}" CommandParameter="tradeState"/>
+            <MenuItem Header="TradeState" Command="{Binding NavCommand}" CommandParameter="tradeState"/>-->
         </MenuItem>
     </Menu>
 </views:BaseView>

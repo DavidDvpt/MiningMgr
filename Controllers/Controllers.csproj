@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseClasses\BaseController.cs" />
+    <Compile Include="FinderMgrController.cs" />
     <Compile Include="MainWindowController.cs" />
     <Compile Include="MenuController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -2,9 +2,22 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:MiningManager"
+             xmlns:viewModels="clr-namespace:ViewModels;assembly=ViewModels"
+             xmlns:views="clr-namespace:Views;assembly=Views"
              Startup="Application_Startup">
     
     <Application.Resources>
-         
+        <BooleanToVisibilityConverter x:Key="boolToVis"/>
+        
+        
+        <DataTemplate DataType="{x:Type viewModels:MenuViewModel}">
+            <views:MenuView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:StatusViewModel}">
+            <views:StatusView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:FinderMgrViewModel}">
+            <views:GeneralMgrView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>
