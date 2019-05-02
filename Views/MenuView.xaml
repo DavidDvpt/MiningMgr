@@ -1,9 +1,10 @@
-﻿<views:BaseView x:Class="Views.MenuView"
+﻿<baseClasses:BaseView x:Class="Views.MenuView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:views="clr-namespace:Views"
+             xmlns:baseClasses="clr-namespace:BaseClasses;assembly=BaseClasses"
              mc:Ignorable="d" 
              >
     <Menu DockPanel.Dock="Top" BorderThickness="1" BorderBrush="Black" Height="20">
@@ -39,4 +40,4 @@
             <MenuItem Header="TradeState" Command="{Binding NavCommand}" CommandParameter="tradeState"/>-->
         </MenuItem>
     </Menu>
-</views:BaseView>
+</baseClasses:BaseView>

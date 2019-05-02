@@ -1,5 +1,5 @@
-﻿using System.Windows;
-using ViewModels;
+﻿using BaseClasses;
+using System.Windows;
 
 namespace Views
 {

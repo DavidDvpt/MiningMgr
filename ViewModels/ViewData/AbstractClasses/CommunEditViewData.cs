@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace ViewModels
+﻿namespace ViewModels
 {
     public abstract class CommunEditViewData : CommunCreateViewData
     {

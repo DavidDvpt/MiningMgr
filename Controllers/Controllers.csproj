@@ -52,6 +52,10 @@
     <Compile Include="StatusController.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BaseClasses\BaseClasses.csproj">
+      <Project>{C1CB36DB-6776-4E14-8179-FF14A8608961}</Project>
+      <Name>BaseClasses</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
       <Project>{D5040C48-B3E6-4CEC-8335-40CF4614C5DF}</Project>
       <Name>Services</Name>

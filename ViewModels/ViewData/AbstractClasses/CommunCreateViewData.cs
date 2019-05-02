@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BaseClasses;
+using System.ComponentModel.DataAnnotations;
 
 namespace ViewModels
 {

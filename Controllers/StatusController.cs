@@ -1,4 +1,5 @@
-﻿using Services.Interfaces;
+﻿using BaseClasses;
+using Services.Interfaces;
 using System.Windows.Controls;
 using ViewModels;
 using Views;
