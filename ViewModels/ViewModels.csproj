@@ -68,10 +68,6 @@
       <Project>{c1cb36db-6776-4e14-8179-ff14a8608961}</Project>
       <Name>BaseClasses</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Messengers\Messengers.csproj">
-      <Project>{654e1437-3c2b-49b6-9a95-70349f959a29}</Project>
-      <Name>Messengers</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

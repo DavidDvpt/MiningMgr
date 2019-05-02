@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
 
-namespace Messengers
+namespace BaseClasses
 {
     /// <summary>
     /// Fournit une messagerie faiblement couplée entre

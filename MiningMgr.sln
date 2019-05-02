@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Model\Models.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controllers", "Controllers\Controllers.csproj", "{0359CA5C-A9B7-48A0-A0BB-5DA6BF87DBA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messengers", "Messengers\Messengers.csproj", "{654E1437-3C2B-49B6-9A95-70349F959A29}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{D5040C48-B3E6-4CEC-8335-40CF4614C5DF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "ViewModels\ViewModels.csproj", "{DD8BD5B1-5120-4C8B-9768-0A41F77FE113}"
@@ -39,10 +37,6 @@ Global
 		{0359CA5C-A9B7-48A0-A0BB-5DA6BF87DBA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0359CA5C-A9B7-48A0-A0BB-5DA6BF87DBA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0359CA5C-A9B7-48A0-A0BB-5DA6BF87DBA2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{654E1437-3C2B-49B6-9A95-70349F959A29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{654E1437-3C2B-49B6-9A95-70349F959A29}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{654E1437-3C2B-49B6-9A95-70349F959A29}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{654E1437-3C2B-49B6-9A95-70349F959A29}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D5040C48-B3E6-4CEC-8335-40CF4614C5DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D5040C48-B3E6-4CEC-8335-40CF4614C5DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5040C48-B3E6-4CEC-8335-40CF4614C5DF}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -1,4 +1,4 @@
-﻿namespace Messengers
+﻿namespace BaseClasses
 {
     /// <summary>
     /// Utilisez une énumération pour les messages pour assurer la cohérence 

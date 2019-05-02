@@ -41,11 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Message.cs" />
-    <Compile Include="MessageHandledStatus.cs" />
-    <Compile Include="MessageTypes.cs" />
-    <Compile Include="Messenger.cs" />
-    <Compile Include="NotificationResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

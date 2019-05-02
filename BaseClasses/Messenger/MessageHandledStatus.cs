@@ -1,4 +1,4 @@
-﻿namespace Messengers
+﻿namespace BaseClasses
 {
     public enum MessageHandledStatus
     {

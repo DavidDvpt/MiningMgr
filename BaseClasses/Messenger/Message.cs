@@ -1,4 +1,4 @@
-﻿namespace Messengers
+﻿namespace BaseClasses
 {
     public class Message
     {

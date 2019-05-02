@@ -45,7 +45,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseClasses\BaseController.cs" />
     <Compile Include="FinderMgrController.cs" />
     <Compile Include="MainWindowController.cs" />
     <Compile Include="MenuController.cs" />
@@ -53,10 +52,6 @@
     <Compile Include="StatusController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Messengers\Messengers.csproj">
-      <Project>{654E1437-3C2B-49B6-9A95-70349F959A29}</Project>
-      <Name>Messengers</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
       <Project>{D5040C48-B3E6-4CEC-8335-40CF4614C5DF}</Project>
       <Name>Services</Name>
