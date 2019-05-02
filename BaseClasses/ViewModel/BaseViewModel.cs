@@ -50,7 +50,7 @@ namespace BaseClasses
         {
             if (view != null)
             {
-                view.DataContext = this;
+                //view.DataContext = this;
                 ViewModelClosing += view.ViewModelClosingHandler;
                 ViewModelActivating += view.ViewModelActivatingHandler;
             }

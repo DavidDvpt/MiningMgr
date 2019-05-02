@@ -95,6 +95,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BaseClasses\BaseClasses.csproj">
+      <Project>{c1cb36db-6776-4e14-8179-ff14a8608961}</Project>
+      <Name>BaseClasses</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Controllers\Controllers.csproj">
       <Project>{0359CA5C-A9B7-48A0-A0BB-5DA6BF87DBA2}</Project>
       <Name>Controllers</Name>

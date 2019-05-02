@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:MiningManager"
              xmlns:viewModels="clr-namespace:ViewModels;assembly=ViewModels"
              xmlns:views="clr-namespace:Views;assembly=Views"
+             xmlns:baseClasses="clr-namespace:BaseClasses;assembly=BaseClasses"
              Startup="Application_Startup">
     
     <Application.Resources>

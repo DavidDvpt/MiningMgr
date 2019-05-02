@@ -50,8 +50,6 @@ namespace Controllers
             return mv;
         }
 
-
-
         public StatusViewModel ShowViewStatus()
         {
             StatusViewModel vm = GetViewStatus();
