@@ -6,7 +6,7 @@
         xmlns:views = "clr-namespace:WpfApp.Views"
         xmlns:viewModels = "clr-namespace:WpfApp.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1600">
+        Title="MainWindow" Height="500" Width="1600">
 
     <Window.DataContext>
         <viewModels:MainWindowViewModel/>

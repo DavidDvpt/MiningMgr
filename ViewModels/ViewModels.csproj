@@ -54,20 +54,26 @@
     <Compile Include="ControllerInterfaces\IMenuController.cs" />
     <Compile Include="ControllerInterfaces\IFinderMgrController.cs" />
     <Compile Include="DependencyProperties\DataGridColumnVisibilityBinding.cs" />
+    <Compile Include="ViewData\FinderEditViewData.cs" />
     <Compile Include="FinderMgrViewModel.cs" />
+    <Compile Include="GeneralMgrViewModel.cs" />
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="MenuViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StatusViewModel.cs" />
-    <Compile Include="ViewData\AbstractClasses\CommunEditViewData.cs" />
-    <Compile Include="ViewData\CategorieEditViewData.cs" />
-    <Compile Include="ViewData\AbstractClasses\CommunCreateViewData.cs" />
+    <Compile Include="ViewData\FinderListItemViewData.cs" />
+    <Compile Include="ViewData\FinderListViewData.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BaseClasses\BaseClasses.csproj">
       <Project>{c1cb36db-6776-4e14-8179-ff14a8608961}</Project>
       <Name>BaseClasses</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Model\Models.csproj">
+      <Project>{73D1CEA3-3AB0-49AF-969B-484CED973208}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

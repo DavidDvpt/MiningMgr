@@ -56,6 +56,10 @@
       <Project>{C1CB36DB-6776-4E14-8179-FF14A8608961}</Project>
       <Name>BaseClasses</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Model\Models.csproj">
+      <Project>{73D1CEA3-3AB0-49AF-969B-484CED973208}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
       <Project>{D5040C48-B3E6-4CEC-8335-40CF4614C5DF}</Project>
       <Name>Services</Name>

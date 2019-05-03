@@ -30,7 +30,7 @@ namespace WpfApp.ViewModel
 
         private void CommandInit()
         {
-            UpdateCommand = new RelayCommand(UpdateExecute, UpdateCanExecute);
+            UpdateCommand = new RelayCommand(UpdateExecute, UpdateCanExecute); //x => { Controller.Messenger.NotifyColleagues(MessageTypes.MSG_COMMAND_AFFICHAGE_FINDERMGR); }
             CreateCommand = new RelayCommand(CreateExecute, CreateCanExecute);
             SubmitCommand = new RelayCommand(SubmitExecute, SubmitCanExecute);
             CancelCommand = new RelayCommand(CancelExecute, CancelCanExecute);
