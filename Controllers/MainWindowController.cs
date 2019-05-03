@@ -1,5 +1,4 @@
-﻿using System;
-using BaseClasses;
+﻿using BaseClasses;
 using Services;
 using Services.Interfaces;
 using ViewModels;
@@ -19,7 +18,6 @@ namespace Controllers
         {
             mainWindowService = mws;
         }
-
         public void Start()
         {
             ShowViewMainWindow();

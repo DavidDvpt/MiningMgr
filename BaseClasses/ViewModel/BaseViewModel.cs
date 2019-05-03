@@ -50,7 +50,9 @@ namespace BaseClasses
         {
             if (view != null)
             {
-                //view.DataContext = this;
+                // Affectation du datacontext ds le code plutot que par le XAML
+                // Afin de pouvoir passer des elemnts au constructeur le cas echeant
+                view.DataContext = this;
                 ViewModelClosing += view.ViewModelClosingHandler;
                 ViewModelActivating += view.ViewModelActivatingHandler;
             }
