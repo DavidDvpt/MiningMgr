@@ -77,6 +77,11 @@
     <Compile Include="Interfaces\Model\ITradeStateService.cs" />
     <Compile Include="Interfaces\Model\IUnstackableService.cs" />
     <Compile Include="Interfaces\IMenuService.cs" />
+    <Compile Include="Migrations\201905032303157_FirstMaj.cs" />
+    <Compile Include="Migrations\201905032303157_FirstMaj.Designer.cs">
+      <DependentUpon>201905032303157_FirstMaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ToolService.cs" />
     <Compile Include="UnstackableService.cs" />
     <Compile Include="InWorldService.cs" />
@@ -100,6 +105,10 @@
       <Name>Models</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201905032303157_FirstMaj.resx">
+      <DependentUpon>201905032303157_FirstMaj.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

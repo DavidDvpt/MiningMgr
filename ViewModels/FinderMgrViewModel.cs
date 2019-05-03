@@ -11,7 +11,8 @@ namespace ViewModels
 
         public FinderMgrViewModel(IController controller, IView view) : base(controller, view)
         {
-            controller.Messenger.Register(MessageTypes.MSG_FINDER_MODIFIED_ADDED_OR_SAVED, new Action<Message>(RefreshList));;
+            controller.Messenger.Register(MessageTypes.MSG_FINDER_MODIFIED_ADDED_OR_SAVED, new Action<Message>(RefreshList));
+            RefreshList();
         }
 
         public IFinderMgrController FinderController => (IFinderMgrController)Controller;

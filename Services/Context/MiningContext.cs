@@ -89,7 +89,7 @@ namespace Services.Context
             modelBuilder.Entity<Enhancer>().Property(e => e.BonusValue2).IsRequired();
 
             // Refinable
-            modelBuilder.Entity<Refinable>().HasKey(p => new { p.UnrefinedMaterial, p.RefinedMaterial });
+            modelBuilder.Entity<Refinable>().HasKey(p => new { p.UnrefinedId, p.RefinedId });
             modelBuilder.Entity<Refinable>().Property(e => e.Quantity).IsRequired();
 
             // SearchMode

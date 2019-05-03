@@ -23,7 +23,7 @@ namespace Services
 
         #region Proprietes 
 
-        protected DbSet<T> DbSet { get; private set;}
+        protected DbSet<T> DbSet => Instance.Set<T>();
 
         #endregion
 
