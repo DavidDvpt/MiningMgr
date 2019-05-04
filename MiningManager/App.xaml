@@ -58,5 +58,12 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="spBlocControl" TargetType="StackPanel">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Orientation" Value="Horizontal"/>
+        </Style>
     </Application.Resources>
 </Application>

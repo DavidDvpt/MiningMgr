@@ -1,0 +1,95 @@
+﻿<cb:BaseView x:Class="Views.FinderEditView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Views"
+             xmlns:cb="clr-namespace:BaseClasses;assembly=BaseClasses"
+             mc:Ignorable="d">
+    <Grid>
+
+        <StackPanel Orientation="Vertical">
+            <StackPanel.Resources>
+
+                <Style TargetType="Label">
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Margin" Value="0,0,5,0"/>
+                    <Setter Property="Width" Value="100"/>
+                </Style>
+                <Style TargetType="CheckBox">
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Margin" Value="5,0"/>
+                </Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Margin" Value="5,0,0,0"/>
+                    <Setter Property="Foreground" Value="Red"/>
+                </Style>
+                <Style x:Key="txtbkTitre" TargetType="TextBlock">
+                    <Setter Property="FontSize" Value="14"/>
+                    <Setter Property="FontWeight" Value="Medium"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                </Style>
+            </StackPanel.Resources>
+            <!-- NOM -->
+            <StackPanel Name="spNom" Style="{StaticResource spBlocControl}">
+                <Label Name="lbNom" Content="Nom : "/>
+                <TextBox Name="tbxNom" Text="{Binding ViewData.Nom, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
+                                 Width="220" IsEnabled="{Binding NomFormEnabled}" Validation.Error="Validation_Error"/>
+                <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxNom}"/>
+            </StackPanel>
+
+            <!-- CODE -->
+            <StackPanel Name="spCode" Style="{StaticResource spBlocControl}">
+                <Label Name="lbCode" Content="Code : "/>
+                <TextBox Name="tbxCode" Text="{Binding ViewData.Code, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="100"/>
+                <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxCode}"/>
+            </StackPanel>
+
+            <!-- CHECKBOX -->
+
+            <CheckBox Name="ckxIsActive" IsChecked="{Binding ViewData.IsActive, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="100" Content="Actif"/>
+            <CheckBox Name="ckxLimited" IsChecked="{Binding ViewData.IsLimited, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="100" Content="Limited"/>
+
+            <!-- VALUE -->
+            <StackPanel Name="spValue" Style="{StaticResource spBlocControl}">
+                <Label Name="lbValue" Content="Valeur (Ped) :"/>
+                <TextBox Name="tbxValue" Text="{Binding ViewData.Value, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
+                <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxValue}"/>
+            </StackPanel>
+
+            <!-- DECAY -->
+            <StackPanel Name="spDecay" Style="{StaticResource spBlocControl}">
+                <Label Name="lbDecay" Content="Decay (Pec) :"/>
+                <TextBox Name="tbxDecay" Text="{Binding ViewData.Decay, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
+                <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxDecay}"/>
+            </StackPanel>
+
+            <!-- USE PER MIN -->
+            <StackPanel Name="spUsePerMin" Style="{StaticResource spBlocControl}">
+                <Label Name="lbUsePerMin" Content="Use per Minute : "/>
+                <TextBox Name="tbxUsePerMin" Text="{Binding ViewData.UsePerMin, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
+                <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxUsePerMin}"/>
+            </StackPanel>
+
+            <StackPanel Name="spDepth" Style="{StaticResource spBlocControl}">
+                <Label Name="lbDepth" Content="Depth (m) :"/>
+                <TextBox Name="tbxDepth" Text="{Binding ViewData.Depth, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
+                <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxDepth}"/>
+            </StackPanel>
+
+            <!-- RANGE -->
+            <StackPanel Name="spRange" Style="{StaticResource spBlocControl}">
+                <Label Name="lbRange" Content="Range (m) :"/>
+                <TextBox Name="tbxRange" Text="{Binding ViewData.Range, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
+                <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxRange}"/>
+            </StackPanel>
+
+            <!-- BASE PEC SEARCH -->
+            <StackPanel Name="spBasePecSearch" Style="{StaticResource spBlocControl}">
+                <Label Name="lbBasePecSearch" Content="Base Probe (Pec) :"/>
+                <TextBox Name="tbxBasePecSearch" Text="{Binding ViewData.BasePecSearch, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
+                <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxBasePecSearch}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</cb:BaseView>

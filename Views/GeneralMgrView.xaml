@@ -6,10 +6,16 @@
              xmlns:views="clr-namespace:Views"
              xmlns:baseClasses="clr-namespace:BaseClasses;assembly=BaseClasses"
              xmlns:dps="clr-namespace:ViewModels.DependencyProperties;assembly=ViewModels"
+             xmlns:vm="clr-namespace:ViewModels;assembly=ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    
+
     <Grid>
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type vm:FinderEditViewModel}">
+                <views:FinderEditView/>
+            </DataTemplate>
+        </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="*"/>
@@ -132,7 +138,7 @@
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
             <Grid>
-                <ContentControl Content="{Binding CurrentEditViewModel}"/>                
+                <ContentControl Content="{Binding EditViewModel}"/>                
             </Grid>
             <!-- BOUTONS -->
             <Grid Grid.Row="1" Height="40">

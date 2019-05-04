@@ -27,7 +27,6 @@ namespace WpfApp.Model
         }
 
         [Required(ErrorMessage = "Le Nom est requis")]
-        //[Column(TypeName = "VARCHAR")]
         [MaxLength(50, ErrorMessage = "La longueur maximum est de 50")]
         [Index(IsUnique = true)]
         [Unique(ErrorMessage ="Ce nom est déjà utilisé")]

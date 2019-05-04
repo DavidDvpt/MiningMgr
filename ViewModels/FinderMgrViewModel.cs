@@ -31,12 +31,31 @@ namespace ViewModels
 
         #endregion
 
-        private void RefreshList()
+        #region Execute Command
+
+        public override void CreateExecute(Message message)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void SubmitExecute(object param)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void UpdateExecute(Message message)
+        {
+            EditViewModel = FinderController.GetFinderEditViewModel(this, SelectedItem);
+        }
+
+        #endregion
+
+        protected override void RefreshList()
         {
             ViewData = FinderController.GetFinderListViewData("");
         }
 
-        private void RefreshList(Message message)
+        protected override void RefreshList(Message message)
         {
             RefreshList();
             message.HandledStatus = MessageHandledStatus.HandledContinue;

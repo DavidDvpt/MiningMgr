@@ -1,4 +1,5 @@
 ﻿using BaseClasses;
+using System;
 
 namespace ViewModels
 {
@@ -10,11 +11,50 @@ namespace ViewModels
 
         public GeneralMgrViewModel(IController controller, IView view) : base(controller, view)
         {
-            UpdateCommand = new RelayCommand(x => { Controller.Messenger.NotifyColleagues(MessageTypes.MSG_COMMAND_AFFICHAGE_FINDERMGR); }, UpdateCanExecute); //x => { Controller.Messenger.NotifyColleagues(MessageTypes.MSG_COMMAND_AFFICHAGE_FINDERMGR); }
-            CreateCommand = new RelayCommand(CreateExecute, CreateCanExecute);
-            SubmitCommand = new RelayCommand(SubmitExecute, SubmitCanExecute);
-            CancelCommand = new RelayCommand(CancelExecute, CancelCanExecute);
+            controller.Messenger.Register(MessageTypes.MSG_FINDER_MODIFIED_ADDED_OR_SAVED, new Action<Message>(RefreshList));
+
+            controller.Messenger.Register(MessageTypes.MSG_COMMAND_SELECTED_FOR_UPDATE, new Action<Message>(UpdateExecute));
+            controller.Messenger.Register(MessageTypes.MSG_COMMAND_SELECTED_FOR_CREATE, new Action<Message>(CreateExecute));
+
+            UpdateCommand = new RelayCommand(x => Controller.Messenger.NotifyColleagues(MessageTypes.MSG_COMMAND_SELECTED_FOR_UPDATE, x), UpdateCanExecute);
+            CreateCommand = new RelayCommand(x => Controller.Messenger.NotifyColleagues(MessageTypes.MSG_COMMAND_SELECTED_FOR_CREATE), CreateCanExecute);
+            SubmitCommand = new RelayCommand(x => Controller.Messenger.NotifyColleagues(MessageTypes.MSG_COMMAND_AFFICHAGE_EDITPANEL_SUBMIT, x), x => (Errors == 0 && EditViewModel != null));
+            CancelCommand = new RelayCommand(CancelExecute,  x => EditViewModel != null );
         }
+
+
+
+        #region Command
+    
+        public RelayCommand UpdateCommand { get; private set; }
+        public RelayCommand CreateCommand { get; private set; }
+        public RelayCommand SubmitCommand { get; private set; }
+        public RelayCommand CancelCommand { get; private set; }
+
+        public abstract void UpdateExecute(Message message);
+        public abstract void CreateExecute(Message message);
+        public abstract void SubmitExecute(object param);
+        public void CancelExecute(object param)
+        {
+            Controller.Messenger.DeRegister(MessageTypes.MSG_COMMAND_SELECTED_FOR_CREATE);
+            Controller.Messenger.DeRegister(MessageTypes.MSG_COMMAND_SELECTED_FOR_UPDATE);
+            EditViewModel.CloseViewModel(false);
+            EditViewModel = null;
+        }
+
+        private bool UpdateCanExecute(object param)
+        {
+            return Controller.Messenger.FindAnyRegister(MessageTypes.MSG_ITEM_SELECTED_FOR_EDIT) && SelectedItem != null;
+        }
+
+        private bool CreateCanExecute(object param)
+        {
+            return Controller.Messenger.FindAnyRegister(MessageTypes.MSG_ITEM_SELECTED_FOR_EDIT);
+        }
+
+        #endregion
+
+        #region Binding Properties
 
         public BaseViewData SelectedItem
         {
@@ -28,54 +68,21 @@ namespace ViewModels
             }
         }
 
-        #region Command
-        public RelayCommand UpdateCommand { get; set; }
-        public RelayCommand CreateCommand { get; set; }
-        public RelayCommand SubmitCommand { get; set; }
-        public RelayCommand CancelCommand { get; set; }
-
-        public bool CancelCanExecute(object param)
+        public BaseViewModel EditViewModel
         {
-            return true;
-        }
-
-        public bool UpdateCanExecute(object param)
-        {
-            return SelectedItem != null;
-        }
-        public bool CreateCanExecute(object param)
-        {
-            return true;
-        }
-        public bool SubmitCanExecute(object param)
-        {
-            return true;
-        }
-
-        public void UpdateExecute(object param)
-        {
-            
-        }
-        public virtual void CreateExecute(object param)
-        {
-
-        }
-        public virtual void SubmitExecute(object param)
-        {
-
-        }
-        public void CancelExecute(object param)
-        {
-
+            get => GetValue(() => EditViewModel);
+            set
+            {
+                if (EditViewModel != value)
+                {
+                    SetValue(() => EditViewModel, value);
+                }
+            }
         }
 
         #endregion
 
-        #region Binding Properties
-
-        public int MyProperty { get; set; }
-
-
-        #endregion
+        protected abstract void RefreshList();
+        protected abstract void RefreshList(Message message);
     }
 }

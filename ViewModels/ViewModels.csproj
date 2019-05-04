@@ -54,6 +54,7 @@
     <Compile Include="ControllerInterfaces\IMenuController.cs" />
     <Compile Include="ControllerInterfaces\IFinderMgrController.cs" />
     <Compile Include="DependencyProperties\DataGridColumnVisibilityBinding.cs" />
+    <Compile Include="FinderEditViewModel.cs" />
     <Compile Include="ViewData\FinderEditViewData.cs" />
     <Compile Include="FinderMgrViewModel.cs" />
     <Compile Include="GeneralMgrViewModel.cs" />

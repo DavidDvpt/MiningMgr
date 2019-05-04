@@ -48,6 +48,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FinderEditView.xaml.cs">
+      <DependentUpon>FinderEditView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GeneralMgrView.xaml.cs">
       <DependentUpon>GeneralMgrView.xaml</DependentUpon>
     </Compile>
@@ -83,6 +86,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="FinderEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GeneralMgrView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
+using System.Linq;
 
 namespace BaseClasses
 {
@@ -229,6 +230,11 @@ namespace BaseClasses
 				}
 			}
 		}
+
+        public bool FindAnyRegister(MessageTypes messageType)
+        {
+            return _messageToActionsMap.GetActions(messageType) == null || _messageToActionsMap.GetActions(messageType).Count() == 0;
+        }
 
 		#endregion 
 
