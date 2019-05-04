@@ -233,7 +233,14 @@ namespace BaseClasses
 
         public bool FindAnyRegister(MessageTypes messageType)
         {
-            return _messageToActionsMap.GetActions(messageType) == null || _messageToActionsMap.GetActions(messageType).Count() == 0;
+            if (_messageToActionsMap.GetActions(messageType) == null)
+            {
+                //if (_messageToActionsMap.GetActions(messageType).Count() == 0)
+                //{
+                    return true;
+                //}
+            }
+            return false;
         }
 
 		#endregion 

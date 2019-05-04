@@ -17,12 +17,10 @@ namespace ViewModels
             controller.Messenger.Register(MessageTypes.MSG_COMMAND_SELECTED_FOR_CREATE, new Action<Message>(CreateExecute));
 
             UpdateCommand = new RelayCommand(x => Controller.Messenger.NotifyColleagues(MessageTypes.MSG_COMMAND_SELECTED_FOR_UPDATE, x), UpdateCanExecute);
-            CreateCommand = new RelayCommand(x => Controller.Messenger.NotifyColleagues(MessageTypes.MSG_COMMAND_SELECTED_FOR_CREATE), CreateCanExecute);
+            CreateCommand = new RelayCommand(x => Controller.Messenger.NotifyColleagues(MessageTypes.MSG_COMMAND_SELECTED_FOR_CREATE, x), CreateCanExecute);
             SubmitCommand = new RelayCommand(x => Controller.Messenger.NotifyColleagues(MessageTypes.MSG_COMMAND_AFFICHAGE_EDITPANEL_SUBMIT, x), x => (Errors == 0 && EditViewModel != null));
             CancelCommand = new RelayCommand(CancelExecute,  x => EditViewModel != null );
         }
-
-
 
         #region Command
     

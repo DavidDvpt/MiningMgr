@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -64,6 +70,7 @@
     <Compile Include="StatusViewModel.cs" />
     <Compile Include="ViewData\FinderListItemViewData.cs" />
     <Compile Include="ViewData\FinderListViewData.cs" />
+    <Compile Include="ViewData\UnstackableEditViewData.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BaseClasses\BaseClasses.csproj">
@@ -74,7 +81,14 @@
       <Project>{73D1CEA3-3AB0-49AF-969B-484CED973208}</Project>
       <Name>Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{D5040C48-B3E6-4CEC-8335-40CF4614C5DF}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

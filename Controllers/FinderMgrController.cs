@@ -58,7 +58,10 @@ namespace Controllers
 
         public FinderEditViewModel GetFinderEditViewModel(FinderMgrViewModel fmv)
         {
-            throw new System.NotImplementedException();
+            FinderEditViewModel vm = new FinderEditViewModel(this, new FinderEditView());
+            vm.ViewData = new FinderEditViewData();
+
+            return vm;
         }
 
 

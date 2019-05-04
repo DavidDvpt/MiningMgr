@@ -35,7 +35,7 @@ namespace ViewModels
 
         public override void CreateExecute(Message message)
         {
-            throw new NotImplementedException();
+            EditViewModel = FinderController.GetFinderEditViewModel(this);
         }
 
         public override void SubmitExecute(object param)
