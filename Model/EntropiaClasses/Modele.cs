@@ -10,6 +10,7 @@ namespace Model
         [Required]
         public bool IsStackable { get; set; } = true;
 
+        [Required]
         public int CategorieId { get; set; }
         [ForeignKey("CategorieId")]
         public virtual Categorie Categorie { get; set; }

@@ -6,6 +6,7 @@ namespace Model
     [Table("SearchMode")]
     public class SearchMode : Commun
     {
+        [Required]
         [MaxLength(3)]
         public string Abbrev { get; set; }
 

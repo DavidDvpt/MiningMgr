@@ -45,67 +45,68 @@ namespace Services.Context
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Properties().Where(p => p.Name == "Id").Configure(p => p.IsKey());
+            //modelBuilder.Properties().Where(p => p.Name == "Id").Configure(p => p.IsKey());
 
             // Commun
-            modelBuilder.Entity<Commun>().Property(e => e.Nom)
-                .IsRequired()
-                .HasColumnType("VARCHAR").HasMaxLength(50)
-                .HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IndexNom") { IsUnique = true }));
-            modelBuilder.Entity<Commun>().Property(e => e.IsActive).IsRequired();
+            //modelBuilder.Entity<Commun>().Property(e => e.Nom)
+            //    .IsRequired()
+            //    .HasColumnType("VARCHAR").HasMaxLength(50)
+            //    .HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IndexNom") { IsUnique = true }));
+            //modelBuilder.Entity<Commun>().Property(e => e.IsActive).IsRequired();
+            modelBuilder.Entity<Commun>().Property(e => e.Nom).HasColumnType("VARCHAR").HasMaxLength(50);
 
             // Modele
-            modelBuilder.Entity<Modele>().Property(e => e.IsStackable).IsRequired();
-            modelBuilder.Entity<Modele>().Property(e => e.CategorieId).IsRequired();
+            //modelBuilder.Entity<Modele>().Property(e => e.IsStackable).IsRequired();
+            //modelBuilder.Entity<Modele>().Property(e => e.CategorieId).IsRequired();
 
             // InWorld
             modelBuilder.Entity<InWorld>().Property(e => e.Value).HasPrecision(9, 5);
-            modelBuilder.Entity<InWorld>().Property(e => e.ModeleId).IsRequired();
+            //modelBuilder.Entity<InWorld>().Property(e => e.ModeleId).IsRequired();
 
             // Unstackable
-            modelBuilder.Entity<Unstackable>().Property(e => e.Decay).HasPrecision(7, 3).IsRequired(); ;
-            modelBuilder.Entity<Unstackable>().Property(e => e.IsLimited).IsRequired();
-            modelBuilder.Entity<Unstackable>().Property(e => e.Code).HasMaxLength(10);
+            modelBuilder.Entity<Unstackable>().Property(e => e.Decay).HasPrecision(7, 3); //.IsRequired(); ;
+            //modelBuilder.Entity<Unstackable>().Property(e => e.IsLimited).IsRequired();
+            //modelBuilder.Entity<Unstackable>().Property(e => e.Code).HasMaxLength(10);
 
             // Tool
-            modelBuilder.Entity<Tool>().Property(e => e.UsePerMin).IsRequired();
+            //modelBuilder.Entity<Tool>().Property(e => e.UsePerMin).IsRequired();
 
             // Finder
-            modelBuilder.Entity<Finder>().Property(e => e.Depth).HasPrecision(5, 1).IsRequired();
-            modelBuilder.Entity<Finder>().Property(e => e.Range).HasPrecision(3, 1).IsRequired();
-            modelBuilder.Entity<Finder>().Property(e => e.BasePecSearch).IsRequired();
+            modelBuilder.Entity<Finder>().Property(e => e.Depth).HasPrecision(5, 1); //.IsRequired();
+            modelBuilder.Entity<Finder>().Property(e => e.Range).HasPrecision(3, 1); //.IsRequired();
+            modelBuilder.Entity<Finder>().Property(e => e.BasePecSearch); //.IsRequired();
 
             // Excavator
-            modelBuilder.Entity<Excavator>().Property(e => e.Efficienty).HasPrecision(3, 1).IsRequired();
+            modelBuilder.Entity<Excavator>().Property(e => e.Efficienty).HasPrecision(3, 1); //.IsRequired();
 
             // Refiner
 
             // FinderAmplifier
-            modelBuilder.Entity<FinderAmplifier>().Property(e => e.Coefficient).HasPrecision(4, 1).IsRequired(); ;
+            modelBuilder.Entity<FinderAmplifier>().Property(e => e.Coefficient).HasPrecision(4, 1); //.IsRequired(); ;
 
             // Enhancer
-            modelBuilder.Entity<Enhancer>().Property(e => e.Slot).IsRequired();
-            modelBuilder.Entity<Enhancer>().Property(e => e.BonusValue1).HasPrecision(4, 2).IsRequired(); ;
-            modelBuilder.Entity<Enhancer>().Property(e => e.BonusValue2).IsRequired();
+            //modelBuilder.Entity<Enhancer>().Property(e => e.Slot).IsRequired();
+            modelBuilder.Entity<Enhancer>().Property(e => e.BonusValue1).HasPrecision(4, 2); //.IsRequired(); ;
+            //modelBuilder.Entity<Enhancer>().Property(e => e.BonusValue2).IsRequired();
 
             // Refinable
-            modelBuilder.Entity<Refinable>().HasKey(p => new { p.UnrefinedId, p.RefinedId });
-            modelBuilder.Entity<Refinable>().Property(e => e.Quantity).IsRequired();
+            //modelBuilder.Entity<Refinable>().HasKey(p => new { p.UnrefinedId, p.RefinedId });
+            //modelBuilder.Entity<Refinable>().Property(e => e.Quantity).IsRequired();
 
             // SearchMode
-            modelBuilder.Entity<SearchMode>().Property(e => e.Abbrev).IsRequired().HasMaxLength(3);
-            modelBuilder.Entity<SearchMode>().Property(e => e.Multiplicateur).IsRequired();
+            //modelBuilder.Entity<SearchMode>().Property(e => e.Abbrev).IsRequired().HasMaxLength(3);
+            //modelBuilder.Entity<SearchMode>().Property(e => e.Multiplicateur).IsRequired();
 
             // Setup
-            modelBuilder.Entity<Setup>().Property(e => e.FinderId).IsRequired();
-            modelBuilder.Entity<Setup>().Property(e => e.FinderAmplifierId).IsRequired();
-            modelBuilder.Entity<Setup>().Property(e => e.SearchModeId).IsRequired();
-            modelBuilder.Entity<Setup>().Property(e => e.DepthEnhancerQty).IsRequired();
-            modelBuilder.Entity<Setup>().Property(e => e.RangeEnhancerQty).IsRequired();
-            modelBuilder.Entity<Setup>().Property(e => e.SkillEnhancerQty).IsRequired();
+            //modelBuilder.Entity<Setup>().Property(e => e.FinderId).IsRequired();
+            //modelBuilder.Entity<Setup>().Property(e => e.FinderAmplifierId).IsRequired();
+            //modelBuilder.Entity<Setup>().Property(e => e.SearchModeId).IsRequired();
+            //modelBuilder.Entity<Setup>().Property(e => e.DepthEnhancerQty).IsRequired();
+            //modelBuilder.Entity<Setup>().Property(e => e.RangeEnhancerQty).IsRequired();
+            //modelBuilder.Entity<Setup>().Property(e => e.SkillEnhancerQty).IsRequired();
 
             // ToolAccessoire
-            modelBuilder.Entity<ToolAccessoire>().HasKey(p => new { p.ToolId, p.AccessoireId });
+            //modelBuilder.Entity<ToolAccessoire>().HasKey(p => new { p.ToolId, p.AccessoireId });
 
 
 
